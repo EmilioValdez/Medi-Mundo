@@ -1,0 +1,26 @@
+{
+  "name": "MediMundo - Renta de Equipo Medico",
+  "short_name": "MediMundo",
+  "description": "Renta de equipo medico sanitizado a domicilio en Queretaro. Sillas de ruedas, camas hospitalarias, concentradores de oxigeno y mas.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#E53429",
+  "orientation": "portrait-primary",
+  "lang": "es-MX",
+  "icons": [
+    {
+      "src": "/logo-medimundo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo-medimundo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["medical", "health", "business"]
+}
