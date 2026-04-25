@@ -16,7 +16,7 @@ from sqlalchemy import select
 from app.database import async_session
 from app.models.blog import BlogPost
 
-DOCS_DIR = Path(__file__).resolve().parent.parent.parent.parent / "docs"
+DOCS_DIR = Path(__file__).resolve().parent.parent.parent / "docs"
 
 ARTICLE_FILES = [
     "01_renta-cama-hospitalaria-queretaro.md",
