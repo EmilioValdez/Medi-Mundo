@@ -11,6 +11,10 @@ const links = [
   { to: '/contacto', label: 'Contacto' },
 ];
 
+const externalLinks = [
+  { href: '/blog', label: 'Blog' },
+];
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
@@ -38,6 +42,15 @@ export default function Navbar() {
             >
               {l.label}
             </NavLink>
+          ))}
+          {externalLinks.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="rounded-lg px-3 py-2 text-sm font-medium transition-colors text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+            >
+              {l.label}
+            </a>
           ))}
         </nav>
 
@@ -80,6 +93,16 @@ export default function Navbar() {
               >
                 {l.label}
               </NavLink>
+            ))}
+            {externalLinks.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="rounded-lg px-3 py-2.5 text-sm font-medium text-gray-600"
+              >
+                {l.label}
+              </a>
             ))}
             <a
               href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, me interesa información sobre renta de equipo médico.')}`}
