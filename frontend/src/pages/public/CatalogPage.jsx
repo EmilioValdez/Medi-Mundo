@@ -5,6 +5,33 @@ import { MagnifyingGlassIcon, FunnelIcon, XMarkIcon } from '@heroicons/react/24/
 import apiClient from '../../api/client';
 import EquipmentCard from '../../components/public/EquipmentCard';
 
+// Preferred name-keyword ordering for equipment cards
+const PREFERRED_ORDER = [
+  'lujo',
+  'eléctrica',
+  'electrica',
+  'manual',
+  'inogen',
+  'concentrador',
+  'silla',
+  'andadera',
+  'bastón',
+  'baston',
+  'ortopedia',
+];
+
+function sortEquipment(items) {
+  return [...items].sort((a, b) => {
+    const nameA = (a.name || '').toLowerCase();
+    const nameB = (b.name || '').toLowerCase();
+    const rankA = PREFERRED_ORDER.findIndex(k => nameA.includes(k));
+    const rankB = PREFERRED_ORDER.findIndex(k => nameB.includes(k));
+    const ra = rankA === -1 ? PREFERRED_ORDER.length : rankA;
+    const rb = rankB === -1 ? PREFERRED_ORDER.length : rankB;
+    return ra - rb;
+  });
+}
+
 export default function CatalogPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [categories, setCategories] = useState([]);
@@ -14,10 +41,21 @@ export default function CatalogPage() {
   const [selectedCat, setSelectedCat] = useState(searchParams.get('categoria') || '');
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
+  // Resolve ?slug= param to a category id once categories load
   useEffect(() => {
     apiClient.get('/categories/').then((res) => {
-      setCategories(Array.isArray(res.data) ? res.data : []);
+      const cats = Array.isArray(res.data) ? res.data : [];
+      setCategories(cats);
+
+      const slugParam = searchParams.get('slug');
+      if (slugParam) {
+        const match = cats.find(c => c.slug === slugParam);
+        if (match) {
+          setSelectedCat(String(match.id));
+        }
+      }
     }).catch(() => {});
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -28,7 +66,8 @@ export default function CatalogPage() {
 
     apiClient.get('/equipment/', { params })
       .then((res) => {
-        setEquipment(Array.isArray(res.data) ? res.data : []);
+        const items = Array.isArray(res.data) ? res.data : [];
+        setEquipment(sortEquipment(items));
       })
       .catch(() => setEquipment([]))
       .finally(() => setLoading(false));
@@ -37,18 +76,18 @@ export default function CatalogPage() {
   const handleCatClick = (catId) => {
     const newCat = catId === selectedCat ? '' : catId;
     setSelectedCat(newCat);
-    const p = new URLSearchParams(searchParams);
+    const p = new URLSearchParams();
     if (newCat) p.set('categoria', newCat);
-    else p.delete('categoria');
+    if (search.trim()) p.set('q', search.trim());
     setSearchParams(p);
     setMobileFiltersOpen(false);
   };
 
   const handleSearch = (e) => {
     e.preventDefault();
-    const p = new URLSearchParams(searchParams);
+    const p = new URLSearchParams();
     if (search.trim()) p.set('q', search.trim());
-    else p.delete('q');
+    if (selectedCat) p.set('categoria', selectedCat);
     setSearchParams(p);
   };
 
@@ -91,7 +130,7 @@ export default function CatalogPage() {
         <title>Catálogo de Equipo Médico — MediMundo</title>
       </Helmet>
 
-      <div className="bg-watermark mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Catálogo de equipo médico</h1>
@@ -135,7 +174,7 @@ export default function CatalogPage() {
             {search && (
               <span className="inline-flex items-center gap-1 rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">
                 "{search}"
-                <button onClick={() => { setSearch(''); const p = new URLSearchParams(searchParams); p.delete('q'); setSearchParams(p); }}>
+                <button onClick={() => { setSearch(''); const p = new URLSearchParams(); if (selectedCat) p.set('categoria', selectedCat); setSearchParams(p); }}>
                   <XMarkIcon className="h-3 w-3" />
                 </button>
               </span>
