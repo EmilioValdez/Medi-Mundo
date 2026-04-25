@@ -56,20 +56,9 @@
   }
 }
 
-/* Background watermark logo */
+/* Background watermark — disabled */
 .bg-watermark {
   position: relative;
-}
-.bg-watermark::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('/logo-watermark.svg');
-  background-repeat: repeat;
-  background-size: 420px auto;
-  background-position: center;
-  pointer-events: none;
-  z-index: 0;
 }
 .bg-watermark > * {
   position: relative;
