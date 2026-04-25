@@ -6,7 +6,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from app.config import get_settings
 from app.database import engine, Base
-from app.routers import auth, categories, equipment, bookings, customers, dashboard
+from app.routers import auth, categories, equipment, bookings, customers, dashboard, blog
+from app.models import blog as _blog_models  # noqa: F401 — ensures table is created
 
 settings = get_settings()
 
@@ -37,6 +38,7 @@ app.include_router(equipment.router)
 app.include_router(bookings.router)
 app.include_router(customers.router)
 app.include_router(dashboard.router)
+app.include_router(blog.router)
 
 
 @app.get("/api/health")
@@ -46,6 +48,10 @@ async def health():
 
 # Serve frontend static files in production
 FRONTEND_DIR = Path(__file__).resolve().parent.parent.parent / "frontend" / "dist"
+PUBLIC_IMAGES = Path(__file__).resolve().parent.parent.parent / "frontend" / "public" / "images"
+if PUBLIC_IMAGES.is_dir():
+    app.mount("/images", StaticFiles(directory=PUBLIC_IMAGES), name="images")
+
 if FRONTEND_DIR.is_dir():
     app.mount("/assets", StaticFiles(directory=FRONTEND_DIR / "assets"), name="assets")
 

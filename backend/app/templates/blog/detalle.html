@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>{{ post.meta_title }} | MediMundo Querétaro</title>
+<meta name="description" content="{{ post.meta_description }}">
+<link rel="canonical" href="https://medimundo.mx/blog/{{ post.slug }}">
+
+<meta property="og:title" content="{{ post.meta_title }}">
+<meta property="og:description" content="{{ post.meta_description }}">
+{% if post.imagen_principal %}<meta property="og:image" content="{{ post.imagen_principal }}">{% endif %}
+<meta property="og:url" content="https://medimundo.mx/blog/{{ post.slug }}">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="MediMundo">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ post.titulo }}",
+  "description": "{{ post.meta_description }}",
+  "datePublished": "{{ post.fecha_publicacion }}",
+  "dateModified": "{{ post.actualizado or post.fecha_publicacion }}",
+  {% if post.imagen_principal %}"image": "{{ post.imagen_principal }}",{% endif %}
+  "author": { "@type": "Organization", "name": "MediMundo" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "MediMundo",
+    "url": "https://medimundo.mx",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Canadá 212, Plaza de las Américas",
+      "addressLocality": "Querétaro",
+      "addressCountry": "MX"
+    }
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<main class="max-w-3xl mx-auto px-4 py-12">
+
+  <nav class="text-sm text-gray-500 mb-6">
+    <a href="/" class="hover:text-red-600">Inicio</a>
+    <span class="mx-2">/</span>
+    <a href="/blog" class="hover:text-red-600">Blog</a>
+    <span class="mx-2">/</span>
+    <span class="text-gray-800 truncate">{{ post.titulo[:50] }}{% if post.titulo|length > 50 %}…{% endif %}</span>
+  </nav>
+
+  <article>
+    {% if post.categoria %}
+    <span class="text-xs font-semibold text-red-600 uppercase tracking-wide">{{ post.categoria }}</span>
+    {% endif %}
+
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3 mb-4 leading-tight">{{ post.titulo }}</h1>
+
+    {% if post.resumen %}
+    <p class="text-lg text-gray-500 mb-6 leading-relaxed">{{ post.resumen }}</p>
+    {% endif %}
+
+    <div class="flex items-center gap-4 text-sm text-gray-400 mb-8 pb-6 border-b border-gray-200">
+      <span>📅 {{ post.fecha_publicacion }}</span>
+      <span>✍️ MediMundo Querétaro</span>
+    </div>
+
+    {% if post.imagen_principal %}
+    <img
+      src="{{ post.imagen_principal }}"
+      alt="{{ post.alt_imagen or post.titulo }}"
+      class="w-full rounded-xl mb-8 object-cover max-h-80"
+    >
+    {% endif %}
+
+    <div class="prose">
+      {{ post.contenido_html | safe }}
+    </div>
+  </article>
+
+  <div class="mt-12 bg-red-50 border border-red-100 rounded-2xl p-8 text-center">
+    <h2 class="text-2xl font-bold text-gray-900 mb-2">¿Necesitas equipo médico hoy?</h2>
+    <p class="text-gray-600 mb-6">Llámanos y con gusto te orientamos sin compromiso. Más de 20 años ayudando a familias queretanas.</p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="tel:4422237757" class="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-xl transition-colors">
+        📞 442 223 77 57
+      </a>
+      <a href="https://wa.me/524422237757?text=Hola,%20me%20interesa%20rentar%20equipo%20médico" target="_blank" rel="noopener" class="bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3 rounded-xl transition-colors">
+        💬 WhatsApp
+      </a>
+    </div>
+    <p class="text-sm text-gray-400 mt-4">Av. Canadá 212, Plaza de las Américas, Querétaro &nbsp;·&nbsp; L–V 10am–7pm &nbsp;·&nbsp; Sáb 10am–3pm</p>
+  </div>
+
+  <div class="mt-10 pt-8 border-t border-gray-200">
+    <a href="/blog" class="text-red-600 hover:text-red-700 font-semibold text-sm">← Volver al blog</a>
+  </div>
+
+</main>
+{% endblock %}
