@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
-const WA_NUMBER = '524421234567';
+const WA_NUMBER = '524422237757';
 
 const links = [
   { to: '/catalogo', label: 'Catálogo' },

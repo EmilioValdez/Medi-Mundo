@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { ShieldCheckIcon, SparklesIcon, HeartIcon, TruckIcon } from '@heroicons/react/24/outline';
 
-const WA_NUMBER = '524421234567';
+const WA_NUMBER = '524422237757';
 
 const values = [
   { icon: ShieldCheckIcon, title: 'Seguridad', desc: 'Todos nuestros equipos pasan por un riguroso protocolo de limpieza y desinfección antes de cada entrega.' },

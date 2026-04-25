@@ -1,0 +1,31 @@
+databases:
+  - name: medimundo-db
+    plan: free
+    databaseName: medimundo
+    user: medimundo
+
+services:
+  - type: web
+    name: medimundo
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: starter
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: medimundo-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: https://medimundo.mx,https://www.medimundo.mx
+      - key: WHATSAPP_NUMBER
+        value: "524422237757"
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false

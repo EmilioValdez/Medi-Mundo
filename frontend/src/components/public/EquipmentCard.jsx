@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import formatMXN from '../../utils/formatMXN';
 
-const WA_NUMBER = '524421234567';
+const WA_NUMBER = '524422237757';
 
 const categoryPlaceholders = {
   'sillas de ruedas': { emoji: '\u267F', bg: 'bg-blue-100', text: 'text-blue-600' },

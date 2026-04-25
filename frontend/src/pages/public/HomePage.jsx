@@ -13,7 +13,7 @@ import {
 import apiClient from '../../api/client';
 import EquipmentCard from '../../components/public/EquipmentCard';
 
-const WA_NUMBER = '524421234567';
+const WA_NUMBER = '524422237757';
 
 const steps = [
   { icon: MagnifyingGlassIcon, title: 'Elige', desc: 'Explora nuestro catálogo y encuentra el equipo que necesitas.' },

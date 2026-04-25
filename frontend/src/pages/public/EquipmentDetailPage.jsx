@@ -6,7 +6,7 @@ import { XMarkIcon, CheckCircleIcon, ArrowLeftIcon } from '@heroicons/react/24/o
 import apiClient from '../../api/client';
 import formatMXN from '../../utils/formatMXN';
 
-const WA_NUMBER = '524421234567';
+const WA_NUMBER = '524422237757';
 
 export default function EquipmentDetailPage() {
   const { id } = useParams();

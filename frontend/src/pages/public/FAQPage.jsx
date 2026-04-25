@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 
-const WA_NUMBER = '524421234567';
+const WA_NUMBER = '524422237757';
 
 const faqs = [
   {

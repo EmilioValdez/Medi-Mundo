@@ -1,4 +1,4 @@
-const WA_NUMBER = '524421234567';
+const WA_NUMBER = '524422237757';
 
 export default function WhatsAppButton() {
   return (

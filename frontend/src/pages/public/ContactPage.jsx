@@ -1,32 +1,32 @@
 import { Helmet } from 'react-helmet-async';
 import { PhoneIcon, EnvelopeIcon, MapPinIcon, ClockIcon } from '@heroicons/react/24/outline';
 
-const WA_NUMBER = '524421234567';
+const WA_NUMBER = '524422237757';
 
 const contactInfo = [
   {
     icon: PhoneIcon,
     title: 'Teléfono / WhatsApp',
-    lines: ['(442) 123 4567'],
+    lines: ['442 223 77 57'],
     link: `https://wa.me/${WA_NUMBER}`,
     linkText: 'Enviar WhatsApp',
   },
   {
     icon: EnvelopeIcon,
     title: 'Correo electrónico',
-    lines: ['info@medimundo.com'],
-    link: 'mailto:info@medimundo.com',
+    lines: ['medicasaqro@gmail.com'],
+    link: 'mailto:medicasaqro@gmail.com',
     linkText: 'Enviar correo',
   },
   {
     icon: MapPinIcon,
     title: 'Ubicación',
-    lines: ['Querétaro, Qro., México', 'Zona metropolitana'],
+    lines: ['Av. Canadá 212, Plaza de las Américas', 'Col. Carretas, Querétaro'],
   },
   {
     icon: ClockIcon,
     title: 'Horario de atención',
-    lines: ['Lunes a Viernes: 9:00 - 19:00', 'Sábado: 9:00 - 14:00', 'Domingo: Cerrado'],
+    lines: ['Lunes a Viernes: 10:00 - 19:00', 'Sábado: 10:00 - 15:00', 'Domingo: Cerrado'],
   },
 ];
 
