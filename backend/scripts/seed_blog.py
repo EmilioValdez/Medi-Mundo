@@ -13,8 +13,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from sqlalchemy import select
-from app.database import async_session
-from app.models.blog import BlogPost
+from app.database import async_session, engine, Base
+from app.models.blog import BlogPost  # noqa: F401 — registers model with Base
 
 DOCS_DIR = Path(__file__).resolve().parent.parent.parent / "docs"
 
@@ -81,6 +81,9 @@ def parse_article(path: Path) -> dict:
 
 
 async def seed():
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+
     async with async_session() as db:
         for filename in ARTICLE_FILES:
             path = DOCS_DIR / filename
