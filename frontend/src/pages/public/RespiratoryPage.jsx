@@ -7,7 +7,7 @@ const MODELS = [
   {
     id: 'g2',
     name: 'Inogen One G2',
-    image: '/images/concentrador-oxigeno-portatil-inogen-one-g2-renta-queretaro.jpg',
+    image: '/images/inogen-g2-1.jpg',
     monthly: 3690,
     biweekly: null,
     weekly: null,
@@ -24,7 +24,7 @@ const MODELS = [
   {
     id: 'g3',
     name: 'Inogen One G3',
-    image: '/images/concentrador-oxigeno-portatil-inogen-one-g3-renta-queretaro.jpg',
+    image: '/images/inogen-g3-1.jpg',
     monthly: 4990,
     biweekly: 3990,
     weekly: 2590,
@@ -41,7 +41,7 @@ const MODELS = [
   {
     id: 'g4',
     name: 'Inogen One G4',
-    image: '/images/concentrador-oxigeno-portatil-inogen-one-g4-renta-queretaro.jpg',
+    image: '/images/inogen-g4-1.jpg',
     monthly: 4990,
     biweekly: 3990,
     weekly: 2590,
@@ -58,7 +58,7 @@ const MODELS = [
   {
     id: 'g5',
     name: 'Inogen One G5',
-    image: '/images/concentrador-oxigeno-portatil-inogen-one-g5-renta-queretaro.jpg',
+    image: '/images/inogen-g5-1.jpg',
     monthly: 6590,
     biweekly: 4590,
     weekly: 2590,
@@ -75,7 +75,7 @@ const MODELS = [
   {
     id: 'at-home',
     name: 'Inogen At Home',
-    image: '/images/concentrador-oxigeno-estacionario-inogen-at-home-renta-queretaro.jpg',
+    image: '/images/inogen-at-home-1.jpg',
     monthly: 3000,
     biweekly: null,
     weekly: null,
