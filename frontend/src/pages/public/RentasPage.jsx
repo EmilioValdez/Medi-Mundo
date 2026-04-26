@@ -4,7 +4,8 @@ import apiClient from '../../api/client';
 import EquipmentCard from '../../components/public/EquipmentCard';
 import { isRentalItem } from '../../utils/rentalItems';
 
-const RENTAL_ORDER = ['lujo', 'eléctrica', 'electrica', 'manual', 'grúa', 'grua', 'reposet'];
+// Order: 1-lujo 2-eléctrica 3-manual 4-silla 5-reposet 6-grúa
+const RENTAL_ORDER = ['lujo', 'eléctrica', 'electrica', 'manual', 'silla', 'reposet', 'grúa', 'grua'];
 
 function sortRentals(items) {
   return [...items].sort((a, b) => {
