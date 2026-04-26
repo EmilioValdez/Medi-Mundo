@@ -7,6 +7,7 @@ const WA_NUMBER = '524422237757';
 const links = [
   { to: '/rentas', label: 'Rentas' },
   { to: '/respiratorio', label: 'Respiratorio' },
+  { to: '/recargas', label: 'Recargas de Oxígeno' },
   { to: '/catalogo', label: 'Catálogo' },
   { to: '/contacto', label: 'Contacto' },
   { to: '/nosotros', label: 'Nosotros' },

@@ -37,6 +37,7 @@ import HomePage from './pages/public/HomePage';
 import CatalogPage from './pages/public/CatalogPage';
 import RentasPage from './pages/public/RentasPage';
 import RespiratoryPage from './pages/public/RespiratoryPage';
+import OxygenRefillPage from './pages/public/OxygenRefillPage';
 import EquipmentDetailPage from './pages/public/EquipmentDetailPage';
 import AboutPage from './pages/public/AboutPage';
 import FAQPage from './pages/public/FAQPage';
@@ -94,6 +95,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/rentas" element={<RentasPage />} />
         <Route path="/respiratorio" element={<RespiratoryPage />} />
+        <Route path="/recargas" element={<OxygenRefillPage />} />
         <Route path="/catalogo" element={<CatalogPage />} />
         <Route path="/equipo/:id" element={<EquipmentDetailPage />} />
         <Route path="/nosotros" element={<AboutPage />} />
