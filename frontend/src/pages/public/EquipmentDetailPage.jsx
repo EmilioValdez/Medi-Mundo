@@ -5,6 +5,7 @@ import { Dialog } from '@headlessui/react';
 import { XMarkIcon, CheckCircleIcon, ArrowLeftIcon } from '@heroicons/react/24/outline';
 import apiClient from '../../api/client';
 import formatMXN from '../../utils/formatMXN';
+import { isRentalItem } from '../../utils/rentalItems';
 
 const WA_NUMBER = '524422237757';
 
@@ -175,45 +176,47 @@ export default function EquipmentDetailPage() {
               <p className="mt-4 text-gray-600 leading-relaxed">{item.description}</p>
             )}
 
-            {/* Pricing table */}
-            <div className="mt-6">
-              <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">Precios de renta</h3>
-              <div className="overflow-hidden rounded-xl border border-gray-200">
-                <table className="w-full text-sm">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th className="px-4 py-2.5 text-left font-medium text-gray-500">Periodo</th>
-                      <th className="px-4 py-2.5 text-right font-medium text-gray-500">Precio</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-100">
-                    {item.price_daily != null && (
+            {/* Pricing table — only for rental items */}
+            {isRentalItem(item.name) && (
+              <div className="mt-6">
+                <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">Precios de renta</h3>
+                <div className="overflow-hidden rounded-xl border border-gray-200">
+                  <table className="w-full text-sm">
+                    <thead className="bg-gray-50">
                       <tr>
-                        <td className="px-4 py-3 text-gray-700">Diario</td>
-                        <td className="px-4 py-3 text-right font-semibold text-gray-900">{formatMXN(item.price_daily)}</td>
+                        <th className="px-4 py-2.5 text-left font-medium text-gray-500">Periodo</th>
+                        <th className="px-4 py-2.5 text-right font-medium text-gray-500">Precio</th>
                       </tr>
-                    )}
-                    {item.price_weekly != null && (
-                      <tr>
-                        <td className="px-4 py-3 text-gray-700">Semanal</td>
-                        <td className="px-4 py-3 text-right font-semibold text-gray-900">{formatMXN(item.price_weekly)}</td>
-                      </tr>
-                    )}
-                    {item.price_monthly != null && (
-                      <tr className="bg-primary-50/50">
-                        <td className="px-4 py-3 font-medium text-primary-700">Mensual</td>
-                        <td className="px-4 py-3 text-right font-bold text-primary-700">{formatMXN(item.price_monthly)}</td>
-                      </tr>
-                    )}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                      {item.price_daily != null && (
+                        <tr>
+                          <td className="px-4 py-3 text-gray-700">Diario</td>
+                          <td className="px-4 py-3 text-right font-semibold text-gray-900">{formatMXN(item.price_daily)}</td>
+                        </tr>
+                      )}
+                      {item.price_weekly != null && (
+                        <tr>
+                          <td className="px-4 py-3 text-gray-700">Semanal</td>
+                          <td className="px-4 py-3 text-right font-semibold text-gray-900">{formatMXN(item.price_weekly)}</td>
+                        </tr>
+                      )}
+                      {item.price_monthly != null && (
+                        <tr className="bg-primary-50/50">
+                          <td className="px-4 py-3 font-medium text-primary-700">Mensual</td>
+                          <td className="px-4 py-3 text-right font-bold text-primary-700">{formatMXN(item.price_monthly)}</td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+                {item.deposit != null && (
+                  <p className="mt-2 text-xs text-gray-500">
+                    Dep&oacute;sito en garant&iacute;a: <span className="font-semibold">{formatMXN(item.deposit)}</span> (reembolsable)
+                  </p>
+                )}
               </div>
-              {item.deposit != null && (
-                <p className="mt-2 text-xs text-gray-500">
-                  Dep&oacute;sito en garant&iacute;a: <span className="font-semibold">{formatMXN(item.deposit)}</span> (reembolsable)
-                </p>
-              )}
-            </div>
+            )}
 
             {/* Specs */}
             {(item.serial_number || item.condition) && (

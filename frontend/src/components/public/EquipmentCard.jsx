@@ -24,7 +24,7 @@ function getPlaceholder(categoryName) {
   return { emoji: '\uD83C\uDFE5', bg: 'bg-gray-100', text: 'text-gray-500' };
 }
 
-export default function EquipmentCard({ item }) {
+export default function EquipmentCard({ item, showPrices = false }) {
   const waMsg = encodeURIComponent(
     `Hola, me interesa rentar: ${item.name}. \u00BFPodr\u00EDan darme m\u00E1s informaci\u00F3n?`
   );
@@ -73,27 +73,29 @@ export default function EquipmentCard({ item }) {
         )}
         <h3 className="mb-2 text-base font-semibold text-gray-900 line-clamp-2">{item.name}</h3>
 
-        {/* Prices */}
-        <div className="mt-auto mb-3 grid grid-cols-3 gap-2 text-center">
-          {item.price_daily != null && (
-            <div className="rounded-lg bg-gray-50 px-2 py-1.5">
-              <div className="text-xs text-gray-500">Diario</div>
-              <div className="text-sm font-bold text-gray-900">{formatMXN(item.price_daily)}</div>
-            </div>
-          )}
-          {item.price_weekly != null && (
-            <div className="rounded-lg bg-gray-50 px-2 py-1.5">
-              <div className="text-xs text-gray-500">Semanal</div>
-              <div className="text-sm font-bold text-gray-900">{formatMXN(item.price_weekly)}</div>
-            </div>
-          )}
-          {item.price_monthly != null && (
-            <div className="rounded-lg bg-primary-50 px-2 py-1.5">
-              <div className="text-xs text-primary-600">Mensual</div>
-              <div className="text-sm font-bold text-primary-700">{formatMXN(item.price_monthly)}</div>
-            </div>
-          )}
-        </div>
+        {/* Prices — only shown in Rentas section */}
+        {showPrices && (
+          <div className="mt-auto mb-3 grid grid-cols-3 gap-2 text-center">
+            {item.price_daily != null && (
+              <div className="rounded-lg bg-gray-50 px-2 py-1.5">
+                <div className="text-xs text-gray-500">Diario</div>
+                <div className="text-sm font-bold text-gray-900">{formatMXN(item.price_daily)}</div>
+              </div>
+            )}
+            {item.price_weekly != null && (
+              <div className="rounded-lg bg-gray-50 px-2 py-1.5">
+                <div className="text-xs text-gray-500">Semanal</div>
+                <div className="text-sm font-bold text-gray-900">{formatMXN(item.price_weekly)}</div>
+              </div>
+            )}
+            {item.price_monthly != null && (
+              <div className="rounded-lg bg-primary-50 px-2 py-1.5">
+                <div className="text-xs text-primary-600">Mensual</div>
+                <div className="text-sm font-bold text-primary-700">{formatMXN(item.price_monthly)}</div>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Actions */}
         <div className="flex gap-2">

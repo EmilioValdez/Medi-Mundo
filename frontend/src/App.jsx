@@ -34,6 +34,7 @@ import AdminLayout from './components/admin/AdminLayout';
 
 import HomePage from './pages/public/HomePage';
 import CatalogPage from './pages/public/CatalogPage';
+import RentasPage from './pages/public/RentasPage';
 import EquipmentDetailPage from './pages/public/EquipmentDetailPage';
 import AboutPage from './pages/public/AboutPage';
 import FAQPage from './pages/public/FAQPage';
@@ -88,6 +89,7 @@ export default function App() {
       {/* Public */}
       <Route element={<PublicLayout />}>
         <Route path="/" element={<HomePage />} />
+        <Route path="/rentas" element={<RentasPage />} />
         <Route path="/catalogo" element={<CatalogPage />} />
         <Route path="/equipo/:id" element={<EquipmentDetailPage />} />
         <Route path="/nosotros" element={<AboutPage />} />

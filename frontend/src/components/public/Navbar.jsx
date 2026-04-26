@@ -1,43 +1,20 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { Bars3Icon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const WA_NUMBER = '524422237757';
 
-const rentals = [
-  { label: 'Camas Hospitalarias', slug: 'camas-hospitalarias' },
-  { label: 'Concentradores de Oxígeno', slug: 'concentradores-de-oxigeno' },
-  { label: 'Equipos de Apoyo', slug: 'equipos-apoyo' },
-  { label: 'Baño y Seguridad', slug: 'bano-seguridad' },
-  { label: 'Movilidad', slug: 'andaderas-bastones' },
-  { label: 'Ortopedia', slug: 'ortopedia' },
-];
-
 const links = [
+  { to: '/rentas', label: 'Rentas' },
   { to: '/catalogo', label: 'Catálogo' },
   { to: '/nosotros', label: 'Nosotros' },
   { to: '/faq', label: 'Preguntas Frecuentes' },
   { to: '/contacto', label: 'Contacto' },
 ];
 
-const externalLinks = [
-  { href: '/blog', label: 'Blog' },
-];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [rentasOpen, setRentasOpen] = useState(false);
-  const [mobileRentasOpen, setMobileRentasOpen] = useState(false);
-  const timeoutRef = useRef(null);
-
-  const openDropdown = () => {
-    clearTimeout(timeoutRef.current);
-    setRentasOpen(true);
-  };
-
-  const closeDropdown = () => {
-    timeoutRef.current = setTimeout(() => setRentasOpen(false), 120);
-  };
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
@@ -49,45 +26,6 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1">
-          {/* RENTAS dropdown — first item */}
-          <div
-            className="relative"
-            onMouseEnter={openDropdown}
-            onMouseLeave={closeDropdown}
-          >
-            <button className="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-semibold text-primary-600 hover:bg-primary-50 transition-colors">
-              RENTAS
-              <ChevronDownIcon className={`h-4 w-4 transition-transform ${rentasOpen ? 'rotate-180' : ''}`} />
-            </button>
-
-            {rentasOpen && (
-              <div
-                className="absolute left-0 top-full mt-1 w-64 rounded-xl border border-gray-100 bg-white py-2 shadow-xl"
-                onMouseEnter={openDropdown}
-                onMouseLeave={closeDropdown}
-              >
-                {rentals.map((r) => (
-                  <Link
-                    key={r.slug}
-                    to={`/catalogo?slug=${r.slug}`}
-                    onClick={() => setRentasOpen(false)}
-                    className="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors"
-                  >
-                    {r.label}
-                  </Link>
-                ))}
-                <div className="my-1 border-t border-gray-100" />
-                <Link
-                  to="/catalogo"
-                  onClick={() => setRentasOpen(false)}
-                  className="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold text-primary-600 hover:bg-primary-50 transition-colors"
-                >
-                  Ver catálogo completo →
-                </Link>
-              </div>
-            )}
-          </div>
-
           {links.map((l) => (
             <NavLink
               key={l.to}
@@ -103,15 +41,12 @@ export default function Navbar() {
               {l.label}
             </NavLink>
           ))}
-          {externalLinks.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium transition-colors text-gray-600 hover:bg-gray-100 hover:text-gray-900"
-            >
-              {l.label}
-            </a>
-          ))}
+          <a
+            href="/blog"
+            className="rounded-lg px-3 py-2 text-sm font-medium transition-colors text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+          >
+            Blog
+          </a>
         </nav>
 
         {/* WhatsApp CTA */}
@@ -140,29 +75,6 @@ export default function Navbar() {
       {open && (
         <div className="border-t md:hidden">
           <nav className="flex flex-col px-4 py-2">
-            {/* RENTAS accordion */}
-            <button
-              onClick={() => setMobileRentasOpen(!mobileRentasOpen)}
-              className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm font-semibold text-primary-600"
-            >
-              RENTAS
-              <ChevronDownIcon className={`h-4 w-4 transition-transform ${mobileRentasOpen ? 'rotate-180' : ''}`} />
-            </button>
-            {mobileRentasOpen && (
-              <div className="ml-4 mb-1 border-l-2 border-primary-100 pl-3 space-y-1">
-                {rentals.map((r) => (
-                  <Link
-                    key={r.slug}
-                    to={`/catalogo?slug=${r.slug}`}
-                    onClick={() => setOpen(false)}
-                    className="flex items-center py-2 text-sm text-gray-600"
-                  >
-                    {r.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-
             {links.map((l) => (
               <NavLink
                 key={l.to}
@@ -177,16 +89,13 @@ export default function Navbar() {
                 {l.label}
               </NavLink>
             ))}
-            {externalLinks.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-sm font-medium text-gray-600"
-              >
-                {l.label}
-              </a>
-            ))}
+            <a
+              href="/blog"
+              onClick={() => setOpen(false)}
+              className="rounded-lg px-3 py-2.5 text-sm font-medium text-gray-600"
+            >
+              Blog
+            </a>
             <a
               href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, me interesa información sobre renta de equipo médico.')}`}
               target="_blank"
