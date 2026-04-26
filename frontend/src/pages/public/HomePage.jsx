@@ -117,28 +117,32 @@ const INOGEN_MODELS = [
     id: 'g2',
     name: 'Inogen One G2',
     tag: 'Portátil',
-    tagline: 'Robusto y confiable para uso diario',
+    tagline: 'Robusto y confiable para uso diario en casa o en movimiento.',
+    features: ['Flujo de pulso inteligente', 'Batería de larga duración', 'Aprobado para vuelos'],
     image: '/images/inogen-g2-1.jpg',
   },
   {
     id: 'g3',
     name: 'Inogen One G3',
     tag: 'Portátil',
-    tagline: 'Compacto con excelente autonomía',
+    tagline: 'Compacto y ligero, ideal para mantener tu ritmo de vida activo.',
+    features: ['Solo 2.2 kg', 'Hasta 4.5 h de batería', 'Pantalla LED intuitiva'],
     image: '/images/inogen-g3-1.jpg',
   },
   {
     id: 'g4',
     name: 'Inogen One G4',
     tag: 'Ultra ligero',
-    tagline: 'El más pequeño de la línea Inogen',
+    tagline: 'El más pequeño y discreto de la línea Inogen, cabe en cualquier bolso.',
+    features: ['Solo 1.08 kg', 'Ultra compacto', 'Silencioso y discreto'],
     image: '/images/inogen-g4-1.jpg',
   },
   {
     id: 'g5',
     name: 'Inogen One G5',
     tag: 'Más reciente',
-    tagline: 'Hasta 13 h de autonomía, aprobado FAA',
+    tagline: 'La tecnología más avanzada: mayor autonomía y flujos de oxígeno superiores.',
+    features: ['Hasta 13 h de autonomía', 'Aprobado por la FAA', '6 ajustes de flujo'],
     image: '/images/inogen-g5-1.jpg',
     highlight: true,
   },
@@ -146,12 +150,21 @@ const INOGEN_MODELS = [
     id: 'at-home',
     name: 'Inogen At Home',
     tag: 'Para casa',
-    tagline: 'Operación silenciosa 24/7 en el hogar',
+    tagline: 'Diseñado para uso continuo en el hogar, silencioso y sin interrupciones.',
+    features: ['Operación 24/7', 'Flujo continuo', 'Bajo nivel de ruido'],
     image: '/images/inogen-at-home-1.jpg',
   },
 ];
 
 function InogenSection() {
+  const [current, setCurrent] = useState(0);
+  const total = INOGEN_MODELS.length;
+
+  const prev = () => setCurrent((c) => (c - 1 + total) % total);
+  const next = () => setCurrent((c) => (c + 1) % total);
+
+  const m = INOGEN_MODELS[current];
+
   return (
     <section
       className="relative overflow-hidden"
@@ -161,60 +174,103 @@ function InogenSection() {
         backgroundPosition: 'center',
       }}
     >
-      {/* Dark overlay to keep text readable */}
       <div className="absolute inset-0 bg-slate-900/50" />
-      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <span className="inline-block rounded-full bg-blue-500/20 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-blue-300 ring-1 ring-blue-400/30">
             Concentradores de oxígeno
           </span>
           <h2 className="mt-4 text-3xl font-extrabold text-white sm:text-4xl">
             Línea Inogen — Oxígeno donde vayas
           </h2>
-          <p className="mt-3 text-slate-400 max-w-xl mx-auto">
-            Contamos con toda la familia de concentradores Inogen. Portátiles y para casa,
-            con tecnología de pulso de última generación.
+          <p className="mt-2 text-slate-400 max-w-xl mx-auto text-sm">
+            Toda la familia Inogen disponible para renta. Desliza para conocer cada modelo.
           </p>
         </div>
 
-        {/* Model grid */}
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-          {INOGEN_MODELS.map((m) => (
-            <Link
-              key={m.id}
-              to="/respiratorio"
-              className={`group relative flex flex-col rounded-2xl overflow-hidden transition-transform hover:-translate-y-1 ${
-                m.highlight
-                  ? 'ring-2 ring-blue-400 bg-slate-700'
-                  : 'bg-slate-800 hover:bg-slate-750'
-              }`}
-            >
-              {/* Badge */}
-              <span className={`absolute top-3 left-3 z-10 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide ${
-                m.highlight
-                  ? 'bg-blue-500 text-white'
-                  : 'bg-slate-600 text-slate-200'
+        {/* Carousel */}
+        <div className="relative flex items-center gap-4">
+
+          {/* Prev button */}
+          <button
+            onClick={prev}
+            className="shrink-0 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 hover:bg-white/25 text-white transition-colors backdrop-blur-sm border border-white/20"
+            aria-label="Modelo anterior"
+          >
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+
+          {/* Card */}
+          <div className="flex-1 grid sm:grid-cols-2 gap-6 items-center bg-white/10 backdrop-blur-sm rounded-2xl border border-white/15 p-6 sm:p-8 min-h-[320px]">
+
+            {/* Image */}
+            <div className="flex items-center justify-center order-1 sm:order-2">
+              <img
+                key={m.id}
+                src={m.image}
+                alt={m.name}
+                className="max-h-56 w-auto object-contain drop-shadow-2xl transition-opacity duration-300"
+              />
+            </div>
+
+            {/* Info */}
+            <div className="order-2 sm:order-1">
+              <span className={`inline-block rounded-full px-3 py-0.5 text-[11px] font-bold uppercase tracking-wide mb-3 ${
+                m.highlight ? 'bg-blue-500 text-white' : 'bg-white/20 text-white'
               }`}>
                 {m.tag}
               </span>
+              <h3 className="text-2xl font-extrabold text-white leading-tight">{m.name}</h3>
+              <p className="mt-2 text-slate-300 text-sm leading-relaxed">{m.tagline}</p>
+              <ul className="mt-4 space-y-1.5">
+                {m.features.map((f) => (
+                  <li key={f} className="flex items-center gap-2 text-sm text-slate-200">
+                    <span className="h-1.5 w-1.5 rounded-full bg-blue-400 shrink-0" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                to="/respiratorio"
+                className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-300 hover:text-white transition-colors"
+              >
+                Ver detalles y precios
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </Link>
+            </div>
+          </div>
 
-              {/* Image */}
-              <div className="flex items-center justify-center bg-slate-700/40 px-4 pt-10 pb-4 h-44">
-                <img
-                  src={m.image}
-                  alt={m.name}
-                  className="max-h-36 w-auto object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
+          {/* Next button */}
+          <button
+            onClick={next}
+            className="shrink-0 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 hover:bg-white/25 text-white transition-colors backdrop-blur-sm border border-white/20"
+            aria-label="Siguiente modelo"
+          >
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
+        </div>
 
-              {/* Info */}
-              <div className="p-4 flex flex-col gap-1">
-                <p className="text-sm font-bold text-white leading-tight">{m.name}</p>
-                <p className="text-xs text-slate-400 leading-snug">{m.tagline}</p>
-              </div>
-            </Link>
+        {/* Dot indicators */}
+        <div className="mt-6 flex justify-center gap-2">
+          {INOGEN_MODELS.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`rounded-full transition-all duration-200 ${
+                i === current
+                  ? 'w-6 h-2.5 bg-blue-400'
+                  : 'w-2.5 h-2.5 bg-white/30 hover:bg-white/50'
+              }`}
+              aria-label={`Ir al modelo ${i + 1}`}
+            />
           ))}
         </div>
 
