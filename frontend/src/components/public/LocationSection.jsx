@@ -26,7 +26,7 @@ function getRowStatus(slot) {
 }
 
 const MAP_SRC =
-  'https://maps.google.com/maps?q=Av+Canada+230+Plaza+de+las+Americas+Carretas+Queretaro+Qro+Mexico&output=embed&hl=es&z=16';
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.007167391934!2d-100.37788342450413!3d20.587764902778694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d344cb31c2fdb9%3A0xb327f6fa8468547c!2sMediMundo!5e0!3m2!1ses!2smx!4v1777221988631!5m2!1ses!2smx';
 
 export default function LocationSection() {
   const [, tick] = useState(0);
