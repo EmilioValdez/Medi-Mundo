@@ -37,14 +37,6 @@ const CATEGORY_ORDER = [
   'ortopedia',
 ];
 
-const categoryIcons = {
-  'camas-hospitalarias': '🛏️',
-  'concentradores-de-oxigeno': '💨',
-  'equipos-apoyo': '🏥',
-  'bano-seguridad': '🚿',
-  'andaderas-bastones': '🦯',
-  'ortopedia': '🦴',
-};
 
 function ParallaxHero() {
   const heroRef = useRef(null);
@@ -128,8 +120,9 @@ function InogenSection() {
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
-      const scrollY = window.scrollY;
-      sectionRef.current.style.backgroundPositionY = `${scrollY * 0.3}px`;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * 0.2;
+      sectionRef.current.style.backgroundPositionY = `calc(50% + ${offset}px)`;
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -141,11 +134,10 @@ function InogenSection() {
       className="relative overflow-hidden"
       style={{
         backgroundImage: 'url(/images/concentrador-oxigeno-portatil-inogen-one-g5-renta-queretaro.jpg)',
-        backgroundSize: '55%',
-        backgroundPosition: 'right center',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center 50%',
         backgroundRepeat: 'no-repeat',
-        backgroundColor: '#0f172a',
-        minHeight: '380px',
+        minHeight: '400px',
       }}
     >
       <div
@@ -235,11 +227,8 @@ export default function HomePage() {
               <Link
                 key={cat.id}
                 to={`/catalogo?categoria=${cat.id}`}
-                className="flex flex-col items-center gap-2 rounded-xl border border-gray-200 bg-white p-6 text-center shadow-sm transition-all hover:border-primary-300 hover:shadow-md"
+                className="flex flex-col items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white p-6 text-center shadow-sm transition-all hover:border-primary-300 hover:shadow-md"
               >
-                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-red-50 to-blue-50 text-4xl shadow-sm">
-                  {categoryIcons[cat.slug] || '🏥'}
-                </span>
                 <span className="text-sm font-semibold text-gray-900">{cat.name}</span>
               </Link>
             ))}

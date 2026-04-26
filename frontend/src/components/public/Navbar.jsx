@@ -5,12 +5,12 @@ import { Bars3Icon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outli
 const WA_NUMBER = '524422237757';
 
 const rentals = [
-  { label: 'Camas Hospitalarias', slug: 'camas-hospitalarias', icon: '🛏️' },
-  { label: 'Concentradores de Oxígeno', slug: 'concentradores-de-oxigeno', icon: '💨' },
-  { label: 'Equipos de Apoyo', slug: 'equipos-apoyo', icon: '🏥' },
-  { label: 'Baño y Seguridad', slug: 'bano-seguridad', icon: '🚿' },
-  { label: 'Movilidad', slug: 'andaderas-bastones', icon: '🦯' },
-  { label: 'Ortopedia', slug: 'ortopedia', icon: '🦴' },
+  { label: 'Camas Hospitalarias', slug: 'camas-hospitalarias' },
+  { label: 'Concentradores de Oxígeno', slug: 'concentradores-de-oxigeno' },
+  { label: 'Equipos de Apoyo', slug: 'equipos-apoyo' },
+  { label: 'Baño y Seguridad', slug: 'bano-seguridad' },
+  { label: 'Movilidad', slug: 'andaderas-bastones' },
+  { label: 'Ortopedia', slug: 'ortopedia' },
 ];
 
 const links = [
@@ -71,9 +71,8 @@ export default function Navbar() {
                     key={r.slug}
                     to={`/catalogo?slug=${r.slug}`}
                     onClick={() => setRentasOpen(false)}
-                    className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors"
+                    className="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors"
                   >
-                    <span className="text-xl">{r.icon}</span>
                     {r.label}
                   </Link>
                 ))}
@@ -156,9 +155,9 @@ export default function Navbar() {
                     key={r.slug}
                     to={`/catalogo?slug=${r.slug}`}
                     onClick={() => setOpen(false)}
-                    className="flex items-center gap-2 py-2 text-sm text-gray-600"
+                    className="flex items-center py-2 text-sm text-gray-600"
                   >
-                    <span>{r.icon}</span> {r.label}
+                    {r.label}
                   </Link>
                 ))}
               </div>
