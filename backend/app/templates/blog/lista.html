@@ -15,7 +15,7 @@
 
   <div class="mb-10">
     <nav class="text-sm text-gray-500 mb-4">
-      <a href="/" class="hover:text-red-600">Inicio</a>
+      <a href="/" class="hover:text-sky-600">Inicio</a>
       <span class="mx-2">/</span>
       <span class="text-gray-800">Blog</span>
     </nav>
@@ -39,17 +39,17 @@
       {% endif %}
       <div class="p-5">
         {% if post.categoria %}
-        <span class="text-xs font-semibold text-red-600 uppercase tracking-wide">{{ post.categoria }}</span>
+        <span class="text-xs font-semibold text-sky-600 uppercase tracking-wide">{{ post.categoria }}</span>
         {% endif %}
         <h2 class="text-lg font-bold text-gray-900 mt-2 mb-2 leading-snug">
-          <a href="/blog/{{ post.slug }}" class="hover:text-red-600">{{ post.titulo }}</a>
+          <a href="/blog/{{ post.slug }}" class="hover:text-sky-600">{{ post.titulo }}</a>
         </h2>
         {% if post.resumen %}
         <p class="text-sm text-gray-500 line-clamp-3">{{ post.resumen }}</p>
         {% endif %}
         <div class="mt-4 flex items-center justify-between">
           <span class="text-xs text-gray-400">{{ post.fecha_publicacion }}</span>
-          <a href="/blog/{{ post.slug }}" class="text-sm font-semibold text-red-600 hover:text-red-700">
+          <a href="/blog/{{ post.slug }}" class="text-sm font-semibold text-sky-600 hover:text-red-700">
             Leer más →
           </a>
         </div>
@@ -61,11 +61,11 @@
   {% if total_pages > 1 %}
   <nav class="mt-10 flex justify-center gap-2">
     {% if page > 1 %}
-    <a href="/blog?page={{ page - 1 }}" class="px-4 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:border-red-500 hover:text-red-600">← Anterior</a>
+    <a href="/blog?page={{ page - 1 }}" class="px-4 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:border-sky-500 hover:text-sky-600">← Anterior</a>
     {% endif %}
     <span class="px-4 py-2 text-sm text-gray-500">Página {{ page }} de {{ total_pages }}</span>
     {% if page < total_pages %}
-    <a href="/blog?page={{ page + 1 }}" class="px-4 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:border-red-500 hover:text-red-600">Siguiente →</a>
+    <a href="/blog?page={{ page + 1 }}" class="px-4 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:border-sky-500 hover:text-sky-600">Siguiente →</a>
     {% endif %}
   </nav>
   {% endif %}
