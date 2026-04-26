@@ -45,7 +45,7 @@ function ParallaxHero() {
     const handleScroll = () => {
       if (!heroRef.current) return;
       const scrollY = window.scrollY;
-      heroRef.current.style.backgroundPositionY = `calc(15% + ${scrollY * 0.45}px)`;
+      heroRef.current.style.backgroundPositionY = `calc(50% + ${scrollY * 0.45}px)`;
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -56,9 +56,9 @@ function ParallaxHero() {
       ref={heroRef}
       className="relative overflow-hidden text-white"
       style={{
-        backgroundImage: 'url(/images/cama-hospitalaria-electrica-lujo-medimundo-queretaro.jpg)',
+        backgroundImage: 'url(/images/portada-hero-medimundo.jpg)',
         backgroundSize: 'cover',
-        backgroundPosition: 'center 15%',
+        backgroundPosition: 'center 50%',
         backgroundRepeat: 'no-repeat',
         minHeight: '580px',
       }}
