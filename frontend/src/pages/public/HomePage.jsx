@@ -153,8 +153,17 @@ const INOGEN_MODELS = [
 
 function InogenSection() {
   return (
-    <section className="bg-slate-900 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <section
+      className="relative overflow-hidden"
+      style={{
+        backgroundImage: 'url(/images/inogen-bg-forest.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      {/* Dark overlay to keep text readable */}
+      <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-[1px]" />
+      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="text-center mb-12">
