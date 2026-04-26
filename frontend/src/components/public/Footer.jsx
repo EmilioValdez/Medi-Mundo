@@ -50,7 +50,7 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                 </svg>
-                <span>Av. Canad&aacute; 212, Plaza de las Am&eacute;ricas, Col. Carretas, Quer&eacute;taro</span>
+                <span>Av. Canad&aacute; 230, Plaza de las Am&eacute;ricas, Col. Carretas, Quer&eacute;taro</span>
               </li>
               <li className="flex items-center gap-2">
                 <svg className="h-4 w-4 shrink-0 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

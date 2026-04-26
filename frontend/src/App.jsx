@@ -29,6 +29,7 @@ class ErrorBoundary extends Component {
 
 import Navbar from './components/public/Navbar';
 import Footer from './components/public/Footer';
+import LocationSection from './components/public/LocationSection';
 import WhatsAppButton from './components/public/WhatsAppButton';
 import AdminLayout from './components/admin/AdminLayout';
 
@@ -54,6 +55,7 @@ function PublicLayout() {
       <main className="min-h-screen">
         <Outlet />
       </main>
+      <LocationSection />
       <Footer />
       <WhatsAppButton />
     </>
