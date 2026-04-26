@@ -182,7 +182,17 @@ export default function HomePage() {
           .filter(Boolean);
         setCategories(sorted);
         const eqs = Array.isArray(eqRes.data) ? eqRes.data : [];
-        setFeatured(eqs.slice(0, 6));
+        const FEATURED_ORDER = ['lujo', 'eléctrica', 'electrica', 'ducha'];
+        const picked = FEATURED_ORDER.reduce((acc, keyword) => {
+          if (acc.length >= 3) return acc;
+          const match = eqs.find(e =>
+            e.name.toLowerCase().includes(keyword) &&
+            !acc.some(x => x.id === e.id)
+          );
+          if (match) acc.push(match);
+          return acc;
+        }, []);
+        setFeatured(picked);
       } catch {
         // silent
       }
