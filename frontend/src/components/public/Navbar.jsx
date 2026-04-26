@@ -9,9 +9,7 @@ const links = [
   { to: '/respiratorio', label: 'Respiratorio' },
   { to: '/recargas', label: 'Recargas de Oxígeno' },
   { to: '/catalogo', label: 'Catálogo' },
-  { to: '/contacto', label: 'Contacto' },
-  { to: '/nosotros', label: 'Nosotros' },
-  { to: '/faq', label: 'Preguntas Frecuentes' },
+  { to: '/conocenos', label: 'Conócenos' },
 ];
 
 

@@ -42,6 +42,7 @@ import EquipmentDetailPage from './pages/public/EquipmentDetailPage';
 import AboutPage from './pages/public/AboutPage';
 import FAQPage from './pages/public/FAQPage';
 import ContactPage from './pages/public/ContactPage';
+import ConocenosPage from './pages/public/ConocenosPage';
 
 import LoginPage from './pages/admin/LoginPage';
 import DashboardPage from './pages/admin/DashboardPage';
@@ -98,9 +99,10 @@ export default function App() {
         <Route path="/recargas" element={<OxygenRefillPage />} />
         <Route path="/catalogo" element={<CatalogPage />} />
         <Route path="/equipo/:id" element={<EquipmentDetailPage />} />
-        <Route path="/nosotros" element={<AboutPage />} />
-        <Route path="/faq" element={<FAQPage />} />
-        <Route path="/contacto" element={<ContactPage />} />
+        <Route path="/conocenos" element={<ConocenosPage />} />
+        <Route path="/nosotros" element={<Navigate to="/conocenos" replace />} />
+        <Route path="/faq" element={<Navigate to="/conocenos" replace />} />
+        <Route path="/contacto" element={<Navigate to="/conocenos" replace />} />
       </Route>
 
       {/* Admin login (no layout) */}
