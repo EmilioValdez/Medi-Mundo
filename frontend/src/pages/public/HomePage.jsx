@@ -66,7 +66,7 @@ function ParallaxHero() {
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(135deg, rgba(2,132,199,0.85) 0%, rgba(56,189,248,0.65) 45%, rgba(255,255,255,0.40) 100%)',
+          background: 'linear-gradient(135deg, rgba(2,132,199,0.55) 0%, rgba(56,189,248,0.35) 45%, rgba(255,255,255,0.15) 100%)',
         }}
       />
 
