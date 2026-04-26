@@ -8,9 +8,9 @@ const links = [
   { to: '/rentas', label: 'Rentas' },
   { to: '/respiratorio', label: 'Respiratorio' },
   { to: '/catalogo', label: 'Catálogo' },
+  { to: '/contacto', label: 'Contacto' },
   { to: '/nosotros', label: 'Nosotros' },
   { to: '/faq', label: 'Preguntas Frecuentes' },
-  { to: '/contacto', label: 'Contacto' },
 ];
 
 
@@ -22,7 +22,7 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <img src="/logo-medimundo.png" alt="MediMundo" className="h-11 md:h-14 w-auto" />
+          <img src="/logo-medimundo.png" alt="MediMundo" className="h-14 md:h-20 w-auto" />
         </Link>
 
         {/* Desktop nav */}
