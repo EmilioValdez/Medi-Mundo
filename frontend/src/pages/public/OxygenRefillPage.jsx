@@ -143,6 +143,57 @@ export default function OxygenRefillPage() {
 
         </div>
       </div>
+
+      {/* ── Tabla de referencia de duración ── */}
+      <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+        <div className="mt-14">
+          <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl text-center">
+            Tabla de referencia de duración
+          </h2>
+          <p className="mt-2 text-center text-gray-500 max-w-2xl mx-auto text-sm">
+            Duración estimada de un tanque según su capacidad y los litros por minuto (LPM) indicados por el médico.
+            El tiempo puede variar según el equipo y condiciones de uso.
+          </p>
+
+          <div className="mt-8 overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+            <table className="w-full text-sm whitespace-nowrap">
+              <thead>
+                <tr className="bg-primary-600 text-white">
+                  <th className="px-4 py-3 text-left font-semibold sticky left-0 bg-primary-600 z-10">
+                    Capacidad
+                  </th>
+                  {['1 LPM','2 LPM','3 LPM','4 LPM','5 LPM','6 LPM','7 LPM','8 LPM','9 LPM','10 LPM'].map(lpm => (
+                    <th key={lpm} className="px-4 py-3 text-center font-semibold">{lpm}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100 bg-white">
+                {[
+                  { litros: '9,500 L', vals: ['150 Hrs','75 Hrs','50 Hrs','37.50 Hrs','30 Hrs','25 Hrs','21.42 Hrs','18.75 Hrs','16.66 Hrs','15 Hrs'] },
+                  { litros: '4,300 L', vals: ['70 Hrs','35 Hrs','23 Hrs','17 Hrs','14 Hrs','12 Hrs','10 Hrs','8.30 Hrs','7.30 Hrs','7 Hrs'] },
+                  { litros: '1,700 L', vals: ['29 Hrs','14 Hrs','10 Hrs','7 Hrs','5.50 Hrs','4.50 Hrs','4.10 Hrs','3.30 Hrs','3.10 Hrs','2.50 Hrs'] },
+                  { litros: '682 L',   vals: ['11.20 Hrs','5.40 Hrs','3.45 Hrs','2.50 Hrs','2.15 Hrs','1.50 Hrs','1.30 Hrs','1.25 Hrs','1.15 Hrs','1.10 Hrs'] },
+                  { litros: '425 L',   vals: ['7 Hrs','3.25 Hrs','2.15 Hrs','1.40 Hrs','1.20 Hrs','1.10 Hrs','1 Hr','50 Min','45 Min','40 Min'] },
+                  { litros: '248 L',   vals: ['4 Hrs','2 Hrs','1.20 Hrs','1 Hr','50 Min','40 Min','35 Min','30 Min','25 Min','20 Min'] },
+                ].map((row, i) => (
+                  <tr key={row.litros} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                    <td className={`px-4 py-3 font-semibold text-gray-900 sticky left-0 z-10 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
+                      {row.litros}
+                    </td>
+                    {row.vals.map((v, j) => (
+                      <td key={j} className="px-4 py-3 text-center text-gray-600">{v}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p className="mt-3 text-xs text-gray-400 text-center">
+            LPM = Litros Por Minuto · Valores de referencia. Consulta con tu médico la dosis indicada.
+          </p>
+        </div>
+      </div>
     </>
   );
 }
