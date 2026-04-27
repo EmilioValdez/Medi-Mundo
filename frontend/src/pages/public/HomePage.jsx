@@ -81,12 +81,18 @@ function ParallaxHero() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl font-extrabold tracking-tight text-white drop-shadow sm:text-5xl lg:text-6xl">
+        <div className="max-w-2xl rounded-2xl px-6 py-6" style={{ background: 'rgba(0,0,0,0.35)', backdropFilter: 'blur(2px)' }}>
+          <h1
+            className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl"
+            style={{ textShadow: '0 2px 10px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.6)' }}
+          >
             Equipo médico en renta
             <span className="block text-blue-100">a domicilio en Querétaro</span>
           </h1>
-          <p className="mt-5 text-lg text-blue-50 drop-shadow sm:text-xl">
+          <p
+            className="mt-5 text-lg text-blue-50 sm:text-xl"
+            style={{ textShadow: '0 1px 6px rgba(0,0,0,0.9)' }}
+          >
             Camas hospitalarias, concentradores de oxígeno, sillas de ruedas y más.
             Sanitizados, con entrega rápida y soporte continuo.
           </p>
