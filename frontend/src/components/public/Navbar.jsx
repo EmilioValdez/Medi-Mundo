@@ -7,8 +7,6 @@ const WA_NUMBER = '524422237757';
 const links = [
   { to: '/rentas', label: 'Rentas' },
   { to: '/recargas', label: 'Recargas de Oxígeno' },
-  { to: '/catalogo', label: 'Catálogo' },
-  { to: '/conocenos', label: 'Conócenos' },
 ];
 
 export default function Navbar() {
@@ -25,22 +23,6 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1">
-          {/* Inogen logo link */}
-          <NavLink
-            to="/respiratorio"
-            className={({ isActive }) =>
-              `rounded-lg px-2 py-1.5 transition-colors ${
-                isActive ? 'bg-primary-50 ring-1 ring-primary-200' : 'hover:bg-gray-100'
-              }`
-            }
-          >
-            <img
-              src="/images/inogen-logo.png"
-              alt="Concentradores Inogen"
-              className="h-7 w-auto"
-            />
-          </NavLink>
-
           {links.map((l) => (
             <NavLink
               key={l.to}
@@ -56,6 +38,43 @@ export default function Navbar() {
               {l.label}
             </NavLink>
           ))}
+
+          {/* Inogen logo link — después de Recargas */}
+          <NavLink
+            to="/respiratorio"
+            className={({ isActive }) =>
+              `rounded-lg px-2 py-1 transition-colors ${
+                isActive ? 'bg-primary-50 ring-1 ring-primary-200' : 'hover:bg-gray-100'
+              }`
+            }
+          >
+            <img
+              src="/images/inogen-logo.png"
+              alt="Concentradores Inogen"
+              className="h-10 w-auto"
+            />
+          </NavLink>
+
+          <NavLink
+            to="/catalogo"
+            className={({ isActive }) =>
+              `rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                isActive ? 'bg-primary-50 text-primary-700' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+              }`
+            }
+          >
+            Catálogo
+          </NavLink>
+          <NavLink
+            to="/conocenos"
+            className={({ isActive }) =>
+              `rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                isActive ? 'bg-primary-50 text-primary-700' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+              }`
+            }
+          >
+            Conócenos
+          </NavLink>
 
           <a
             href="/blog"
@@ -91,20 +110,6 @@ export default function Navbar() {
       {open && (
         <div className="border-t md:hidden">
           <nav className="flex flex-col px-4 py-2">
-            {/* Inogen logo link — mobile */}
-            <NavLink
-              to="/respiratorio"
-              onClick={() => setOpen(false)}
-              className={({ isActive }) =>
-                `flex items-center gap-3 rounded-lg px-3 py-2.5 ${
-                  isActive ? 'bg-primary-50' : 'text-gray-600'
-                }`
-              }
-            >
-              <img src="/images/inogen-logo.png" alt="Concentradores Inogen" className="h-6 w-auto" />
-              <span className="text-sm font-medium text-gray-700">Concentradores Inogen</span>
-            </NavLink>
-
             {links.map((l) => (
               <NavLink
                 key={l.to}
@@ -119,6 +124,43 @@ export default function Navbar() {
                 {l.label}
               </NavLink>
             ))}
+
+            {/* Inogen logo link — móvil, después de Recargas */}
+            <NavLink
+              to="/respiratorio"
+              onClick={() => setOpen(false)}
+              className={({ isActive }) =>
+                `flex items-center gap-3 rounded-lg px-3 py-2 ${
+                  isActive ? 'bg-primary-50' : ''
+                }`
+              }
+            >
+              <img src="/images/inogen-logo.png" alt="Concentradores Inogen" className="h-8 w-auto" />
+              <span className="text-sm font-medium text-gray-700">Concentradores Inogen</span>
+            </NavLink>
+
+            <NavLink
+              to="/catalogo"
+              onClick={() => setOpen(false)}
+              className={({ isActive }) =>
+                `rounded-lg px-3 py-2.5 text-sm font-medium ${
+                  isActive ? 'bg-primary-50 text-primary-700' : 'text-gray-600'
+                }`
+              }
+            >
+              Catálogo
+            </NavLink>
+            <NavLink
+              to="/conocenos"
+              onClick={() => setOpen(false)}
+              className={({ isActive }) =>
+                `rounded-lg px-3 py-2.5 text-sm font-medium ${
+                  isActive ? 'bg-primary-50 text-primary-700' : 'text-gray-600'
+                }`
+              }
+            >
+              Conócenos
+            </NavLink>
 
             <a
               href="/blog"
