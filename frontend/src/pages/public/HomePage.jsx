@@ -342,27 +342,6 @@ export default function HomePage() {
       {/* Hero with parallax */}
       <ParallaxHero />
 
-      {/* Categories */}
-      {categories.length > 0 && (
-        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <h2 className="text-center text-2xl font-bold text-gray-900 sm:text-3xl">Categorías de equipo</h2>
-          <p className="mx-auto mt-2 max-w-xl text-center text-gray-500">
-            Encuentra el equipo médico que necesitas para tu recuperación o cuidado en casa.
-          </p>
-          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-            {categories.map((cat) => (
-              <Link
-                key={cat.id}
-                to={`/catalogo?categoria=${cat.id}`}
-                className="flex flex-col items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white p-6 text-center shadow-sm transition-all hover:border-primary-300 hover:shadow-md"
-              >
-                <span className="text-sm font-semibold text-gray-900">{cat.name}</span>
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
-
       {/* How it works */}
       <section className="bg-primary-50/50">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -384,6 +363,27 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Categories */}
+      {categories.length > 0 && (
+        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <h2 className="text-center text-2xl font-bold text-gray-900 sm:text-3xl">Categorías de equipo</h2>
+          <p className="mx-auto mt-2 max-w-xl text-center text-gray-500">
+            Encuentra el equipo médico que necesitas para tu recuperación o cuidado en casa.
+          </p>
+          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+            {categories.map((cat) => (
+              <Link
+                key={cat.id}
+                to={`/catalogo?categoria=${cat.id}`}
+                className="flex flex-col items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white p-6 text-center shadow-sm transition-all hover:border-primary-300 hover:shadow-md"
+              >
+                <span className="text-sm font-semibold text-gray-900">{cat.name}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Inogen G5 spotlight — parallax */}
       <InogenSection />
