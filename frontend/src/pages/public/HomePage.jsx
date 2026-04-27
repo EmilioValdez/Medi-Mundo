@@ -348,8 +348,8 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>MediMundo — Renta de Equipo Médico a Domicilio</title>
-        <meta name="description" content="Renta de equipo médico sanitizado a domicilio en Querétaro. Camas hospitalarias, oxígeno, movilidad y más. Entrega rápida." />
+        <title>Renta de Equipo Médico en Querétaro | MediMundo</title>
+        <meta name="description" content="Renta de equipo médico sanitizado a domicilio en Querétaro. Camas hospitalarias, concentradores de oxígeno, sillas de ruedas y más. Entrega el mismo día." />
       </Helmet>
 
       {/* Hero with parallax */}

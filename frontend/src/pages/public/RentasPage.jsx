@@ -86,8 +86,8 @@ export default function RentasPage() {
   return (
     <>
       <Helmet>
-        <title>Rentas — MediMundo</title>
-        <meta name="description" content="Renta de camas hospitalarias, grúa hidráulica y sillón reposet a domicilio en Querétaro. Precios por día, semana y mes." />
+        <title>Renta de Camas Hospitalarias en Querétaro | MediMundo</title>
+        <meta name="description" content="Renta de camas hospitalarias manuales y eléctricas, grúa hidráulica y sillón reposet a domicilio en Querétaro. Precios por día, semana y mes." />
       </Helmet>
 
       <div
