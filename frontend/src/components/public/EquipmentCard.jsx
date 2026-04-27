@@ -29,7 +29,7 @@ function splitName(name) {
   return [name.slice(0, idx), name.slice(idx + 1)];
 }
 
-export default function EquipmentCard({ item, showPrices = false }) {
+export default function EquipmentCard({ item, showPrices = false, specs = null }) {
   const waMsg = encodeURIComponent(
     `Hola, me interesa rentar: ${item.name}. ¿Podrían darme más información?`
   );
@@ -88,10 +88,24 @@ export default function EquipmentCard({ item, showPrices = false }) {
           <p className="mt-2 text-sm text-gray-400">Consultar precio</p>
         )}
 
-        {/* Deposit */}
-        {showPrices && item.deposit > 0 && (
-          <p className="mt-2 text-sm font-semibold text-primary-600">
-            Depósito: {formatMXN(item.deposit)}
+        {/* Specs list */}
+        {specs?.features?.length > 0 && (
+          <ul className="mt-3 space-y-1">
+            {specs.features.map((f, i) => (
+              <li key={i} className="flex items-start gap-1.5 text-xs text-gray-600">
+                <svg className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {/* Pagaré */}
+        {specs?.pagare > 0 && (
+          <p className="mt-2 text-xs font-semibold text-primary-600">
+            Pagaré por {formatMXN(specs.pagare)}
           </p>
         )}
 

@@ -7,6 +7,56 @@ import { isRentalItem } from '../../utils/rentalItems';
 // Order: 1-manual 2-eléctrica 3-lujo 4-silla 5-reposet 6-grúa
 const RENTAL_ORDER = ['manual', 'eléctrica', 'electrica', 'lujo', 'silla', 'reposet', 'grúa', 'grua'];
 
+const SPECS_MAP = [
+  {
+    match: (n) => n.includes('manual'),
+    specs: {
+      features: ['Cama Manual con Ruedas', 'Altura de 38 a 58 cm', 'Profundidad 223 cm, Ancho: 91.2 cm', 'Soporta hasta 150 Kg'],
+      pagare: 9000,
+    },
+  },
+  {
+    match: (n) => n.includes('lujo'),
+    specs: {
+      features: ['Cama Eléctrica de Lujo con Ruedas', 'Altura de 45 a 75 cm', 'Profundidad 211.5 cm, Ancho: 110 cm', 'Soporta hasta 250 Kg'],
+      pagare: 22000,
+    },
+  },
+  {
+    match: (n) => n.includes('eléctrica') || n.includes('electrica'),
+    specs: {
+      features: ['Cama Eléctrica con Ruedas', 'Altura de 45 a 79 cm', 'Profundidad 223 cm, Ancho: 90 cm', 'Soporta hasta 250 Kg'],
+      pagare: 17000,
+    },
+  },
+  {
+    match: (n) => n.includes('reposet'),
+    specs: {
+      features: ['Sillón Reposet Eléctrico', 'Altura de 66 cm', 'Profundidad 50.5 cm', 'Soporta hasta 100 Kg'],
+      pagare: 15000,
+    },
+  },
+  {
+    match: (n) => n.includes('grúa') || n.includes('grua'),
+    specs: {
+      features: ['Grúa Hidráulica con Arnés y Ruedas con Freno de Seguridad', 'Altura de 53 a 171 cm', 'Profundidad 98 cm, Ancho: 62 a 126 cm', 'Soporta hasta 180 Kg'],
+      pagare: 18000,
+    },
+  },
+  {
+    match: (n) => n.includes('mesa'),
+    specs: {
+      features: ['Mesa de alimento con ruedas', 'Altura de 79 a 112 cm', 'Profundidad 66.5 cm, Ancho: 39 cm', 'Soporta hasta 10 Kg (Mesa 8 Kg)'],
+      pagare: 1000,
+    },
+  },
+];
+
+function getSpecs(name) {
+  const n = (name || '').toLowerCase();
+  return SPECS_MAP.find(s => s.match(n))?.specs || null;
+}
+
 function sortRentals(items) {
   return [...items].sort((a, b) => {
     const nameA = (a.name || '').toLowerCase();
@@ -55,7 +105,7 @@ export default function RentasPage() {
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {items.map(item => (
-              <EquipmentCard key={item.id} item={item} showPrices />
+              <EquipmentCard key={item.id} item={item} showPrices specs={getSpecs(item.name)} />
             ))}
           </div>
         )}
