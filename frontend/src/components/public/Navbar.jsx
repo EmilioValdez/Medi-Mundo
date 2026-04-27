@@ -22,7 +22,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden md:flex items-center gap-4">
           {links.map((l) => (
             <NavLink
               key={l.to}
