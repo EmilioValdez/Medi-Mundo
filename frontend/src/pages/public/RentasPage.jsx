@@ -90,6 +90,16 @@ export default function RentasPage() {
         <meta name="description" content="Renta de camas hospitalarias, grúa hidráulica y sillón reposet a domicilio en Querétaro. Precios por día, semana y mes." />
       </Helmet>
 
+      <div
+        className="min-h-screen"
+        style={{
+          backgroundImage: 'url(/images/fondo-rentas.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+        }}
+      >
+      <div className="min-h-screen" style={{ background: 'rgba(255,255,255,0.88)' }}>
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Equipo en renta</h1>
@@ -109,6 +119,8 @@ export default function RentasPage() {
             ))}
           </div>
         )}
+      </div>
+      </div>
       </div>
     </>
   );
