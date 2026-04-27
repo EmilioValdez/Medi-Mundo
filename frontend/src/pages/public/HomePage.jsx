@@ -71,7 +71,7 @@ function ParallaxHero() {
       />
 
       {/* Logo — esquina superior derecha */}
-      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 lg:top-8 lg:right-10 z-10">
+      <div className="absolute top-0 right-0 sm:top-1 sm:right-1 lg:top-2 lg:right-2 z-10">
         <img
           src="/logo-medimundo.png?v=5"
           alt="MediMundo"
