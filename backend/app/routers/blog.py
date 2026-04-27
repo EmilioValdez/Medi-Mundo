@@ -114,9 +114,12 @@ async def sitemap(db: AsyncSession = Depends(get_db)):
 
     urls = [
         ("https://medimundo.mx/", "1.0", "weekly"),
-        ("https://medimundo.mx/blog", "0.8", "weekly"),
-        ("https://medimundo.mx/catalogo", "0.7", "monthly"),
-        ("https://medimundo.mx/contacto", "0.6", "monthly"),
+        ("https://medimundo.mx/rentas", "0.9", "weekly"),
+        ("https://medimundo.mx/recargas", "0.8", "monthly"),
+        ("https://medimundo.mx/respiratorio", "0.8", "monthly"),
+        ("https://medimundo.mx/catalogo", "0.8", "weekly"),
+        ("https://medimundo.mx/conocenos", "0.6", "monthly"),
+        ("https://medimundo.mx/blog", "0.7", "weekly"),
     ]
 
     xml_parts = ['<?xml version="1.0" encoding="UTF-8"?>',
