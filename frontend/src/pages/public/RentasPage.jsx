@@ -95,11 +95,11 @@ export default function RentasPage() {
         style={{
           backgroundImage: 'url(/images/fondo-rentas.jpg)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center 70%',
           backgroundAttachment: 'fixed',
         }}
       >
-      <div className="min-h-screen" style={{ background: 'rgba(255,255,255,0.72)' }}>
+      <div className="min-h-screen" style={{ background: 'rgba(255,255,255,0.65)' }}>
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Equipo en renta</h1>
