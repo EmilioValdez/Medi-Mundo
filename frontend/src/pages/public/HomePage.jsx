@@ -91,8 +91,8 @@ function ParallaxHero() {
             Sanitizados, con entrega rápida y soporte continuo.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/catalogo" className="btn-white text-base px-7 py-3">
-              Ver catálogo
+            <Link to="/rentas" className="btn-white text-base px-7 py-3">
+              Productos en renta
             </Link>
             <a
               href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, me interesa rentar equipo médico.')}`}
