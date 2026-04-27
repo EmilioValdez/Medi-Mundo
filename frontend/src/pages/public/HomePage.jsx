@@ -73,7 +73,7 @@ function ParallaxHero() {
       {/* Logo — esquina superior derecha */}
       <div className="absolute top-0 right-0 z-10" style={{ transform: 'translateY(-8%)' }}>
         <img
-          src="/logo-medimundo.png?v=5"
+          src="/logo-medimundo-v2.png"
           alt="MediMundo"
           className="w-72 sm:w-[26rem] lg:w-[32rem]"
           style={{ filter: 'drop-shadow(0 3px 8px rgba(0,0,0,1)) drop-shadow(0 0 20px rgba(0,0,0,0.85)) drop-shadow(0 0 40px rgba(0,0,0,0.5))' }}
