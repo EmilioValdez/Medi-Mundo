@@ -106,7 +106,7 @@ EQUIPMENT = [
         "price_weekly": 380,
         "price_daily": 70,
         "deposit": 0,
-        "images": [],
+        "images": ["/images/sillon-reposet-pacientes.jpg"],
         "quantity_total": 2,
         "quantity_available": 2,
     },
@@ -118,7 +118,7 @@ EQUIPMENT = [
         "price_weekly": 380,
         "price_daily": 70,
         "deposit": 0,
-        "images": [],
+        "images": ["/images/grua-hidraulica-paciente.jpg"],
         "quantity_total": 2,
         "quantity_available": 2,
     },
@@ -219,7 +219,12 @@ async def seed():
                 db.add(obj)
                 print(f"  EQUIPMENT INSERTED: {e['name']}")
             else:
-                print(f"  EQUIPMENT EXISTS: {e['name']}")
+                # Always sync images so they survive re-deploys
+                if e.get("images") and not existing.images:
+                    existing.images = e["images"]
+                    print(f"  EQUIPMENT IMAGES UPDATED: {e['name']}")
+                else:
+                    print(f"  EQUIPMENT EXISTS: {e['name']}")
 
         await db.commit()
         print("Catalog seed done.")
