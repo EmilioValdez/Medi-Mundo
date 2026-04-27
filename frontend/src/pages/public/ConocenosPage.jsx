@@ -148,6 +148,10 @@ export default function ConocenosPage() {
         <title>Conócenos — MediMundo Querétaro</title>
         <meta name="description" content="Conoce a MediMundo: quiénes somos, cómo contactarnos y respuestas a las preguntas más frecuentes sobre renta de equipo médico en Querétaro." />
         <link rel="canonical" href="https://medimundo.mx/conocenos" />
+        <meta property="og:title" content="Conócenos — MediMundo Querétaro" />
+        <meta property="og:description" content="Conoce a MediMundo: quiénes somos, cómo contactarnos y respuestas a las preguntas más frecuentes sobre renta de equipo médico en Querétaro." />
+        <meta property="og:url" content="https://medimundo.mx/conocenos" />
+        <meta property="og:image" content="https://medimundo.mx/images/portada-hero-medimundo.jpg" />
       </Helmet>
 
       {/* Hero */}

@@ -351,6 +351,10 @@ export default function HomePage() {
         <title>Renta de Equipo Médico en Querétaro | MediMundo</title>
         <meta name="description" content="Renta de equipo médico sanitizado a domicilio en Querétaro. Camas hospitalarias, concentradores de oxígeno, sillas de ruedas y más. Entrega el mismo día." />
         <link rel="canonical" href="https://medimundo.mx/" />
+        <meta property="og:title" content="Renta de Equipo Médico en Querétaro | MediMundo" />
+        <meta property="og:description" content="Renta de equipo médico sanitizado a domicilio en Querétaro. Camas hospitalarias, concentradores de oxígeno, sillas de ruedas y más. Entrega el mismo día." />
+        <meta property="og:url" content="https://medimundo.mx/" />
+        <meta property="og:image" content="https://medimundo.mx/images/portada-hero-medimundo.jpg" />
       </Helmet>
 
       {/* Hero with parallax */}
