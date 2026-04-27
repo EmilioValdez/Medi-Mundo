@@ -47,6 +47,7 @@ export default function EquipmentCard({ item, showPrices = false, specs = null }
           <img
             src={imageUrl}
             alt={item.name}
+            loading="lazy"
             className="max-h-48 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
             onError={(e) => {
               e.target.style.display = 'none';
