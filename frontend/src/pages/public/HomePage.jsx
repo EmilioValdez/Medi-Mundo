@@ -76,6 +76,7 @@ function ParallaxHero() {
           src="/logo-medimundo.png?v=5"
           alt="MediMundo"
           className="w-36 sm:w-52 lg:w-64"
+          style={{ filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.9)) drop-shadow(0 0 12px rgba(0,0,0,0.6))' }}
         />
       </div>
 

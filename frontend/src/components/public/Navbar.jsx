@@ -14,11 +14,11 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-0 sm:px-6 lg:px-8">
 
         {/* Logo MediMundo */}
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          <img src="/logo-medimundo.png?v=5" alt="MediMundo" className="h-14 md:h-20 w-auto" />
+          <img src="/logo-medimundo.png?v=5" alt="MediMundo" className="h-20 md:h-28 w-auto" />
         </Link>
 
         {/* Desktop nav */}
