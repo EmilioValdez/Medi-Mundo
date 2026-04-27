@@ -88,6 +88,7 @@ export default function RentasPage() {
       <Helmet>
         <title>Renta de Camas Hospitalarias en Querétaro | MediMundo</title>
         <meta name="description" content="Renta de camas hospitalarias manuales y eléctricas, grúa hidráulica y sillón reposet a domicilio en Querétaro. Precios por día, semana y mes." />
+        <link rel="canonical" href="https://medimundo.mx/rentas" />
       </Helmet>
 
       <div

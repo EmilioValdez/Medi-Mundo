@@ -213,6 +213,7 @@ export default function RespiratoryPage() {
           name="description"
           content="Renta de concentradores de oxígeno portátiles Inogen One G2, G3, G4, G5 y Inogen At Home. Entrega a domicilio en Querétaro. Aprobados FAA."
         />
+        <link rel="canonical" href="https://medimundo.mx/respiratorio" />
       </Helmet>
 
       {/* Hero banner */}

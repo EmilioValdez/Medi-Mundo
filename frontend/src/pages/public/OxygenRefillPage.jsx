@@ -48,6 +48,7 @@ export default function OxygenRefillPage() {
           name="description"
           content="Recarga de tanques de oxígeno medicinal en Querétaro. Todos los tamaños disponibles. Servicio rápido en tienda, oxígeno certificado."
         />
+        <link rel="canonical" href="https://medimundo.mx/recargas" />
       </Helmet>
 
       <div
