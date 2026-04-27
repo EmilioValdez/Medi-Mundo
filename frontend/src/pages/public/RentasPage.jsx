@@ -101,7 +101,7 @@ export default function RentasPage() {
       <div className="min-h-screen" style={{ background: 'rgba(255,255,255,0.65)' }}>
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Equipo en renta</h1>
+          <h1 className="text-3xl font-bold text-gray-900">Equipos en renta</h1>
           <p className="mt-1 text-gray-500">Camas hospitalarias, grúa hidráulica y sillón reposet con entrega a domicilio en Querétaro.</p>
         </div>
 
