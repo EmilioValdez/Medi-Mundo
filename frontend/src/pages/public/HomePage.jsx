@@ -71,7 +71,7 @@ function ParallaxHero() {
       />
 
       {/* Logo — esquina superior derecha */}
-      <div className="absolute top-0 right-0 z-10">
+      <div className="absolute top-0 right-0 z-10" style={{ transform: 'translateY(-8%)' }}>
         <img
           src="/logo-medimundo.png?v=5"
           alt="MediMundo"
