@@ -94,7 +94,7 @@ export default function RentasPage() {
       <div
         className="min-h-screen"
         style={{
-          backgroundImage: 'url(/images/fondo-rentas.jpg)',
+          backgroundImage: 'url(/images/fondo-rentas.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center 20%',
         }}

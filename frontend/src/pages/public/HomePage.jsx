@@ -56,7 +56,7 @@ function ParallaxHero() {
       ref={heroRef}
       className="relative overflow-hidden text-white"
       style={{
-        backgroundImage: 'url(/images/portada-hero-medimundo.jpg)',
+        backgroundImage: 'url(/images/portada-hero-medimundo.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center 50%',
         backgroundRepeat: 'no-repeat',
@@ -182,7 +182,7 @@ function InogenSection() {
       ref={sectionRef}
       className="relative overflow-hidden"
       style={{
-        backgroundImage: 'url(/images/inogen-bg-forest.jpg)',
+        backgroundImage: 'url(/images/inogen-bg-forest.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center 50%',
       }}

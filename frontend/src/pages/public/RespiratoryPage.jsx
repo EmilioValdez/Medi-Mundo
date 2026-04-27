@@ -220,7 +220,7 @@ export default function RespiratoryPage() {
       <div
         className="relative text-white overflow-hidden"
         style={{
-          backgroundImage: 'url(/images/inogen-bg-forest.jpg)',
+          backgroundImage: 'url(/images/inogen-bg-forest.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

@@ -54,7 +54,7 @@ export default function OxygenRefillPage() {
       <div
         className="min-h-screen"
         style={{
-          backgroundImage: 'url(/images/fondo-recargas-oxigeno.jpg)',
+          backgroundImage: 'url(/images/fondo-recargas-oxigeno.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
