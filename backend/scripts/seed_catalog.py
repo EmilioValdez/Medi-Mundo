@@ -89,12 +89,12 @@ EQUIPMENT = [
     {
         "name": "Concentrador de Oxígeno",
         "slug": "concentradores-de-oxigeno",
-        "description": "Concentrador de oxígeno estacionario. No requiere receta médica. Incluye entrega, instalación y capacitación de uso a domicilio.",
+        "description": "Concentrador de Oxígeno 5 Lts Everflo Respironics Philips. Concentrador estacionario de alto rendimiento, flujo continuo de hasta 5 litros por minuto. No requiere receta médica. Incluye entrega, instalación y capacitación de uso a domicilio.",
         "price_monthly": 950,
         "price_weekly": 320,
         "price_daily": 60,
         "deposit": 6500,
-        "images": [],
+        "images": ["/images/concentrador-oxigeno-everflo-philips-respironics.jpg"],
         "quantity_total": 3,
         "quantity_available": 3,
     },
@@ -219,12 +219,12 @@ async def seed():
                 db.add(obj)
                 print(f"  EQUIPMENT INSERTED: {e['name']}")
             else:
-                # Always sync images so they survive re-deploys
-                if e.get("images") and not existing.images:
+                # Always sync images and description so they survive re-deploys
+                if e.get("images"):
                     existing.images = e["images"]
-                    print(f"  EQUIPMENT IMAGES UPDATED: {e['name']}")
-                else:
-                    print(f"  EQUIPMENT EXISTS: {e['name']}")
+                if e.get("description"):
+                    existing.description = e["description"]
+                print(f"  EQUIPMENT UPDATED: {e['name']}")
 
         await db.commit()
         print("Catalog seed done.")
