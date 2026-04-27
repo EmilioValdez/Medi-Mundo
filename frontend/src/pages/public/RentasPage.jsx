@@ -95,8 +95,7 @@ export default function RentasPage() {
         style={{
           backgroundImage: 'url(/images/fondo-rentas.jpg)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center 70%',
-          backgroundAttachment: 'fixed',
+          backgroundPosition: 'center 20%',
         }}
       >
       <div className="min-h-screen" style={{ background: 'rgba(255,255,255,0.65)' }}>
