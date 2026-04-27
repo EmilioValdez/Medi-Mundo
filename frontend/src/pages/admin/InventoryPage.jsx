@@ -19,11 +19,12 @@ const emptyForm = {
   price_weekly: '',
   price_monthly: '',
   deposit: '',
-  quantity: 1,
+  quantity_total: 1,
+  quantity_available: 1,
   serial_number: '',
-  condition: '',
+  condition: 'available',
   image_url: '',
-  available: true,
+  is_active: true,
 };
 
 export default function InventoryPage() {
@@ -76,11 +77,12 @@ export default function InventoryPage() {
       price_weekly: item.price_weekly ?? '',
       price_monthly: item.price_monthly ?? '',
       deposit: item.deposit ?? '',
-      quantity: item.quantity ?? 1,
+      quantity_total: item.quantity_total ?? 1,
+      quantity_available: item.quantity_available ?? 1,
       serial_number: item.serial_number || '',
-      condition: item.condition || '',
-      image_url: item.image_url || (item.images?.[0] || ''),
-      available: item.available !== false,
+      condition: item.condition || 'available',
+      image_url: item.images?.[0] || '',
+      is_active: item.is_active !== false,
     });
     setModalOpen(true);
   };
@@ -95,13 +97,19 @@ export default function InventoryPage() {
     setSaving(true);
     try {
       const payload = {
-        ...form,
+        name: form.name,
         category_id: Number(form.category_id) || null,
-        price_daily: form.price_daily ? Number(form.price_daily) : null,
-        price_weekly: form.price_weekly ? Number(form.price_weekly) : null,
-        price_monthly: form.price_monthly ? Number(form.price_monthly) : null,
-        deposit: form.deposit ? Number(form.deposit) : null,
-        quantity: Number(form.quantity) || 1,
+        description: form.description,
+        price_daily: form.price_daily !== '' ? Number(form.price_daily) : null,
+        price_weekly: form.price_weekly !== '' ? Number(form.price_weekly) : null,
+        price_monthly: form.price_monthly !== '' ? Number(form.price_monthly) : null,
+        deposit: form.deposit !== '' ? Number(form.deposit) : null,
+        quantity_total: Number(form.quantity_total) || 1,
+        quantity_available: Number(form.quantity_available) || 1,
+        serial_number: form.serial_number,
+        condition: form.condition || 'available',
+        images: form.image_url ? [form.image_url] : null,
+        is_active: form.is_active,
       };
       if (editing) {
         await apiClient.put(`/equipment/${editing.id}`, payload);
@@ -208,12 +216,12 @@ export default function InventoryPage() {
                       <td className="px-4 py-3 text-right text-gray-700">
                         {item.price_monthly != null ? formatMXN(item.price_monthly) : '-'}
                       </td>
-                      <td className="px-4 py-3 text-center text-gray-700">{item.quantity ?? '-'}</td>
+                      <td className="px-4 py-3 text-center text-gray-700">{item.quantity_available ?? '-'}/{item.quantity_total ?? '-'}</td>
                       <td className="px-4 py-3 text-center">
                         <span className={`inline-block rounded-full px-2 py-0.5 text-xs font-semibold ${
-                          item.available !== false ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+                          item.is_active !== false ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
                         }`}>
-                          {item.available !== false ? 'Activo' : 'Inactivo'}
+                          {item.is_active !== false ? 'Activo' : 'Inactivo'}
                         </span>
                       </td>
                       <td className="px-4 py-3 text-right">
@@ -299,13 +307,22 @@ export default function InventoryPage() {
                   <input name="deposit" type="number" step="0.01" min="0" value={form.deposit} onChange={handleChange} className="input-field" />
                 </div>
                 <div>
-                  <label className="label-field">Cantidad</label>
-                  <input name="quantity" type="number" min="0" value={form.quantity} onChange={handleChange} className="input-field" />
+                  <label className="label-field">Cant. total</label>
+                  <input name="quantity_total" type="number" min="0" value={form.quantity_total} onChange={handleChange} className="input-field" />
                 </div>
                 <div>
-                  <label className="label-field">Condición</label>
-                  <input name="condition" value={form.condition} onChange={handleChange} className="input-field" placeholder="Excelente" />
+                  <label className="label-field">Cant. disponible</label>
+                  <input name="quantity_available" type="number" min="0" value={form.quantity_available} onChange={handleChange} className="input-field" />
                 </div>
+              </div>
+
+              <div>
+                <label className="label-field">Condición</label>
+                <select name="condition" value={form.condition} onChange={handleChange} className="input-field">
+                  <option value="available">Disponible</option>
+                  <option value="rented">Rentado</option>
+                  <option value="maintenance">En mantenimiento</option>
+                </select>
               </div>
 
               <div>
@@ -320,13 +337,13 @@ export default function InventoryPage() {
 
               <div className="flex items-center gap-2">
                 <input
-                  name="available"
+                  name="is_active"
                   type="checkbox"
-                  checked={form.available}
+                  checked={form.is_active}
                   onChange={handleChange}
                   className="h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
                 />
-                <label className="text-sm text-gray-700">Disponible / Activo</label>
+                <label className="text-sm text-gray-700">Activo (visible en el sitio)</label>
               </div>
 
               <div className="flex gap-2 pt-2">
