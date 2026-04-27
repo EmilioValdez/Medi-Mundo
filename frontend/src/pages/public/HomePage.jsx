@@ -159,6 +159,18 @@ const INOGEN_MODELS = [
 function InogenSection() {
   const [current, setCurrent] = useState(0);
   const total = INOGEN_MODELS.length;
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const offset = (window.innerHeight / 2 - rect.top - rect.height / 2) * 0.3;
+      sectionRef.current.style.backgroundPositionY = `calc(50% + ${offset}px)`;
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const prev = () => setCurrent((c) => (c - 1 + total) % total);
   const next = () => setCurrent((c) => (c + 1) % total);
@@ -167,11 +179,12 @@ function InogenSection() {
 
   return (
     <section
+      ref={sectionRef}
       className="relative overflow-hidden"
       style={{
         backgroundImage: 'url(/images/inogen-bg-forest.jpg)',
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: 'center 50%',
       }}
     >
       <div className="absolute inset-0 bg-slate-900/50" />
