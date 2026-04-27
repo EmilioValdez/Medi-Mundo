@@ -18,7 +18,7 @@ export default function Navbar() {
 
         {/* Logo MediMundo */}
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          <img src="/logo-medimundo.png" alt="MediMundo" className="h-14 md:h-20 w-auto" />
+          <img src="/logo-medimundo.png?v=5" alt="MediMundo" className="h-14 md:h-20 w-auto" />
         </Link>
 
         {/* Desktop nav */}

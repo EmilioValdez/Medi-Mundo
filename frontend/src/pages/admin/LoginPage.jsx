@@ -40,7 +40,7 @@ export default function LoginPage() {
         <div className="w-full max-w-sm">
           {/* Logo */}
           <div className="mb-8 text-center">
-            <img src="/logo-medimundo.png" alt="MediMundo" className="mx-auto h-12" />
+            <img src="/logo-medimundo.png?v=5" alt="MediMundo" className="mx-auto h-12" />
             <h1 className="mt-3 text-xl font-bold text-gray-900">
               Medi<span className="text-accent-600">Mundo</span>
               <span className="ml-1 text-sm text-gray-400">Admin</span>

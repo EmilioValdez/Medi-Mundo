@@ -125,6 +125,15 @@ export default function InventoryPage() {
     }
   };
 
+  const toggleActive = async (item) => {
+    try {
+      await apiClient.put(`/equipment/${item.id}`, { is_active: !item.is_active });
+      fetchData();
+    } catch {
+      alert('Error al cambiar disponibilidad.');
+    }
+  };
+
   const handleDelete = async (item) => {
     if (!window.confirm(`¿Eliminar "${item.name}"?`)) return;
     try {
@@ -218,11 +227,16 @@ export default function InventoryPage() {
                       </td>
                       <td className="px-4 py-3 text-center text-gray-700">{item.quantity_available ?? '-'}/{item.quantity_total ?? '-'}</td>
                       <td className="px-4 py-3 text-center">
-                        <span className={`inline-block rounded-full px-2 py-0.5 text-xs font-semibold ${
-                          item.is_active !== false ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
-                        }`}>
+                        <button
+                          onClick={() => toggleActive(item)}
+                          title="Cambiar disponibilidad"
+                          className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold transition-opacity hover:opacity-75 ${
+                            item.is_active !== false ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+                          }`}
+                        >
+                          <span className={`h-1.5 w-1.5 rounded-full ${item.is_active !== false ? 'bg-green-500' : 'bg-red-500'}`} />
                           {item.is_active !== false ? 'Activo' : 'Inactivo'}
-                        </span>
+                        </button>
                       </td>
                       <td className="px-4 py-3 text-right">
                         <div className="flex justify-end gap-1">
