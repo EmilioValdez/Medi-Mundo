@@ -151,19 +151,27 @@ export default function ConocenosPage() {
         <meta property="og:title" content="Conócenos — MediMundo Querétaro" />
         <meta property="og:description" content="Conoce a MediMundo: quiénes somos, cómo contactarnos y respuestas a las preguntas más frecuentes sobre renta de equipo médico en Querétaro." />
         <meta property="og:url" content="https://medimundo.mx/conocenos" />
-        <meta property="og:image" content="https://medimundo.mx/images/portada-hero-medimundo.jpg" />
+        <meta property="og:image" content="https://medimundo.mx/images/tienda-medimundo-queretaro.jpg" />
       </Helmet>
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-primary-700 to-primary-800 text-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <h1 className="text-3xl font-bold sm:text-4xl">Conócenos</h1>
-            <p className="mt-4 text-lg text-primary-100">
-              Somos una empresa queretana con más de 20 años facilitando el acceso a equipo médico
-              de calidad. Aquí encontrarás todo sobre nosotros, cómo contactarnos y respuestas
-              a tus dudas más comunes.
-            </p>
+      <section
+        style={{
+          backgroundImage: 'url(/images/tienda-medimundo-queretaro.webp)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div style={{ background: 'rgba(255,255,255,0.72)' }}>
+          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+            <div className="max-w-2xl">
+              <h1 className="text-3xl font-bold sm:text-4xl text-gray-900">Conócenos</h1>
+              <p className="mt-4 text-lg text-gray-600">
+                Somos una empresa queretana con más de 20 años facilitando el acceso a equipo médico
+                de calidad. Aquí encontrarás todo sobre nosotros, cómo contactarnos y respuestas
+                a tus dudas más comunes.
+              </p>
+            </div>
           </div>
         </div>
       </section>
