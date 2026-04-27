@@ -70,15 +70,17 @@ function ParallaxHero() {
         }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-36">
-        <div className="max-w-2xl">
+      {/* Logo — esquina superior derecha */}
+      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 lg:top-8 lg:right-10 z-10">
+        <img
+          src="/logo-medimundo.png?v=5"
+          alt="MediMundo"
+          className="w-36 sm:w-52 lg:w-64"
+        />
+      </div>
 
-          {/* Logo visible en portada */}
-          <img
-            src="/logo-medimundo.png?v=5"
-            alt="MediMundo"
-            className="mb-6 w-52 sm:w-72 lg:w-96"
-          />
+      <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
+        <div className="max-w-2xl">
           <h1 className="text-4xl font-extrabold tracking-tight text-white drop-shadow sm:text-5xl lg:text-6xl">
             Equipo médico en renta
             <span className="block text-blue-100">a domicilio en Querétaro</span>
