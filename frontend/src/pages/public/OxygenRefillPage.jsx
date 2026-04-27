@@ -50,6 +50,16 @@ export default function OxygenRefillPage() {
         />
       </Helmet>
 
+      <div
+        className="min-h-screen"
+        style={{
+          backgroundImage: 'url(/images/fondo-recargas-oxigeno.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+        }}
+      >
+      <div className="min-h-screen" style={{ background: 'rgba(255,255,255,0.82)' }}>
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-5 lg:gap-14">
 
@@ -193,6 +203,8 @@ export default function OxygenRefillPage() {
             LPM = Litros Por Minuto · Valores de referencia. Consulta con tu médico la dosis indicada.
           </p>
         </div>
+      </div>
+      </div>
       </div>
     </>
   );
