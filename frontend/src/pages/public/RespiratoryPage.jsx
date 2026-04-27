@@ -216,11 +216,19 @@ export default function RespiratoryPage() {
       </Helmet>
 
       {/* Hero banner */}
-      <div className="bg-gradient-to-br from-primary-700 to-primary-500 text-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary-200">Renta de equipo respiratorio</p>
+      <div
+        className="relative text-white overflow-hidden"
+        style={{
+          backgroundImage: 'url(/images/inogen-bg-forest.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-slate-900/50" />
+        <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <p className="text-sm font-semibold uppercase tracking-widest text-blue-300">Renta de equipo respiratorio</p>
           <h1 className="mt-2 text-3xl font-extrabold sm:text-4xl lg:text-5xl">Concentradores de Oxígeno Inogen</h1>
-          <p className="mt-3 max-w-2xl text-primary-100 sm:text-lg">
+          <p className="mt-3 max-w-2xl text-slate-200 sm:text-lg">
             Oxígeno portátil y estacionario con entrega a domicilio en Querétaro.
             Equipos certificados, silenciosos y de larga duración.
           </p>
