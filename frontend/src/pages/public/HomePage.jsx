@@ -344,20 +344,20 @@ export default function HomePage() {
 
       {/* How it works */}
       <section className="bg-primary-50/50">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <h2 className="text-center text-2xl font-bold text-gray-900 sm:text-3xl">¿Cómo funciona?</h2>
-          <p className="mx-auto mt-2 max-w-xl text-center text-gray-500">
+        <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+          <h2 className="text-center text-xl font-bold text-gray-900 sm:text-2xl">¿Cómo funciona?</h2>
+          <p className="mx-auto mt-1 max-w-lg text-center text-sm text-gray-500">
             Rentar equipo médico nunca fue tan fácil. En 4 sencillos pasos.
           </p>
-          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, i) => (
               <div key={i} className="relative flex flex-col items-center text-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-600 text-white shadow-lg">
-                  <step.icon className="h-8 w-8" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-600 text-white shadow">
+                  <step.icon className="h-6 w-6" />
                 </div>
                 <span className="mt-1 text-xs font-bold text-primary-600">Paso {i + 1}</span>
-                <h3 className="mt-2 text-lg font-bold text-gray-900">{step.title}</h3>
-                <p className="mt-1 text-sm text-gray-500">{step.desc}</p>
+                <h3 className="mt-1 text-base font-bold text-gray-900">{step.title}</h3>
+                <p className="mt-0.5 text-xs text-gray-500">{step.desc}</p>
               </div>
             ))}
           </div>
