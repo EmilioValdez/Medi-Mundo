@@ -59,7 +59,7 @@ export default function OxygenRefillPage() {
           backgroundAttachment: 'fixed',
         }}
       >
-      <div className="min-h-screen" style={{ background: 'rgba(255,255,255,0.82)' }}>
+      <div className="min-h-screen" style={{ background: 'rgba(255,255,255,0.72)' }}>
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-5 lg:gap-14">
 
