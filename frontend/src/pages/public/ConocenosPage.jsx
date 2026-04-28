@@ -159,10 +159,10 @@ export default function ConocenosPage() {
         style={{
           backgroundImage: 'url(/images/tienda-medimundo-queretaro.webp)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: '70% 15%',
         }}
       >
-        <div style={{ background: 'rgba(255,255,255,0.72)' }}>
+        <div style={{ background: 'rgba(255,255,255,0.52)' }}>
           <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
             <div className="max-w-2xl">
               <h1 className="text-3xl font-bold sm:text-4xl text-gray-900">Conócenos</h1>
