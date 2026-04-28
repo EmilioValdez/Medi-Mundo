@@ -43,6 +43,8 @@ import AboutPage from './pages/public/AboutPage';
 import FAQPage from './pages/public/FAQPage';
 import ContactPage from './pages/public/ContactPage';
 import ConocenosPage from './pages/public/ConocenosPage';
+import BlogPage from './pages/public/BlogPage';
+import BlogPostPage from './pages/public/BlogPostPage';
 
 import LoginPage from './pages/admin/LoginPage';
 import DashboardPage from './pages/admin/DashboardPage';
@@ -103,6 +105,8 @@ export default function App() {
         <Route path="/nosotros" element={<Navigate to="/conocenos" replace />} />
         <Route path="/faq" element={<Navigate to="/conocenos" replace />} />
         <Route path="/contacto" element={<Navigate to="/conocenos" replace />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
       </Route>
 
       {/* Admin login (no layout) */}

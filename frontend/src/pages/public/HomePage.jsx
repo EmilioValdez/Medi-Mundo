@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import {
@@ -316,6 +316,63 @@ function InogenSection() {
   );
 }
 
+function BlogPreview() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    apiClient.get('/blog/posts')
+      .then(r => setPosts(Array.isArray(r.data) ? r.data.slice(0, 3) : []))
+      .catch(() => {});
+  }, []);
+
+  if (posts.length === 0) return null;
+
+  return (
+    <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="flex items-end justify-between mb-8 gap-4 flex-wrap">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-widest text-primary-600 mb-1">Recursos útiles</p>
+          <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">Guías para tu recuperación</h2>
+        </div>
+        <Link to="/blog" className="text-sm font-semibold text-primary-600 hover:text-primary-800 transition-colors flex items-center gap-1 shrink-0">
+          Ver todos los artículos
+          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </Link>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {posts.map(post => (
+          <Link
+            key={post.slug}
+            to={`/blog/${post.slug}`}
+            className="group bg-white rounded-2xl border border-gray-100 overflow-hidden flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-gray-100"
+          >
+            <div className="h-1 bg-gradient-to-r from-primary-500 to-primary-400" />
+            <div className="p-5 flex flex-col flex-1">
+              {post.categoria && (
+                <span className="text-[10px] font-bold text-primary-600 uppercase tracking-widest mb-2">{post.categoria}</span>
+              )}
+              <h3 className="text-sm font-bold text-gray-900 leading-snug mb-2 line-clamp-2 group-hover:text-primary-600 transition-colors">
+                {post.titulo}
+              </h3>
+              {post.resumen && (
+                <p className="text-xs text-gray-500 leading-relaxed line-clamp-2 flex-1">{post.resumen}</p>
+              )}
+              <span className="mt-4 text-xs font-semibold text-primary-600 flex items-center gap-1">
+                Leer más
+                <svg className="h-3 w-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </span>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export default function HomePage() {
   const [categories, setCategories] = useState([]);
   const [featured, setFeatured] = useState([]);
@@ -428,6 +485,9 @@ export default function HomePage() {
           </div>
         </section>
       )}
+
+      {/* Blog preview */}
+      <BlogPreview />
 
       {/* Trust signals */}
       <section className="bg-gray-900 text-white">

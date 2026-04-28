@@ -156,3 +156,16 @@ async def api_blog_posts(db: AsyncSession = Depends(get_db)):
         {c.key: getattr(p, c.key) for c in BlogPost.__table__.columns}
         for p in posts
     ]
+
+
+@router.get("/api/blog/posts/{slug}")
+async def api_blog_post(slug: str, db: AsyncSession = Depends(get_db)):
+    result = await db.execute(
+        select(BlogPost).where(BlogPost.slug == slug, BlogPost.activo == True)
+    )
+    post = result.scalar_one_or_none()
+    if not post:
+        raise HTTPException(status_code=404, detail="Artículo no encontrado")
+    data = {c.key: getattr(post, c.key) for c in BlogPost.__table__.columns}
+    data["contenido_html"] = _render_markdown(post.contenido or "")
+    return data

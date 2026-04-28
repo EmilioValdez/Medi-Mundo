@@ -56,6 +56,21 @@
   }
 }
 
+/* Blog article prose */
+.blog-content h2 { font-size: 1.4rem; font-weight: 700; margin: 2rem 0 0.875rem; color: #111827; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; }
+.blog-content h3 { font-size: 1.15rem; font-weight: 600; margin: 1.5rem 0 0.625rem; color: #1f2937; }
+.blog-content p { margin: 0.875rem 0; line-height: 1.8; color: #374151; }
+.blog-content ul { list-style: disc; padding-left: 1.5rem; margin: 0.875rem 0; color: #374151; }
+.blog-content ol { list-style: decimal; padding-left: 1.5rem; margin: 0.875rem 0; color: #374151; }
+.blog-content li { margin: 0.35rem 0; line-height: 1.7; }
+.blog-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+.blog-content th { background: #f0f9ff; border: 1px solid #e0f2fe; padding: 0.6rem 0.875rem; font-weight: 600; text-align: left; color: #0369a1; }
+.blog-content td { border: 1px solid #e5e7eb; padding: 0.6rem 0.875rem; }
+.blog-content strong { font-weight: 600; color: #111827; }
+.blog-content hr { border: none; border-top: 1px solid #e5e7eb; margin: 2rem 0; }
+.blog-content a { color: #0284c7; text-decoration: underline; }
+.blog-content blockquote { border-left: 4px solid #0ea5e9; padding-left: 1rem; color: #6b7280; font-style: italic; margin: 1.5rem 0; }
+
 /* Background watermark — disabled */
 .bg-watermark {
   position: relative;
