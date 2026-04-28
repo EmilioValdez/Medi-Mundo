@@ -28,7 +28,7 @@ function StoreCarousel() {
   }, [next]);
 
   return (
-    <div className="relative overflow-hidden rounded-2xl shadow-md aspect-[16/7] bg-gray-100">
+    <div className="relative overflow-hidden aspect-[16/9] bg-gray-100">
       {/* Slides */}
       {STORE_PHOTOS.map((photo, i) => (
         <div
@@ -251,8 +251,14 @@ export default function ConocenosPage() {
       </section>
 
       {/* Carrusel tienda */}
-      <section className="mx-auto max-w-7xl px-4 pt-12 pb-0 sm:px-6 lg:px-8">
-        <StoreCarousel />
+      <section className="mx-auto max-w-4xl px-4 pt-12 pb-0 sm:px-6 lg:px-8">
+        <div className="text-center mb-5">
+          <p className="text-xs font-semibold uppercase tracking-widest text-primary-500 mb-1">Nuestra tienda</p>
+          <h2 className="text-xl font-bold text-gray-800">Más de 20 años en Querétaro</h2>
+        </div>
+        <div className="rounded-2xl overflow-hidden shadow-lg ring-1 ring-gray-200">
+          <StoreCarousel />
+        </div>
       </section>
 
       {/* ── NOSOTROS ── */}
