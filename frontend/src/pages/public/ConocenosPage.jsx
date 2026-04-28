@@ -233,7 +233,7 @@ export default function ConocenosPage() {
         style={{
           backgroundImage: 'url(/images/tienda-medimundo-queretaro.webp)',
           backgroundSize: 'cover',
-          backgroundPosition: '70% 15%',
+          backgroundPosition: '70% 40%',
         }}
       >
         <div style={{ background: 'rgba(255,255,255,0.52)' }}>
