@@ -8,71 +8,95 @@
 <meta property="og:description" content="Guías y consejos sobre renta de equipo médico, cuidado del adulto mayor y recuperación en casa.">
 <meta property="og:url" content="https://medimundo.mx/blog">
 <meta property="og:type" content="website">
+<style>
+  .card-accent { background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%); }
+  .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .card-hover:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.09); }
+</style>
 {% endblock %}
 
 {% block content %}
-<main class="max-w-5xl mx-auto px-4 py-12">
+<main class="max-w-5xl mx-auto px-4 py-14">
 
-  <div class="mb-10">
-    <nav class="text-sm text-gray-500 mb-4">
-      <a href="/" class="hover:text-sky-600">Inicio</a>
-      <span class="mx-2">/</span>
-      <span class="text-gray-800">Blog</span>
+  <!-- Header -->
+  <div class="mb-12">
+    <nav class="text-sm text-gray-400 mb-5 flex items-center gap-1.5">
+      <a href="/" class="hover:text-sky-600 transition-colors">Inicio</a>
+      <span>/</span>
+      <span class="text-gray-700 font-medium">Blog</span>
     </nav>
-    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Blog MediMundo</h1>
-    <p class="text-gray-500 text-lg">Guías, consejos y recursos sobre cuidado en casa y equipo médico en Querétaro.</p>
+    <div class="flex items-end justify-between gap-4 flex-wrap">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest text-sky-600 mb-2">Recursos y guías</p>
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Información útil para<br class="hidden sm:block"> tu recuperación en casa</h1>
+      </div>
+      <p class="text-gray-500 max-w-sm text-sm leading-relaxed">Guías prácticas sobre equipo médico, cuidado del adulto mayor y recuperación postoperatoria en Querétaro.</p>
+    </div>
+    <div class="mt-8 h-px bg-gradient-to-r from-sky-200 via-gray-200 to-transparent"></div>
   </div>
 
   {% if posts %}
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {% for post in posts %}
-    <article class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
-      {% if post.imagen_principal %}
-      <a href="/blog/{{ post.slug }}">
-        <img
-          src="{{ post.imagen_principal }}"
-          alt="{{ post.alt_imagen or post.titulo }}"
-          class="w-full h-48 object-cover"
-          loading="lazy"
-        >
-      </a>
-      {% endif %}
-      <div class="p-5">
-        {% if post.categoria %}
-        <span class="text-xs font-semibold text-sky-600 uppercase tracking-wide">{{ post.categoria }}</span>
-        {% endif %}
-        <h2 class="text-lg font-bold text-gray-900 mt-2 mb-2 leading-snug">
-          <a href="/blog/{{ post.slug }}" class="hover:text-sky-600">{{ post.titulo }}</a>
+    <article class="card-hover bg-white rounded-2xl border border-gray-100 overflow-hidden flex flex-col">
+
+      <!-- Color accent bar -->
+      <div class="h-1 card-accent"></div>
+
+      <div class="p-6 flex flex-col flex-1">
+
+        <!-- Category + date -->
+        <div class="flex items-center justify-between mb-3">
+          {% if post.categoria %}
+          <span class="text-[11px] font-bold text-sky-600 uppercase tracking-widest bg-sky-50 px-2.5 py-1 rounded-full">
+            {{ post.categoria }}
+          </span>
+          {% endif %}
+          <span class="text-[11px] text-gray-400 ml-auto">{{ post.fecha_publicacion }}</span>
+        </div>
+
+        <!-- Title -->
+        <h2 class="text-base font-bold text-gray-900 leading-snug mb-3 flex-none" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+          <a href="/blog/{{ post.slug }}" class="hover:text-sky-600 transition-colors">{{ post.titulo }}</a>
         </h2>
+
+        <!-- Excerpt -->
         {% if post.resumen %}
-        <p class="text-sm text-gray-500 line-clamp-3">{{ post.resumen }}</p>
+        <p class="text-sm text-gray-500 leading-relaxed flex-1" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+          {{ post.resumen }}
+        </p>
         {% endif %}
-        <div class="mt-4 flex items-center justify-between">
-          <span class="text-xs text-gray-400">{{ post.fecha_publicacion }}</span>
-          <a href="/blog/{{ post.slug }}" class="text-sm font-semibold text-sky-600 hover:text-red-700">
-            Leer más →
+
+        <!-- CTA -->
+        <div class="mt-5 pt-4 border-t border-gray-100 flex items-center justify-between">
+          <a href="/blog/{{ post.slug }}" class="inline-flex items-center gap-1.5 text-sm font-semibold text-sky-600 hover:text-sky-800 transition-colors group">
+            Leer artículo
+            <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
+            </svg>
           </a>
         </div>
+
       </div>
     </article>
     {% endfor %}
   </div>
 
   {% if total_pages > 1 %}
-  <nav class="mt-10 flex justify-center gap-2">
+  <nav class="mt-12 flex justify-center items-center gap-3">
     {% if page > 1 %}
-    <a href="/blog?page={{ page - 1 }}" class="px-4 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:border-sky-500 hover:text-sky-600">← Anterior</a>
+    <a href="/blog?page={{ page - 1 }}" class="px-5 py-2.5 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:border-sky-400 hover:text-sky-600 transition-colors">← Anterior</a>
     {% endif %}
-    <span class="px-4 py-2 text-sm text-gray-500">Página {{ page }} de {{ total_pages }}</span>
+    <span class="px-4 py-2 text-sm text-gray-400">{{ page }} / {{ total_pages }}</span>
     {% if page < total_pages %}
-    <a href="/blog?page={{ page + 1 }}" class="px-4 py-2 rounded-lg border border-gray-300 text-sm font-medium hover:border-sky-500 hover:text-sky-600">Siguiente →</a>
+    <a href="/blog?page={{ page + 1 }}" class="px-5 py-2.5 rounded-xl border border-gray-200 text-sm font-medium text-gray-600 hover:border-sky-400 hover:text-sky-600 transition-colors">Siguiente →</a>
     {% endif %}
   </nav>
   {% endif %}
 
   {% else %}
-  <div class="text-center py-20 text-gray-400">
-    <p class="text-lg">No hay artículos publicados aún.</p>
+  <div class="text-center py-24 text-gray-400">
+    <p class="text-lg font-medium">No hay artículos publicados aún.</p>
   </div>
   {% endif %}
 
