@@ -99,7 +99,7 @@ export default function CatalogPage() {
 
   const Sidebar = () => (
     <div className="space-y-2">
-      <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">Categorías</h3>
+      <p className="text-sm font-semibold text-gray-900 uppercase tracking-wider">Categorías</p>
       <button
         onClick={() => handleCatClick('')}
         className={`block w-full text-left rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
@@ -215,6 +215,7 @@ export default function CatalogPage() {
 
           {/* Equipment grid */}
           <div className="flex-1">
+            <h2 className="sr-only">Equipo médico disponible</h2>
             {loading ? (
               <div className="flex justify-center py-20">
                 <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary-200 border-t-primary-600" />

@@ -117,11 +117,14 @@ export default function RentasPage() {
         ) : items.length === 0 ? (
           <div className="py-20 text-center text-gray-500">No hay equipo disponible en este momento.</div>
         ) : (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {items.map(item => (
-              <EquipmentCard key={item.id} item={item} showPrices specs={getSpecs(item.name)} />
-            ))}
-          </div>
+          <>
+            <h2 className="sr-only">Equipos disponibles en renta</h2>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {items.map(item => (
+                <EquipmentCard key={item.id} item={item} showPrices specs={getSpecs(item.name)} />
+              ))}
+            </div>
+          </>
         )}
       </div>
       </div>
