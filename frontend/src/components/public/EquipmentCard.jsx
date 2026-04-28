@@ -46,7 +46,7 @@ export default function EquipmentCard({ item, showPrices = false, specs = null }
         {imageUrl ? (
           <img
             src={imageUrl}
-            alt={item.name}
+            alt={`${item.name} en renta en Querétaro — MediMundo`}
             loading="lazy"
             className="max-h-48 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
             onError={(e) => {

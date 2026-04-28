@@ -121,7 +121,7 @@ export default function EquipmentDetailPage() {
               {images.length > 0 ? (
                 <img
                   src={images[selectedImage]}
-                  alt={item.name}
+                  alt={`${item.name} en renta en Querétaro — MediMundo`}
                   className="h-full w-full object-cover"
                   onError={(e) => { e.target.style.display = 'none'; }}
                 />
@@ -143,7 +143,7 @@ export default function EquipmentDetailPage() {
                       i === selectedImage ? 'border-primary-500' : 'border-gray-200'
                     }`}
                   >
-                    <img src={img} alt="" className="h-full w-full object-cover" />
+                    <img src={img} alt={`${item.name} — imagen ${i + 1}`} className="h-full w-full object-cover" />
                   </button>
                 ))}
               </div>

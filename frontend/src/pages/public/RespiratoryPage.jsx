@@ -112,7 +112,7 @@ function ModelCard({ model }) {
       <div className="aspect-[4/3] overflow-hidden bg-gray-50">
         <img
           src={model.image}
-          alt={model.name}
+          alt={`Concentrador de oxígeno Inogen ${model.name} — renta en Querétaro`}
           className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
           onError={(e) => { e.target.style.display = 'none'; }}
         />

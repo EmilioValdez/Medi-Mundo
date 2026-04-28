@@ -231,7 +231,7 @@ function InogenSection() {
               <img
                 key={m.id}
                 src={m.image}
-                alt={m.name}
+                alt={`${m.name} — equipo médico en renta Querétaro`}
                 className="max-h-56 w-auto object-contain drop-shadow-2xl transition-opacity duration-300"
               />
             </div>

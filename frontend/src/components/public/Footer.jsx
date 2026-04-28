@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <img src="/logo-medimundo-v2.png" alt="MediMundo" className="h-8" />
+              <img src="/logo-medimundo-v2.png" alt="MediMundo — Tienda de Ortopedia y Equipo Médico en Querétaro" className="h-8" />
             </Link>
             <p className="text-sm leading-relaxed">
               Renta de equipo médico a domicilio en Querétaro. Equipos sanitizados,
