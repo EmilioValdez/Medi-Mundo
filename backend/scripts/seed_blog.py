@@ -22,6 +22,7 @@ ARTICLE_FILES = [
     "01_renta-cama-hospitalaria-queretaro.md",
     "02_renta-concentrador-oxigeno-queretaro.md",
     "03_ubicacion-entrega-domicilio-queretaro.md",
+    "05_renta-silla-de-ruedas-queretaro.md",
 ]
 
 # Slugs de artículos duplicados o reemplazados que deben desactivarse
@@ -33,6 +34,7 @@ IMAGE_MAP = {
     "renta-cama-hospitalaria-queretaro": "/images/cama-hospitalaria-manual-medimundo-queretaro.jpg",
     "renta-concentrador-oxigeno-queretaro": "/images/concentrador-oxigeno-everflo-philips-respironics.jpg",
     "ubicacion-entrega-domicilio-medimundo-queretaro": "/images/silla-de-ruedas-renta-queretaro-medimundo.jpg",
+    "renta-silla-de-ruedas-queretaro": "/images/silla-de-ruedas-renta-queretaro-medimundo.jpg",
 }
 
 ALT_MAP = {
@@ -40,6 +42,7 @@ ALT_MAP = {
     "renta-concentrador-oxigeno-queretaro": "Cama hospitalaria eléctrica en renta — MediMundo Querétaro",
     "ubicacion-entrega-domicilio-medimundo-queretaro": "Silla de ruedas en renta en Querétaro — MediMundo",
     "concentrador-oxigeno-renta-queretaro": "Cama hospitalaria eléctrica de lujo en renta — MediMundo Querétaro",
+    "renta-silla-de-ruedas-queretaro": "Silla de ruedas en renta en Querétaro — MediMundo",
 }
 
 
