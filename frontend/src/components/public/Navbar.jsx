@@ -7,7 +7,22 @@ const WA_NUMBER = '524422237757';
 const links = [
   { to: '/rentas', label: 'Rentas' },
   { to: '/recargas', label: 'Recargas de Oxígeno' },
+  { to: '/catalogo', label: 'Catálogo' },
+  { to: '/conocenos', label: 'Conócenos' },
+  { to: '/blog', label: 'Blog' },
 ];
+
+const navLinkClass = ({ isActive }) =>
+  `rounded-lg px-3 py-2 text-base font-medium transition-colors ${
+    isActive
+      ? 'bg-primary-50 text-primary-700'
+      : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+  }`;
+
+const mobileNavLinkClass = ({ isActive }) =>
+  `rounded-lg px-3 py-2.5 text-sm font-medium ${
+    isActive ? 'bg-primary-50 text-primary-700' : 'text-gray-600'
+  }`;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -16,30 +31,17 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-0 sm:px-6 lg:px-8">
 
-        {/* Logo MediMundo */}
+        {/* Logo */}
         <Link to="/" className="flex items-center gap-2 shrink-0">
           <img src="/logo-medimundo-v2.png" alt="MediMundo — Renta de Equipo Médico en Querétaro" className="h-20 md:h-28 w-auto" />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-4">
-          {links.map((l) => (
-            <NavLink
-              key={l.to}
-              to={l.to}
-              className={({ isActive }) =>
-                `rounded-lg px-3 py-2 text-base font-medium transition-colors ${
-                  isActive
-                    ? 'bg-primary-50 text-primary-700'
-                    : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
-                }`
-              }
-            >
-              {l.label}
-            </NavLink>
-          ))}
+        <nav className="hidden md:flex items-center gap-1">
+          <NavLink to="/rentas" className={navLinkClass}>Rentas</NavLink>
+          <NavLink to="/recargas" className={navLinkClass}>Recargas de Oxígeno</NavLink>
 
-          {/* Inogen logo link — después de Recargas */}
+          {/* Inogen logo link */}
           <NavLink
             to="/respiratorio"
             className={({ isActive }) =>
@@ -48,40 +50,12 @@ export default function Navbar() {
               }`
             }
           >
-            <img
-              src="/images/inogen-logo.png"
-              alt="Concentradores Inogen"
-              className="h-14 w-auto"
-            />
+            <img src="/images/inogen-logo.png" alt="Concentradores Inogen" className="h-14 w-auto" />
           </NavLink>
 
-          <NavLink
-            to="/catalogo"
-            className={({ isActive }) =>
-              `rounded-lg px-3 py-2 text-base font-medium transition-colors ${
-                isActive ? 'bg-primary-50 text-primary-700' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
-              }`
-            }
-          >
-            Catálogo
-          </NavLink>
-          <NavLink
-            to="/conocenos"
-            className={({ isActive }) =>
-              `rounded-lg px-3 py-2 text-base font-medium transition-colors ${
-                isActive ? 'bg-primary-50 text-primary-700' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
-              }`
-            }
-          >
-            Conócenos
-          </NavLink>
-
-          <a
-            href="/blog"
-            className="rounded-lg px-3 py-2 text-base font-medium transition-colors text-gray-600 hover:bg-gray-100 hover:text-gray-900"
-          >
-            Blog
-          </a>
+          <NavLink to="/catalogo" className={navLinkClass}>Catálogo</NavLink>
+          <NavLink to="/conocenos" className={navLinkClass}>Conócenos</NavLink>
+          <NavLink to="/blog" className={navLinkClass}>Blog</NavLink>
         </nav>
 
         {/* WhatsApp CTA */}
@@ -110,65 +84,24 @@ export default function Navbar() {
       {open && (
         <div className="border-t md:hidden">
           <nav className="flex flex-col px-4 py-2">
-            {links.map((l) => (
-              <NavLink
-                key={l.to}
-                to={l.to}
-                onClick={() => setOpen(false)}
-                className={({ isActive }) =>
-                  `rounded-lg px-3 py-2.5 text-sm font-medium ${
-                    isActive ? 'bg-primary-50 text-primary-700' : 'text-gray-600'
-                  }`
-                }
-              >
-                {l.label}
-              </NavLink>
-            ))}
+            <NavLink to="/rentas" onClick={() => setOpen(false)} className={mobileNavLinkClass}>Rentas</NavLink>
+            <NavLink to="/recargas" onClick={() => setOpen(false)} className={mobileNavLinkClass}>Recargas de Oxígeno</NavLink>
 
-            {/* Inogen logo link — móvil, después de Recargas */}
+            {/* Inogen logo link — móvil */}
             <NavLink
               to="/respiratorio"
               onClick={() => setOpen(false)}
               className={({ isActive }) =>
-                `flex items-center gap-3 rounded-lg px-3 py-2 ${
-                  isActive ? 'bg-primary-50' : ''
-                }`
+                `flex items-center gap-3 rounded-lg px-3 py-2 ${isActive ? 'bg-primary-50' : ''}`
               }
             >
               <img src="/images/inogen-logo.png" alt="Concentradores Inogen" className="h-8 w-auto" />
               <span className="text-sm font-medium text-gray-700">Concentradores Inogen</span>
             </NavLink>
 
-            <NavLink
-              to="/catalogo"
-              onClick={() => setOpen(false)}
-              className={({ isActive }) =>
-                `rounded-lg px-3 py-2.5 text-sm font-medium ${
-                  isActive ? 'bg-primary-50 text-primary-700' : 'text-gray-600'
-                }`
-              }
-            >
-              Catálogo
-            </NavLink>
-            <NavLink
-              to="/conocenos"
-              onClick={() => setOpen(false)}
-              className={({ isActive }) =>
-                `rounded-lg px-3 py-2.5 text-sm font-medium ${
-                  isActive ? 'bg-primary-50 text-primary-700' : 'text-gray-600'
-                }`
-              }
-            >
-              Conócenos
-            </NavLink>
-
-            <a
-              href="/blog"
-              onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-2.5 text-sm font-medium text-gray-600"
-            >
-              Blog
-            </a>
+            <NavLink to="/catalogo" onClick={() => setOpen(false)} className={mobileNavLinkClass}>Catálogo</NavLink>
+            <NavLink to="/conocenos" onClick={() => setOpen(false)} className={mobileNavLinkClass}>Conócenos</NavLink>
+            <NavLink to="/blog" onClick={() => setOpen(false)} className={mobileNavLinkClass}>Blog</NavLink>
 
             <a
               href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, me interesa información sobre renta de equipo médico.')}`}
