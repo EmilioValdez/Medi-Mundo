@@ -26,6 +26,11 @@ ARTICLE_FILES = [
     "06_cuidado-adulto-mayor-casa-queretaro.md",
     "07_recargas-oxigeno-queretaro.md",
     "08_equipo-medico-recuperacion-casa-queretaro.md",
+    "09_renta-cpap-bipap-queretaro.md",
+    "10_andaderas-bastones-queretaro.md",
+    "11_cama-hospitalaria-manual-vs-electrica.md",
+    "12_señales-alarma-postoperatorio-casa.md",
+    "13_como-prevenir-ulceras-por-presion-en-casa.md",
 ]
 
 # Slugs de artículos duplicados o reemplazados que deben desactivarse
@@ -41,6 +46,11 @@ IMAGE_MAP = {
     "cuidado-adulto-mayor-casa-queretaro": "/images/cama-hospitalaria-manual-medimundo-queretaro.jpg",
     "recargas-oxigeno-queretaro": "/images/concentrador-oxigeno-everflo-philips-respironics.jpg",
     "equipo-medico-recuperacion-casa-queretaro": "/images/cama-hospitalaria-manual-medimundo-queretaro.jpg",
+    "renta-cpap-bipap-queretaro": "/images/concentrador-oxigeno-everflo-philips-respironics.jpg",
+    "andaderas-bastones-queretaro": "/images/silla-de-ruedas-renta-queretaro-medimundo.jpg",
+    "cama-hospitalaria-manual-vs-electrica-queretaro": "/images/cama-hospitalaria-manual-medimundo-queretaro.jpg",
+    "señales-alarma-postoperatorio-casa": "/images/cama-hospitalaria-manual-medimundo-queretaro.jpg",
+    "como-prevenir-ulceras-por-presion-en-casa": "/images/cama-hospitalaria-manual-medimundo-queretaro.jpg",
 }
 
 ALT_MAP = {
@@ -52,6 +62,11 @@ ALT_MAP = {
     "cuidado-adulto-mayor-casa-queretaro": "Cama hospitalaria para adulto mayor en casa — MediMundo Querétaro",
     "recargas-oxigeno-queretaro": "Concentrador de oxígeno y recargas en Querétaro — MediMundo",
     "equipo-medico-recuperacion-casa-queretaro": "Equipo médico para recuperación en casa en Querétaro — MediMundo",
+    "renta-cpap-bipap-queretaro": "Equipo CPAP y BiPAP para apnea del sueño en renta — MediMundo Querétaro",
+    "andaderas-bastones-queretaro": "Andadera ortopédica y bastón en renta en Querétaro — MediMundo",
+    "cama-hospitalaria-manual-vs-electrica-queretaro": "Cama hospitalaria eléctrica y manual en renta — MediMundo Querétaro",
+    "señales-alarma-postoperatorio-casa": "Cuidados postoperatorios en casa — MediMundo Querétaro",
+    "como-prevenir-ulceras-por-presion-en-casa": "Colchón antiescaras para prevenir úlceras por presión — MediMundo Querétaro",
 }
 
 
