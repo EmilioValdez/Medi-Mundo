@@ -23,6 +23,9 @@ ARTICLE_FILES = [
     "02_renta-concentrador-oxigeno-queretaro.md",
     "03_ubicacion-entrega-domicilio-queretaro.md",
     "05_renta-silla-de-ruedas-queretaro.md",
+    "06_cuidado-adulto-mayor-casa-queretaro.md",
+    "07_recargas-oxigeno-queretaro.md",
+    "08_equipo-medico-recuperacion-casa-queretaro.md",
 ]
 
 # Slugs de artículos duplicados o reemplazados que deben desactivarse
@@ -35,14 +38,20 @@ IMAGE_MAP = {
     "renta-concentrador-oxigeno-queretaro": "/images/concentrador-oxigeno-everflo-philips-respironics.jpg",
     "ubicacion-entrega-domicilio-medimundo-queretaro": "/images/silla-de-ruedas-renta-queretaro-medimundo.jpg",
     "renta-silla-de-ruedas-queretaro": "/images/silla-de-ruedas-renta-queretaro-medimundo.jpg",
+    "cuidado-adulto-mayor-casa-queretaro": "/images/cama-hospitalaria-manual-medimundo-queretaro.jpg",
+    "recargas-oxigeno-queretaro": "/images/concentrador-oxigeno-everflo-philips-respironics.jpg",
+    "equipo-medico-recuperacion-casa-queretaro": "/images/cama-hospitalaria-manual-medimundo-queretaro.jpg",
 }
 
 ALT_MAP = {
     "renta-cama-hospitalaria-queretaro": "Cama hospitalaria manual en renta en Querétaro — MediMundo",
-    "renta-concentrador-oxigeno-queretaro": "Cama hospitalaria eléctrica en renta — MediMundo Querétaro",
+    "renta-concentrador-oxigeno-queretaro": "Concentrador de oxígeno en renta en Querétaro — MediMundo",
     "ubicacion-entrega-domicilio-medimundo-queretaro": "Silla de ruedas en renta en Querétaro — MediMundo",
-    "concentrador-oxigeno-renta-queretaro": "Cama hospitalaria eléctrica de lujo en renta — MediMundo Querétaro",
+    "concentrador-oxigeno-renta-queretaro": "Concentrador de oxígeno en renta — MediMundo Querétaro",
     "renta-silla-de-ruedas-queretaro": "Silla de ruedas en renta en Querétaro — MediMundo",
+    "cuidado-adulto-mayor-casa-queretaro": "Cama hospitalaria para adulto mayor en casa — MediMundo Querétaro",
+    "recargas-oxigeno-queretaro": "Concentrador de oxígeno y recargas en Querétaro — MediMundo",
+    "equipo-medico-recuperacion-casa-queretaro": "Equipo médico para recuperación en casa en Querétaro — MediMundo",
 }
 
 
