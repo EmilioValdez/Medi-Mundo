@@ -31,6 +31,10 @@ ARTICLE_FILES = [
     "11_cama-hospitalaria-manual-vs-electrica.md",
     "12_señales-alarma-postoperatorio-casa.md",
     "13_como-prevenir-ulceras-por-presion-en-casa.md",
+    "14_inogen-one-g5-concentrador-oxigeno-portatil.md",
+    "15_inogen-one-g4-concentrador-oxigeno-compacto.md",
+    "16_inogen-g2-g3-g4-g5-cual-elegir.md",
+    "17_inogen-at-home-concentrador-oxigeno-casa.md",
 ]
 
 # Slugs de artículos duplicados o reemplazados que deben desactivarse
@@ -51,6 +55,10 @@ IMAGE_MAP = {
     "cama-hospitalaria-manual-vs-electrica-queretaro": "/images/cama-hospitalaria-manual-medimundo-queretaro.jpg",
     "señales-alarma-postoperatorio-casa": "/images/cama-hospitalaria-manual-medimundo-queretaro.jpg",
     "como-prevenir-ulceras-por-presion-en-casa": "/images/cama-hospitalaria-manual-medimundo-queretaro.jpg",
+    "inogen-one-g5-concentrador-oxigeno-portatil-queretaro": "/images/concentrador-oxigeno-everflo-philips-respironics.jpg",
+    "inogen-one-g4-concentrador-oxigeno-compacto-queretaro": "/images/concentrador-oxigeno-everflo-philips-respironics.jpg",
+    "inogen-g2-g3-g4-g5-cual-elegir-queretaro": "/images/concentrador-oxigeno-everflo-philips-respironics.jpg",
+    "inogen-at-home-concentrador-oxigeno-casa-queretaro": "/images/concentrador-oxigeno-everflo-philips-respironics.jpg",
 }
 
 ALT_MAP = {
@@ -67,6 +75,10 @@ ALT_MAP = {
     "cama-hospitalaria-manual-vs-electrica-queretaro": "Cama hospitalaria eléctrica y manual en renta — MediMundo Querétaro",
     "señales-alarma-postoperatorio-casa": "Cuidados postoperatorios en casa — MediMundo Querétaro",
     "como-prevenir-ulceras-por-presion-en-casa": "Colchón antiescaras para prevenir úlceras por presión — MediMundo Querétaro",
+    "inogen-one-g5-concentrador-oxigeno-portatil-queretaro": "Inogen One G5 concentrador de oxígeno portátil en renta — MediMundo Querétaro",
+    "inogen-one-g4-concentrador-oxigeno-compacto-queretaro": "Inogen One G4 concentrador de oxígeno compacto en renta — MediMundo Querétaro",
+    "inogen-g2-g3-g4-g5-cual-elegir-queretaro": "Línea Inogen One concentradores de oxígeno portátiles — MediMundo Querétaro",
+    "inogen-at-home-concentrador-oxigeno-casa-queretaro": "Inogen At Home concentrador de oxígeno estacionario en renta — MediMundo Querétaro",
 }
 
 
