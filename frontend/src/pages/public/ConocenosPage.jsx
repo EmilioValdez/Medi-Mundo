@@ -176,6 +176,16 @@ export default function ConocenosPage() {
         </div>
       </section>
 
+      {/* Collage tienda */}
+      <section className="mx-auto max-w-7xl px-4 pt-12 pb-0 sm:px-6 lg:px-8">
+        <img
+          src="/images/collage-medimundo.jpg"
+          alt="Tienda MediMundo Querétaro — ortopedia, sillas de ruedas, concentradores de oxígeno y más"
+          className="w-full rounded-2xl shadow-md"
+          loading="lazy"
+        />
+      </section>
+
       {/* ── NOSOTROS ── */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <h2 className="text-center text-2xl font-bold text-gray-900 sm:text-3xl">Nuestros valores</h2>
