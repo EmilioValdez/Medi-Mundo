@@ -22,14 +22,17 @@ ARTICLE_FILES = [
     "01_renta-cama-hospitalaria-queretaro.md",
     "02_renta-concentrador-oxigeno-queretaro.md",
     "03_ubicacion-entrega-domicilio-queretaro.md",
-    "04_concentrador-oxigeno-renta-queretaro.md",
+]
+
+# Slugs de artículos duplicados o reemplazados que deben desactivarse
+DEACTIVATE_SLUGS = [
+    "concentrador-oxigeno-renta-queretaro",
 ]
 
 IMAGE_MAP = {
     "renta-cama-hospitalaria-queretaro": "/images/cama-hospitalaria-manual-medimundo-queretaro.jpg",
-    "renta-concentrador-oxigeno-queretaro": "/images/cama-hospitalaria-electrica-medimundo-queretaro.jpg",
+    "renta-concentrador-oxigeno-queretaro": "/images/concentrador-oxigeno-everflo-philips-respironics.jpg",
     "ubicacion-entrega-domicilio-medimundo-queretaro": "/images/silla-de-ruedas-renta-queretaro-medimundo.jpg",
-    "concentrador-oxigeno-renta-queretaro": "/images/cama-hospitalaria-electrica-lujo-medimundo-queretaro.jpg",
 }
 
 ALT_MAP = {
@@ -107,6 +110,17 @@ async def seed():
             else:
                 db.add(BlogPost(**data))
                 print(f"  INSERTED: {data['slug']}")
+
+        await db.commit()
+
+        # Desactivar artículos duplicados o reemplazados
+        for slug in DEACTIVATE_SLUGS:
+            row = (await db.execute(
+                select(BlogPost).where(BlogPost.slug == slug)
+            )).scalar_one_or_none()
+            if row and row.activo:
+                row.activo = False
+                print(f"  DEACTIVATED: {slug}")
 
         await db.commit()
         print("Done.")
