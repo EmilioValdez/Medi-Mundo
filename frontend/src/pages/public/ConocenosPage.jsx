@@ -1,10 +1,84 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 import {
   ShieldCheckIcon, SparklesIcon, HeartIcon, TruckIcon,
   PhoneIcon, EnvelopeIcon, MapPinIcon, ClockIcon,
-  ChevronDownIcon,
+  ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon,
 } from '@heroicons/react/24/outline';
+
+const STORE_PHOTOS = [
+  { src: '/images/tienda-sillas-de-ruedas-medimundo.webp',      alt: 'Sillas de ruedas en renta — MediMundo Querétaro',           caption: 'Sillas de ruedas' },
+  { src: '/images/tienda-interior-medimundo.webp',              alt: 'Interior de tienda MediMundo — equipo médico Querétaro',     caption: 'Nuestro local' },
+  { src: '/images/tienda-ortopedia-medimundo.webp',             alt: 'Ortopedia y productos de rehabilitación — MediMundo',        caption: 'Ortopedia' },
+  { src: '/images/tienda-calcetas-compresion-medimundo.webp',   alt: 'Calcetas de compresión Therafirm — MediMundo Querétaro',    caption: 'Calcetas de compresión' },
+  { src: '/images/tienda-orliman-medimundo.webp',               alt: 'Ortesis y férulas Orliman — MediMundo Querétaro',           caption: 'Ortesis Orliman' },
+  { src: '/images/tienda-equipo-medico-medimundo.webp',         alt: 'Equipo médico y de rehabilitación — MediMundo Querétaro',   caption: 'Equipo médico' },
+];
+
+function StoreCarousel() {
+  const [current, setCurrent] = useState(0);
+  const total = STORE_PHOTOS.length;
+
+  const next = useCallback(() => setCurrent(c => (c + 1) % total), [total]);
+  const prev = () => setCurrent(c => (c - 1 + total) % total);
+
+  useEffect(() => {
+    const timer = setInterval(next, 3500);
+    return () => clearInterval(timer);
+  }, [next]);
+
+  return (
+    <div className="relative overflow-hidden rounded-2xl shadow-md aspect-[16/7] bg-gray-100">
+      {/* Slides */}
+      {STORE_PHOTOS.map((photo, i) => (
+        <div
+          key={i}
+          className="absolute inset-0 transition-opacity duration-700"
+          style={{ opacity: i === current ? 1 : 0, zIndex: i === current ? 1 : 0 }}
+        >
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            className="h-full w-full object-cover"
+            loading="lazy"
+          />
+          {/* Caption */}
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-6 py-4">
+            <p className="text-white text-sm font-semibold tracking-wide">{photo.caption}</p>
+          </div>
+        </div>
+      ))}
+
+      {/* Arrows */}
+      <button
+        onClick={prev}
+        className="absolute left-3 top-1/2 -translate-y-1/2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/75 hover:bg-white shadow transition"
+        aria-label="Anterior"
+      >
+        <ChevronLeftIcon className="h-5 w-5 text-gray-700" />
+      </button>
+      <button
+        onClick={next}
+        className="absolute right-3 top-1/2 -translate-y-1/2 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/75 hover:bg-white shadow transition"
+        aria-label="Siguiente"
+      >
+        <ChevronRightIcon className="h-5 w-5 text-gray-700" />
+      </button>
+
+      {/* Dots */}
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+        {STORE_PHOTOS.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`h-2 rounded-full transition-all duration-300 ${i === current ? 'w-6 bg-white' : 'w-2 bg-white/50'}`}
+            aria-label={`Ir a imagen ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 const WA_NUMBER = '524422237757';
 
@@ -176,14 +250,9 @@ export default function ConocenosPage() {
         </div>
       </section>
 
-      {/* Collage tienda */}
+      {/* Carrusel tienda */}
       <section className="mx-auto max-w-7xl px-4 pt-12 pb-0 sm:px-6 lg:px-8">
-        <img
-          src="/images/collage-medimundo.jpg"
-          alt="Tienda MediMundo Querétaro — ortopedia, sillas de ruedas, concentradores de oxígeno y más"
-          className="w-full rounded-2xl shadow-md"
-          loading="lazy"
-        />
+        <StoreCarousel />
       </section>
 
       {/* ── NOSOTROS ── */}
