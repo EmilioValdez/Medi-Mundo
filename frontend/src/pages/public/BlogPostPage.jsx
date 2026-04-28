@@ -52,6 +52,22 @@ export default function BlogPostPage() {
         <meta property="og:url" content={`https://medimundo.mx/blog/${post.slug}`} />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="es_MX" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": post.titulo,
+          "description": post.meta_description || post.resumen,
+          "datePublished": post.fecha_publicacion,
+          "dateModified": post.actualizado || post.fecha_publicacion,
+          "author": { "@type": "Organization", "name": "MediMundo", "url": "https://medimundo.mx" },
+          "publisher": {
+            "@type": "Organization",
+            "name": "MediMundo",
+            "url": "https://medimundo.mx",
+            "logo": { "@type": "ImageObject", "url": "https://medimundo.mx/logo-medimundo-v2.png" }
+          },
+          "mainEntityOfPage": { "@type": "WebPage", "@id": `https://medimundo.mx/blog/${post.slug}` }
+        })}</script>
       </Helmet>
 
       <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
