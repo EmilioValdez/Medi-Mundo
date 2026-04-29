@@ -6,8 +6,7 @@ import { XMarkIcon, CheckCircleIcon, ArrowLeftIcon } from '@heroicons/react/24/o
 import apiClient from '../../api/client';
 import formatMXN from '../../utils/formatMXN';
 import { isRentalItem } from '../../utils/rentalItems';
-
-const WA_NUMBER = '524422237757';
+import { waLink, WA_MESSAGES } from '../../utils/whatsapp';
 
 export default function EquipmentDetailPage() {
   const { id } = useParams();
@@ -57,10 +56,8 @@ export default function EquipmentDetailPage() {
   };
 
   const waMessage = item
-    ? encodeURIComponent(
-        `Hola, me interesa rentar: ${item.name}. Fechas: ${form.start_date || '(por definir)'} a ${form.end_date || '(por definir)'}.`
-      )
-    : '';
+    ? waLink(`Hola, me interesa rentar: *${item.name}*. Fechas: ${form.start_date || '(por definir)'} a ${form.end_date || '(por definir)'}.`)
+    : waLink(WA_MESSAGES.catalogo);
 
   if (loading) {
     return (
@@ -87,7 +84,7 @@ export default function EquipmentDetailPage() {
             Ver cat\u00e1logo completo
           </Link>
           <a
-            href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, estoy buscando un equipo m\u00e9dico que no encuentro en su cat\u00e1logo.')}`}
+            href={waLink(WA_MESSAGES.noEncontro)}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-whatsapp px-6 py-2.5"
@@ -235,7 +232,7 @@ export default function EquipmentDetailPage() {
                 Solicitar renta
               </button>
               <a
-                href={`https://wa.me/${WA_NUMBER}?text=${waMessage}`}
+                href={waMessage}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp text-base px-6 py-3"
@@ -273,7 +270,7 @@ export default function EquipmentDetailPage() {
                   También puedes escribirnos por WhatsApp para agilizar el proceso.
                 </p>
                 <a
-                  href={`https://wa.me/${WA_NUMBER}?text=${waMessage}`}
+                  href={waMessage}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-whatsapp mt-4"

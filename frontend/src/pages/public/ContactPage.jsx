@@ -1,14 +1,14 @@
 import { Helmet } from 'react-helmet-async';
 import { PhoneIcon, EnvelopeIcon, MapPinIcon, ClockIcon } from '@heroicons/react/24/outline';
 
-const WA_NUMBER = '524422237757';
+import { waLink, WA_MESSAGES } from '../../utils/whatsapp';
 
 const contactInfo = [
   {
     icon: PhoneIcon,
     title: 'Teléfono / WhatsApp',
-    lines: ['442 223 77 57'],
-    link: `https://wa.me/${WA_NUMBER}`,
+    lines: ['442 615 66 49'],
+    link: waLink(WA_MESSAGES.contacto),
     linkText: 'Enviar WhatsApp',
   },
   {
@@ -81,7 +81,7 @@ export default function ContactPage() {
             Escríbenos por WhatsApp y te respondemos en minutos.
           </p>
           <a
-            href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, me interesa información sobre renta de equipo médico.')}`}
+            href={waLink(WA_MESSAGES.general)}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-6 inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3 text-base font-semibold text-green-600 shadow-lg transition-all hover:bg-green-50"

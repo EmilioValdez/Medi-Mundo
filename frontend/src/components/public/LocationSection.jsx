@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
+import { waLink, WA_MESSAGES } from '../../utils/whatsapp';
 
-const WA_NUMBER = '524422237757';
-const PHONE_DISPLAY = '442 223 7757';
+const PHONE_DISPLAY = '442 615 6649';
 
 // Schedule in Querétaro local time (UTC-6, no DST since 2023)
 const SCHEDULE = [
@@ -98,7 +98,7 @@ export default function LocationSection() {
 
             {/* WhatsApp button */}
             <a
-              href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, me interesa información sobre renta de equipo médico.')}`}
+              href={waLink(WA_MESSAGES.general)}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-whatsapp justify-center text-base py-3 px-6"

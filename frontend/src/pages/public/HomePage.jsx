@@ -13,7 +13,7 @@ import {
 import apiClient from '../../api/client';
 import EquipmentCard from '../../components/public/EquipmentCard';
 
-const WA_NUMBER = '524422237757';
+import { waLink, WA_MESSAGES } from '../../utils/whatsapp';
 
 const steps = [
   { icon: MagnifyingGlassIcon, title: 'Elige', desc: 'Explora nuestro catálogo y encuentra el equipo que necesitas.' },
@@ -101,7 +101,7 @@ function ParallaxHero() {
               Productos en renta
             </Link>
             <a
-              href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, me interesa rentar equipo médico.')}`}
+              href={waLink(WA_MESSAGES.rentas)}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-whatsapp text-base px-7 py-3"
@@ -299,7 +299,7 @@ function InogenSection() {
             Ver todos los modelos
           </Link>
           <a
-            href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, me interesa rentar un concentrador de oxígeno Inogen.')}`}
+            href={waLink(WA_MESSAGES.inogen)}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-whatsapp text-base px-7 py-3"
@@ -521,7 +521,7 @@ export default function HomePage() {
               Ver catálogo
             </Link>
             <a
-              href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, necesito rentar equipo médico.')}`}
+              href={waLink(WA_MESSAGES.rentas)}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-whatsapp text-base px-7 py-3"

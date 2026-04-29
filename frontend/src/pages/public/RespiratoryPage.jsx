@@ -1,7 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import formatMXN from '../../utils/formatMXN';
-
-const WA_NUMBER = '524422237757';
+import { waLink } from '../../utils/whatsapp';
 
 const MODELS = [
   {
@@ -102,9 +101,7 @@ function WaIcon() {
 }
 
 function ModelCard({ model }) {
-  const waMsg = encodeURIComponent(
-    `Hola, me interesa rentar el ${model.name}. ¿Pueden darme más información?`
-  );
+  const waMsg = waLink(`Hola, me interesa rentar el *${model.name}*. ¿Está disponible?`);
 
   return (
     <div className="flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow">
@@ -191,7 +188,7 @@ function ModelCard({ model }) {
 
         {/* CTA */}
         <a
-          href={`https://wa.me/${WA_NUMBER}?text=${waMsg}`}
+          href={waMsg}
           target="_blank"
           rel="noopener noreferrer"
           className="btn-whatsapp mt-auto justify-center py-3 text-sm"

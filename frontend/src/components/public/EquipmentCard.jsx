@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import formatMXN from '../../utils/formatMXN';
-
-const WA_NUMBER = '524422237757';
+import { waProductLink } from '../../utils/whatsapp';
 
 const categoryPlaceholders = {
   'sillas de ruedas':          { emoji: '♿',  bg: 'bg-blue-50' },
@@ -30,9 +29,7 @@ function splitName(name) {
 }
 
 export default function EquipmentCard({ item, showPrices = false, specs = null }) {
-  const waMsg = encodeURIComponent(
-    `Hola, me interesa rentar: ${item.name}. ¿Podrían darme más información?`
-  );
+  const waMsg = waProductLink(item.name);
 
   const imageUrl = item.images?.[0] || item.image_url || null;
   const placeholder = getPlaceholder(item.category_name);
@@ -112,7 +109,7 @@ export default function EquipmentCard({ item, showPrices = false, specs = null }
 
         {/* WhatsApp CTA — full width */}
         <a
-          href={`https://wa.me/${WA_NUMBER}?text=${waMsg}`}
+          href={waMsg}
           target="_blank"
           rel="noopener noreferrer"
           className="btn-whatsapp mt-5 w-full justify-center py-3 text-sm"

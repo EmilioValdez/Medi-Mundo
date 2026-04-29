@@ -80,7 +80,7 @@ function StoreCarousel() {
   );
 }
 
-const WA_NUMBER = '524422237757';
+import { waLink, WA_MESSAGES } from '../../utils/whatsapp';
 
 const values = [
   { icon: ShieldCheckIcon, title: 'Seguridad', desc: 'Todos nuestros equipos pasan por un riguroso protocolo de limpieza y desinfección antes de cada entrega.' },
@@ -119,8 +119,8 @@ const contactInfo = [
   {
     icon: PhoneIcon,
     title: 'Teléfono / WhatsApp',
-    lines: ['442 223 77 57'],
-    link: `https://wa.me/${WA_NUMBER}`,
+    lines: ['442 615 66 49'],
+    link: waLink(WA_MESSAGES.contacto),
     linkText: 'Enviar WhatsApp',
   },
   {
@@ -350,7 +350,7 @@ export default function ConocenosPage() {
             <h2 className="text-2xl font-bold sm:text-3xl">La forma más rápida de contactarnos</h2>
             <p className="mt-2 text-green-100 text-lg">Escríbenos por WhatsApp y te respondemos en minutos.</p>
             <a
-              href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, me interesa información sobre renta de equipo médico.')}`}
+              href={waLink(WA_MESSAGES.general)}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3 text-base font-semibold text-green-600 shadow-lg transition-all hover:bg-green-50"
@@ -374,7 +374,7 @@ export default function ConocenosPage() {
           <h3 className="text-lg font-semibold text-gray-900">¿Tienes otra pregunta?</h3>
           <p className="mt-1 text-sm text-gray-500">Escríbenos por WhatsApp y con gusto te atendemos.</p>
           <a
-            href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, tengo una pregunta sobre la renta de equipo médico.')}`}
+            href={waLink(WA_MESSAGES.faq)}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-whatsapp mt-4"

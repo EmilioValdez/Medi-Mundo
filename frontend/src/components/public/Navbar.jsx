@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-
-const WA_NUMBER = '524422237757';
+import { waLink, WA_MESSAGES } from '../../utils/whatsapp';
 
 const links = [
   { to: '/rentas', label: 'Rentas' },
@@ -60,7 +59,7 @@ export default function Navbar() {
 
         {/* WhatsApp CTA */}
         <a
-          href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, me interesa información sobre renta de equipo médico.')}`}
+          href={waLink(WA_MESSAGES.general)}
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:inline-flex btn-whatsapp text-xs shrink-0"
@@ -104,7 +103,7 @@ export default function Navbar() {
             <NavLink to="/blog" onClick={() => setOpen(false)} className={mobileNavLinkClass}>Blog</NavLink>
 
             <a
-              href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, me interesa información sobre renta de equipo médico.')}`}
+              href={waLink(WA_MESSAGES.general)}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-whatsapp mt-2 text-sm"

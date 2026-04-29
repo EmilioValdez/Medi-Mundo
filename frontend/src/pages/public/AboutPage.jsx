@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { ShieldCheckIcon, SparklesIcon, HeartIcon, TruckIcon } from '@heroicons/react/24/outline';
 
-const WA_NUMBER = '524422237757';
+import { waLink, WA_MESSAGES } from '../../utils/whatsapp';
 
 const values = [
   { icon: ShieldCheckIcon, title: 'Seguridad', desc: 'Todos nuestros equipos pasan por un riguroso protocolo de limpieza y desinfección antes de cada entrega.' },
@@ -128,7 +128,7 @@ export default function AboutPage() {
           <h2 className="text-2xl font-bold text-white sm:text-3xl">¿Listo para rentar?</h2>
           <p className="mt-3 text-primary-100">Contáctanos y recibe tu equipo sanitizado a domicilio.</p>
           <a
-            href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, me interesa rentar equipo médico.')}`}
+            href={waLink(WA_MESSAGES.rentas)}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-whatsapp mt-6 text-base px-8 py-3"

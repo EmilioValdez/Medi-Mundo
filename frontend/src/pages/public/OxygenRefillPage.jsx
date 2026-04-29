@@ -1,6 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-
-const WA_NUMBER = '524422237757';
+import { waLink, WA_MESSAGES } from '../../utils/whatsapp';
 
 const RECARGAS = [
   { litros: 10000, precio: 800 },
@@ -38,7 +37,7 @@ function OxygenIcon() {
 }
 
 export default function OxygenRefillPage() {
-  const waGeneral = encodeURIComponent('Hola, me interesa una recarga de oxígeno. ¿Pueden orientarme?');
+  const waGeneral = waLink(WA_MESSAGES.recargas);
 
   return (
     <>
@@ -96,7 +95,7 @@ export default function OxygenRefillPage() {
             </ul>
 
             <a
-              href={`https://wa.me/${WA_NUMBER}?text=${waGeneral}`}
+              href={waGeneral}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-whatsapp mt-8 inline-flex w-full justify-center sm:w-auto"
@@ -111,9 +110,7 @@ export default function OxygenRefillPage() {
           {/* ── Right column: refill rows ── */}
           <div className="lg:col-span-3 space-y-3">
             {RECARGAS.map((r) => {
-              const waMsg = encodeURIComponent(
-                `Hola, me interesa una recarga de oxígeno de ${r.litros.toLocaleString('es-MX')} litros. ¿Está disponible?`
-              );
+              const waMsg = waLink(`Hola, me interesa una recarga de oxígeno de *${r.litros.toLocaleString('es-MX')} litros*. ¿Está disponible?`);
               return (
                 <div
                   key={r.litros}
@@ -140,7 +137,7 @@ export default function OxygenRefillPage() {
                       {formatMXN(r.precio)}
                     </span>
                     <a
-                      href={`https://wa.me/${WA_NUMBER}?text=${waMsg}`}
+                      href={waMsg}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-whatsapp py-2 px-4 text-xs"

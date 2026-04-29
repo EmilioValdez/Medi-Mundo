@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 
-const WA_NUMBER = '524422237757';
+import { waLink, WA_MESSAGES } from '../../utils/whatsapp';
 
 const faqs = [
   {
@@ -107,7 +107,7 @@ export default function FAQPage() {
             Escríbenos por WhatsApp y con gusto te atendemos.
           </p>
           <a
-            href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, tengo una pregunta sobre la renta de equipo médico.')}`}
+            href={waLink(WA_MESSAGES.faq)}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-whatsapp mt-4"
