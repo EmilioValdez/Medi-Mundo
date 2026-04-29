@@ -95,16 +95,16 @@ export default function RentasPage() {
         <meta property="og:image" content="https://medimundo.mx/images/cama-hospitalaria-manual-medimundo-queretaro.jpg" />
       </Helmet>
 
-      <div
-        className="min-h-screen"
-        style={{
+      <div style={{ position: 'relative', minHeight: '100vh' }}>
+        <div style={{
+          position: 'fixed',
+          top: 0, left: 0, width: '100%', height: '100%',
           backgroundImage: 'url(/images/fondo-rentas.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center 20%',
-          backgroundAttachment: 'fixed',
-        }}
-      >
-      <div className="min-h-screen" style={{ background: 'rgba(255,255,255,0.65)' }}>
+          zIndex: -1,
+        }} />
+      <div className="min-h-screen" style={{ background: 'rgba(255,255,255,0.65)', position: 'relative' }}>
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Renta de Mobiliario Médico</h1>
