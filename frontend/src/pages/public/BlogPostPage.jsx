@@ -2,20 +2,58 @@ import { useState, useEffect } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import apiClient from '../../api/client';
+import { waLink, WA_MESSAGES } from '../../utils/whatsapp';
 
-const WA_NUMBER = '524422237757';
+function RelatedCard({ post }) {
+  const fecha = post.fecha_publicacion
+    ? new Date(post.fecha_publicacion).toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' })
+    : '';
+  return (
+    <Link
+      to={`/blog/${post.slug}`}
+      className="group flex flex-col gap-2 p-4 rounded-xl border border-gray-100 hover:border-primary-200 hover:shadow-sm bg-white transition-all"
+    >
+      {post.categoria && (
+        <span className="text-[10px] font-bold text-primary-600 uppercase tracking-widest">
+          {post.categoria}
+        </span>
+      )}
+      <p className="text-sm font-semibold text-gray-800 leading-snug group-hover:text-primary-700 transition-colors line-clamp-2">
+        {post.titulo}
+      </p>
+      {fecha && <span className="text-xs text-gray-400">{fecha}</span>}
+      <span className="text-xs font-semibold text-primary-600 flex items-center gap-1 mt-auto">
+        Leer artículo
+        <svg className="h-3 w-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+        </svg>
+      </span>
+    </Link>
+  );
+}
 
 export default function BlogPostPage() {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
+  const [related, setRelated] = useState([]);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     setLoading(true);
     setNotFound(false);
-    apiClient.get(`/blog/posts/${slug}`)
-      .then(r => setPost(r.data))
+    Promise.all([
+      apiClient.get(`/blog/posts/${slug}`),
+      apiClient.get('/blog/posts'),
+    ])
+      .then(([postRes, listRes]) => {
+        const current = postRes.data;
+        setPost(current);
+        const others = (listRes.data || []).filter(p => p.slug !== current.slug);
+        const sameCategory = others.filter(p => p.categoria === current.categoria);
+        const different = others.filter(p => p.categoria !== current.categoria);
+        setRelated([...sameCategory, ...different].slice(0, 3));
+      })
       .catch(err => {
         if (err.response?.status === 404) setNotFound(true);
       })
@@ -127,6 +165,18 @@ export default function BlogPostPage() {
           />
         </article>
 
+        {/* Related articles */}
+        {related.length > 0 && (
+          <div className="mt-14">
+            <h2 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-5">
+              También te puede interesar
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {related.map(p => <RelatedCard key={p.slug} post={p} />)}
+            </div>
+          </div>
+        )}
+
         {/* CTA block */}
         <div className="mt-14 bg-gradient-to-br from-primary-50 to-blue-50 border border-primary-100 rounded-2xl p-8 text-center">
           <p className="text-xs font-bold text-primary-600 uppercase tracking-widest mb-2">¿Necesitas equipo médico?</p>
@@ -136,16 +186,16 @@ export default function BlogPostPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="tel:4422237757"
+              href="tel:+5214426156649"
               className="btn-primary text-sm px-6 py-3"
             >
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
               </svg>
-              442 223 77 57
+              442 615 66 49
             </a>
             <a
-              href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hola, me interesa rentar equipo médico.')}`}
+              href={waLink(WA_MESSAGES.blog)}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-whatsapp text-sm px-6 py-3"

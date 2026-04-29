@@ -40,7 +40,7 @@ const LOCAL_BUSINESS_SCHEMA = {
   "name": "MediMundo",
   "description": "Tienda de ortopedia y renta de equipo médico en Querétaro. Camas hospitalarias, concentradores de oxígeno Inogen, sillas de ruedas, andaderas y más. Entrega a domicilio sanitizada.",
   "url": "https://medimundo.mx",
-  "telephone": "+524422237757",
+  "telephone": "+5214426156649",
   "email": "medicasaqro@gmail.com",
   "image": "https://medimundo.mx/images/tienda-medimundo-queretaro.webp",
   "priceRange": "$$",
