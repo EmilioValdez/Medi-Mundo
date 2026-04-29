@@ -1,5 +1,11 @@
-import { Component } from 'react';
-import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import { Component, useEffect } from 'react';
+import { Routes, Route, Navigate, Outlet, useLocation } from 'react-router-dom';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
 import useAuth from './hooks/useAuth';
 
 class ErrorBoundary extends Component {
@@ -104,6 +110,7 @@ import CategoriesPage from './pages/admin/CategoriesPage';
 function PublicLayout() {
   return (
     <>
+      <ScrollToTop />
       <Helmet>
         <script type="application/ld+json">
           {JSON.stringify(LOCAL_BUSINESS_SCHEMA)}
