@@ -430,7 +430,7 @@ export default function HomePage() {
           <p className="mx-auto mt-1 max-w-lg text-center text-sm text-gray-500">
             Rentar equipo médico nunca fue tan fácil. En 4 sencillos pasos.
           </p>
-          <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-6 lg:grid-cols-4">
             {steps.map((step, i) => (
               <div key={i} className="relative flex flex-col items-center text-center">
                 <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-600 text-white shadow-lg">
