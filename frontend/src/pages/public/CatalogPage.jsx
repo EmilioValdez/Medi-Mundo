@@ -128,10 +128,10 @@ export default function CatalogPage() {
     <>
       <Helmet>
         <title>Ortopedia y Equipo Médico en Querétaro | Venta y Renta | MediMundo</title>
-        <meta name="description" content="Catálogo completo de equipo médico en renta en Querétaro. Camas hospitalarias, sillas de ruedas, concentradores de oxígeno, movilidad y más." />
+        <meta name="description" content="Catálogo de ortopedia y equipo médico en Querétaro. Venta y renta de sillas de ruedas, camas, andaderas, fajas, collarines y equipo de diagnóstico. +20 años de experiencia." />
         <link rel="canonical" href="https://medimundo.mx/catalogo" />
         <meta property="og:title" content="Catálogo de Equipo Médico en Querétaro | MediMundo" />
-        <meta property="og:description" content="Catálogo completo de equipo médico en renta en Querétaro. Camas hospitalarias, sillas de ruedas, concentradores de oxígeno, movilidad y más." />
+        <meta property="og:description" content="Catálogo de ortopedia y equipo médico en Querétaro. Venta y renta de sillas de ruedas, camas, andaderas, fajas, collarines y equipo de diagnóstico. +20 años de experiencia." />
         <meta property="og:url" content="https://medimundo.mx/catalogo" />
         <meta property="og:image" content="https://medimundo.mx/images/silla-de-ruedas-renta-queretaro-medimundo.jpg" />
       </Helmet>

@@ -220,10 +220,10 @@ export default function ConocenosPage() {
     <>
       <Helmet>
         <title>Tienda de Ortopedia en Querétaro | Quiénes Somos | MediMundo</title>
-        <meta name="description" content="Conoce a MediMundo: quiénes somos, cómo contactarnos y respuestas a las preguntas más frecuentes sobre renta de equipo médico en Querétaro." />
+        <meta name="description" content="Somos MediMundo, tienda de ortopedia y renta de equipo médico en Querétaro con más de 20 años. Visítanos en Plaza de las Américas o escríbenos por WhatsApp." />
         <link rel="canonical" href="https://medimundo.mx/conocenos" />
         <meta property="og:title" content="Conócenos — MediMundo Querétaro" />
-        <meta property="og:description" content="Conoce a MediMundo: quiénes somos, cómo contactarnos y respuestas a las preguntas más frecuentes sobre renta de equipo médico en Querétaro." />
+        <meta property="og:description" content="Somos MediMundo, tienda de ortopedia y renta de equipo médico en Querétaro con más de 20 años. Visítanos en Plaza de las Américas o escríbenos por WhatsApp." />
         <meta property="og:url" content="https://medimundo.mx/conocenos" />
         <meta property="og:image" content="https://medimundo.mx/images/tienda-medimundo-queretaro.jpg" />
       </Helmet>
