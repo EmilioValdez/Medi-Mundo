@@ -108,39 +108,39 @@ export default function OxygenRefillPage() {
             </a>
           </div>
 
-          {/* ── Right column: refill grid ── */}
-          <div className="lg:col-span-3 grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {RECARGAS.map((r) => {
-              const waMsg = waLink(`Hola, me interesa una recarga de oxígeno de *${r.litros.toLocaleString('es-MX')} litros*. ¿Está disponible?`);
-              return (
-                <div
-                  key={r.litros}
-                  className="flex flex-col items-center text-center gap-2 rounded-2xl border border-gray-100 bg-white/80 px-4 py-5 hover:border-primary-200 hover:bg-primary-50/60 transition-colors shadow-sm"
-                >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-50">
-                    <OxygenIcon />
-                  </div>
-                  <div>
-                    <p className="text-lg font-extrabold text-gray-900 leading-none">
-                      {r.litros.toLocaleString('es-MX')}
-                    </p>
-                    <p className="text-xs text-gray-400 mt-0.5">litros</p>
-                  </div>
-                  <p className="text-xl font-extrabold text-primary-600">
-                    {formatMXN(r.precio)}
-                  </p>
-                  <a
-                    href={waMsg}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => trackWAClick('recargas_tabla')}
-                    className="btn-whatsapp py-1.5 px-4 text-xs w-full justify-center mt-auto"
+          {/* ── Right column: refill list ── */}
+          <div className="lg:col-span-3 flex justify-center lg:justify-start">
+            <div className="w-full max-w-xs space-y-2">
+              {RECARGAS.map((r) => {
+                const waMsg = waLink(`Hola, me interesa una recarga de oxígeno de *${r.litros.toLocaleString('es-MX')} litros*. ¿Está disponible?`);
+                return (
+                  <div
+                    key={r.litros}
+                    className="flex items-center justify-between gap-3 rounded-xl border border-gray-100 bg-white/80 px-4 py-3 hover:border-primary-200 hover:bg-primary-50/60 transition-colors shadow-sm"
                   >
-                    Pedir
-                  </a>
-                </div>
-              );
-            })}
+                    <div className="flex items-center gap-2 min-w-0">
+                      <OxygenIcon />
+                      <div className="leading-tight">
+                        <p className="text-sm font-bold text-gray-900">{r.litros.toLocaleString('es-MX')}</p>
+                        <p className="text-[10px] text-gray-400">litros</p>
+                      </div>
+                    </div>
+                    <span className="text-base font-extrabold text-primary-600 shrink-0">
+                      {formatMXN(r.precio)}
+                    </span>
+                    <a
+                      href={waMsg}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => trackWAClick('recargas_tabla')}
+                      className="btn-whatsapp py-1.5 px-3 text-xs shrink-0"
+                    >
+                      Pedir
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
         </div>
