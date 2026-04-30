@@ -236,11 +236,11 @@ export default function ConocenosPage() {
           backgroundPosition: '70% 40%',
         }}
       >
-        <div style={{ background: 'rgba(255,255,255,0.52)' }}>
+        <div style={{ background: 'rgba(255,255,255,0.78)' }}>
           <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
             <div className="max-w-2xl">
               <h1 className="text-3xl font-bold sm:text-4xl text-gray-900">Conócenos</h1>
-              <p className="mt-4 text-lg text-gray-800 font-medium leading-relaxed">
+              <p className="mt-4 text-lg text-gray-900 font-semibold leading-relaxed">
                 Somos una empresa queretana con más de 20 años facilitando el acceso a equipo médico
                 de calidad. Aquí encontrarás todo sobre nosotros, cómo contactarnos y respuestas
                 a tus dudas más comunes.
