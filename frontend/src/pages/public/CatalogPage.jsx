@@ -127,7 +127,7 @@ export default function CatalogPage() {
   return (
     <>
       <Helmet>
-        <title>Catálogo de Equipo Médico en Querétaro | MediMundo</title>
+        <title>Ortopedia y Equipo Médico en Querétaro | Venta y Renta | MediMundo</title>
         <meta name="description" content="Catálogo completo de equipo médico en renta en Querétaro. Camas hospitalarias, sillas de ruedas, concentradores de oxígeno, movilidad y más." />
         <link rel="canonical" href="https://medimundo.mx/catalogo" />
         <meta property="og:title" content="Catálogo de Equipo Médico en Querétaro | MediMundo" />
