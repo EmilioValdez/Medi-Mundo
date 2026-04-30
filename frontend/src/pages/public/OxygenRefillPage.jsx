@@ -71,7 +71,7 @@ export default function OxygenRefillPage() {
             <h1 className="text-3xl font-extrabold text-gray-900 sm:text-4xl leading-tight">
               Recarga de Tanques de Oxígeno
             </h1>
-            <p className="mt-4 text-gray-500 leading-relaxed">
+            <p className="mt-4 text-gray-700 leading-relaxed font-medium">
               Servicio de recarga de tanques de oxígeno medicinal certificado.
               Garantizamos pureza y seguridad para el cuidado de tus pacientes,
               con atención rápida en nuestra tienda de Querétaro.
@@ -79,7 +79,7 @@ export default function OxygenRefillPage() {
 
             <ul className="mt-6 space-y-3">
               {BULLETS.map((b) => (
-                <li key={b} className="flex items-center gap-2.5 text-sm text-gray-600">
+                <li key={b} className="flex items-center gap-2.5 text-sm text-gray-800 font-medium">
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-100">
                     <svg className="h-3 w-3 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
