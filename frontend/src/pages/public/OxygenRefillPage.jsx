@@ -105,8 +105,8 @@ export default function OxygenRefillPage() {
           </div>
 
           {/* ── Right column: refill list ── */}
-          <div className="lg:col-span-3 flex justify-center lg:justify-start">
-            <div className="w-full max-w-xs space-y-2">
+          <div className="lg:col-span-3 flex justify-center lg:justify-end">
+            <div className="w-full max-w-sm space-y-2">
               {RECARGAS.map((r) => {
                 const waMsg = waLink(`Hola, me interesa una recarga de oxígeno de *${r.litros.toLocaleString('es-MX')} litros*. ¿Está disponible?`);
                 return (
