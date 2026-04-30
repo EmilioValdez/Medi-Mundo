@@ -32,7 +32,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          <img src="/logo-medimundo-v2.png" alt="MediMundo — Renta de Equipo Médico en Querétaro" className="h-20 md:h-28 w-auto" width="350" height="112" />
+          <img src="/logo-medimundo-v2.webp" alt="MediMundo — Renta de Equipo Médico en Querétaro" className="h-20 md:h-28 w-auto" width="350" height="112" />
         </Link>
 
         {/* Desktop nav */}
@@ -49,7 +49,7 @@ export default function Navbar() {
               }`
             }
           >
-            <img src="/images/inogen-logo.png" alt="Concentradores Inogen" className="h-14 w-auto" />
+            <img src="/images/inogen-logo.webp" alt="Concentradores Inogen" className="h-14 w-auto" />
           </NavLink>
 
           <NavLink to="/catalogo" className={navLinkClass}>Catálogo</NavLink>
@@ -95,7 +95,7 @@ export default function Navbar() {
                 `flex items-center gap-3 rounded-lg px-3 py-2 ${isActive ? 'bg-primary-50' : ''}`
               }
             >
-              <img src="/images/inogen-logo.png" alt="Concentradores Inogen" className="h-8 w-auto" />
+              <img src="/images/inogen-logo.webp" alt="Concentradores Inogen" className="h-8 w-auto" />
               <span className="text-sm font-medium text-gray-700">Concentradores Inogen</span>
             </NavLink>
 

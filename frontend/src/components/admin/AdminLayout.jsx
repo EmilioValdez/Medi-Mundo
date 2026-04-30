@@ -34,7 +34,7 @@ export default function AdminLayout({ children }) {
     <>
       {/* Logo */}
       <div className="flex h-16 items-center gap-2 px-4 border-b border-gray-700">
-        <img src="/logo-medimundo-v2.png" alt="MediMundo" className="h-8" />
+        <img src="/logo-medimundo-v2.webp" alt="MediMundo" className="h-8" />
         <span className="ml-1 text-xs text-gray-400">Admin</span>
       </div>
 
