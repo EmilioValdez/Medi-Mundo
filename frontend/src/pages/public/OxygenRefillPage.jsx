@@ -4,16 +4,12 @@ import { waLink, WA_MESSAGES, trackWAClick } from '../../utils/whatsapp';
 const RECARGAS = [
   { litros: 10000, precio: 800 },
   { litros: 9500,  precio: 800 },
-  { litros: 7000,  precio: 520 },
   { litros: 6000,  precio: 520 },
   { litros: 4300,  precio: 500 },
-  { litros: 3455,  precio: 350 },
   { litros: 2459,  precio: 300 },
   { litros: 1750,  precio: 220 },
   { litros: 682,   precio: 160 },
   { litros: 425,   precio: 100 },
-  { litros: 255,   precio: 100 },
-  { litros: 170,   precio: 100 },
 ];
 
 const BULLETS = [
