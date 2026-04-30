@@ -13,7 +13,7 @@ import {
 import apiClient from '../../api/client';
 import EquipmentCard from '../../components/public/EquipmentCard';
 
-import { waLink, WA_MESSAGES } from '../../utils/whatsapp';
+import { waLink, WA_MESSAGES, trackWAClick } from '../../utils/whatsapp';
 
 const steps = [
   { icon: MagnifyingGlassIcon, title: 'Elige', desc: 'Explora nuestro catálogo y encuentra el equipo que necesitas.' },
@@ -104,6 +104,7 @@ function ParallaxHero() {
               href={waLink(WA_MESSAGES.rentas)}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWAClick('home_hero')}
               className="btn-whatsapp text-base px-7 py-3"
             >
               <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -302,6 +303,7 @@ function InogenSection() {
             href={waLink(WA_MESSAGES.inogen)}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWAClick('home_inogen')}
             className="btn-whatsapp text-base px-7 py-3"
           >
             <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -524,6 +526,7 @@ export default function HomePage() {
               href={waLink(WA_MESSAGES.rentas)}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWAClick('home_cta')}
               className="btn-whatsapp text-base px-7 py-3"
             >
               Contactar por WhatsApp

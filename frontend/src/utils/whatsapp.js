@@ -14,6 +14,15 @@ export const WA_MESSAGES = {
   noEncontro:    'Hola, estoy buscando un equipo médico que no encuentro en su catálogo. ¿Pueden ayudarme?',
 };
 
+export function trackWAClick(source = 'general') {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'whatsapp_click', {
+      event_category: 'conversion',
+      event_label: source,
+    });
+  }
+}
+
 export function waLink(msg) {
   return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
 }

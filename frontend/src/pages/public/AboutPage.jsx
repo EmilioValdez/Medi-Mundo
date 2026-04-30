@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { ShieldCheckIcon, SparklesIcon, HeartIcon, TruckIcon } from '@heroicons/react/24/outline';
 
-import { waLink, WA_MESSAGES } from '../../utils/whatsapp';
+import { waLink, WA_MESSAGES, trackWAClick } from '../../utils/whatsapp';
 
 const values = [
   { icon: ShieldCheckIcon, title: 'Seguridad', desc: 'Todos nuestros equipos pasan por un riguroso protocolo de limpieza y desinfección antes de cada entrega.' },
@@ -131,6 +131,7 @@ export default function AboutPage() {
             href={waLink(WA_MESSAGES.rentas)}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWAClick('nosotros')}
             className="btn-whatsapp mt-6 text-base px-8 py-3"
           >
             Contactar por WhatsApp

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import apiClient from '../../api/client';
-import { waLink, WA_MESSAGES } from '../../utils/whatsapp';
+import { waLink, WA_MESSAGES, trackWAClick } from '../../utils/whatsapp';
 
 function RelatedCard({ post }) {
   const fecha = post.fecha_publicacion
@@ -198,6 +198,7 @@ export default function BlogPostPage() {
               href={waLink(WA_MESSAGES.blog)}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWAClick('blog')}
               className="btn-whatsapp text-sm px-6 py-3"
             >
               <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">

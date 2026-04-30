@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { waLink, WA_MESSAGES } from '../../utils/whatsapp';
+import { waLink, WA_MESSAGES, trackWAClick } from '../../utils/whatsapp';
 
 const links = [
   { to: '/rentas', label: 'Rentas' },
@@ -62,6 +62,7 @@ export default function Navbar() {
           href={waLink(WA_MESSAGES.general)}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackWAClick('navbar')}
           className="hidden md:inline-flex btn-whatsapp text-xs shrink-0"
         >
           <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
@@ -107,6 +108,7 @@ export default function Navbar() {
               href={waLink(WA_MESSAGES.general)}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWAClick('navbar_movil')}
               className="btn-whatsapp mt-2 text-sm"
             >
               <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">

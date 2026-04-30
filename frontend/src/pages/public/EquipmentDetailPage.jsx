@@ -6,7 +6,7 @@ import { XMarkIcon, CheckCircleIcon, ArrowLeftIcon } from '@heroicons/react/24/o
 import apiClient from '../../api/client';
 import formatMXN from '../../utils/formatMXN';
 import { isRentalItem } from '../../utils/rentalItems';
-import { waLink, WA_MESSAGES } from '../../utils/whatsapp';
+import { waLink, WA_MESSAGES, trackWAClick } from '../../utils/whatsapp';
 
 export default function EquipmentDetailPage() {
   const { id } = useParams();
@@ -87,6 +87,7 @@ export default function EquipmentDetailPage() {
             href={waLink(WA_MESSAGES.noEncontro)}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWAClick('detalle_no_encontro')}
             className="btn-whatsapp px-6 py-2.5"
           >
             Preguntar por WhatsApp
@@ -235,6 +236,7 @@ export default function EquipmentDetailPage() {
                 href={waMessage}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWAClick('detalle_cotizar')}
                 className="btn-whatsapp text-base px-6 py-3"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -273,6 +275,7 @@ export default function EquipmentDetailPage() {
                   href={waMessage}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackWAClick('detalle_cta')}
                   className="btn-whatsapp mt-4"
                 >
                   Escribir por WhatsApp

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 
-import { waLink, WA_MESSAGES } from '../../utils/whatsapp';
+import { waLink, WA_MESSAGES, trackWAClick } from '../../utils/whatsapp';
 
 const faqs = [
   {
@@ -110,6 +110,7 @@ export default function FAQPage() {
             href={waLink(WA_MESSAGES.faq)}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWAClick('faq')}
             className="btn-whatsapp mt-4"
           >
             Preguntar por WhatsApp

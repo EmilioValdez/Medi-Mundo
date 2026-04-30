@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import formatMXN from '../../utils/formatMXN';
-import { waProductLink } from '../../utils/whatsapp';
+import { waProductLink, trackWAClick } from '../../utils/whatsapp';
 
 const categoryPlaceholders = {
   'sillas de ruedas':          { emoji: '♿',  bg: 'bg-blue-50' },
@@ -112,6 +112,7 @@ export default function EquipmentCard({ item, showPrices = false, specs = null }
           href={waMsg}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackWAClick('catalogo_card')}
           className="btn-whatsapp mt-5 w-full justify-center py-3 text-sm"
         >
           <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">

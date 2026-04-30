@@ -80,7 +80,7 @@ function StoreCarousel() {
   );
 }
 
-import { waLink, WA_MESSAGES } from '../../utils/whatsapp';
+import { waLink, WA_MESSAGES, trackWAClick } from '../../utils/whatsapp';
 
 const values = [
   { icon: ShieldCheckIcon, title: 'Seguridad', desc: 'Todos nuestros equipos pasan por un riguroso protocolo de limpieza y desinfección antes de cada entrega.' },
@@ -335,6 +335,7 @@ export default function ConocenosPage() {
                 ))}
                 {c.link && (
                   <a href={c.link} target="_blank" rel="noopener noreferrer"
+                    onClick={c.link.includes('wa.me') ? () => trackWAClick('conocenos_contacto') : undefined}
                     className="mt-3 inline-block text-sm font-medium text-primary-600 hover:text-primary-700">
                     {c.linkText} &rarr;
                   </a>
@@ -353,6 +354,7 @@ export default function ConocenosPage() {
               href={waLink(WA_MESSAGES.general)}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWAClick('conocenos_hero')}
               className="mt-6 inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3 text-base font-semibold text-green-600 shadow-lg transition-all hover:bg-green-50"
             >
               Abrir WhatsApp
@@ -377,6 +379,7 @@ export default function ConocenosPage() {
             href={waLink(WA_MESSAGES.faq)}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWAClick('conocenos_faq')}
             className="btn-whatsapp mt-4"
           >
             Preguntar por WhatsApp

@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { PhoneIcon, EnvelopeIcon, MapPinIcon, ClockIcon } from '@heroicons/react/24/outline';
 
-import { waLink, WA_MESSAGES } from '../../utils/whatsapp';
+import { waLink, WA_MESSAGES, trackWAClick } from '../../utils/whatsapp';
 
 const contactInfo = [
   {
@@ -84,6 +84,7 @@ export default function ContactPage() {
             href={waLink(WA_MESSAGES.general)}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWAClick('contacto')}
             className="mt-6 inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3 text-base font-semibold text-green-600 shadow-lg transition-all hover:bg-green-50"
           >
             Abrir WhatsApp

@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { waLink, WA_MESSAGES } from '../../utils/whatsapp';
+import { waLink, WA_MESSAGES, trackWAClick } from '../../utils/whatsapp';
 
 const RECARGAS = [
   { litros: 10000, precio: 800 },
@@ -98,6 +98,7 @@ export default function OxygenRefillPage() {
               href={waGeneral}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWAClick('recargas_hero')}
               className="btn-whatsapp mt-8 inline-flex w-full justify-center sm:w-auto"
             >
               <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
@@ -140,6 +141,7 @@ export default function OxygenRefillPage() {
                       href={waMsg}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => trackWAClick('recargas_tabla')}
                       className="btn-whatsapp py-2 px-4 text-xs"
                     >
                       <svg className="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24">
