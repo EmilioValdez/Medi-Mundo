@@ -4,6 +4,19 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
+from starlette.middleware.base import BaseHTTPMiddleware
+
+class CacheControlMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+        response = await call_next(request)
+        path = request.url.path
+        if path.startswith('/assets/'):
+            response.headers['Cache-Control'] = 'public, max-age=31536000, immutable'
+        elif path.startswith('/images/') or path.endswith(('.webp', '.jpg', '.jpeg', '.png', '.svg', '.ico')):
+            response.headers['Cache-Control'] = 'public, max-age=604800'
+        elif path.endswith(('.woff', '.woff2', '.ttf')):
+            response.headers['Cache-Control'] = 'public, max-age=31536000, immutable'
+        return response
 from app.config import get_settings
 from app.database import engine, Base
 from app.routers import auth, categories, equipment, bookings, customers, dashboard, blog
@@ -24,6 +37,7 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+app.add_middleware(CacheControlMiddleware)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins_list,

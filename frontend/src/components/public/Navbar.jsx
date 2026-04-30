@@ -32,7 +32,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          <img src="/logo-medimundo-v2.png" alt="MediMundo — Renta de Equipo Médico en Querétaro" className="h-20 md:h-28 w-auto" />
+          <img src="/logo-medimundo-v2.png" alt="MediMundo — Renta de Equipo Médico en Querétaro" className="h-20 md:h-28 w-auto" width="350" height="112" />
         </Link>
 
         {/* Desktop nav */}
@@ -74,6 +74,7 @@ export default function Navbar() {
         <button
           className="md:hidden rounded-lg p-2 text-gray-500 hover:bg-gray-100"
           onClick={() => setOpen(!open)}
+          aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
         >
           {open ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
         </button>
