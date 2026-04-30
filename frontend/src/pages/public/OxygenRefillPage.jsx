@@ -105,38 +105,38 @@ export default function OxygenRefillPage() {
           </div>
 
           {/* ── Right column: refill list ── */}
-          <div className="lg:col-span-3 flex justify-center lg:justify-end">
-            <div className="w-full max-w-sm space-y-2">
-              {RECARGAS.map((r) => {
-                const waMsg = waLink(`Hola, me interesa una recarga de oxígeno de *${r.litros.toLocaleString('es-MX')} litros*. ¿Está disponible?`);
-                return (
-                  <div
-                    key={r.litros}
-                    className="flex items-center justify-between gap-3 rounded-xl border border-gray-100 bg-white/80 px-4 py-3 hover:border-primary-200 hover:bg-primary-50/60 transition-colors shadow-sm"
-                  >
-                    <div className="flex items-center gap-2 min-w-0">
+          <div className="lg:col-span-3 space-y-3">
+            {RECARGAS.map((r) => {
+              const waMsg = waLink(`Hola, me interesa una recarga de oxígeno de *${r.litros.toLocaleString('es-MX')} litros*. ¿Está disponible?`);
+              return (
+                <div
+                  key={r.litros}
+                  className="flex items-center justify-between gap-4 rounded-2xl border border-gray-100 bg-white/90 px-6 py-4 hover:border-primary-200 hover:bg-primary-50/60 transition-colors shadow-sm"
+                >
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-50">
                       <OxygenIcon />
-                      <div className="leading-tight">
-                        <p className="text-sm font-bold text-gray-900">{r.litros.toLocaleString('es-MX')}</p>
-                        <p className="text-[10px] text-gray-400">litros</p>
-                      </div>
                     </div>
-                    <span className="text-base font-extrabold text-primary-600 shrink-0">
-                      {formatMXN(r.precio)}
-                    </span>
-                    <a
-                      href={waMsg}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => trackWAClick('recargas_tabla')}
-                      className="btn-whatsapp py-1.5 px-3 text-xs shrink-0"
-                    >
-                      Pedir
-                    </a>
+                    <div className="leading-tight">
+                      <p className="text-xl font-extrabold text-gray-900">{r.litros.toLocaleString('es-MX')}</p>
+                      <p className="text-xs font-medium text-gray-400 uppercase tracking-wide">litros</p>
+                    </div>
                   </div>
-                );
-              })}
-            </div>
+                  <span className="text-2xl font-extrabold text-primary-600 shrink-0">
+                    {formatMXN(r.precio)}
+                  </span>
+                  <a
+                    href={waMsg}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackWAClick('recargas_tabla')}
+                    className="btn-whatsapp py-2 px-5 text-sm shrink-0"
+                  >
+                    Pedir
+                  </a>
+                </div>
+              );
+            })}
           </div>
 
         </div>
