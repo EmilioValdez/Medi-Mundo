@@ -126,7 +126,7 @@ const INOGEN_MODELS = [
     tag: 'Portátil',
     tagline: 'Robusto y confiable para uso diario en casa o en movimiento.',
     features: ['Flujo de pulso inteligente', 'Batería de larga duración', 'Aprobado para vuelos'],
-    image: '/images/inogen-g2-1.jpg',
+    image: '/images/inogen-g2-png.png',
   },
   {
     id: 'g3',
@@ -134,7 +134,7 @@ const INOGEN_MODELS = [
     tag: 'Portátil',
     tagline: 'Compacto y ligero, ideal para mantener tu ritmo de vida activo.',
     features: ['Solo 2.2 kg', 'Hasta 4.5 h de batería', 'Pantalla LED intuitiva'],
-    image: '/images/inogen-g3-1.jpg',
+    image: '/images/inogen-g3-png.png',
   },
   {
     id: 'g4',
@@ -150,7 +150,7 @@ const INOGEN_MODELS = [
     tag: 'Más reciente',
     tagline: 'La tecnología más avanzada: mayor autonomía y flujos de oxígeno superiores.',
     features: ['Hasta 13 h de autonomía', 'Aprobado por la FAA', '6 ajustes de flujo'],
-    image: '/images/inogen-g5-1.jpg',
+    image: '/images/inogen-g5-png.webp',
     highlight: true,
   },
   {
@@ -159,7 +159,7 @@ const INOGEN_MODELS = [
     tag: 'Para casa',
     tagline: 'Diseñado para uso continuo en el hogar, silencioso y sin interrupciones.',
     features: ['Operación 24/7', 'Flujo continuo', 'Bajo nivel de ruido'],
-    image: '/images/inogen-at-home-1.jpg',
+    image: '/images/inogen-at-home-png.webp',
   },
 ];
 

@@ -6,7 +6,7 @@ const MODELS = [
   {
     id: 'g2',
     name: 'Inogen One G2',
-    image: '/images/inogen-g2-1.jpg',
+    image: '/images/inogen-g2-png.png',
     monthly: 3690,
     biweekly: null,
     weekly: null,
@@ -23,7 +23,7 @@ const MODELS = [
   {
     id: 'g3',
     name: 'Inogen One G3',
-    image: '/images/inogen-g3-1.jpg',
+    image: '/images/inogen-g3-png.png',
     monthly: 4990,
     biweekly: 3990,
     weekly: 2590,
@@ -57,7 +57,7 @@ const MODELS = [
   {
     id: 'g5',
     name: 'Inogen One G5',
-    image: '/images/inogen-g5-1.jpg',
+    image: '/images/inogen-g5-png.webp',
     monthly: 6590,
     biweekly: 4590,
     weekly: 2590,
@@ -74,7 +74,7 @@ const MODELS = [
   {
     id: 'at-home',
     name: 'Inogen At Home',
-    image: '/images/inogen-at-home-1.jpg',
+    image: '/images/inogen-at-home-png.webp',
     monthly: 3000,
     biweekly: null,
     weekly: null,
