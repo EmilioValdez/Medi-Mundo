@@ -106,11 +106,11 @@ function ModelCard({ model }) {
   return (
     <div className="flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow">
       {/* Image */}
-      <div className="aspect-[4/3] overflow-hidden bg-gray-50">
+      <div className="flex items-center justify-center h-44 bg-white px-6 pt-5">
         <img
           src={model.image}
           alt={`Concentrador de oxígeno Inogen ${model.name} — renta en Querétaro`}
-          className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+          className="h-full w-auto object-contain transition-transform duration-300 hover:scale-105"
           onError={(e) => { e.target.style.display = 'none'; }}
         />
       </div>
