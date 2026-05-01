@@ -40,7 +40,7 @@ const MODELS = [
   {
     id: 'g4',
     name: 'Inogen One G4',
-    image: '/images/inogen-g4-1.jpg',
+    image: '/images/inogen-g4-png.webp',
     monthly: 4990,
     biweekly: 3990,
     weekly: 2590,

@@ -142,7 +142,7 @@ const INOGEN_MODELS = [
     tag: 'Ultra ligero',
     tagline: 'El más pequeño y discreto de la línea Inogen, cabe en cualquier bolso.',
     features: ['Solo 1.08 kg', 'Ultra compacto', 'Silencioso y discreto'],
-    image: '/images/inogen-g4-1.jpg',
+    image: '/images/inogen-g4-png.webp',
   },
   {
     id: 'g5',
