@@ -130,7 +130,7 @@ EQUIPMENT = [
         "price_weekly": 80,
         "price_daily": 15,
         "deposit": 0,
-        "images": [],
+        "images": ["/images/mesa-alimentos-paciente.jpg"],
         "quantity_total": 6,
         "quantity_available": 6,
     },
