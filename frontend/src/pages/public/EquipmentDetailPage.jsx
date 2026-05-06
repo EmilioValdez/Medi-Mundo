@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Dialog } from '@headlessui/react';
-import { XMarkIcon, CheckCircleIcon, ArrowLeftIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon, CheckCircleIcon, ArrowLeftIcon, MagnifyingGlassPlusIcon } from '@heroicons/react/24/outline';
 import apiClient from '../../api/client';
 import formatMXN from '../../utils/formatMXN';
 import { isRentalItem } from '../../utils/rentalItems';
@@ -15,6 +15,7 @@ export default function EquipmentDetailPage() {
   const [error, setError] = useState(null);
   const [selectedImage, setSelectedImage] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [form, setForm] = useState({
@@ -77,11 +78,11 @@ export default function EquipmentDetailPage() {
         </div>
         <h2 className="text-2xl font-bold text-gray-900 mb-2">Equipo no encontrado</h2>
         <p className="text-gray-500 mb-6">
-          {error || 'Lo sentimos, el equipo que buscas no existe o ya no est\u00e1 disponible.'}
+          {error || 'Lo sentimos, el equipo que buscas no existe o ya no está disponible.'}
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           <Link to="/catalogo" className="btn-primary px-6 py-2.5">
-            Ver cat\u00e1logo completo
+            Ver catálogo completo
           </Link>
           <a
             href={waLink(WA_MESSAGES.noEncontro)}
@@ -115,22 +116,39 @@ export default function EquipmentDetailPage() {
         <div className="grid gap-10 lg:grid-cols-2">
           {/* Images */}
           <div>
-            <div className="flex items-center justify-center rounded-xl bg-white border border-gray-100 h-80 p-6">
-              {images.length > 0 ? (
-                <img
-                  src={images[selectedImage]}
-                  alt={`${item.name} en renta en Querétaro — MediMundo`}
-                  className="h-full w-full object-contain"
-                  onError={(e) => { e.target.style.display = 'none'; }}
-                />
-              ) : (
-                <div className="flex h-full flex-col items-center justify-center bg-gradient-to-br from-red-50 to-blue-50 text-gray-400">
-                  <span className="text-7xl mb-3">{'\uD83C\uDFE5'}</span>
-                  <span className="text-sm font-medium text-gray-500">{item.category_name || 'Equipo m\u00e9dico'}</span>
-                  <span className="text-xs text-gray-400 mt-1">Imagen no disponible</span>
-                </div>
+            {/* Main image — click to open lightbox */}
+            <div className="relative">
+              <div
+                className="flex items-center justify-center rounded-xl bg-white border border-gray-100 h-80 p-6 cursor-pointer"
+                onClick={() => images.length > 0 && setLightboxOpen(true)}
+              >
+                {images.length > 0 ? (
+                  <img
+                    src={images[selectedImage]}
+                    alt={`${item.name} en renta en Querétaro — MediMundo`}
+                    className="h-full w-full object-contain"
+                    onError={(e) => { e.target.style.display = 'none'; }}
+                  />
+                ) : (
+                  <div className="flex h-full flex-col items-center justify-center bg-gradient-to-br from-red-50 to-blue-50 text-gray-400">
+                    <span className="text-7xl mb-3">🏥</span>
+                    <span className="text-sm font-medium text-gray-500">{item.category_name || 'Equipo médico'}</span>
+                    <span className="text-xs text-gray-400 mt-1">Imagen no disponible</span>
+                  </div>
+                )}
+              </div>
+              {images.length > 0 && (
+                <button
+                  onClick={() => setLightboxOpen(true)}
+                  style={{ position: 'absolute', bottom: '12px', right: '12px', zIndex: 10 }}
+                  className="flex items-center gap-1 rounded-full bg-white border border-gray-300 px-3 py-1.5 text-xs font-semibold text-gray-700 shadow-md"
+                >
+                  <MagnifyingGlassPlusIcon className="h-4 w-4" />
+                  Ampliar
+                </button>
               )}
             </div>
+
             {images.length > 1 && (
               <div className="mt-3 flex gap-2 overflow-x-auto">
                 {images.map((img, i) => (
@@ -210,7 +228,7 @@ export default function EquipmentDetailPage() {
                 </div>
                 {item.deposit != null && (
                   <p className="mt-2 text-xs text-gray-500">
-                    Dep&oacute;sito en garant&iacute;a: <span className="font-semibold">{formatMXN(item.deposit)}</span> (reembolsable)
+                    Depósito en garantía: <span className="font-semibold">{formatMXN(item.deposit)}</span> (reembolsable)
                   </p>
                 )}
               </div>
@@ -248,6 +266,28 @@ export default function EquipmentDetailPage() {
           </div>
         </div>
       </div>
+
+      {/* Lightbox */}
+      <Dialog open={lightboxOpen} onClose={() => setLightboxOpen(false)} className="relative z-50">
+        <div className="fixed inset-0 bg-black/90" aria-hidden="true" onClick={() => setLightboxOpen(false)} />
+        <div className="fixed inset-0 flex items-center justify-center p-4">
+          <Dialog.Panel className="relative max-h-[90vh] max-w-[90vw]">
+            <button
+              onClick={() => setLightboxOpen(false)}
+              className="absolute -top-10 right-0 text-white/80 hover:text-white transition-colors"
+            >
+              <XMarkIcon className="h-8 w-8" />
+            </button>
+            {images.length > 0 && (
+              <img
+                src={images[selectedImage]}
+                alt={item.name}
+                className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg"
+              />
+            )}
+          </Dialog.Panel>
+        </div>
+      </Dialog>
 
       {/* Rental request modal */}
       <Dialog open={modalOpen} onClose={() => setModalOpen(false)} className="relative z-50">
