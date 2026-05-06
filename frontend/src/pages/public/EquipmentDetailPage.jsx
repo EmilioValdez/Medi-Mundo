@@ -115,12 +115,12 @@ export default function EquipmentDetailPage() {
         <div className="grid gap-10 lg:grid-cols-2">
           {/* Images */}
           <div>
-            <div className="aspect-[4/3] overflow-hidden rounded-xl bg-gray-100">
+            <div className="flex items-center justify-center rounded-xl bg-white border border-gray-100 h-80 p-6">
               {images.length > 0 ? (
                 <img
                   src={images[selectedImage]}
                   alt={`${item.name} en renta en Querétaro — MediMundo`}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain"
                   onError={(e) => { e.target.style.display = 'none'; }}
                 />
               ) : (
@@ -141,7 +141,7 @@ export default function EquipmentDetailPage() {
                       i === selectedImage ? 'border-primary-500' : 'border-gray-200'
                     }`}
                   >
-                    <img src={img} alt={`${item.name} — imagen ${i + 1}`} className="h-full w-full object-cover" />
+                    <img src={img} alt={`${item.name} — imagen ${i + 1}`} className="h-full w-full object-contain p-1" />
                   </button>
                 ))}
               </div>
