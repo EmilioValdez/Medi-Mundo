@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Dialog } from '@headlessui/react';
 import {
@@ -7,6 +7,7 @@ import {
   TrashIcon,
   XMarkIcon,
   MagnifyingGlassIcon,
+  CheckIcon,
 } from '@heroicons/react/24/outline';
 import apiClient from '../../api/client';
 import formatMXN from '../../utils/formatMXN';
@@ -27,6 +28,106 @@ const emptyForm = {
   is_active: true,
 };
 
+/* ── Inline editable cell ── */
+function EditableCell({ value, onSave, prefix = '$', type = 'number' }) {
+  const [editing, setEditing] = useState(false);
+  const [val, setVal] = useState(value ?? '');
+  const inputRef = useRef(null);
+
+  useEffect(() => { if (editing) inputRef.current?.select(); }, [editing]);
+
+  const commit = async () => {
+    setEditing(false);
+    const num = parseFloat(val);
+    if (!isNaN(num) && num !== value) await onSave(num);
+    else setVal(value ?? '');
+  };
+
+  const handleKey = (e) => {
+    if (e.key === 'Enter') commit();
+    if (e.key === 'Escape') { setEditing(false); setVal(value ?? ''); }
+  };
+
+  if (editing) {
+    return (
+      <input
+        ref={inputRef}
+        type="number"
+        min="0"
+        step="1"
+        value={val}
+        onChange={(e) => setVal(e.target.value)}
+        onBlur={commit}
+        onKeyDown={handleKey}
+        className="w-24 rounded border border-primary-400 px-2 py-1 text-right text-sm font-semibold text-gray-900 focus:outline-none focus:ring-1 focus:ring-primary-500"
+      />
+    );
+  }
+
+  return (
+    <button
+      onClick={() => setEditing(true)}
+      title="Clic para editar"
+      className="group flex items-center justify-end gap-1 rounded px-1 py-0.5 hover:bg-primary-50 transition-colors"
+    >
+      <span className="text-gray-700 font-medium">
+        {value != null && value !== '' ? formatMXN(value) : <span className="text-gray-300">—</span>}
+      </span>
+      <PencilSquareIcon className="h-3 w-3 text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+    </button>
+  );
+}
+
+/* ── Inline quantity cell ── */
+function QuantityCell({ available, total, onSave }) {
+  const [editing, setEditing] = useState(false);
+  const [val, setVal] = useState(available ?? 0);
+  const inputRef = useRef(null);
+
+  useEffect(() => { if (editing) inputRef.current?.select(); }, [editing]);
+
+  const commit = async () => {
+    setEditing(false);
+    const num = parseInt(val, 10);
+    if (!isNaN(num) && num !== available) await onSave(num);
+    else setVal(available ?? 0);
+  };
+
+  const handleKey = (e) => {
+    if (e.key === 'Enter') commit();
+    if (e.key === 'Escape') { setEditing(false); setVal(available ?? 0); }
+  };
+
+  if (editing) {
+    return (
+      <input
+        ref={inputRef}
+        type="number"
+        min="0"
+        max={total}
+        value={val}
+        onChange={(e) => setVal(e.target.value)}
+        onBlur={commit}
+        onKeyDown={handleKey}
+        className="w-16 rounded border border-primary-400 px-2 py-1 text-center text-sm font-semibold focus:outline-none focus:ring-1 focus:ring-primary-500"
+      />
+    );
+  }
+
+  return (
+    <button
+      onClick={() => setEditing(true)}
+      title="Clic para editar disponibles"
+      className="group flex items-center justify-center gap-1 rounded px-1 py-0.5 hover:bg-primary-50 transition-colors"
+    >
+      <span className={`font-medium ${available === 0 ? 'text-red-600' : 'text-gray-700'}`}>
+        {available ?? '-'}/{total ?? '-'}
+      </span>
+      <PencilSquareIcon className="h-3 w-3 text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+    </button>
+  );
+}
+
 export default function InventoryPage() {
   const [equipment, setEquipment] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -37,6 +138,7 @@ export default function InventoryPage() {
   const [editing, setEditing] = useState(null);
   const [form, setForm] = useState(emptyForm);
   const [saving, setSaving] = useState(false);
+  const [savingId, setSavingId] = useState(null);
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -57,9 +159,22 @@ export default function InventoryPage() {
     }
   }, [search, filterCat]);
 
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+  useEffect(() => { fetchData(); }, [fetchData]);
+
+  const patchItem = async (id, patch) => {
+    setSavingId(id);
+    try {
+      await apiClient.put(`/equipment/${id}`, patch);
+      setEquipment((prev) =>
+        prev.map((e) => (e.id === id ? { ...e, ...patch } : e))
+      );
+    } catch {
+      alert('Error al guardar. Intenta de nuevo.');
+      fetchData();
+    } finally {
+      setSavingId(null);
+    }
+  };
 
   const openCreate = () => {
     setEditing(null);
@@ -125,15 +240,6 @@ export default function InventoryPage() {
     }
   };
 
-  const toggleActive = async (item) => {
-    try {
-      await apiClient.put(`/equipment/${item.id}`, { is_active: !item.is_active });
-      fetchData();
-    } catch {
-      alert('Error al cambiar disponibilidad.');
-    }
-  };
-
   const handleDelete = async (item) => {
     if (!window.confirm(`¿Eliminar "${item.name}"?`)) return;
     try {
@@ -144,13 +250,22 @@ export default function InventoryPage() {
     }
   };
 
+  const conditionLabel = {
+    available: { label: 'Disponible', cls: 'bg-green-100 text-green-700' },
+    rented:    { label: 'Rentado',    cls: 'bg-blue-100 text-blue-700' },
+    maintenance: { label: 'Mantenimiento', cls: 'bg-yellow-100 text-yellow-700' },
+  };
+
   return (
     <>
       <Helmet><title>Inventario — MediMundo Admin</title></Helmet>
 
       <div>
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-          <h1 className="text-2xl font-bold text-gray-900">Inventario</h1>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+          <div>
+            <h1 className="text-2xl font-bold text-gray-900">Inventario</h1>
+            <p className="text-xs text-gray-400 mt-0.5">Haz clic en cualquier precio o cantidad para editarlo directamente.</p>
+          </div>
           <button onClick={openCreate} className="btn-primary">
             <PlusIcon className="h-5 w-5" />
             Agregar equipo
@@ -188,62 +303,97 @@ export default function InventoryPage() {
               <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary-200 border-t-primary-600" />
             </div>
           ) : equipment.length === 0 ? (
-            <div className="px-5 py-16 text-center text-sm text-gray-500">
-              No se encontró equipo.
-            </div>
+            <div className="px-5 py-16 text-center text-sm text-gray-500">No se encontró equipo.</div>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
-                <thead className="bg-gray-50">
+                <thead className="bg-gray-50 border-b border-gray-200">
                   <tr>
                     <th className="px-4 py-3 text-left font-medium text-gray-500">Equipo</th>
                     <th className="px-4 py-3 text-left font-medium text-gray-500">Categoría</th>
                     <th className="px-4 py-3 text-right font-medium text-gray-500">Diario</th>
                     <th className="px-4 py-3 text-right font-medium text-gray-500">Semanal</th>
                     <th className="px-4 py-3 text-right font-medium text-gray-500">Mensual</th>
-                    <th className="px-4 py-3 text-center font-medium text-gray-500">Cant.</th>
-                    <th className="px-4 py-3 text-center font-medium text-gray-500">Estado</th>
-                    <th className="px-4 py-3 text-right font-medium text-gray-500">Acciones</th>
+                    <th className="px-4 py-3 text-center font-medium text-gray-500">Disponibles</th>
+                    <th className="px-4 py-3 text-center font-medium text-gray-500">Condición</th>
+                    <th className="px-4 py-3 text-center font-medium text-gray-500">Activo</th>
+                    <th className="px-4 py-3 text-right font-medium text-gray-500">Editar</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
                   {equipment.map((item) => (
-                    <tr key={item.id} className="hover:bg-gray-50">
+                    <tr
+                      key={item.id}
+                      className={`hover:bg-gray-50 transition-colors ${savingId === item.id ? 'opacity-60' : ''}`}
+                    >
                       <td className="px-4 py-3">
-                        <div className="font-medium text-gray-900">{item.name}</div>
+                        <div className="font-semibold text-gray-900">{item.name}</div>
                         {item.serial_number && (
                           <div className="text-xs text-gray-400">S/N: {item.serial_number}</div>
                         )}
                       </td>
+
                       <td className="px-4 py-3 text-gray-500">{item.category_name || '-'}</td>
-                      <td className="px-4 py-3 text-right text-gray-700">
-                        {item.price_daily != null ? formatMXN(item.price_daily) : '-'}
+
+                      <td className="px-4 py-3 text-right">
+                        <EditableCell
+                          value={item.price_daily}
+                          onSave={(v) => patchItem(item.id, { price_daily: v })}
+                        />
                       </td>
-                      <td className="px-4 py-3 text-right text-gray-700">
-                        {item.price_weekly != null ? formatMXN(item.price_weekly) : '-'}
+                      <td className="px-4 py-3 text-right">
+                        <EditableCell
+                          value={item.price_weekly}
+                          onSave={(v) => patchItem(item.id, { price_weekly: v })}
+                        />
                       </td>
-                      <td className="px-4 py-3 text-right text-gray-700">
-                        {item.price_monthly != null ? formatMXN(item.price_monthly) : '-'}
+                      <td className="px-4 py-3 text-right">
+                        <EditableCell
+                          value={item.price_monthly}
+                          onSave={(v) => patchItem(item.id, { price_monthly: v })}
+                        />
                       </td>
-                      <td className="px-4 py-3 text-center text-gray-700">{item.quantity_available ?? '-'}/{item.quantity_total ?? '-'}</td>
+
+                      <td className="px-4 py-3 text-center">
+                        <QuantityCell
+                          available={item.quantity_available}
+                          total={item.quantity_total}
+                          onSave={(v) => patchItem(item.id, { quantity_available: v })}
+                        />
+                      </td>
+
+                      <td className="px-4 py-3 text-center">
+                        <select
+                          value={item.condition || 'available'}
+                          onChange={(e) => patchItem(item.id, { condition: e.target.value })}
+                          className={`rounded-full px-2.5 py-1 text-xs font-semibold border-0 cursor-pointer focus:ring-1 focus:ring-primary-400 ${conditionLabel[item.condition]?.cls || 'bg-gray-100 text-gray-600'}`}
+                        >
+                          <option value="available">Disponible</option>
+                          <option value="rented">Rentado</option>
+                          <option value="maintenance">Mantenimiento</option>
+                        </select>
+                      </td>
+
                       <td className="px-4 py-3 text-center">
                         <button
-                          onClick={() => toggleActive(item)}
-                          title="Cambiar disponibilidad"
-                          className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold transition-opacity hover:opacity-75 ${
-                            item.is_active !== false ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+                          onClick={() => patchItem(item.id, { is_active: !item.is_active })}
+                          title="Cambiar visibilidad"
+                          className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-1 ${
+                            item.is_active !== false ? 'bg-primary-600' : 'bg-gray-200'
                           }`}
                         >
-                          <span className={`h-1.5 w-1.5 rounded-full ${item.is_active !== false ? 'bg-green-500' : 'bg-red-500'}`} />
-                          {item.is_active !== false ? 'Activo' : 'Inactivo'}
+                          <span className={`inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform ${
+                            item.is_active !== false ? 'translate-x-6' : 'translate-x-1'
+                          }`} />
                         </button>
                       </td>
+
                       <td className="px-4 py-3 text-right">
                         <div className="flex justify-end gap-1">
                           <button
                             onClick={() => openEdit(item)}
                             className="rounded-lg p-1.5 text-gray-400 hover:bg-gray-100 hover:text-primary-600"
-                            title="Editar"
+                            title="Editar todo"
                           >
                             <PencilSquareIcon className="h-4 w-4" />
                           </button>
@@ -265,7 +415,7 @@ export default function InventoryPage() {
         </div>
       </div>
 
-      {/* Modal */}
+      {/* Modal — edición completa */}
       <Dialog open={modalOpen} onClose={() => setModalOpen(false)} className="relative z-50">
         <div className="fixed inset-0 bg-black/50" aria-hidden="true" />
         <div className="fixed inset-0 flex items-center justify-center p-4">
@@ -361,9 +511,7 @@ export default function InventoryPage() {
               </div>
 
               <div className="flex gap-2 pt-2">
-                <button type="button" onClick={() => setModalOpen(false)} className="btn-white flex-1">
-                  Cancelar
-                </button>
+                <button type="button" onClick={() => setModalOpen(false)} className="btn-white flex-1">Cancelar</button>
                 <button type="submit" disabled={saving} className="btn-primary flex-1">
                   {saving ? 'Guardando...' : editing ? 'Actualizar' : 'Crear'}
                 </button>
