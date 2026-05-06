@@ -60,6 +60,21 @@ async def health():
     return {"status": "ok", "app": settings.APP_NAME}
 
 
+from fastapi.responses import Response as FastAPIResponse
+
+@app.get("/robots.txt", include_in_schema=False)
+async def robots_txt():
+    content = (
+        "User-agent: *\n"
+        "Allow: /\n"
+        "Disallow: /api/\n"
+        "Disallow: /admin/\n"
+        "\n"
+        "Sitemap: https://medimundo.mx/sitemap.xml\n"
+    )
+    return FastAPIResponse(content=content, media_type="text/plain")
+
+
 # Serve frontend static files in production
 FRONTEND_DIR = Path(__file__).resolve().parent.parent.parent / "frontend" / "dist"
 PUBLIC_IMAGES = Path(__file__).resolve().parent.parent.parent / "frontend" / "public" / "images"
