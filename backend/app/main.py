@@ -3,8 +3,18 @@ from pathlib import Path
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, RedirectResponse
 from starlette.middleware.base import BaseHTTPMiddleware
+
+
+class HTTPSRedirectMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+        proto = request.headers.get("x-forwarded-proto", "https")
+        if proto == "http":
+            url = str(request.url).replace("http://", "https://", 1)
+            return RedirectResponse(url, status_code=301)
+        return await call_next(request)
+
 
 class CacheControlMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):
@@ -37,6 +47,7 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+app.add_middleware(HTTPSRedirectMiddleware)
 app.add_middleware(CacheControlMiddleware)
 app.add_middleware(
     CORSMiddleware,
