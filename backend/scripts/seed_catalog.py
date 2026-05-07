@@ -14,6 +14,7 @@ from sqlalchemy import select
 from app.database import async_session, engine, Base
 from app.models.category import Category
 from app.models.equipment import Equipment  # noqa: F401
+from app.models.inogen import InogenModel  # noqa: F401
 
 CATEGORIES = [
     {"name": "Camas Hospitalarias", "slug": "camas-hospitalarias", "icon": "🛏️", "description": "Camas manuales, eléctricas y de lujo para recuperación en casa."},
@@ -173,6 +174,102 @@ EQUIPMENT = [
 ]
 
 
+INOGEN_MODELS = [
+    {
+        "model_id": "g2",
+        "name": "Inogen One G2",
+        "image": "/images/inogen-g2-png.png",
+        "price_monthly": 3690,
+        "price_biweekly": None,
+        "price_weekly": None,
+        "deposit": 25000,
+        "faa_label": "Aprobado por FAA — apto para avión comercial",
+        "faa_approved": True,
+        "includes": [
+            "Equipo",
+            "Cargador de Pared y Auto",
+            "Carrito de Traslado",
+            "(2) baterías chicas de 12 celdas  ó  (1) batería grande de 24 celdas",
+        ],
+        "sort_order": 1,
+    },
+    {
+        "model_id": "g3",
+        "name": "Inogen One G3",
+        "image": "/images/inogen-g3-png.png",
+        "price_monthly": 4990,
+        "price_biweekly": 3990,
+        "price_weekly": 2590,
+        "deposit": 30000,
+        "faa_label": "Aprobado por FAA — apto para avión comercial",
+        "faa_approved": True,
+        "includes": [
+            "Equipo",
+            "Cargador de Pared y Auto",
+            "Mochila de Traslado",
+            "(2) baterías chicas de 8 celdas  ó  (1) batería grande de 16 celdas",
+        ],
+        "sort_order": 2,
+    },
+    {
+        "model_id": "g4",
+        "name": "Inogen One G4",
+        "image": "/images/inogen-g4-png.webp",
+        "price_monthly": 4990,
+        "price_biweekly": 3990,
+        "price_weekly": 2590,
+        "deposit": 30000,
+        "faa_label": "Fabricado bajo normas FAA — verifique con su aerolínea",
+        "faa_approved": False,
+        "includes": [
+            "Equipo",
+            "Cargador de Pared y Auto",
+            "Mochila de Traslado",
+            "(2) baterías chicas de 8 celdas",
+        ],
+        "sort_order": 3,
+    },
+    {
+        "model_id": "g5",
+        "name": "Inogen One G5",
+        "image": "/images/inogen-g5-png.webp",
+        "price_monthly": 6590,
+        "price_biweekly": 4590,
+        "price_weekly": 2590,
+        "deposit": 40000,
+        "faa_label": "Fabricado bajo normas FAA — verifique con su aerolínea",
+        "faa_approved": False,
+        "includes": [
+            "Equipo",
+            "Cargador de Pared y Auto",
+            "Mochila de Traslado",
+            "(2) baterías chicas de 8 celdas  ó  (1) batería grande de 16 celdas",
+        ],
+        "sort_order": 4,
+    },
+    {
+        "model_id": "at-home",
+        "name": "Inogen At Home",
+        "image": "/images/inogen-at-home-png.webp",
+        "price_monthly": 3000,
+        "price_biweekly": None,
+        "price_weekly": None,
+        "deposit": 6000,
+        "faa_label": None,
+        "faa_approved": False,
+        "includes": [
+            "Equipo",
+            "Cable de conexión a pared",
+            "Peso 8.2 kg — compacto y fácil de mover",
+            "Hasta 5 LPM en flujo continuo",
+            "Ruido menor a 40 dB en nivel 2",
+            "Inteligente, bajo consumo energético",
+        ],
+        "sort_order": 5,
+    },
+]
+
+
 async def seed():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
@@ -225,6 +322,22 @@ async def seed():
                 if e.get("description"):
                     existing.description = e["description"]
                 print(f"  EQUIPMENT UPDATED: {e['name']}")
+
+        await db.commit()
+
+        # Seed Inogen models
+        for m in INOGEN_MODELS:
+            existing = (await db.execute(
+                select(InogenModel).where(InogenModel.model_id == m["model_id"])
+            )).scalar_one_or_none()
+            if not existing:
+                obj = InogenModel(**m, is_active=True)
+                db.add(obj)
+                print(f"  INOGEN INSERTED: {m['name']}")
+            else:
+                # Sync image in case it changed
+                existing.image = m["image"]
+                print(f"  INOGEN EXISTS: {m['name']}")
 
         await db.commit()
         print("Catalog seed done.")

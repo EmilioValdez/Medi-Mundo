@@ -106,6 +106,7 @@ import InventoryPage from './pages/admin/InventoryPage';
 import BookingsPage from './pages/admin/BookingsPage';
 import CustomersPage from './pages/admin/CustomersPage';
 import CategoriesPage from './pages/admin/CategoriesPage';
+import InogenPage from './pages/admin/InogenPage';
 
 function PublicLayout() {
   return (
@@ -179,6 +180,7 @@ export default function App() {
         <Route path="reservas" element={<BookingsPage />} />
         <Route path="clientes" element={<CustomersPage />} />
         <Route path="categorias" element={<CategoriesPage />} />
+        <Route path="inogen" element={<InogenPage />} />
       </Route>
 
       {/* Catch-all */}

@@ -9,6 +9,7 @@ import {
   ArrowRightOnRectangleIcon,
   Bars3Icon,
   XMarkIcon,
+  HeartIcon,
 } from '@heroicons/react/24/outline';
 import useAuth from '../../hooks/useAuth';
 
@@ -18,6 +19,7 @@ const navItems = [
   { to: '/admin/reservas', icon: CalendarDaysIcon, label: 'Reservas' },
   { to: '/admin/clientes', icon: UsersIcon, label: 'Clientes' },
   { to: '/admin/categorias', icon: TagIcon, label: 'Categorías' },
+  { to: '/admin/inogen', icon: HeartIcon, label: 'Inogen' },
 ];
 
 export default function AdminLayout({ children }) {

@@ -29,8 +29,9 @@ class CacheControlMiddleware(BaseHTTPMiddleware):
         return response
 from app.config import get_settings
 from app.database import engine, Base
-from app.routers import auth, categories, equipment, bookings, customers, dashboard, blog
+from app.routers import auth, categories, equipment, bookings, customers, dashboard, blog, inogen
 from app.models import blog as _blog_models  # noqa: F401 — ensures table is created
+from app.models import inogen as _inogen_models  # noqa: F401 — ensures table is created
 
 settings = get_settings()
 
@@ -64,6 +65,7 @@ app.include_router(bookings.router)
 app.include_router(customers.router)
 app.include_router(dashboard.router)
 app.include_router(blog.router)
+app.include_router(inogen.router)
 
 
 @app.get("/api/health")

@@ -1,96 +1,8 @@
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import formatMXN from '../../utils/formatMXN';
 import { waLink } from '../../utils/whatsapp';
-
-const MODELS = [
-  {
-    id: 'g2',
-    name: 'Inogen One G2',
-    image: '/images/inogen-g2-png.png',
-    monthly: 3690,
-    biweekly: null,
-    weekly: null,
-    deposit: 25000,
-    faaLabel: 'Aprobado por FAA — apto para avión comercial',
-    faaApproved: true,
-    includes: [
-      'Equipo',
-      'Cargador de Pared y Auto',
-      'Carrito de Traslado',
-      '(2) baterías chicas de 12 celdas  ó  (1) batería grande de 24 celdas',
-    ],
-  },
-  {
-    id: 'g3',
-    name: 'Inogen One G3',
-    image: '/images/inogen-g3-png.png',
-    monthly: 4990,
-    biweekly: 3990,
-    weekly: 2590,
-    deposit: 30000,
-    faaLabel: 'Aprobado por FAA — apto para avión comercial',
-    faaApproved: true,
-    includes: [
-      'Equipo',
-      'Cargador de Pared y Auto',
-      'Mochila de Traslado',
-      '(2) baterías chicas de 8 celdas  ó  (1) batería grande de 16 celdas',
-    ],
-  },
-  {
-    id: 'g4',
-    name: 'Inogen One G4',
-    image: '/images/inogen-g4-png.webp',
-    monthly: 4990,
-    biweekly: 3990,
-    weekly: 2590,
-    deposit: 30000,
-    faaLabel: 'Fabricado bajo normas FAA — verifique con su aerolínea',
-    faaApproved: false,
-    includes: [
-      'Equipo',
-      'Cargador de Pared y Auto',
-      'Mochila de Traslado',
-      '(2) baterías chicas de 8 celdas',
-    ],
-  },
-  {
-    id: 'g5',
-    name: 'Inogen One G5',
-    image: '/images/inogen-g5-png.webp',
-    monthly: 6590,
-    biweekly: 4590,
-    weekly: 2590,
-    deposit: 40000,
-    faaLabel: 'Fabricado bajo normas FAA — verifique con su aerolínea',
-    faaApproved: false,
-    includes: [
-      'Equipo',
-      'Cargador de Pared y Auto',
-      'Mochila de Traslado',
-      '(2) baterías chicas de 8 celdas  ó  (1) batería grande de 16 celdas',
-    ],
-  },
-  {
-    id: 'at-home',
-    name: 'Inogen At Home',
-    image: '/images/inogen-at-home-png.webp',
-    monthly: 3000,
-    biweekly: null,
-    weekly: null,
-    deposit: 6000,
-    faaLabel: null,
-    faaApproved: false,
-    includes: [
-      'Equipo',
-      'Cable de conexión a pared',
-      'Peso 8.2 kg — compacto y fácil de mover',
-      'Hasta 5 LPM en flujo continuo',
-      'Ruido menor a 40 dB en nivel 2',
-      'Inteligente, bajo consumo energético',
-    ],
-  },
-];
+import apiClient from '../../api/client';
 
 function WaIcon() {
   return (
@@ -109,7 +21,7 @@ function ModelCard({ model }) {
       <div className="flex items-center justify-center h-44 bg-white px-6 pt-5">
         <img
           src={model.image}
-          alt={`Concentrador de oxígeno Inogen ${model.name} — renta en Querétaro`}
+          alt={`Concentrador de oxígeno ${model.name} — renta en Querétaro`}
           className="h-full w-auto object-contain transition-transform duration-300 hover:scale-105"
           onError={(e) => { e.target.style.display = 'none'; }}
         />
@@ -124,21 +36,21 @@ function ModelCard({ model }) {
           <div className="bg-primary-600 px-4 py-3 flex items-baseline justify-between">
             <span className="text-sm font-medium text-primary-100">Mensual</span>
             <span className="text-2xl font-extrabold text-white">
-              {formatMXN(model.monthly)}
+              {formatMXN(model.price_monthly)}
             </span>
           </div>
-          {(model.biweekly || model.weekly) && (
+          {(model.price_biweekly || model.price_weekly) && (
             <div className="grid grid-cols-2 divide-x divide-gray-100">
-              {model.biweekly && (
+              {model.price_biweekly && (
                 <div className="px-4 py-2.5 text-center">
                   <div className="text-xs text-gray-500">Quincenal</div>
-                  <div className="text-sm font-bold text-gray-900">{formatMXN(model.biweekly)}</div>
+                  <div className="text-sm font-bold text-gray-900">{formatMXN(model.price_biweekly)}</div>
                 </div>
               )}
-              {model.weekly && (
+              {model.price_weekly && (
                 <div className="px-4 py-2.5 text-center">
                   <div className="text-xs text-gray-500">Semanal</div>
-                  <div className="text-sm font-bold text-gray-900">{formatMXN(model.weekly)}</div>
+                  <div className="text-sm font-bold text-gray-900">{formatMXN(model.price_weekly)}</div>
                 </div>
               )}
             </div>
@@ -149,7 +61,7 @@ function ModelCard({ model }) {
         <div>
           <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500">Incluye</p>
           <ul className="space-y-1.5">
-            {model.includes.map((item, i) => (
+            {(model.includes || []).map((item, i) => (
               <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
                 <svg className="mt-0.5 h-4 w-4 shrink-0 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
@@ -171,17 +83,17 @@ function ModelCard({ model }) {
         </div>
 
         {/* FAA */}
-        {model.faaLabel && (
+        {model.faa_label && (
           <div className={`rounded-lg px-4 py-2.5 flex items-center gap-2 ${
-            model.faaApproved
+            model.faa_approved
               ? 'bg-blue-50 border border-blue-100'
               : 'bg-gray-50 border border-gray-200'
           }`}>
-            <svg className={`h-4 w-4 shrink-0 ${model.faaApproved ? 'text-blue-600' : 'text-gray-500'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg className={`h-4 w-4 shrink-0 ${model.faa_approved ? 'text-blue-600' : 'text-gray-500'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
             </svg>
-            <span className={`text-xs ${model.faaApproved ? 'text-blue-800' : 'text-gray-600'}`}>
-              {model.faaLabel}
+            <span className={`text-xs ${model.faa_approved ? 'text-blue-800' : 'text-gray-600'}`}>
+              {model.faa_label}
             </span>
           </div>
         )}
@@ -202,6 +114,16 @@ function ModelCard({ model }) {
 }
 
 export default function RespiratoryPage() {
+  const [models, setModels] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    apiClient.get('/inogen/')
+      .then((r) => setModels(r.data.filter((m) => m.is_active)))
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -239,13 +161,18 @@ export default function RespiratoryPage() {
 
       {/* Cards grid */}
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {MODELS.map((model) => (
-            <ModelCard key={model.id} model={model} />
-          ))}
-        </div>
+        {loading ? (
+          <div className="flex justify-center py-20">
+            <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary-200 border-t-primary-600" />
+          </div>
+        ) : (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {models.map((model) => (
+              <ModelCard key={model.id} model={model} />
+            ))}
+          </div>
+        )}
 
-        {/* Bottom note */}
         <p className="mt-10 text-center text-sm text-gray-500">
           Todos los precios incluyen entrega y recogida en zona metropolitana de Querétaro.
           Para zonas foráneas consultar costo adicional.
