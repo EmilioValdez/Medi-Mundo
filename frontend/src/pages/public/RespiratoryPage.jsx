@@ -150,8 +150,7 @@ export default function RespiratoryPage() {
       >
         <div className="absolute inset-0 bg-slate-900/50" />
         <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-widest text-blue-300">Renta de equipo respiratorio</p>
-          <h1 className="mt-2">
+          <h1>
             <img
               src="/images/inogen-one-logo.svg"
               alt="Inogen One — Concentradores de Oxígeno"
