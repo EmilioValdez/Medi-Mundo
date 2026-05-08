@@ -158,8 +158,7 @@ export default function RespiratoryPage() {
             />
           </h1>
           <p className="mt-3 max-w-2xl text-slate-200 sm:text-lg">
-            Oxígeno portátil y estacionario con entrega a domicilio en Querétaro.
-            Equipos certificados, silenciosos y de larga duración.
+            Concentradores de oxígeno portátiles y fijos. Ligeros y eficientes, diseñados para brindar libertad, comodidad y movilidad a personas con necesidades respiratorias.
           </p>
         </div>
       </div>
