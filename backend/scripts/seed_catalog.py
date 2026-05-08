@@ -43,9 +43,9 @@ EQUIPMENT = [
         "name": "Cama Hospitalaria Eléctrica",
         "slug": "camas-hospitalarias",
         "description": "Cama hospitalaria eléctrica con control remoto. Ajuste de posición para cabecera y piecera con un solo toque.",
-        "price_monthly": 1100,
-        "price_weekly": 380,
-        "price_daily": 70,
+        "price_monthly": 2500,
+        "price_weekly": 1500,
+        "price_daily": 200,
         "deposit": 0,
         "images": ["/images/cama-hospitalaria-electrica-medimundo-queretaro.jpg"],
         "quantity_total": 4,
@@ -55,9 +55,9 @@ EQUIPMENT = [
         "name": "Cama Hospitalaria Eléctrica de Lujo",
         "slug": "camas-hospitalarias",
         "description": "Cama hospitalaria eléctrica de lujo con posiciones múltiples, barandales y colchón incluido. La opción más completa para el cuidado en casa.",
-        "price_monthly": 2300,
-        "price_weekly": 750,
-        "price_daily": 130,
+        "price_monthly": 3500,
+        "price_weekly": 2000,
+        "price_daily": 300,
         "deposit": 0,
         "images": ["/images/cama-hospitalaria-electrica-lujo-medimundo-queretaro.jpg"],
         "quantity_total": 2,
@@ -79,9 +79,9 @@ EQUIPMENT = [
         "name": "Silla de Ruedas Estándar",
         "slug": "sillas-de-ruedas",
         "description": "Silla de ruedas estándar plegable, ligera y resistente. Disponible en renta mensual o venta. Consulta disponibilidad.",
-        "price_monthly": 400,
-        "price_weekly": 150,
-        "price_daily": 30,
+        "price_monthly": 1500,
+        "price_weekly": 500,
+        "price_daily": 100,
         "deposit": 0,
         "images": ["/images/silla-de-ruedas-renta-queretaro-medimundo.jpg"],
         "quantity_total": 8,
@@ -91,9 +91,9 @@ EQUIPMENT = [
         "name": "Concentrador de Oxígeno",
         "slug": "concentradores-de-oxigeno",
         "description": "Concentrador de Oxígeno 5 Lts Everflo Respironics Philips. Concentrador estacionario de alto rendimiento, flujo continuo de hasta 5 litros por minuto. No requiere receta médica. Incluye entrega, instalación y capacitación de uso a domicilio.",
-        "price_monthly": 950,
-        "price_weekly": 320,
-        "price_daily": 60,
+        "price_monthly": 2300,
+        "price_weekly": 1000,
+        "price_daily": 150,
         "deposit": 6500,
         "images": ["/images/concentrador-oxigeno-everflo-philips-respironics.jpg"],
         "quantity_total": 3,
@@ -115,9 +115,9 @@ EQUIPMENT = [
         "name": "Grúa Hidráulica para Paciente",
         "slug": "equipos-apoyo",
         "description": "Grúa hidráulica para traslado seguro de pacientes. Incluye arnés. Indispensable para el cuidado de pacientes con movilidad muy limitada.",
-        "price_monthly": 1100,
-        "price_weekly": 380,
-        "price_daily": 70,
+        "price_monthly": 2500,
+        "price_weekly": 1500,
+        "price_daily": 200,
         "deposit": 0,
         "images": ["/images/grua-hidraulica-paciente.jpg"],
         "quantity_total": 2,
@@ -316,11 +316,14 @@ async def seed():
                 db.add(obj)
                 print(f"  EQUIPMENT INSERTED: {e['name']}")
             else:
-                # Always sync images and description so they survive re-deploys
+                # Sync images, description and prices on every re-deploy
                 if e.get("images"):
                     existing.images = e["images"]
                 if e.get("description"):
                     existing.description = e["description"]
+                for price_field in ("price_monthly", "price_weekly", "price_daily", "deposit"):
+                    if price_field in e:
+                        setattr(existing, price_field, e[price_field])
                 print(f"  EQUIPMENT UPDATED: {e['name']}")
 
         await db.commit()
