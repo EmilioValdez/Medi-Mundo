@@ -151,7 +151,13 @@ export default function RespiratoryPage() {
         <div className="absolute inset-0 bg-slate-900/50" />
         <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-widest text-blue-300">Renta de equipo respiratorio</p>
-          <h1 className="mt-2 text-3xl font-extrabold sm:text-4xl lg:text-5xl">Concentradores de Oxígeno Inogen</h1>
+          <h1 className="mt-2">
+            <img
+              src="/images/inogen-logo.webp"
+              alt="Inogen — Concentradores de Oxígeno"
+              className="h-12 sm:h-16 lg:h-20 w-auto object-contain"
+            />
+          </h1>
           <p className="mt-3 max-w-2xl text-slate-200 sm:text-lg">
             Oxígeno portátil y estacionario con entrega a domicilio en Querétaro.
             Equipos certificados, silenciosos y de larga duración.
