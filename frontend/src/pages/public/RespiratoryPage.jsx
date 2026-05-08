@@ -151,13 +151,11 @@ export default function RespiratoryPage() {
         <div className="absolute inset-0 bg-slate-900/50" />
         <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h1>
-            <span className="inline-block rounded-2xl bg-white/95 px-8 py-4 shadow-lg">
-              <img
-                src="/images/inogen-one-logo.svg"
-                alt="Inogen One — Concentradores de Oxígeno"
-                className="h-16 sm:h-20 lg:h-24 w-auto object-contain"
-              />
-            </span>
+            <img
+              src="/images/inogen-one-logo.svg"
+              alt="Inogen One — Concentradores de Oxígeno"
+              className="h-24 sm:h-32 lg:h-40 w-auto object-contain"
+            />
           </h1>
           <p className="mt-3 max-w-2xl text-slate-200 sm:text-lg">
             Concentradores de oxígeno portátiles y fijos. Ligeros y eficientes, diseñados para brindar libertad, comodidad y movilidad a personas con necesidades respiratorias.
