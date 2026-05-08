@@ -155,7 +155,7 @@ export default function RespiratoryPage() {
             <img
               src="/images/inogen-logo.webp"
               alt="Inogen — Concentradores de Oxígeno"
-              className="h-12 sm:h-16 lg:h-20 w-auto object-contain"
+              className="h-24 sm:h-32 lg:h-40 w-auto object-contain"
             />
           </h1>
           <p className="mt-3 max-w-2xl text-slate-200 sm:text-lg">
