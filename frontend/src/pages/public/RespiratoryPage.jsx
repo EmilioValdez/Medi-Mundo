@@ -155,6 +155,7 @@ export default function RespiratoryPage() {
               src="/images/inogen-one-logo.svg"
               alt="Inogen One — Concentradores de Oxígeno"
               className="h-24 sm:h-32 lg:h-40 w-auto object-contain"
+              style={{ filter: 'drop-shadow(0 3px 8px rgba(0,0,0,1)) drop-shadow(0 0 20px rgba(0,0,0,0.85)) drop-shadow(0 0 40px rgba(0,0,0,0.5))' }}
             />
           </h1>
           <p className="mt-3 max-w-2xl text-slate-200 sm:text-lg">
