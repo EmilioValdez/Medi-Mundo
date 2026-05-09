@@ -19,20 +19,6 @@ def _render_markdown(text: str) -> str:
 
 @router.get("/sitemap.xml")
 async def sitemap(db: AsyncSession = Depends(get_db)):
-    # Blog posts
-    posts_result = await db.execute(
-        select(BlogPost.slug, BlogPost.actualizado, BlogPost.fecha_publicacion)
-        .where(BlogPost.activo == True)
-        .order_by(BlogPost.fecha_publicacion.desc())
-    )
-    posts = posts_result.all()
-
-    # Active equipment
-    eq_result = await db.execute(
-        select(Equipment.id).where(Equipment.is_active == True).order_by(Equipment.id)
-    )
-    equipment_ids = eq_result.scalars().all()
-
     static_urls = [
         ("https://medimundo.mx/", "1.0", "weekly"),
         ("https://medimundo.mx/rentas", "0.9", "weekly"),
@@ -52,21 +38,35 @@ async def sitemap(db: AsyncSession = Depends(get_db)):
             f"<changefreq>{changefreq}</changefreq></url>"
         )
 
-    for eq_id in equipment_ids:
-        xml_parts.append(
-            f"  <url><loc>https://medimundo.mx/equipo/{eq_id}</loc>"
-            f"<priority>0.7</priority><changefreq>monthly</changefreq></url>"
+    try:
+        eq_result = await db.execute(
+            select(Equipment.id).where(Equipment.is_active == True).order_by(Equipment.id)
         )
+        for eq_id in eq_result.scalars().all():
+            xml_parts.append(
+                f"  <url><loc>https://medimundo.mx/equipo/{eq_id}</loc>"
+                f"<priority>0.7</priority><changefreq>monthly</changefreq></url>"
+            )
+    except Exception:
+        pass
 
-    for slug, actualizado, fecha_pub in posts:
-        lastmod = (actualizado or fecha_pub).isoformat() if (actualizado or fecha_pub) else ""
-        xml_parts.append(
-            f"  <url>"
-            f"<loc>https://medimundo.mx/blog/{slug}</loc>"
-            f"{'<lastmod>' + lastmod + '</lastmod>' if lastmod else ''}"
-            f"<priority>0.7</priority><changefreq>monthly</changefreq>"
-            f"</url>"
+    try:
+        posts_result = await db.execute(
+            select(BlogPost.slug, BlogPost.actualizado, BlogPost.fecha_publicacion)
+            .where(BlogPost.activo == True)
+            .order_by(BlogPost.fecha_publicacion.desc())
         )
+        for slug, actualizado, fecha_pub in posts_result.all():
+            lastmod = (actualizado or fecha_pub).isoformat() if (actualizado or fecha_pub) else ""
+            xml_parts.append(
+                f"  <url>"
+                f"<loc>https://medimundo.mx/blog/{slug}</loc>"
+                f"{'<lastmod>' + lastmod + '</lastmod>' if lastmod else ''}"
+                f"<priority>0.7</priority><changefreq>monthly</changefreq>"
+                f"</url>"
+            )
+    except Exception:
+        pass
 
     xml_parts.append("</urlset>")
     return Response(content="\n".join(xml_parts), media_type="application/xml")
