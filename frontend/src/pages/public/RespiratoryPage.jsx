@@ -113,7 +113,18 @@ function ModelCard({ model }) {
   );
 }
 
+const PACKAGES = [
+  { id: 'basico', label: 'Paquete Básico' },
+  { id: 'plus', label: 'Paquete Plus' },
+  { id: 'tres', label: 'Paquete Tres' },
+  { id: 'cuatro', label: 'Paquete Cuatro' },
+];
+
 const SIDEBAR = [
+  {
+    id: 'paquetes', label: 'Paquetes',
+    subs: PACKAGES.map((p) => ({ id: p.id, label: p.label })),
+  },
   {
     id: 'g2', label: 'Inogen G2',
     subs: [
@@ -158,8 +169,8 @@ const SIDEBAR = [
 export default function RespiratoryPage() {
   const [models, setModels] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedModel, setSelectedModel] = useState(null);
-  const [selectedSubcat, setSelectedSubcat] = useState('concentrador');
+  const [selectedModel, setSelectedModel] = useState('paquetes');
+  const [selectedSubcat, setSelectedSubcat] = useState('all');
 
   useEffect(() => {
     apiClient.get('/inogen/')
@@ -173,11 +184,17 @@ export default function RespiratoryPage() {
     setSelectedSubcat(subcatId);
   };
 
-  const visibleModels = selectedModel
+  const showPackages = selectedModel === 'paquetes';
+  const showConcentrators = !showPackages && selectedSubcat === 'concentrador';
+
+  const visibleModels = (!showPackages && selectedModel)
     ? models.filter((m) => m.model_id === selectedModel)
     : models;
 
-  const showConcentrators = selectedSubcat === 'concentrador';
+  // Which packages to show: all or a specific one
+  const visiblePackages = selectedSubcat === 'all'
+    ? PACKAGES
+    : PACKAGES.filter((p) => p.id === selectedSubcat);
 
 
   return (
@@ -231,7 +248,7 @@ export default function RespiratoryPage() {
               {SIDEBAR.map((group) => (
                 <div key={group.id}>
                   <button
-                    onClick={() => handleSidebarClick(group.id, 'concentrador')}
+                    onClick={() => handleSidebarClick(group.id, group.id === 'paquetes' ? 'all' : 'concentrador')}
                     className="text-sm font-bold mb-1.5 block text-left w-full transition-opacity hover:opacity-75"
                     style={{ color: '#243e8c' }}
                   >
@@ -266,6 +283,42 @@ export default function RespiratoryPage() {
             {loading ? (
               <div className="flex justify-center py-20">
                 <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary-200 border-t-primary-600" />
+              </div>
+            ) : showPackages ? (
+              <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+                {visiblePackages.map((pkg) => (
+                  <div key={pkg.id} className="flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                    <div className="flex items-center justify-center h-44 bg-gray-50">
+                      <div className="flex flex-col items-center text-gray-300">
+                        <svg className="h-12 w-12 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3 3h18M3 21h18" />
+                        </svg>
+                        <span className="text-xs">Imagen próximamente</span>
+                      </div>
+                    </div>
+                    <div className="p-5 flex flex-col flex-1 gap-4">
+                      <div>
+                        <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">Inogen One</p>
+                        <h3 className="text-lg font-bold text-gray-900">{pkg.label}</h3>
+                      </div>
+                      <div className="rounded-xl border border-gray-100 overflow-hidden">
+                        <div className="px-4 py-3 text-center" style={{ backgroundColor: '#243e8c' }}>
+                          <span className="text-sm font-medium text-white/80">Precio</span>
+                          <p className="text-lg font-bold text-white mt-0.5">Consultar</p>
+                        </div>
+                      </div>
+                      <a
+                        href={`https://wa.me/5214426156649?text=${encodeURIComponent(`Hola, me interesa el *Inogen One ${pkg.label}*. ¿Pueden darme más información?`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-whatsapp mt-auto justify-center py-3 text-sm"
+                      >
+                        <WaIcon />
+                        Preguntar por {pkg.label}
+                      </a>
+                    </div>
+                  </div>
+                ))}
               </div>
             ) : showConcentrators ? (
               <>
