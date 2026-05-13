@@ -276,20 +276,26 @@ function PackageDetailView({ pkg, onBack }) {
       <div className="grid lg:grid-cols-2 gap-8 mb-12">
 
         {/* Product image + credentials side by side */}
-        <div className="flex items-center rounded-2xl bg-white border border-gray-100 p-6 min-h-80 gap-2">
-          {/* Left: credentials (FDA, FAA, Garantía) */}
-          <div className="flex items-center justify-center w-2/5 self-stretch">
+        <div
+          className="flex items-stretch rounded-2xl bg-white border border-gray-100 overflow-hidden"
+          style={{ minHeight: '340px' }}
+        >
+          {/* Left: credentials — fills full container height */}
+          <div
+            className="flex items-center justify-center shrink-0 py-5 pl-5 pr-2"
+            style={{ width: '38%' }}
+          >
             <img
               src="/images/credenciales-fda-faa-garantia-inogen.svg"
               alt="FDA Approved - FAA - Garantía 3 Años Inogen"
-              className="max-h-72 w-full object-contain pointer-events-none select-none"
+              className="w-full h-full object-contain pointer-events-none select-none"
             />
           </div>
           {/* Right: product */}
-          <div className="flex items-center justify-center w-3/5">
+          <div className="flex flex-1 items-center justify-center p-6">
             {pkg.image
-              ? <img src={pkg.image} alt={pkg.model} className="max-h-72 w-auto object-contain" />
-              : <ImagePlaceholder className="w-full h-72" />
+              ? <img src={pkg.image} alt={pkg.model} className="max-h-80 w-auto object-contain" />
+              : <ImagePlaceholder className="w-full h-80" />
             }
           </div>
         </div>
