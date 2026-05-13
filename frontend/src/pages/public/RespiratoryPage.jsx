@@ -86,13 +86,13 @@ function ModelCard({ model }) {
         {model.faa_label && (
           <div className={`rounded-lg px-4 py-2.5 flex items-center gap-2 ${
             model.faa_approved
-              ? 'bg-blue-50 border border-blue-100'
+              ? 'bg-blue-50 border border-blue-100'  /* keep subtle bg */
               : 'bg-gray-50 border border-gray-200'
           }`}>
-            <svg className={`h-4 w-4 shrink-0 ${model.faa_approved ? 'text-blue-600' : 'text-gray-500'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg className={`h-4 w-4 shrink-0 ${model.faa_approved ? '' : 'text-gray-500'}`} style={model.faa_approved ? { color: '#243e8c' } : {}} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
             </svg>
-            <span className={`text-xs ${model.faa_approved ? 'text-blue-800' : 'text-gray-600'}`}>
+            <span className={`text-xs ${model.faa_approved ? '' : 'text-gray-600'}`} style={model.faa_approved ? { color: '#243e8c' } : {}}>
               {model.faa_label}
             </span>
           </div>
@@ -232,9 +232,8 @@ export default function RespiratoryPage() {
                 <div key={group.id}>
                   <button
                     onClick={() => handleSidebarClick(group.id, 'concentrador')}
-                    className={`text-sm font-bold mb-1.5 block text-left w-full ${
-                      selectedModel === group.id ? 'text-blue-700' : 'text-blue-600 hover:text-blue-800'
-                    }`}
+                    className="text-sm font-bold mb-1.5 block text-left w-full transition-opacity hover:opacity-75"
+                    style={{ color: '#243e8c' }}
                   >
                     {group.label}
                   </button>
@@ -243,13 +242,16 @@ export default function RespiratoryPage() {
                       <li key={sub.id}>
                         <button
                           onClick={() => handleSidebarClick(group.id, sub.id)}
-                          className={`text-sm text-left w-full transition-colors ${
+                          className="text-sm text-left w-full transition-colors"
+                          style={
                             selectedModel === group.id && selectedSubcat === sub.id
-                              ? 'text-blue-700 font-semibold'
-                              : 'text-gray-600 hover:text-gray-900'
-                          }`}
+                              ? { color: '#243e8c', fontWeight: 600 }
+                              : {}
+                          }
                         >
-                          {sub.label}
+                          <span className={selectedModel === group.id && selectedSubcat === sub.id ? '' : 'text-gray-600 hover:text-gray-900'}>
+                            {sub.label}
+                          </span>
                         </button>
                       </li>
                     ))}
@@ -280,7 +282,7 @@ export default function RespiratoryPage() {
             ) : (
               <div className="flex flex-col items-center justify-center py-24 text-center">
                 <div className="h-16 w-16 rounded-full bg-blue-50 flex items-center justify-center mb-4">
-                  <svg className="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <svg className="h-8 w-8" style={{ color: '#243e8c' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                   </svg>
                 </div>
