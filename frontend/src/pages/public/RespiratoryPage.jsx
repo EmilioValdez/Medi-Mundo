@@ -113,12 +113,231 @@ function ModelCard({ model }) {
   );
 }
 
+const G5_SPECS = [
+  { label: 'Peso', value: '2.2 kg (4.7 lbs)' },
+  { label: 'Dimensiones', value: '18.26cm x 20.7cm x 8.31cm' },
+  { label: 'Flujo', value: 'de 1 – 6 litros por minuto' },
+  { label: 'Ruido', value: '<38 dBA en ajuste 2' },
+  { label: 'Batería chica', value: 'Dura 6.5 hrs en 1LPM' },
+  { label: 'Batería grande', value: 'Dura 13 hrs en 1LPM' },
+  { label: 'Consumo conectado', value: '40W a 120W en AC y DC' },
+  { label: 'Operación', value: 'Controles intuitivos y pantalla LCD de fácil lectura' },
+];
+
+const PACKAGE_DATA = {
+  basico: {
+    id: 'basico', label: 'Paquete Básico', model: 'Inogen One G5', price: 69000,
+    image: '/images/inogen-g5-png.webp',
+    description: 'Concentrador de Oxígeno portátil Inogen G5. 3 Años de Garantía. Aprobado por la FDA, cumple con los estándares FAA para su uso en aviones, incluye accesorios, requiere mantenimiento mínimo, controles intuitivos y pantalla LCD de fácil lectura.',
+    features: [
+      { text: '3 Años de garantía', highlight: true },
+      { text: 'Cumple con normas de la FAA' },
+      { text: '2.2 kg (4.7 lbs)' },
+      { text: 'Flujo de 1-6 (LPM)' },
+      { text: '1 Batería chica (Dura 6.5 hrs)' },
+    ],
+    includes: [
+      { label: 'Equipo', image: '/images/inogen-g5-png.webp' },
+      { label: 'Mochila de transporte', image: '/images/mochila-transporte-g5.jpg' },
+      { label: 'Cargador (AC) de pared', image: '/images/inogen-one-g5-cargador-pared.jpg' },
+      { label: 'Cargador (DC) para auto', image: '/images/inogen-one-g5-cargador-auto.jpg' },
+      { label: 'Una (1) Batería chica', image: '/images/inogen-one-g5-bateria-chica.jpg' },
+    ],
+    specs: G5_SPECS,
+  },
+  plus: {
+    id: 'plus', label: 'Paquete Plus', model: 'Inogen One G5', price: 74500,
+    image: '/images/inogen-g5-png.webp',
+    description: 'Concentrador de Oxígeno portátil Inogen G5. 3 Años de Garantía. Paquete Plus con mayor autonomía de batería para viajes y uso prolongado.',
+    features: [
+      { text: '3 Años de garantía', highlight: true },
+      { text: 'Cumple con normas de la FAA' },
+      { text: '2.2 kg (4.7 lbs)' },
+      { text: 'Flujo de 1-6 (LPM)' },
+      { text: '2 Baterías chicas (Dura 6.5 hrs c/u)' },
+    ],
+    includes: [
+      { label: 'Equipo', image: '/images/inogen-g5-png.webp' },
+      { label: 'Mochila de transporte', image: '/images/mochila-transporte-g5.jpg' },
+      { label: 'Cargador (AC) de pared', image: '/images/inogen-one-g5-cargador-pared.jpg' },
+      { label: 'Cargador (DC) para auto', image: '/images/inogen-one-g5-cargador-auto.jpg' },
+      { label: 'Dos (2) Baterías chicas', image: '/images/inogen-one-g5-bateria-chica.jpg' },
+    ],
+    specs: G5_SPECS,
+  },
+  tres: {
+    id: 'tres', label: 'Paquete Tres', model: 'Inogen One G5', price: 83000,
+    image: '/images/inogen-g5-png.webp',
+    description: 'Concentrador de Oxígeno portátil Inogen G5. 3 Años de Garantía. Paquete Tres con batería grande para máxima autonomía.',
+    features: [
+      { text: '3 Años de garantía', highlight: true },
+      { text: 'Cumple con normas de la FAA' },
+      { text: '2.2 kg (4.7 lbs)' },
+      { text: 'Flujo de 1-6 (LPM)' },
+      { text: '1 Batería grande (Dura 13 hrs)' },
+    ],
+    includes: [
+      { label: 'Equipo', image: '/images/inogen-g5-png.webp' },
+      { label: 'Mochila de transporte', image: '/images/mochila-transporte-g5.jpg' },
+      { label: 'Cargador (AC) de pared', image: '/images/inogen-one-g5-cargador-pared.jpg' },
+      { label: 'Cargador (DC) para auto', image: '/images/inogen-one-g5-cargador-auto.jpg' },
+      { label: 'Una (1) Batería grande', image: null },
+    ],
+    specs: G5_SPECS,
+  },
+  cuatro: {
+    id: 'cuatro', label: 'Paquete Cuatro', model: 'Inogen One G5', price: 88000,
+    image: '/images/inogen-g5-png.webp',
+    description: 'Concentrador de Oxígeno portátil Inogen G5. 3 Años de Garantía. Paquete más completo con batería grande y batería chica extra.',
+    features: [
+      { text: '3 Años de garantía', highlight: true },
+      { text: 'Cumple con normas de la FAA' },
+      { text: '2.2 kg (4.7 lbs)' },
+      { text: 'Flujo de 1-6 (LPM)' },
+      { text: '1 Batería grande + 1 Batería chica' },
+    ],
+    includes: [
+      { label: 'Equipo', image: '/images/inogen-g5-png.webp' },
+      { label: 'Mochila de transporte', image: '/images/mochila-transporte-g5.jpg' },
+      { label: 'Cargador (AC) de pared', image: '/images/inogen-one-g5-cargador-pared.jpg' },
+      { label: 'Cargador (DC) para auto', image: '/images/inogen-one-g5-cargador-auto.jpg' },
+      { label: 'Una (1) Batería grande', image: null },
+      { label: 'Una (1) Batería chica', image: '/images/inogen-one-g5-bateria-chica.jpg' },
+    ],
+    specs: G5_SPECS,
+  },
+};
+
 const PACKAGES = [
   { id: 'basico', label: 'Paquete Básico' },
   { id: 'plus', label: 'Paquete Plus' },
   { id: 'tres', label: 'Paquete Tres' },
   { id: 'cuatro', label: 'Paquete Cuatro' },
 ];
+
+function ImagePlaceholder({ className = '' }) {
+  return (
+    <div className={`flex flex-col items-center justify-center bg-gray-50 text-gray-300 rounded-xl ${className}`}>
+      <svg className="h-8 w-8 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3 3h18M3 21h18" />
+      </svg>
+      <span className="text-xs">Próximamente</span>
+    </div>
+  );
+}
+
+function PackageDetailView({ pkg, onBack }) {
+  const waMsg = waLink(`Hola, me interesa el *Inogen One G5 ${pkg.label}*. ¿Pueden darme más información y disponibilidad?`);
+
+  return (
+    <div>
+      {/* Back */}
+      <button
+        onClick={onBack}
+        className="mb-6 inline-flex items-center gap-1 text-sm text-gray-500 hover:text-gray-900 transition-colors"
+      >
+        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+        </svg>
+        Volver a paquetes
+      </button>
+
+      {/* Hero: image + info */}
+      <div className="grid lg:grid-cols-2 gap-8 mb-12">
+        <div className="flex items-center justify-center rounded-2xl bg-white border border-gray-100 p-8 min-h-72">
+          {pkg.image
+            ? <img src={pkg.image} alt={pkg.model} className="max-h-72 w-auto object-contain" />
+            : <ImagePlaceholder className="w-full h-72" />
+          }
+        </div>
+
+        <div>
+          <span className="inline-block rounded-full text-xs font-semibold px-3 py-1 mb-3 text-white" style={{ backgroundColor: '#243e8c' }}>
+            Nuevo
+          </span>
+          <h2 className="text-3xl font-bold text-gray-900">{pkg.model}</h2>
+          <p className="mt-2 text-sm text-gray-600 leading-relaxed">{pkg.description}</p>
+
+          <div className="mt-5 flex items-baseline gap-1">
+            <span className="text-4xl font-extrabold" style={{ color: '#243e8c' }}>
+              ${pkg.price.toLocaleString('es-MX')}
+            </span>
+            <span className="text-lg font-semibold text-gray-500">MXN</span>
+          </div>
+          <p className="text-sm text-gray-600 mt-1">
+            Paquete: <span className="font-semibold text-gray-900">{pkg.label.replace('Paquete ', '')}</span>
+          </p>
+
+          <ul className="mt-5 space-y-2">
+            {pkg.features.map((f, i) => (
+              <li key={i} className="flex items-center gap-2 text-sm">
+                <svg className="h-4 w-4 shrink-0" style={{ color: '#243e8c' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span className={f.highlight ? 'font-bold' : 'text-gray-700'} style={f.highlight ? { color: '#243e8c' } : {}}>
+                  {f.text}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href={waMsg}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-whatsapp mt-6 inline-flex items-center gap-2 px-6 py-3"
+          >
+            <WaIcon />
+            Consultar por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      {/* What's included */}
+      <div className="border-t border-gray-100 pt-10">
+        <h3 className="text-2xl font-bold text-gray-900 text-center mb-1">¿Qué incluye en paquete?</h3>
+        <p className="text-center text-sm text-gray-400 mb-8">Las fotografías pueden verse diferentes al producto real</p>
+        <div className="flex flex-wrap justify-center gap-6">
+          {pkg.includes.map((item, i) => (
+            <div key={i} className="flex flex-col items-center gap-2 w-32">
+              <div className="h-28 w-28 rounded-xl border border-gray-100 bg-white flex items-center justify-center overflow-hidden">
+                {item.image
+                  ? <img src={item.image} alt={item.label} className="h-full w-full object-contain p-2" />
+                  : <ImagePlaceholder className="h-full w-full" />
+                }
+              </div>
+              <span className="text-xs text-center text-gray-600">{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Specs */}
+      <div className="border-t border-gray-100 pt-10 mt-10">
+        <div className="grid lg:grid-cols-2 gap-8 items-start">
+          <div className="rounded-2xl overflow-hidden bg-gray-100 flex items-center justify-center h-72">
+            <ImagePlaceholder className="h-full w-full" />
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Especificaciones:</h3>
+            <p className="text-sm text-gray-600 mb-5 leading-relaxed">
+              El Inogen One G5 es un concentrador de oxígeno portátil conocido por su eficiencia y portabilidad.
+              Aquí hay información adicional importante sobre el dispositivo:
+            </p>
+            <ul className="space-y-2.5">
+              {pkg.specs.map((s, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm">
+                  <span className="text-gray-500 shrink-0 w-36">{s.label}:</span>
+                  <span className="font-bold text-gray-900">{s.value}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const SIDEBAR = [
   {
@@ -185,6 +404,7 @@ export default function RespiratoryPage() {
   };
 
   const showPackages = selectedModel === 'paquetes';
+  const showPackageDetail = showPackages && selectedSubcat !== 'all' && !!PACKAGE_DATA[selectedSubcat];
   const showConcentrators = !showPackages && selectedSubcat === 'concentrador';
 
   const visibleModels = (!showPackages && selectedModel)
@@ -284,41 +504,61 @@ export default function RespiratoryPage() {
               <div className="flex justify-center py-20">
                 <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary-200 border-t-primary-600" />
               </div>
+            ) : showPackageDetail ? (
+              <PackageDetailView
+                pkg={PACKAGE_DATA[selectedSubcat]}
+                onBack={() => setSelectedSubcat('all')}
+              />
             ) : showPackages ? (
               <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-                {visiblePackages.map((pkg) => (
-                  <div key={pkg.id} className="flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
-                    <div className="flex items-center justify-center h-44 bg-gray-50">
-                      <div className="flex flex-col items-center text-gray-300">
-                        <svg className="h-12 w-12 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3 3h18M3 21h18" />
-                        </svg>
-                        <span className="text-xs">Imagen próximamente</span>
+                {PACKAGES.map((pkg) => {
+                  const pkgData = PACKAGE_DATA[pkg.id];
+                  return (
+                    <button
+                      key={pkg.id}
+                      onClick={() => setSelectedSubcat(pkg.id)}
+                      className="flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow text-left cursor-pointer"
+                    >
+                      <div className="flex items-center justify-center h-44 bg-white px-6 pt-5">
+                        <img
+                          src={pkgData.image}
+                          alt={pkg.label}
+                          className="h-full w-auto object-contain transition-transform duration-300 hover:scale-105"
+                        />
                       </div>
-                    </div>
-                    <div className="p-5 flex flex-col flex-1 gap-4">
-                      <div>
-                        <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">Inogen One</p>
-                        <h3 className="text-lg font-bold text-gray-900">{pkg.label}</h3>
-                      </div>
-                      <div className="rounded-xl border border-gray-100 overflow-hidden">
-                        <div className="px-4 py-3 text-center" style={{ backgroundColor: '#243e8c' }}>
-                          <span className="text-sm font-medium text-white/80">Precio</span>
-                          <p className="text-lg font-bold text-white mt-0.5">Consultar</p>
+                      <div className="p-5 flex flex-col flex-1 gap-4">
+                        <div>
+                          <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">Inogen One G5</p>
+                          <h3 className="text-lg font-bold text-gray-900">{pkg.label}</h3>
+                        </div>
+                        <div className="rounded-xl border border-gray-100 overflow-hidden">
+                          <div className="px-4 py-3 text-center" style={{ backgroundColor: '#243e8c' }}>
+                            <span className="text-sm font-medium text-white/80">Precio</span>
+                            <p className="text-xl font-bold text-white mt-0.5">
+                              ${pkgData.price.toLocaleString('es-MX')} MXN
+                            </p>
+                          </div>
+                        </div>
+                        <ul className="space-y-1.5 flex-1">
+                          {pkgData.features.slice(0, 3).map((f, i) => (
+                            <li key={i} className="flex items-center gap-2 text-sm text-gray-700">
+                              <svg className="h-3.5 w-3.5 shrink-0" style={{ color: '#243e8c' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                              </svg>
+                              {f.text}
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="flex items-center gap-1 text-sm font-semibold" style={{ color: '#243e8c' }}>
+                          Ver detalles
+                          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                          </svg>
                         </div>
                       </div>
-                      <a
-                        href={`https://wa.me/5214426156649?text=${encodeURIComponent(`Hola, me interesa el *Inogen One ${pkg.label}*. ¿Pueden darme más información?`)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-whatsapp mt-auto justify-center py-3 text-sm"
-                      >
-                        <WaIcon />
-                        Preguntar por {pkg.label}
-                      </a>
-                    </div>
-                  </div>
-                ))}
+                    </button>
+                  );
+                })}
               </div>
             ) : showConcentrators ? (
               <>
