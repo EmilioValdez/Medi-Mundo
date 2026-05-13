@@ -33,7 +33,7 @@ function ModelCard({ model }) {
 
         {/* Prices */}
         <div className="rounded-xl border border-gray-100 overflow-hidden">
-          <div className="bg-primary-600 px-4 py-3 flex items-baseline justify-between">
+          <div className="px-4 py-3 flex items-baseline justify-between" style={{ backgroundColor: '#243e8c' }}>
             <span className="text-sm font-medium text-primary-100">Mensual</span>
             <span className="text-2xl font-extrabold text-white">
               {formatMXN(model.price_monthly)}
@@ -63,7 +63,7 @@ function ModelCard({ model }) {
           <ul className="space-y-1.5">
             {(model.includes || []).map((item, i) => (
               <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                <svg className="mt-0.5 h-4 w-4 shrink-0 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <svg className="mt-0.5 h-4 w-4 shrink-0" style={{ color: '#243e8c' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
                 {item}
