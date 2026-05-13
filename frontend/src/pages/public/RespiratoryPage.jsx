@@ -113,9 +113,53 @@ function ModelCard({ model }) {
   );
 }
 
+const SIDEBAR = [
+  {
+    id: 'g2', label: 'Inogen G2',
+    subs: [
+      { id: 'concentrador', label: 'Todos los productos' },
+      { id: 'bateria', label: 'Baterías Inogen G2' },
+      { id: 'accesorio', label: 'Accesorios Inogen G2' },
+    ],
+  },
+  {
+    id: 'g3', label: 'Inogen G3',
+    subs: [
+      { id: 'concentrador', label: 'Todos los productos' },
+      { id: 'bateria', label: 'Baterías Inogen G3' },
+      { id: 'accesorio', label: 'Accesorios Inogen G3' },
+    ],
+  },
+  {
+    id: 'g4', label: 'Inogen G4',
+    subs: [
+      { id: 'concentrador', label: 'Todos los productos' },
+      { id: 'bateria', label: 'Baterías Inogen G4' },
+      { id: 'accesorio', label: 'Accesorios Inogen G4' },
+    ],
+  },
+  {
+    id: 'g5', label: 'Inogen G5',
+    subs: [
+      { id: 'concentrador', label: 'Todos los productos' },
+      { id: 'bateria', label: 'Baterías Inogen G5' },
+      { id: 'accesorio', label: 'Accesorios Inogen G5' },
+    ],
+  },
+  {
+    id: 'at-home', label: 'Inogen At Home',
+    subs: [
+      { id: 'concentrador', label: 'Todos los productos' },
+      { id: 'accesorio', label: 'Accesorios At Home' },
+    ],
+  },
+];
+
 export default function RespiratoryPage() {
   const [models, setModels] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedModel, setSelectedModel] = useState(null);
+  const [selectedSubcat, setSelectedSubcat] = useState('concentrador');
 
   useEffect(() => {
     apiClient.get('/inogen/')
@@ -123,6 +167,18 @@ export default function RespiratoryPage() {
       .catch(() => {})
       .finally(() => setLoading(false));
   }, []);
+
+  const handleSidebarClick = (modelId, subcatId) => {
+    setSelectedModel(modelId);
+    setSelectedSubcat(subcatId);
+  };
+
+  const visibleModels = selectedModel
+    ? models.filter((m) => m.model_id === selectedModel)
+    : models;
+
+  const showConcentrators = selectedSubcat === 'concentrador';
+
 
   return (
     <>
@@ -164,24 +220,78 @@ export default function RespiratoryPage() {
         </div>
       </div>
 
-      {/* Cards grid */}
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        {loading ? (
-          <div className="flex justify-center py-20">
-            <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary-200 border-t-primary-600" />
-          </div>
-        ) : (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {models.map((model) => (
-              <ModelCard key={model.id} model={model} />
-            ))}
-          </div>
-        )}
+      {/* Catalog: sidebar + products */}
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="flex gap-10">
 
-        <p className="mt-10 text-center text-sm text-gray-500">
-          Todos los precios incluyen entrega y recogida en zona metropolitana de Querétaro.
-          Para zonas foráneas consultar costo adicional.
-        </p>
+          {/* Sidebar */}
+          <aside className="hidden lg:block w-52 shrink-0">
+            <h2 className="text-base font-bold text-gray-900 mb-4">Categorías</h2>
+            <div className="space-y-5">
+              {SIDEBAR.map((group) => (
+                <div key={group.id}>
+                  <button
+                    onClick={() => handleSidebarClick(group.id, 'concentrador')}
+                    className={`text-sm font-bold mb-1.5 block text-left w-full ${
+                      selectedModel === group.id ? 'text-blue-700' : 'text-blue-600 hover:text-blue-800'
+                    }`}
+                  >
+                    {group.label}
+                  </button>
+                  <ul className="space-y-1 pl-1">
+                    {group.subs.map((sub) => (
+                      <li key={sub.id}>
+                        <button
+                          onClick={() => handleSidebarClick(group.id, sub.id)}
+                          className={`text-sm text-left w-full transition-colors ${
+                            selectedModel === group.id && selectedSubcat === sub.id
+                              ? 'text-blue-700 font-semibold'
+                              : 'text-gray-600 hover:text-gray-900'
+                          }`}
+                        >
+                          {sub.label}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </aside>
+
+          {/* Products area */}
+          <div className="flex-1 min-w-0">
+            {loading ? (
+              <div className="flex justify-center py-20">
+                <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary-200 border-t-primary-600" />
+              </div>
+            ) : showConcentrators ? (
+              <>
+                <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+                  {visibleModels.map((model) => (
+                    <ModelCard key={model.id} model={model} />
+                  ))}
+                </div>
+                <p className="mt-10 text-center text-sm text-gray-500">
+                  Todos los precios incluyen entrega y recogida en zona metropolitana de Querétaro.
+                  Para zonas foráneas consultar costo adicional.
+                </p>
+              </>
+            ) : (
+              <div className="flex flex-col items-center justify-center py-24 text-center">
+                <div className="h-16 w-16 rounded-full bg-blue-50 flex items-center justify-center mb-4">
+                  <svg className="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-800 mb-1">Próximamente</h3>
+                <p className="text-sm text-gray-500 max-w-xs">
+                  Estamos preparando esta sección. Contáctanos por WhatsApp para consultar disponibilidad.
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </>
   );
