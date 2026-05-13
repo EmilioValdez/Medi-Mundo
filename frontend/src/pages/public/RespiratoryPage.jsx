@@ -17,7 +17,6 @@ function ModelCard({ model }) {
 
   return (
     <div className="flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow">
-      {/* Image */}
       <div className="flex items-center justify-center h-44 bg-white px-6 pt-5">
         <img
           src={model.image}
@@ -28,10 +27,8 @@ function ModelCard({ model }) {
       </div>
 
       <div className="flex flex-col flex-1 p-5 gap-4">
-        {/* Name */}
         <h2 className="text-xl font-bold text-gray-900">{model.name}</h2>
 
-        {/* Prices */}
         <div className="rounded-xl border border-gray-100 overflow-hidden">
           <div className="px-4 py-3 flex items-baseline justify-between" style={{ backgroundColor: '#243e8c' }}>
             <span className="text-sm font-medium text-primary-100">Mensual</span>
@@ -57,7 +54,6 @@ function ModelCard({ model }) {
           )}
         </div>
 
-        {/* Included */}
         <div>
           <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500">Incluye</p>
           <ul className="space-y-1.5">
@@ -72,7 +68,6 @@ function ModelCard({ model }) {
           </ul>
         </div>
 
-        {/* Deposit */}
         <div className="rounded-lg bg-amber-50 border border-amber-100 px-4 py-2.5 flex items-center gap-2">
           <svg className="h-4 w-4 shrink-0 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
@@ -82,12 +77,9 @@ function ModelCard({ model }) {
           </span>
         </div>
 
-        {/* FAA */}
         {model.faa_label && (
           <div className={`rounded-lg px-4 py-2.5 flex items-center gap-2 ${
-            model.faa_approved
-              ? 'bg-blue-50 border border-blue-100'  /* keep subtle bg */
-              : 'bg-gray-50 border border-gray-200'
+            model.faa_approved ? 'bg-blue-50 border border-blue-100' : 'bg-gray-50 border border-gray-200'
           }`}>
             <svg className={`h-4 w-4 shrink-0 ${model.faa_approved ? '' : 'text-gray-500'}`} style={model.faa_approved ? { color: '#243e8c' } : {}} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
@@ -98,7 +90,6 @@ function ModelCard({ model }) {
           </div>
         )}
 
-        {/* CTA */}
         <a
           href={waMsg}
           target="_blank"
@@ -130,11 +121,11 @@ const PACKAGE_DATA = {
     image: '/images/inogen-g5-png.webp',
     description: 'Concentrador de Oxígeno portátil Inogen G5. 3 Años de Garantía. Aprobado por la FDA, cumple con los estándares FAA para su uso en aviones, incluye accesorios, requiere mantenimiento mínimo, controles intuitivos y pantalla LCD de fácil lectura.',
     features: [
-      { text: '3 Años de garantía', highlight: true },
-      { text: 'Cumple con normas de la FAA' },
-      { text: '2.2 kg (4.7 lbs)' },
-      { text: 'Flujo de 1-6 (LPM)' },
-      { text: '1 Batería chica (Dura 6.5 hrs)' },
+      { text: '3 Años de garantía', highlight: true, icon: 'warranty' },
+      { text: 'Cumple con normas de la FAA', icon: 'faa' },
+      { text: '2.2 kg (4.7 lbs)', icon: 'weight' },
+      { text: 'Flujo de 1-6 (LPM)', icon: 'flow' },
+      { text: '1 Batería chica (Dura 6.5 hrs)', icon: 'battery' },
     ],
     includes: [
       { label: 'Equipo', image: '/images/inogen-g5-png.webp' },
@@ -150,11 +141,11 @@ const PACKAGE_DATA = {
     image: '/images/inogen-g5-png.webp',
     description: 'Concentrador de Oxígeno portátil Inogen G5. 3 Años de Garantía. Paquete Plus con mayor autonomía de batería para viajes y uso prolongado.',
     features: [
-      { text: '3 Años de garantía', highlight: true },
-      { text: 'Cumple con normas de la FAA' },
-      { text: '2.2 kg (4.7 lbs)' },
-      { text: 'Flujo de 1-6 (LPM)' },
-      { text: '2 Baterías chicas (Dura 6.5 hrs c/u)' },
+      { text: '3 Años de garantía', highlight: true, icon: 'warranty' },
+      { text: 'Cumple con normas de la FAA', icon: 'faa' },
+      { text: '2.2 kg (4.7 lbs)', icon: 'weight' },
+      { text: 'Flujo de 1-6 (LPM)', icon: 'flow' },
+      { text: '2 Baterías chicas (Dura 6.5 hrs c/u)', icon: 'battery' },
     ],
     includes: [
       { label: 'Equipo', image: '/images/inogen-g5-png.webp' },
@@ -170,11 +161,11 @@ const PACKAGE_DATA = {
     image: '/images/inogen-g5-png.webp',
     description: 'Concentrador de Oxígeno portátil Inogen G5. 3 Años de Garantía. Paquete Tres con batería grande para máxima autonomía.',
     features: [
-      { text: '3 Años de garantía', highlight: true },
-      { text: 'Cumple con normas de la FAA' },
-      { text: '2.2 kg (4.7 lbs)' },
-      { text: 'Flujo de 1-6 (LPM)' },
-      { text: '1 Batería grande (Dura 13 hrs)' },
+      { text: '3 Años de garantía', highlight: true, icon: 'warranty' },
+      { text: 'Cumple con normas de la FAA', icon: 'faa' },
+      { text: '2.2 kg (4.7 lbs)', icon: 'weight' },
+      { text: 'Flujo de 1-6 (LPM)', icon: 'flow' },
+      { text: '1 Batería grande (Dura 13 hrs)', icon: 'battery' },
     ],
     includes: [
       { label: 'Equipo', image: '/images/inogen-g5-png.webp' },
@@ -190,11 +181,11 @@ const PACKAGE_DATA = {
     image: '/images/inogen-g5-png.webp',
     description: 'Concentrador de Oxígeno portátil Inogen G5. 3 Años de Garantía. Paquete más completo con batería grande y batería chica extra.',
     features: [
-      { text: '3 Años de garantía', highlight: true },
-      { text: 'Cumple con normas de la FAA' },
-      { text: '2.2 kg (4.7 lbs)' },
-      { text: 'Flujo de 1-6 (LPM)' },
-      { text: '1 Batería grande + 1 Batería chica' },
+      { text: '3 Años de garantía', highlight: true, icon: 'warranty' },
+      { text: 'Cumple con normas de la FAA', icon: 'faa' },
+      { text: '2.2 kg (4.7 lbs)', icon: 'weight' },
+      { text: 'Flujo de 1-6 (LPM)', icon: 'flow' },
+      { text: '1 Batería grande + 1 Batería chica', icon: 'battery' },
     ],
     includes: [
       { label: 'Equipo', image: '/images/inogen-g5-png.webp' },
@@ -226,6 +217,45 @@ function ImagePlaceholder({ className = '' }) {
   );
 }
 
+function FeatureIcon({ type, highlight }) {
+  const iconStyle = { color: highlight ? '#243e8c' : '#9ca3af' };
+  const cls = 'h-5 w-5 shrink-0';
+
+  if (type === 'warranty') return (
+    <svg className={cls} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75} style={iconStyle}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+    </svg>
+  );
+  if (type === 'faa') return (
+    <svg className={cls} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75} style={iconStyle}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+    </svg>
+  );
+  if (type === 'weight') return (
+    <svg className={cls} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75} style={iconStyle}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.59 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971Z" />
+    </svg>
+  );
+  if (type === 'flow') return (
+    <svg className={cls} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75} style={iconStyle}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z" />
+    </svg>
+  );
+  if (type === 'battery') return (
+    <svg className={cls} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75} style={iconStyle}>
+      <rect x="2" y="8" width="15" height="8" rx="1.5" />
+      <path strokeLinecap="round" d="M17 11.5h2a.5.5 0 0 1 .5.5v0a.5.5 0 0 1-.5.5h-2" />
+      <line x1="5" y1="11" x2="5" y2="13" strokeLinecap="round" />
+      <line x1="8" y1="11" x2="8" y2="13" strokeLinecap="round" />
+    </svg>
+  );
+  return (
+    <svg className={cls} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75} style={iconStyle}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+    </svg>
+  );
+}
+
 function PackageDetailView({ pkg, onBack }) {
   const waMsg = waLink(`Hola, me interesa el *Inogen One G5 ${pkg.label}*. ¿Pueden darme más información y disponibilidad?`);
 
@@ -244,13 +274,21 @@ function PackageDetailView({ pkg, onBack }) {
 
       {/* Hero: image + info */}
       <div className="grid lg:grid-cols-2 gap-8 mb-12">
-        <div className="flex items-center justify-center rounded-2xl bg-white border border-gray-100 p-8 min-h-72">
+
+        {/* Product image with credentials overlay */}
+        <div className="relative flex items-center justify-center rounded-2xl bg-white border border-gray-100 p-8 min-h-80 overflow-hidden">
           {pkg.image
-            ? <img src={pkg.image} alt={pkg.model} className="max-h-72 w-auto object-contain" />
-            : <ImagePlaceholder className="w-full h-72" />
+            ? <img src={pkg.image} alt={pkg.model} className="max-h-80 w-auto object-contain" />
+            : <ImagePlaceholder className="w-full h-80" />
           }
+          <img
+            src="/images/credenciales-fda-faa-garantia-inogen.svg"
+            alt="FDA Approved - FAA - Garantía 3 Años Inogen"
+            className="absolute left-2 bottom-2 w-44 pointer-events-none select-none"
+          />
         </div>
 
+        {/* Info column */}
         <div>
           <span className="inline-block rounded-full text-xs font-semibold px-3 py-1 mb-3 text-white" style={{ backgroundColor: '#243e8c' }}>
             Nuevo
@@ -258,23 +296,27 @@ function PackageDetailView({ pkg, onBack }) {
           <h2 className="text-3xl font-bold text-gray-900">{pkg.model}</h2>
           <p className="mt-2 text-sm text-gray-600 leading-relaxed">{pkg.description}</p>
 
-          <div className="mt-5 flex items-baseline gap-1">
-            <span className="text-4xl font-extrabold" style={{ color: '#243e8c' }}>
+          {/* Price */}
+          <div className="mt-5 flex items-baseline gap-1.5">
+            <span className="text-5xl font-black" style={{ color: '#243e8c' }}>
               ${pkg.price.toLocaleString('es-MX')}
             </span>
-            <span className="text-lg font-semibold text-gray-500">MXN</span>
+            <span className="text-xl font-semibold text-gray-500">MXN</span>
           </div>
-          <p className="text-sm text-gray-600 mt-1">
-            Paquete: <span className="font-semibold text-gray-900">{pkg.label.replace('Paquete ', '')}</span>
+          <p className="text-sm mt-1.5">
+            <span className="font-bold text-gray-900">Paquete:</span>{' '}
+            <span className="text-gray-500">{pkg.label.replace('Paquete ', '')}</span>
           </p>
 
-          <ul className="mt-5 space-y-2">
+          {/* Features with icons */}
+          <ul className="mt-5 space-y-3">
             {pkg.features.map((f, i) => (
-              <li key={i} className="flex items-center gap-2 text-sm">
-                <svg className="h-4 w-4 shrink-0" style={{ color: '#243e8c' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-                <span className={f.highlight ? 'font-bold' : 'text-gray-700'} style={f.highlight ? { color: '#243e8c' } : {}}>
+              <li key={i} className="flex items-center gap-2.5">
+                <FeatureIcon type={f.icon} highlight={f.highlight} />
+                <span
+                  className={f.highlight ? 'font-bold text-base' : 'text-sm text-gray-600'}
+                  style={f.highlight ? { color: '#243e8c' } : {}}
+                >
                   {f.text}
                 </span>
               </li>
@@ -410,12 +452,6 @@ export default function RespiratoryPage() {
   const visibleModels = (!showPackages && selectedModel)
     ? models.filter((m) => m.model_id === selectedModel)
     : models;
-
-  // Which packages to show: all or a specific one
-  const visiblePackages = selectedSubcat === 'all'
-    ? PACKAGES
-    : PACKAGES.filter((p) => p.id === selectedSubcat);
-
 
   return (
     <>
