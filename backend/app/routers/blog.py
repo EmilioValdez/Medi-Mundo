@@ -17,8 +17,9 @@ def _render_markdown(text: str) -> str:
     return markdown.markdown(text, extensions=["tables", "fenced_code"])
 
 
-@router.get("/sitemap.xml")
-async def sitemap(db: AsyncSession = Depends(get_db)):
+@router.get("/sitemap.xml", include_in_schema=False)
+async def sitemap():
+    """Always returns a valid sitemap — DB queries are optional enhancements."""
     static_urls = [
         ("https://medimundo.mx/", "1.0", "weekly"),
         ("https://medimundo.mx/rentas", "0.9", "weekly"),
@@ -29,8 +30,10 @@ async def sitemap(db: AsyncSession = Depends(get_db)):
         ("https://medimundo.mx/conocenos", "0.6", "monthly"),
     ]
 
-    xml_parts = ['<?xml version="1.0" encoding="UTF-8"?>',
-                 '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    xml_parts = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ]
 
     for loc, priority, changefreq in static_urls:
         xml_parts.append(
@@ -39,32 +42,31 @@ async def sitemap(db: AsyncSession = Depends(get_db)):
         )
 
     try:
-        eq_result = await db.execute(
-            select(Equipment.id).where(Equipment.is_active == True).order_by(Equipment.id)
-        )
-        for eq_id in eq_result.scalars().all():
-            xml_parts.append(
-                f"  <url><loc>https://medimundo.mx/equipo/{eq_id}</loc>"
-                f"<priority>0.7</priority><changefreq>monthly</changefreq></url>"
+        from app.database import async_session
+        async with async_session() as db:
+            eq_result = await db.execute(
+                select(Equipment.id).where(Equipment.is_active == True).order_by(Equipment.id)
             )
-    except Exception:
-        pass
+            for eq_id in eq_result.scalars().all():
+                xml_parts.append(
+                    f"  <url><loc>https://medimundo.mx/equipo/{eq_id}</loc>"
+                    f"<priority>0.7</priority><changefreq>monthly</changefreq></url>"
+                )
 
-    try:
-        posts_result = await db.execute(
-            select(BlogPost.slug, BlogPost.actualizado, BlogPost.fecha_publicacion)
-            .where(BlogPost.activo == True)
-            .order_by(BlogPost.fecha_publicacion.desc())
-        )
-        for slug, actualizado, fecha_pub in posts_result.all():
-            lastmod = (actualizado or fecha_pub).isoformat() if (actualizado or fecha_pub) else ""
-            xml_parts.append(
-                f"  <url>"
-                f"<loc>https://medimundo.mx/blog/{slug}</loc>"
-                f"{'<lastmod>' + lastmod + '</lastmod>' if lastmod else ''}"
-                f"<priority>0.7</priority><changefreq>monthly</changefreq>"
-                f"</url>"
+            posts_result = await db.execute(
+                select(BlogPost.slug, BlogPost.actualizado, BlogPost.fecha_publicacion)
+                .where(BlogPost.activo == True)
+                .order_by(BlogPost.fecha_publicacion.desc())
             )
+            for slug, actualizado, fecha_pub in posts_result.all():
+                lastmod = (actualizado or fecha_pub).isoformat() if (actualizado or fecha_pub) else ""
+                xml_parts.append(
+                    f"  <url>"
+                    f"<loc>https://medimundo.mx/blog/{slug}</loc>"
+                    f"{'<lastmod>' + lastmod + '</lastmod>' if lastmod else ''}"
+                    f"<priority>0.7</priority><changefreq>monthly</changefreq>"
+                    f"</url>"
+                )
     except Exception:
         pass
 
