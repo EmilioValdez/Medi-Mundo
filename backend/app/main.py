@@ -38,8 +38,12 @@ settings = get_settings()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
+    try:
+        async with engine.begin() as conn:
+            await conn.run_sync(Base.metadata.create_all)
+    except Exception as exc:
+        # DB temporarily unavailable — server still starts; static files work fine
+        print(f"[lifespan] DB create_all skipped: {exc}")
     yield
 
 
@@ -99,7 +103,10 @@ if FRONTEND_DIR.is_dir():
 
     @app.get("/{full_path:path}")
     async def serve_frontend(request: Request, full_path: str):
-        file_path = FRONTEND_DIR / full_path
-        if file_path.is_file():
-            return FileResponse(file_path)
+        try:
+            file_path = FRONTEND_DIR / full_path
+            if file_path.is_file():
+                return FileResponse(file_path)
+        except Exception:
+            pass
         return FileResponse(FRONTEND_DIR / "index.html")
