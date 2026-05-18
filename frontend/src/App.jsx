@@ -158,7 +158,8 @@ export default function App() {
       <Route element={<PublicLayout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/rentas" element={<RentasPage />} />
-        <Route path="/respiratorio" element={<RespiratoryPage />} />
+        <Route path="/inogen" element={<RespiratoryPage />} />
+        <Route path="/respiratorio" element={<Navigate to="/inogen" replace />} />
         <Route path="/recargas" element={<OxygenRefillPage />} />
         <Route path="/catalogo" element={<CatalogPage />} />
         <Route path="/equipo/:id" element={<EquipmentDetailPage />} />

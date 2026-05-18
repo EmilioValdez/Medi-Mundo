@@ -42,7 +42,7 @@ export default function Navbar() {
 
           {/* Inogen logo link */}
           <NavLink
-            to="/respiratorio"
+            to="/inogen"
             className={({ isActive }) =>
               `rounded-lg px-2 py-1 transition-colors ${
                 isActive ? 'bg-primary-50 ring-1 ring-primary-200' : 'hover:bg-gray-100'
@@ -90,7 +90,7 @@ export default function Navbar() {
 
             {/* Inogen logo link — móvil */}
             <NavLink
-              to="/respiratorio"
+              to="/inogen"
               onClick={() => setOpen(false)}
               className={({ isActive }) =>
                 `flex items-center gap-3 rounded-lg px-3 py-2 ${isActive ? 'bg-primary-50' : ''}`

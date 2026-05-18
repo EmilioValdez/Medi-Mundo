@@ -255,7 +255,7 @@ function InogenSection() {
                 ))}
               </ul>
               <Link
-                to="/respiratorio"
+                to="/inogen"
                 className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-300 hover:text-white transition-colors"
               >
                 Ver detalles y precios
@@ -296,7 +296,7 @@ function InogenSection() {
 
         {/* CTA */}
         <div className="mt-10 flex flex-wrap justify-center gap-3">
-          <Link to="/respiratorio" className="btn-primary text-base px-7 py-3">
+          <Link to="/inogen" className="btn-primary text-base px-7 py-3">
             Ver todos los modelos
           </Link>
           <a

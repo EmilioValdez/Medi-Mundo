@@ -25,7 +25,7 @@ async def sitemap():
         ("https://medimundo.mx/rentas", "0.9", "weekly"),
         ("https://medimundo.mx/catalogo", "0.8", "weekly"),
         ("https://medimundo.mx/recargas", "0.8", "monthly"),
-        ("https://medimundo.mx/respiratorio", "0.8", "monthly"),
+        ("https://medimundo.mx/inogen", "0.8", "monthly"),
         ("https://medimundo.mx/blog", "0.7", "weekly"),
         ("https://medimundo.mx/conocenos", "0.6", "monthly"),
     ]
