@@ -8,9 +8,12 @@ from starlette.middleware.base import BaseHTTPMiddleware
 
 
 class HTTPSRedirectMiddleware(BaseHTTPMiddleware):
+    # Paths that must be served directly even over HTTP (never redirected)
+    _NO_REDIRECT = {"/robots.txt", "/sitemap.xml"}
+
     async def dispatch(self, request: Request, call_next):
         proto = request.headers.get("x-forwarded-proto", "https")
-        if proto == "http":
+        if proto == "http" and request.url.path not in self._NO_REDIRECT:
             url = str(request.url).replace("http://", "https://", 1)
             return RedirectResponse(url, status_code=301)
         return await call_next(request)
