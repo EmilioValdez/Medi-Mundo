@@ -1,8 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import formatMXN from '../../utils/formatMXN';
 import { waLink } from '../../utils/whatsapp';
-import apiClient from '../../api/client';
 
 function WaIcon() {
   return (
@@ -12,97 +10,6 @@ function WaIcon() {
   );
 }
 
-function ModelCard({ model }) {
-  const waMsg = waLink(`Hola, me interesa rentar el *${model.name}*. ¿Está disponible?`);
-
-  return (
-    <div className="flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow">
-      <div className="flex items-center justify-center h-44 bg-white px-6 pt-5">
-        <img
-          src={model.image}
-          alt={`Concentrador de oxígeno ${model.name} — renta en Querétaro`}
-          className="h-full w-auto object-contain transition-transform duration-300 hover:scale-105"
-          onError={(e) => { e.target.style.display = 'none'; }}
-        />
-      </div>
-
-      <div className="flex flex-col flex-1 p-5 gap-4">
-        <h2 className="text-xl font-bold text-gray-900">{model.name}</h2>
-
-        <div className="rounded-xl border border-gray-100 overflow-hidden">
-          <div className="px-4 py-3 flex items-baseline justify-between" style={{ backgroundColor: '#243e8c' }}>
-            <span className="text-sm font-medium text-primary-100">Mensual</span>
-            <span className="text-2xl font-extrabold text-white">
-              {formatMXN(model.price_monthly)}
-            </span>
-          </div>
-          {(model.price_biweekly || model.price_weekly) && (
-            <div className="grid grid-cols-2 divide-x divide-gray-100">
-              {model.price_biweekly && (
-                <div className="px-4 py-2.5 text-center">
-                  <div className="text-xs text-gray-500">Quincenal</div>
-                  <div className="text-sm font-bold text-gray-900">{formatMXN(model.price_biweekly)}</div>
-                </div>
-              )}
-              {model.price_weekly && (
-                <div className="px-4 py-2.5 text-center">
-                  <div className="text-xs text-gray-500">Semanal</div>
-                  <div className="text-sm font-bold text-gray-900">{formatMXN(model.price_weekly)}</div>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-
-        <div>
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500">Incluye</p>
-          <ul className="space-y-1.5">
-            {(model.includes || []).map((item, i) => (
-              <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                <svg className="mt-0.5 h-4 w-4 shrink-0" style={{ color: '#243e8c' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="rounded-lg bg-amber-50 border border-amber-100 px-4 py-2.5 flex items-center gap-2">
-          <svg className="h-4 w-4 shrink-0 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
-          </svg>
-          <span className="text-xs text-amber-800">
-            Depósito en garantía: <span className="font-semibold">{formatMXN(model.deposit)}</span> (reembolsable)
-          </span>
-        </div>
-
-        {model.faa_label && (
-          <div className={`rounded-lg px-4 py-2.5 flex items-center gap-2 ${
-            model.faa_approved ? 'bg-blue-50 border border-blue-100' : 'bg-gray-50 border border-gray-200'
-          }`}>
-            <svg className={`h-4 w-4 shrink-0 ${model.faa_approved ? '' : 'text-gray-500'}`} style={model.faa_approved ? { color: '#243e8c' } : {}} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
-            </svg>
-            <span className={`text-xs ${model.faa_approved ? '' : 'text-gray-600'}`} style={model.faa_approved ? { color: '#243e8c' } : {}}>
-              {model.faa_label}
-            </span>
-          </div>
-        )}
-
-        <a
-          href={waMsg}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-whatsapp mt-auto justify-center py-3 text-sm"
-        >
-          <WaIcon />
-          Preguntar por {model.name}
-        </a>
-      </div>
-    </div>
-  );
-}
 
 const G5_SPECS = [
   { label: 'Peso', value: '2.2 kg (4.7 lbs)' },
@@ -257,7 +164,7 @@ function FeatureIcon({ type, highlight }) {
 }
 
 function PackageDetailView({ pkg, onBack }) {
-  const waMsg = waLink(`Hola, me interesa el *Inogen One G5 ${pkg.label}*. ¿Pueden darme más información y disponibilidad?`);
+  const waMsg = waLink(`Hola, me interesa comprar el *Inogen One G5 ${pkg.label}*. ¿Pueden darme más información y precio?`);
 
   return (
     <div>
@@ -440,17 +347,8 @@ const SIDEBAR = [
 ];
 
 export default function RespiratoryPage() {
-  const [models, setModels] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [selectedModel, setSelectedModel] = useState('paquetes');
   const [selectedSubcat, setSelectedSubcat] = useState('all');
-
-  useEffect(() => {
-    apiClient.get('/inogen/')
-      .then((r) => setModels(r.data.filter((m) => m.is_active)))
-      .catch(() => {})
-      .finally(() => setLoading(false));
-  }, []);
 
   const handleSidebarClick = (modelId, subcatId) => {
     setSelectedModel(modelId);
@@ -459,23 +357,18 @@ export default function RespiratoryPage() {
 
   const showPackages = selectedModel === 'paquetes';
   const showPackageDetail = showPackages && selectedSubcat !== 'all' && !!PACKAGE_DATA[selectedSubcat];
-  const showConcentrators = !showPackages && selectedSubcat === 'concentrador';
-
-  const visibleModels = (!showPackages && selectedModel)
-    ? models.filter((m) => m.model_id === selectedModel)
-    : models;
 
   return (
     <>
       <Helmet>
-        <title>Concentradores de Oxígeno Inogen — MediMundo Querétaro</title>
+        <title>Venta de Concentradores de Oxígeno Inogen en Querétaro | MediMundo</title>
         <meta
           name="description"
-          content="Renta de concentradores de oxígeno portátiles Inogen One G2, G3, G4, G5 y Inogen At Home. Entrega a domicilio en Querétaro. Aprobados FAA."
+          content="Venta de concentradores de oxígeno portátiles Inogen One G5 en Querétaro. Paquetes con garantía de 3 años, aprobados FAA y FDA. Entrega a domicilio."
         />
         <link rel="canonical" href="https://medimundo.mx/inogen" />
-        <meta property="og:title" content="Concentradores de Oxígeno Inogen en Querétaro | MediMundo" />
-        <meta property="og:description" content="Renta de concentradores de oxígeno portátiles Inogen One G2, G3, G4, G5 y Inogen At Home. Entrega a domicilio en Querétaro. Aprobados FAA." />
+        <meta property="og:title" content="Venta de Concentradores Inogen One G5 en Querétaro | MediMundo" />
+        <meta property="og:description" content="Venta de concentradores de oxígeno portátiles Inogen One G5 en Querétaro. Paquetes con garantía de 3 años, aprobados FAA y FDA. Entrega a domicilio." />
         <meta property="og:url" content="https://medimundo.mx/inogen" />
         <meta property="og:image" content="https://medimundo.mx/images/concentrador-oxigeno-portatil-inogen-one-g5-renta-queretaro.jpg" />
       </Helmet>
@@ -500,7 +393,7 @@ export default function RespiratoryPage() {
             />
           </h1>
           <p className="mt-3 max-w-2xl text-slate-200 sm:text-lg">
-            Concentradores de oxígeno portátiles y fijos. Ligeros y eficientes, diseñados para brindar libertad, comodidad y movilidad a personas con necesidades respiratorias.
+            Venta de concentradores de oxígeno portátiles. Equipos originales con garantía de 3 años, aprobados por la FDA y certificados FAA para uso en avión.
           </p>
         </div>
       </div>
@@ -548,11 +441,7 @@ export default function RespiratoryPage() {
 
           {/* Products area */}
           <div className="flex-1 min-w-0">
-            {loading ? (
-              <div className="flex justify-center py-20">
-                <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary-200 border-t-primary-600" />
-              </div>
-            ) : showPackageDetail ? (
+            {showPackageDetail ? (
               <PackageDetailView
                 pkg={PACKAGE_DATA[selectedSubcat]}
                 onBack={() => setSelectedSubcat('all')}
@@ -608,18 +497,6 @@ export default function RespiratoryPage() {
                   );
                 })}
               </div>
-            ) : showConcentrators ? (
-              <>
-                <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-                  {visibleModels.map((model) => (
-                    <ModelCard key={model.id} model={model} />
-                  ))}
-                </div>
-                <p className="mt-10 text-center text-sm text-gray-500">
-                  Todos los precios incluyen entrega y recogida en zona metropolitana de Querétaro.
-                  Para zonas foráneas consultar costo adicional.
-                </p>
-              </>
             ) : (
               <div className="flex flex-col items-center justify-center py-24 text-center">
                 <div className="h-16 w-16 rounded-full bg-blue-50 flex items-center justify-center mb-4">
