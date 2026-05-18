@@ -24,6 +24,15 @@ async def seed():
         await conn.run_sync(Base.metadata.create_all)
 
     async with async_session() as db:
+        # Remove insecure legacy "admin" user if still present
+        legacy = (await db.execute(
+            select(User).where(User.username == "admin")
+        )).scalar_one_or_none()
+        if legacy:
+            await db.delete(legacy)
+            await db.commit()
+            print("  Legacy user 'admin' deleted.")
+
         # Find existing admin by role (handles username changes)
         existing = (await db.execute(
             select(User).where(User.role == "admin")
