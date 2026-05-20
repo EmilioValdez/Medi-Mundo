@@ -59,7 +59,7 @@ function FeatureIcon({ type, highlight }) {
   );
 }
 
-// ─── Specs ───────────────────────────────────────────────────────────────────
+// ─── Specs ────────────────────────────────────────────────────────────────────
 
 const G2_SPECS = [
   { label: 'Peso', value: '3.17 kg (7 lbs)' },
@@ -104,133 +104,231 @@ const G5_SPECS = [
   { label: 'Operación', value: 'Controles intuitivos y pantalla LCD de fácil lectura' },
 ];
 
-// ─── G5 Packages (sale) ───────────────────────────────────────────────────────
-
-const PACKAGE_DATA = {
-  basico: {
-    id: 'basico', label: 'Paquete Básico', model: 'Inogen One G5', price: 69000,
-    image: '/images/inogen-g5-png.webp',
-    description: 'Concentrador de oxígeno portátil Inogen One G5 con 3 años de garantía. Aprobado por la FDA y certificado FAA para uso en avión. Incluye accesorios esenciales para mayor autonomía y movilidad.',
-    features: [
-      { text: '3 Años de garantía', highlight: true, icon: 'warranty' },
-      { text: 'Certificado FAA (uso en avión)', icon: 'faa' },
-      { text: '2.2 kg (4.7 lbs)', icon: 'weight' },
-      { text: 'Flujo de 1-6 (LPM)', icon: 'flow' },
-      { text: '1 Batería chica (6.5 hrs)', icon: 'battery' },
-    ],
-    includes: [
-      { label: 'Equipo', image: '/images/inogen-g5-png.webp' },
-      { label: 'Mochila de transporte', image: '/images/inogen-one-g5-mochila.jpg' },
-      { label: 'Cargador (AC) de pared', image: '/images/inogen-one-g5-cargador-pared.jpg' },
-      { label: 'Cargador (DC) para auto', image: '/images/inogen-one-g5-cargador-auto.jpg' },
-      { label: 'Una (1) Batería chica', image: '/images/inogen-one-g5-bateria-chica.jpg' },
-    ],
-    specs: G5_SPECS,
-  },
-  plus: {
-    id: 'plus', label: 'Paquete Plus', model: 'Inogen One G5', price: 74500,
-    image: '/images/inogen-g5-png.webp',
-    description: 'Inogen One G5 con batería grande para mayor autonomía. Ideal para uso prolongado durante el día sin necesidad de recargar.',
-    features: [
-      { text: '3 Años de garantía', highlight: true, icon: 'warranty' },
-      { text: 'Certificado FAA (uso en avión)', icon: 'faa' },
-      { text: '2.2 kg (4.7 lbs)', icon: 'weight' },
-      { text: 'Flujo de 1-6 (LPM)', icon: 'flow' },
-      { text: '1 Batería grande (13 hrs)', icon: 'battery' },
-    ],
-    includes: [
-      { label: 'Equipo', image: '/images/inogen-g5-png.webp' },
-      { label: 'Mochila de transporte', image: '/images/inogen-one-g5-mochila.jpg' },
-      { label: 'Cargador (AC) de pared', image: '/images/inogen-one-g5-cargador-pared.jpg' },
-      { label: 'Cargador (DC) para auto', image: '/images/inogen-one-g5-cargador-auto.jpg' },
-      { label: 'Una (1) Batería grande', image: '/images/inogen-one-g5-bateria-grande.jpg' },
-    ],
-    specs: G5_SPECS,
-  },
-  tres: {
-    id: 'tres', label: 'Paquete Tres', model: 'Inogen One G5', price: 83000,
-    image: '/images/inogen-g5-png.webp',
-    description: 'Inogen One G5 con dos baterías chicas para máxima flexibilidad. Intercambia baterías y mantén el equipo funcionando sin interrupciones.',
-    features: [
-      { text: '3 Años de garantía', highlight: true, icon: 'warranty' },
-      { text: 'Certificado FAA (uso en avión)', icon: 'faa' },
-      { text: '2.2 kg (4.7 lbs)', icon: 'weight' },
-      { text: 'Flujo de 1-6 (LPM)', icon: 'flow' },
-      { text: '2 Baterías chicas (6.5 hrs c/u)', icon: 'battery' },
-    ],
-    includes: [
-      { label: 'Equipo', image: '/images/inogen-g5-png.webp' },
-      { label: 'Mochila de transporte', image: '/images/inogen-one-g5-mochila.jpg' },
-      { label: 'Cargador (AC) de pared', image: '/images/inogen-one-g5-cargador-pared.jpg' },
-      { label: 'Cargador (DC) para auto', image: '/images/inogen-one-g5-cargador-auto.jpg' },
-      { label: 'Dos (2) Baterías chicas', image: '/images/inogen-one-g5-bateria-chica.jpg' },
-    ],
-    specs: G5_SPECS,
-  },
-  cuatro: {
-    id: 'cuatro', label: 'Paquete Cuatro', model: 'Inogen One G5', price: 88000,
-    image: '/images/inogen-g5-png.webp',
-    description: 'El paquete más completo del Inogen One G5. Batería grande y batería chica incluidas para hasta 19 horas combinadas de autonomía.',
-    features: [
-      { text: '3 Años de garantía', highlight: true, icon: 'warranty' },
-      { text: 'Certificado FAA (uso en avión)', icon: 'faa' },
-      { text: '2.2 kg (4.7 lbs)', icon: 'weight' },
-      { text: 'Flujo de 1-6 (LPM)', icon: 'flow' },
-      { text: '1 Bat. grande + 1 Bat. chica', icon: 'battery' },
-    ],
-    includes: [
-      { label: 'Equipo', image: '/images/inogen-g5-png.webp' },
-      { label: 'Mochila de transporte', image: '/images/inogen-one-g5-mochila.jpg' },
-      { label: 'Cargador (AC) de pared', image: '/images/inogen-one-g5-cargador-pared.jpg' },
-      { label: 'Cargador (DC) para auto', image: '/images/inogen-one-g5-cargador-auto.jpg' },
-      { label: 'Una (1) Batería grande', image: '/images/inogen-one-g5-bateria-grande.jpg' },
-      { label: 'Una (1) Batería chica', image: '/images/inogen-one-g5-bateria-chica.jpg' },
-    ],
-    specs: G5_SPECS,
-  },
-};
-
-const PACKAGES = [
-  { id: 'basico', label: 'Paquete Básico' },
-  { id: 'plus', label: 'Paquete Plus' },
-  { id: 'tres', label: 'Paquete Tres' },
-  { id: 'cuatro', label: 'Paquete Cuatro' },
-];
-
-// ─── G2 / G3 / G4 / At Home products ────────────────────────────────────────
+// ─── All products by model ────────────────────────────────────────────────────
 
 const MODELS_PRODUCTS = {
-  g2: [
+  g5: [
     {
-      id: 'g2-bat-grande', name: 'Batería grande', model: 'Inogen One G2',
-      category: 'bateria', price: 15000,
-      image: '/images/inogen-one-g2-bateria-grande.jpg',
-      description: 'Batería de larga duración para el Inogen One G2. Proporciona hasta 8 horas de autonomía en ajuste 2.',
-      specs: G2_SPECS,
+      id: 'g5-basico', name: 'Inogen One G5', model: 'Inogen One G5',
+      label: 'Paquete Básico', category: 'concentrador', price: 69000,
+      badge: '1 Batería chica',
+      image: '/images/inogen-g5-png.webp',
+      description: 'Concentrador de oxígeno portátil Inogen One G5 con 3 años de garantía. Aprobado por la FDA y certificado FAA para uso en avión.',
+      features: [
+        { text: '3 Años de garantía', highlight: true, icon: 'warranty' },
+        { text: 'Certificado FAA (uso en avión)', icon: 'faa' },
+        { text: '2.2 kg (4.7 lbs)', icon: 'weight' },
+        { text: 'Flujo de 1-6 (LPM)', icon: 'flow' },
+        { text: '1 Batería chica (6.5 hrs)', icon: 'battery' },
+      ],
+      includes: [
+        { label: 'Equipo', image: '/images/inogen-g5-png.webp' },
+        { label: 'Mochila de transporte', image: '/images/inogen-one-g5-mochila.jpg' },
+        { label: 'Cargador (AC) de pared', image: '/images/inogen-one-g5-cargador-pared.jpg' },
+        { label: 'Cargador (DC) para auto', image: '/images/inogen-one-g5-cargador-auto.jpg' },
+        { label: 'Una (1) Batería chica', image: '/images/inogen-one-g5-bateria-chica.jpg' },
+      ],
+      specs: G5_SPECS,
     },
     {
-      id: 'g2-cargador-externo', name: 'Cargador externo', model: 'Inogen One G2',
-      category: 'accesorio', price: 4400,
-      image: '/images/inogen-one-g2-cargador-externo.jpg',
-      description: 'Cargador externo para baterías del Inogen One G2. Permite cargar una batería de repuesto mientras el equipo sigue en uso.',
+      id: 'g5-plus', name: 'Inogen One G5', model: 'Inogen One G5',
+      label: 'Paquete Plus', category: 'concentrador', price: 74500,
+      badge: '1 Batería grande',
+      image: '/images/inogen-g5-png.webp',
+      description: 'Inogen One G5 con batería grande para mayor autonomía. Hasta 13 horas sin conectar a la corriente.',
+      features: [
+        { text: '3 Años de garantía', highlight: true, icon: 'warranty' },
+        { text: 'Certificado FAA (uso en avión)', icon: 'faa' },
+        { text: '2.2 kg (4.7 lbs)', icon: 'weight' },
+        { text: 'Flujo de 1-6 (LPM)', icon: 'flow' },
+        { text: '1 Batería grande (13 hrs)', icon: 'battery' },
+      ],
+      includes: [
+        { label: 'Equipo', image: '/images/inogen-g5-png.webp' },
+        { label: 'Mochila de transporte', image: '/images/inogen-one-g5-mochila.jpg' },
+        { label: 'Cargador (AC) de pared', image: '/images/inogen-one-g5-cargador-pared.jpg' },
+        { label: 'Cargador (DC) para auto', image: '/images/inogen-one-g5-cargador-auto.jpg' },
+        { label: 'Una (1) Batería grande', image: '/images/inogen-one-g5-bateria-grande.jpg' },
+      ],
+      specs: G5_SPECS,
     },
     {
-      id: 'g2-cargador-pared', name: 'Cargador de pared (AC)', model: 'Inogen One G2',
-      category: 'accesorio', price: 4350,
-      image: '/images/inogen-one-g2-cargador-pared.jpg',
-      description: 'Cargador de corriente alterna para conectar el Inogen One G2 a un tomacorriente estándar.',
+      id: 'g5-tres', name: 'Inogen One G5', model: 'Inogen One G5',
+      label: 'Paquete Tres', category: 'concentrador', price: 83000,
+      badge: '2 Baterías chicas',
+      image: '/images/inogen-g5-png.webp',
+      description: 'Inogen One G5 con dos baterías chicas para mayor flexibilidad. Intercambia baterías y mantén el equipo funcionando sin interrupciones.',
+      features: [
+        { text: '3 Años de garantía', highlight: true, icon: 'warranty' },
+        { text: 'Certificado FAA (uso en avión)', icon: 'faa' },
+        { text: '2.2 kg (4.7 lbs)', icon: 'weight' },
+        { text: 'Flujo de 1-6 (LPM)', icon: 'flow' },
+        { text: '2 Baterías chicas (6.5 hrs c/u)', icon: 'battery' },
+      ],
+      includes: [
+        { label: 'Equipo', image: '/images/inogen-g5-png.webp' },
+        { label: 'Mochila de transporte', image: '/images/inogen-one-g5-mochila.jpg' },
+        { label: 'Cargador (AC) de pared', image: '/images/inogen-one-g5-cargador-pared.jpg' },
+        { label: 'Cargador (DC) para auto', image: '/images/inogen-one-g5-cargador-auto.jpg' },
+        { label: 'Dos (2) Baterías chicas', image: '/images/inogen-one-g5-bateria-chica.jpg' },
+      ],
+      specs: G5_SPECS,
     },
     {
-      id: 'g2-cargador-auto', name: 'Cargador de auto (DC)', model: 'Inogen One G2',
+      id: 'g5-cuatro', name: 'Inogen One G5', model: 'Inogen One G5',
+      label: 'Paquete Cuatro', category: 'concentrador', price: 88000,
+      badge: '1 Bat. grande + 1 Bat. chica',
+      image: '/images/inogen-g5-png.webp',
+      description: 'El paquete más completo del Inogen One G5. Batería grande y batería chica para hasta 19 horas combinadas de autonomía.',
+      features: [
+        { text: '3 Años de garantía', highlight: true, icon: 'warranty' },
+        { text: 'Certificado FAA (uso en avión)', icon: 'faa' },
+        { text: '2.2 kg (4.7 lbs)', icon: 'weight' },
+        { text: 'Flujo de 1-6 (LPM)', icon: 'flow' },
+        { text: '1 Bat. grande + 1 Bat. chica', icon: 'battery' },
+      ],
+      includes: [
+        { label: 'Equipo', image: '/images/inogen-g5-png.webp' },
+        { label: 'Mochila de transporte', image: '/images/inogen-one-g5-mochila.jpg' },
+        { label: 'Cargador (AC) de pared', image: '/images/inogen-one-g5-cargador-pared.jpg' },
+        { label: 'Cargador (DC) para auto', image: '/images/inogen-one-g5-cargador-auto.jpg' },
+        { label: 'Una (1) Batería grande', image: '/images/inogen-one-g5-bateria-grande.jpg' },
+        { label: 'Una (1) Batería chica', image: '/images/inogen-one-g5-bateria-chica.jpg' },
+      ],
+      specs: G5_SPECS,
+    },
+    {
+      id: 'g5-bat-chica', name: 'Batería chica', model: 'Inogen One G5',
+      category: 'bateria', price: 11900,
+      image: '/images/inogen-one-g5-bateria-chica.jpg',
+      description: 'Batería chica original para Inogen One G5. Hasta 6.5 horas de autonomía en ajuste 1LPM.',
+      specs: G5_SPECS,
+    },
+    {
+      id: 'g5-bat-grande', name: 'Batería grande', model: 'Inogen One G5',
+      category: 'bateria', price: 16000,
+      image: '/images/inogen-one-g5-bateria-grande.jpg',
+      description: 'Batería grande original para Inogen One G5. Hasta 13 horas de autonomía en ajuste 1LPM.',
+      specs: G5_SPECS,
+    },
+    {
+      id: 'g5-cargador-externo', name: 'Cargador externo', model: 'Inogen One G5',
+      category: 'accesorio', price: 8800,
+      image: '/images/inogen-one-g5-cargador-externo.jpg',
+      description: 'Cargador externo para baterías del Inogen One G5. Permite cargar una batería de repuesto mientras el equipo opera.',
+    },
+    {
+      id: 'g5-cargador-pared', name: 'Cargador de pared (AC)', model: 'Inogen One G5',
+      category: 'accesorio', price: 5100,
+      image: '/images/inogen-one-g5-cargador-pared.jpg',
+      description: 'Cargador de corriente alterna original para Inogen One G5.',
+    },
+    {
+      id: 'g5-cargador-auto', name: 'Cargador de auto (DC)', model: 'Inogen One G5',
       category: 'accesorio', price: 2200,
-      image: '/images/inogen-one-g2-cargador-auto.jpg',
-      description: 'Cargador de corriente directa para mantener el Inogen One G2 cargado durante viajes en automóvil.',
+      image: '/images/inogen-one-g5-cargador-auto.jpg',
+      description: 'Cargador de corriente directa para mantener el Inogen One G5 cargado en el automóvil.',
     },
     {
-      id: 'g2-backpack', name: 'Backpack', model: 'Inogen One G2',
-      category: 'accesorio', price: 2900,
-      image: '/images/inogen-one-g2-backpack.jpg',
-      description: 'Mochila de transporte diseñada específicamente para el Inogen One G2. Cómoda y discreta para uso diario.',
+      id: 'g5-mochila', name: 'Mochila de transporte', model: 'Inogen One G5',
+      category: 'accesorio', price: 3700,
+      image: '/images/inogen-one-g5-mochila.jpg',
+      description: 'Mochila original diseñada para el Inogen One G5.',
+    },
+    {
+      id: 'g5-backpack', name: 'Backpack', model: 'Inogen One G5',
+      category: 'accesorio', price: 3700,
+      image: '/images/inogen-one-g5-backpack.jpg',
+      description: 'Backpack para Inogen One G5, cómodo y discreto para uso diario.',
+    },
+    {
+      id: 'g5-carrito', name: 'Carrito de transporte', model: 'Inogen One G5',
+      category: 'accesorio', price: 4000,
+      image: '/images/inogen-one-g5-carrito.jpg',
+      description: 'Carrito de transporte para el Inogen One G5. Ruedas y asa retráctil para desplazarse sin esfuerzo.',
+    },
+  ],
+  g4: [
+    {
+      id: 'g4-plus', name: 'Inogen One G4', model: 'Inogen One G4',
+      label: 'Paquete Plus', category: 'concentrador', price: 62500,
+      badge: '1 Batería grande',
+      image: '/images/inogen-g4-png.webp',
+      description: 'El concentrador de oxígeno más compacto y ligero de Inogen. Solo 1.27 kg, ideal para quien prioriza discreción y portabilidad.',
+      features: [
+        { text: '3 Años de garantía', highlight: true, icon: 'warranty' },
+        { text: 'Certificado FAA (uso en avión)', icon: 'faa' },
+        { text: '1.27 kg (2.79 lbs)', icon: 'weight' },
+        { text: 'Flujo de 1-3 (LPM)', icon: 'flow' },
+        { text: '1 Batería grande (5 hrs)', icon: 'battery' },
+      ],
+      includes: [
+        { label: 'Equipo', image: '/images/inogen-g4-png.webp' },
+        { label: 'Mochila de transporte', image: '/images/inogen-one-g4-mochila.jpg' },
+        { label: 'Cargador (AC) de pared', image: '/images/inogen-one-g4-cargador-pared.jpg' },
+        { label: 'Cargador (DC) para auto', image: '/images/inogen-one-g4-cargador-auto.jpg' },
+        { label: 'Una (1) Batería grande', image: '/images/inogen-one-g4-bateria-grande.jpg' },
+      ],
+      specs: G4_SPECS,
+    },
+    {
+      id: 'g4-cuatro', name: 'Inogen One G4', model: 'Inogen One G4',
+      label: 'Paquete Cuatro', category: 'concentrador', price: 77500,
+      badge: '2 Baterías grandes',
+      image: '/images/inogen-g4-png.webp',
+      description: 'Inogen One G4 con dos baterías grandes para hasta 10 horas de autonomía. El paquete más completo del modelo más ligero.',
+      features: [
+        { text: '3 Años de garantía', highlight: true, icon: 'warranty' },
+        { text: 'Certificado FAA (uso en avión)', icon: 'faa' },
+        { text: '1.27 kg (2.79 lbs)', icon: 'weight' },
+        { text: 'Flujo de 1-3 (LPM)', icon: 'flow' },
+        { text: '2 Baterías grandes (5 hrs c/u)', icon: 'battery' },
+      ],
+      includes: [
+        { label: 'Equipo', image: '/images/inogen-g4-png.webp' },
+        { label: 'Mochila de transporte', image: '/images/inogen-one-g4-mochila.jpg' },
+        { label: 'Cargador (AC) de pared', image: '/images/inogen-one-g4-cargador-pared.jpg' },
+        { label: 'Cargador (DC) para auto', image: '/images/inogen-one-g4-cargador-auto.jpg' },
+        { label: 'Dos (2) Baterías grandes', image: '/images/inogen-one-g4-bateria-grande.jpg' },
+      ],
+      specs: G4_SPECS,
+    },
+    {
+      id: 'g4-bat-grande', name: 'Batería grande', model: 'Inogen One G4',
+      category: 'bateria', price: 16000,
+      image: '/images/inogen-one-g4-bateria-grande.jpg',
+      description: 'Batería grande original para Inogen One G4. Hasta 5 horas de autonomía en ajuste 1LPM.',
+      specs: G4_SPECS,
+    },
+    {
+      id: 'g4-cargador-externo', name: 'Cargador externo', model: 'Inogen One G4',
+      category: 'accesorio', price: 8800,
+      image: '/images/inogen-one-g4-cargador-externo.jpg',
+      description: 'Cargador externo para baterías del Inogen One G4.',
+    },
+    {
+      id: 'g4-cargador-pared', name: 'Cargador de pared (AC)', model: 'Inogen One G4',
+      category: 'accesorio', price: 5100,
+      image: '/images/inogen-one-g4-cargador-pared.jpg',
+      description: 'Cargador de corriente alterna original para Inogen One G4.',
+    },
+    {
+      id: 'g4-cargador-auto', name: 'Cargador de auto (DC)', model: 'Inogen One G4',
+      category: 'accesorio', price: 2200,
+      image: '/images/inogen-one-g4-cargador-auto.jpg',
+      description: 'Cargador de corriente directa para Inogen One G4 en el automóvil.',
+    },
+    {
+      id: 'g4-mochila', name: 'Mochila de transporte', model: 'Inogen One G4',
+      category: 'accesorio', price: 3700,
+      image: '/images/inogen-one-g4-mochila.jpg',
+      description: 'Mochila original diseñada para el Inogen One G4.',
+    },
+    {
+      id: 'g4-backpack', name: 'Backpack', model: 'Inogen One G4',
+      category: 'accesorio', price: 3700,
+      image: '/images/inogen-one-g4-backpack.jpg',
+      description: 'Backpack para Inogen One G4, cómodo y discreto para uso diario.',
     },
   ],
   g3: [
@@ -363,7 +461,7 @@ const MODELS_PRODUCTS = {
       id: 'g3-cargador-externo', name: 'Cargador externo', model: 'Inogen One G3',
       category: 'accesorio', price: 4350,
       image: '/images/inogen-one-g3-cargador-externo.jpg',
-      description: 'Cargador externo para baterías del Inogen One G3. Carga baterías de repuesto mientras el equipo opera.',
+      description: 'Cargador externo para baterías del Inogen One G3.',
     },
     {
       id: 'g3-cargador-pared', name: 'Cargador de pared (AC)', model: 'Inogen One G3',
@@ -381,7 +479,7 @@ const MODELS_PRODUCTS = {
       id: 'g3-mochila', name: 'Mochila de transporte', model: 'Inogen One G3',
       category: 'accesorio', price: 2900,
       image: '/images/inogen-one-g3-mochila.jpg',
-      description: 'Mochila original diseñada para el Inogen One G3. Cómoda y discreta para el uso diario.',
+      description: 'Mochila original diseñada para el Inogen One G3.',
     },
     {
       id: 'g3-backpack', name: 'Backpack', model: 'Inogen One G3',
@@ -396,87 +494,37 @@ const MODELS_PRODUCTS = {
       description: 'Carrito de transporte para el Inogen One G3. Ruedas y asa retráctil para desplazarse sin esfuerzo.',
     },
   ],
-  g4: [
+  g2: [
     {
-      id: 'g4-plus', name: 'Inogen One G4', model: 'Inogen One G4',
-      label: 'Paquete Plus', category: 'concentrador', price: 62500,
-      badge: '1 Batería grande',
-      image: '/images/inogen-g4-png.webp',
-      description: 'El concentrador de oxígeno más compacto y ligero de Inogen. Solo 1.27 kg, ideal para quien prioriza discreción y portabilidad.',
-      features: [
-        { text: '3 Años de garantía', highlight: true, icon: 'warranty' },
-        { text: 'Certificado FAA (uso en avión)', icon: 'faa' },
-        { text: '1.27 kg (2.79 lbs)', icon: 'weight' },
-        { text: 'Flujo de 1-3 (LPM)', icon: 'flow' },
-        { text: '1 Batería grande (5 hrs)', icon: 'battery' },
-      ],
-      includes: [
-        { label: 'Equipo', image: '/images/inogen-g4-png.webp' },
-        { label: 'Mochila de transporte', image: '/images/inogen-one-g4-mochila.jpg' },
-        { label: 'Cargador (AC) de pared', image: '/images/inogen-one-g4-cargador-pared.jpg' },
-        { label: 'Cargador (DC) para auto', image: '/images/inogen-one-g4-cargador-auto.jpg' },
-        { label: 'Una (1) Batería grande', image: '/images/inogen-one-g4-bateria-grande.jpg' },
-      ],
-      specs: G4_SPECS,
+      id: 'g2-bat-grande', name: 'Batería grande', model: 'Inogen One G2',
+      category: 'bateria', price: 15000,
+      image: '/images/inogen-one-g2-bateria-grande.jpg',
+      description: 'Batería de larga duración para el Inogen One G2. Hasta 8 horas de autonomía en ajuste 2.',
+      specs: G2_SPECS,
     },
     {
-      id: 'g4-cuatro', name: 'Inogen One G4', model: 'Inogen One G4',
-      label: 'Paquete Cuatro', category: 'concentrador', price: 77500,
-      badge: '2 Baterías grandes',
-      image: '/images/inogen-g4-png.webp',
-      description: 'Inogen One G4 con dos baterías grandes para hasta 10 horas de autonomía. El paquete más completo del modelo más ligero.',
-      features: [
-        { text: '3 Años de garantía', highlight: true, icon: 'warranty' },
-        { text: 'Certificado FAA (uso en avión)', icon: 'faa' },
-        { text: '1.27 kg (2.79 lbs)', icon: 'weight' },
-        { text: 'Flujo de 1-3 (LPM)', icon: 'flow' },
-        { text: '2 Baterías grandes (5 hrs c/u)', icon: 'battery' },
-      ],
-      includes: [
-        { label: 'Equipo', image: '/images/inogen-g4-png.webp' },
-        { label: 'Mochila de transporte', image: '/images/inogen-one-g4-mochila.jpg' },
-        { label: 'Cargador (AC) de pared', image: '/images/inogen-one-g4-cargador-pared.jpg' },
-        { label: 'Cargador (DC) para auto', image: '/images/inogen-one-g4-cargador-auto.jpg' },
-        { label: 'Dos (2) Baterías grandes', image: '/images/inogen-one-g4-bateria-grande.jpg' },
-      ],
-      specs: G4_SPECS,
+      id: 'g2-cargador-externo', name: 'Cargador externo', model: 'Inogen One G2',
+      category: 'accesorio', price: 4400,
+      image: '/images/inogen-one-g2-cargador-externo.jpg',
+      description: 'Cargador externo para baterías del Inogen One G2.',
     },
     {
-      id: 'g4-bat-grande', name: 'Batería grande', model: 'Inogen One G4',
-      category: 'bateria', price: 16000,
-      image: '/images/inogen-one-g4-bateria-grande.jpg',
-      description: 'Batería grande original para Inogen One G4. Hasta 5 horas de autonomía en ajuste 1LPM.',
-      specs: G4_SPECS,
+      id: 'g2-cargador-pared', name: 'Cargador de pared (AC)', model: 'Inogen One G2',
+      category: 'accesorio', price: 4350,
+      image: '/images/inogen-one-g2-cargador-pared.jpg',
+      description: 'Cargador de corriente alterna para el Inogen One G2.',
     },
     {
-      id: 'g4-cargador-externo', name: 'Cargador externo', model: 'Inogen One G4',
-      category: 'accesorio', price: 8800,
-      image: '/images/inogen-one-g4-cargador-externo.jpg',
-      description: 'Cargador externo para baterías del Inogen One G4.',
-    },
-    {
-      id: 'g4-cargador-pared', name: 'Cargador de pared (AC)', model: 'Inogen One G4',
-      category: 'accesorio', price: 5100,
-      image: '/images/inogen-one-g4-cargador-pared.jpg',
-      description: 'Cargador de corriente alterna original para Inogen One G4.',
-    },
-    {
-      id: 'g4-cargador-auto', name: 'Cargador de auto (DC)', model: 'Inogen One G4',
+      id: 'g2-cargador-auto', name: 'Cargador de auto (DC)', model: 'Inogen One G2',
       category: 'accesorio', price: 2200,
-      image: '/images/inogen-one-g4-cargador-auto.jpg',
-      description: 'Cargador de corriente directa para Inogen One G4 en el automóvil.',
+      image: '/images/inogen-one-g2-cargador-auto.jpg',
+      description: 'Cargador de corriente directa para Inogen One G2 en el automóvil.',
     },
     {
-      id: 'g4-mochila', name: 'Mochila de transporte', model: 'Inogen One G4',
-      category: 'accesorio', price: 3700,
-      image: '/images/inogen-one-g4-mochila.jpg',
-      description: 'Mochila original diseñada para el Inogen One G4.',
-    },
-    {
-      id: 'g4-backpack', name: 'Backpack', model: 'Inogen One G4',
-      category: 'accesorio', price: 3700,
-      image: '/images/inogen-one-g4-backpack.jpg',
-      description: 'Backpack para Inogen One G4, cómodo y discreto para uso diario.',
+      id: 'g2-backpack', name: 'Backpack', model: 'Inogen One G2',
+      category: 'accesorio', price: 2900,
+      image: '/images/inogen-one-g2-backpack.jpg',
+      description: 'Mochila de transporte diseñada para el Inogen One G2.',
     },
   ],
   'at-home': [
@@ -484,7 +532,7 @@ const MODELS_PRODUCTS = {
       id: 'at-home-equipo', name: 'Inogen At Home', model: 'Inogen At Home',
       label: 'Concentrador fijo', category: 'concentrador', price: null, soldOut: true,
       image: '/images/inogen-at-home-png.webp',
-      description: 'Concentrador de oxígeno estacionario para uso domiciliario. Diseñado para proporcionar oxígeno continuo de forma silenciosa y eficiente. Actualmente no disponible.',
+      description: 'Concentrador de oxígeno estacionario para uso domiciliario. Proporciona oxígeno continuo de forma silenciosa y eficiente. Actualmente no disponible.',
       features: [
         { text: '3 Años de garantía', highlight: true, icon: 'warranty' },
         { text: 'Flujo continuo para uso en casa', icon: 'flow' },
@@ -499,124 +547,59 @@ const MODELS_PRODUCTS = {
   ],
 };
 
+// ─── Sidebar ──────────────────────────────────────────────────────────────────
+
 const SIDEBAR = [
   {
-    id: 'paquetes', label: 'Paquetes G5',
-    subs: PACKAGES.map((p) => ({ id: p.id, label: p.label })),
+    id: 'g5', label: 'Inogen G5',
+    subs: [
+      { id: 'all', label: 'Todos los productos' },
+      { id: 'concentrador', label: 'Equipos Inogen G5' },
+      { id: 'bateria', label: 'Baterías Inogen G5' },
+      { id: 'accesorio', label: 'Accesorios Inogen G5' },
+    ],
   },
   {
     id: 'g4', label: 'Inogen G4',
     subs: [
-      { id: 'concentrador', label: 'Equipos G4' },
-      { id: 'bateria', label: 'Baterías G4' },
-      { id: 'accesorio', label: 'Accesorios G4' },
+      { id: 'all', label: 'Todos los productos' },
+      { id: 'concentrador', label: 'Equipos Inogen G4' },
+      { id: 'bateria', label: 'Baterías Inogen G4' },
+      { id: 'accesorio', label: 'Accesorios Inogen G4' },
     ],
   },
   {
     id: 'g3', label: 'Inogen G3',
     subs: [
-      { id: 'concentrador', label: 'Equipos G3' },
-      { id: 'bateria', label: 'Baterías G3' },
-      { id: 'accesorio', label: 'Accesorios G3' },
+      { id: 'all', label: 'Todos los productos' },
+      { id: 'concentrador', label: 'Equipos Inogen G3' },
+      { id: 'bateria', label: 'Baterías Inogen G3' },
+      { id: 'accesorio', label: 'Accesorios Inogen G3' },
     ],
   },
   {
     id: 'g2', label: 'Inogen G2',
     subs: [
-      { id: 'bateria', label: 'Baterías G2' },
-      { id: 'accesorio', label: 'Accesorios G2' },
+      { id: 'all', label: 'Todos los productos' },
+      { id: 'bateria', label: 'Baterías Inogen G2' },
+      { id: 'accesorio', label: 'Accesorios Inogen G2' },
     ],
   },
   {
     id: 'at-home', label: 'Inogen At Home',
     subs: [
+      { id: 'all', label: 'Todos los productos' },
       { id: 'concentrador', label: 'Concentrador fijo' },
     ],
   },
 ];
 
-// ─── Detail view (G5 packages) ───────────────────────────────────────────────
-
-function PackageDetailView({ pkg, onBack }) {
-  const waMsg = waLink(`Hola, me interesa comprar el *Inogen One G5 ${pkg.label}*. ¿Pueden darme más información y precio?`);
-  return (
-    <div>
-      <button onClick={onBack} className="mb-6 inline-flex items-center gap-1 text-sm text-gray-500 hover:text-gray-900 transition-colors">
-        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-        </svg>
-        Volver a paquetes
-      </button>
-      <div className="grid lg:grid-cols-2 gap-8 mb-12">
-        <div className="flex items-stretch rounded-2xl bg-white border border-gray-100 overflow-hidden" style={{ minHeight: '340px' }}>
-          <div className="flex items-center justify-center shrink-0 py-5 pl-5 pr-2" style={{ width: '38%' }}>
-            <img src="/images/credenciales-fda-faa-garantia-inogen.svg" alt="FDA - FAA - Garantía 3 Años" className="w-full h-full object-contain pointer-events-none select-none" />
-          </div>
-          <div className="flex flex-1 items-center justify-center p-6">
-            <img src={pkg.image} alt={pkg.model} className="max-h-80 w-auto object-contain" />
-          </div>
-        </div>
-        <div>
-          <span className="inline-block rounded-full text-xs font-semibold px-3 py-1 mb-3 text-white" style={{ backgroundColor: '#243e8c' }}>Nuevo</span>
-          <h2 className="text-3xl font-bold text-gray-900">{pkg.model}</h2>
-          <p className="mt-2 text-sm text-gray-600 leading-relaxed">{pkg.description}</p>
-          <div className="mt-5 flex items-baseline gap-1.5">
-            <span className="text-5xl font-black" style={{ color: '#243e8c' }}>${pkg.price.toLocaleString('es-MX')}</span>
-            <span className="text-xl font-semibold text-gray-500">MXN</span>
-          </div>
-          <p className="text-sm mt-1.5"><span className="font-bold text-gray-900">Paquete:</span> <span className="text-gray-500">{pkg.label.replace('Paquete ', '')}</span></p>
-          <ul className="mt-5 space-y-3">
-            {pkg.features.map((f, i) => (
-              <li key={i} className="flex items-center gap-2.5">
-                <FeatureIcon type={f.icon} highlight={f.highlight} />
-                <span className={f.highlight ? 'font-bold text-base' : 'text-sm text-gray-600'} style={f.highlight ? { color: '#243e8c' } : {}}>{f.text}</span>
-              </li>
-            ))}
-          </ul>
-          <a href={waMsg} target="_blank" rel="noopener noreferrer" className="btn-whatsapp mt-6 inline-flex items-center gap-2 px-6 py-3">
-            <WaIcon />Consultar por WhatsApp
-          </a>
-        </div>
-      </div>
-      <div className="border-t border-gray-100 pt-10">
-        <h3 className="text-2xl font-bold text-gray-900 text-center mb-1">¿Qué incluye el paquete?</h3>
-        <p className="text-center text-sm text-gray-400 mb-8">Las fotografías pueden verse diferentes al producto real</p>
-        <div className="flex flex-wrap justify-center gap-6">
-          {pkg.includes.map((item, i) => (
-            <div key={i} className="flex flex-col items-center gap-2 w-32">
-              <div className="h-28 w-28 rounded-xl border border-gray-100 bg-white flex items-center justify-center overflow-hidden">
-                {item.image ? <img src={item.image} alt={item.label} className="h-full w-full object-contain p-2" /> : <ImagePlaceholder className="h-full w-full" />}
-              </div>
-              <span className="text-xs text-center text-gray-600">{item.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="border-t border-gray-100 pt-10 mt-10">
-        <div className="grid lg:grid-cols-2 gap-8 items-start">
-          <img src={pkg.image} alt={pkg.model} className="rounded-2xl w-full object-contain bg-gray-50 p-8" />
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Especificaciones:</h3>
-            <p className="text-sm text-gray-600 mb-5 leading-relaxed">El Inogen One G5 es el modelo más avanzado de la línea. Eficiente, ligero y con la mayor capacidad de flujo disponible en formato portátil.</p>
-            <ul className="space-y-2.5">
-              {pkg.specs.map((s, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm">
-                  <span className="text-gray-500 shrink-0 w-36">{s.label}:</span>
-                  <span className="font-bold text-gray-900">{s.value}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ─── Detail view (G2/G3/G4/At Home products) ─────────────────────────────────
+// ─── Product detail view ──────────────────────────────────────────────────────
 
 function ProductDetailView({ product, onBack }) {
   const waMsg = waLink(`Hola, me interesa comprar *${product.model}${product.label ? ' ' + product.label : ''} — ${product.name}*. ¿Pueden darme más información?`);
+  const isEquipo = product.category === 'concentrador';
+
   return (
     <div>
       <button onClick={onBack} className="mb-6 inline-flex items-center gap-1 text-sm text-gray-500 hover:text-gray-900 transition-colors">
@@ -625,13 +608,29 @@ function ProductDetailView({ product, onBack }) {
         </svg>
         Volver
       </button>
+
       <div className="grid lg:grid-cols-2 gap-8 mb-12">
-        <div className="flex items-center justify-center rounded-2xl bg-gray-50 border border-gray-100 p-8 min-h-64">
-          {product.image
-            ? <img src={product.image} alt={product.name} className="max-h-72 w-auto object-contain" />
-            : <ImagePlaceholder className="w-full h-64" />
-          }
-        </div>
+        {/* Image block — equipos show credenciales badge */}
+        {isEquipo ? (
+          <div className="flex items-stretch rounded-2xl bg-white border border-gray-100 overflow-hidden" style={{ minHeight: '320px' }}>
+            <div className="flex items-center justify-center shrink-0 py-5 pl-5 pr-2" style={{ width: '38%' }}>
+              <img src="/images/credenciales-fda-faa-garantia-inogen.svg" alt="FDA - FAA - Garantía 3 Años" className="w-full h-full object-contain pointer-events-none select-none" />
+            </div>
+            <div className="flex flex-1 items-center justify-center p-6">
+              {product.image
+                ? <img src={product.image} alt={product.name} className="max-h-72 w-auto object-contain" />
+                : <ImagePlaceholder className="w-full h-64" />}
+            </div>
+          </div>
+        ) : (
+          <div className="flex items-center justify-center rounded-2xl bg-gray-50 border border-gray-100 p-8 min-h-64">
+            {product.image
+              ? <img src={product.image} alt={product.name} className="max-h-72 w-auto object-contain" />
+              : <ImagePlaceholder className="w-full h-64" />}
+          </div>
+        )}
+
+        {/* Info */}
         <div>
           <p className="text-xs font-semibold uppercase tracking-wider mb-1 text-gray-400">{product.model}</p>
           {product.label && (
@@ -704,13 +703,11 @@ function ProductDetailView({ product, onBack }) {
   );
 }
 
-// ─── Product grid (G2/G3/G4/At Home) ─────────────────────────────────────────
+// ─── Product grid ─────────────────────────────────────────────────────────────
 
 function ProductGrid({ modelId, subcatFilter, onSelect }) {
   const all = MODELS_PRODUCTS[modelId] || [];
-  const products = subcatFilter === 'all' || !subcatFilter
-    ? all
-    : all.filter((p) => p.category === subcatFilter);
+  const products = subcatFilter === 'all' ? all : all.filter((p) => p.category === subcatFilter);
 
   if (products.length === 0) {
     return (
@@ -747,8 +744,7 @@ function ProductGrid({ modelId, subcatFilter, onSelect }) {
             )}
             {product.image
               ? <img src={product.image} alt={product.name} className="h-full w-auto object-contain transition-transform duration-300 hover:scale-105" onError={(e) => { e.target.style.display = 'none'; }} />
-              : <ImagePlaceholder className="w-full h-full" />
-            }
+              : <ImagePlaceholder className="w-full h-full" />}
           </div>
           <div className="p-5 flex flex-col flex-1 gap-3">
             <div>
@@ -780,7 +776,7 @@ function ProductGrid({ modelId, subcatFilter, onSelect }) {
 // ─── Main page ────────────────────────────────────────────────────────────────
 
 export default function RespiratoryPage() {
-  const [selectedModel, setSelectedModel] = useState('paquetes');
+  const [selectedModel, setSelectedModel] = useState('g5');
   const [selectedSubcat, setSelectedSubcat] = useState('all');
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -789,10 +785,6 @@ export default function RespiratoryPage() {
     setSelectedSubcat(subcatId);
     setSelectedProduct(null);
   };
-
-  const showPackages = selectedModel === 'paquetes';
-  const showG5Detail = showPackages && selectedSubcat !== 'all' && !!PACKAGE_DATA[selectedSubcat];
-  const showModelProducts = !showPackages && !!MODELS_PRODUCTS[selectedModel];
 
   return (
     <>
@@ -830,7 +822,7 @@ export default function RespiratoryPage() {
               {SIDEBAR.map((group) => (
                 <div key={group.id}>
                   <button
-                    onClick={() => handleSidebarClick(group.id, group.subs[0].id)}
+                    onClick={() => handleSidebarClick(group.id, 'all')}
                     className="text-lg font-bold mb-3 block text-left w-full transition-opacity hover:opacity-75"
                     style={{ color: '#243e8c' }}
                   >
@@ -860,67 +852,11 @@ export default function RespiratoryPage() {
           <div className="flex-1 min-w-0">
             {selectedProduct ? (
               <ProductDetailView product={selectedProduct} onBack={() => setSelectedProduct(null)} />
-            ) : showG5Detail ? (
-              <PackageDetailView pkg={PACKAGE_DATA[selectedSubcat]} onBack={() => setSelectedSubcat('all')} />
-            ) : showPackages ? (
-              <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-                {PACKAGES.map((pkg) => {
-                  const pkgData = PACKAGE_DATA[pkg.id];
-                  return (
-                    <button key={pkg.id} onClick={() => setSelectedSubcat(pkg.id)} className="flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow text-left cursor-pointer">
-                      <div className="flex items-center justify-center h-44 bg-white px-6 pt-5">
-                        <img src={pkgData.image} alt={pkg.label} className="h-full w-auto object-contain transition-transform duration-300 hover:scale-105" />
-                      </div>
-                      <div className="p-5 flex flex-col flex-1 gap-4">
-                        <div>
-                          <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">Inogen One G5</p>
-                          <h3 className="text-lg font-bold text-gray-900">{pkg.label}</h3>
-                        </div>
-                        <div className="rounded-xl border border-gray-100 overflow-hidden">
-                          <div className="px-4 py-3 text-center" style={{ backgroundColor: '#243e8c' }}>
-                            <span className="text-sm font-medium text-white/80">Precio</span>
-                            <p className="text-xl font-bold text-white mt-0.5">${pkgData.price.toLocaleString('es-MX')} MXN</p>
-                          </div>
-                        </div>
-                        <ul className="space-y-1.5 flex-1">
-                          {pkgData.features.slice(0, 3).map((f, i) => (
-                            <li key={i} className="flex items-center gap-2 text-sm text-gray-700">
-                              <svg className="h-3.5 w-3.5 shrink-0" style={{ color: '#243e8c' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                              </svg>
-                              {f.text}
-                            </li>
-                          ))}
-                        </ul>
-                        <div className="flex items-center gap-1 text-sm font-semibold" style={{ color: '#243e8c' }}>
-                          Ver detalles
-                          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                          </svg>
-                        </div>
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-            ) : showModelProducts ? (
-              <ProductGrid
-                modelId={selectedModel}
-                subcatFilter={selectedSubcat}
-                onSelect={setSelectedProduct}
-              />
             ) : (
-              <div className="flex flex-col items-center justify-center py-24 text-center">
-                <div className="h-16 w-16 rounded-full bg-blue-50 flex items-center justify-center mb-4">
-                  <svg className="h-8 w-8" style={{ color: '#243e8c' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-1">Próximamente</h3>
-                <p className="text-sm text-gray-500 max-w-xs">Contáctanos por WhatsApp para consultar disponibilidad.</p>
-              </div>
+              <ProductGrid modelId={selectedModel} subcatFilter={selectedSubcat} onSelect={setSelectedProduct} />
             )}
           </div>
+
         </div>
       </div>
     </>
