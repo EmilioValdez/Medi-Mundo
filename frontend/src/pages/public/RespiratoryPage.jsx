@@ -826,17 +826,17 @@ export default function RespiratoryPage() {
           {/* Sidebar */}
           <aside className="hidden lg:block w-52 shrink-0">
             <h2 className="text-lg font-bold text-gray-900 mb-5">Categorías</h2>
-            <div className="space-y-6">
+            <div className="space-y-10">
               {SIDEBAR.map((group) => (
                 <div key={group.id}>
                   <button
                     onClick={() => handleSidebarClick(group.id, group.subs[0].id)}
-                    className="text-lg font-bold mb-2 block text-left w-full transition-opacity hover:opacity-75"
+                    className="text-lg font-bold mb-3 block text-left w-full transition-opacity hover:opacity-75"
                     style={{ color: '#243e8c' }}
                   >
                     {group.label}
                   </button>
-                  <ul className="space-y-2 pl-1">
+                  <ul className="space-y-3 pl-1">
                     {group.subs.map((sub) => (
                       <li key={sub.id}>
                         <button
