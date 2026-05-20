@@ -505,19 +505,19 @@ const SIDEBAR = [
     subs: PACKAGES.map((p) => ({ id: p.id, label: p.label })),
   },
   {
-    id: 'g3', label: 'Inogen G3',
-    subs: [
-      { id: 'concentrador', label: 'Equipos G3' },
-      { id: 'bateria', label: 'Baterías G3' },
-      { id: 'accesorio', label: 'Accesorios G3' },
-    ],
-  },
-  {
     id: 'g4', label: 'Inogen G4',
     subs: [
       { id: 'concentrador', label: 'Equipos G4' },
       { id: 'bateria', label: 'Baterías G4' },
       { id: 'accesorio', label: 'Accesorios G4' },
+    ],
+  },
+  {
+    id: 'g3', label: 'Inogen G3',
+    subs: [
+      { id: 'concentrador', label: 'Equipos G3' },
+      { id: 'bateria', label: 'Baterías G3' },
+      { id: 'accesorio', label: 'Accesorios G3' },
     ],
   },
   {
