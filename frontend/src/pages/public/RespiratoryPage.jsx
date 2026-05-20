@@ -805,7 +805,7 @@ export default function RespiratoryPage() {
           <h1>
             <img src="/images/inogen-one-logo.svg" alt="Inogen One — Concentradores de Oxígeno" className="h-24 sm:h-32 lg:h-40 w-auto object-contain" style={{ filter: 'drop-shadow(0 3px 8px rgba(0,0,0,1)) drop-shadow(0 0 20px rgba(0,0,0,0.85))' }} />
           </h1>
-          <p className="mt-1 text-xl sm:text-2xl font-light tracking-[0.3em]" style={{ color: '#aabcd6' }}>
+          <p className="mt-1 text-xl sm:text-2xl font-semibold tracking-[0.3em]" style={{ color: '#aabcd6' }}>
             Querétaro
           </p>
           <p className="mt-3 max-w-2xl text-slate-200 sm:text-lg">
