@@ -825,23 +825,23 @@ export default function RespiratoryPage() {
 
           {/* Sidebar */}
           <aside className="hidden lg:block w-52 shrink-0">
-            <h2 className="text-base font-bold text-gray-900 mb-4">Categorías</h2>
-            <div className="space-y-5">
+            <h2 className="text-base font-bold text-gray-900 mb-3">Categorías</h2>
+            <div className="space-y-3">
               {SIDEBAR.map((group) => (
                 <div key={group.id}>
                   <button
                     onClick={() => handleSidebarClick(group.id, group.subs[0].id)}
-                    className="text-sm font-bold mb-1.5 block text-left w-full transition-opacity hover:opacity-75"
+                    className="text-base font-bold mb-0.5 block text-left w-full leading-tight transition-opacity hover:opacity-75"
                     style={{ color: '#243e8c' }}
                   >
                     {group.label}
                   </button>
-                  <ul className="space-y-1 pl-1">
+                  <ul className="space-y-0.5 pl-1">
                     {group.subs.map((sub) => (
                       <li key={sub.id}>
                         <button
                           onClick={() => handleSidebarClick(group.id, sub.id)}
-                          className="text-sm text-left w-full transition-colors"
+                          className="text-base leading-tight text-left w-full transition-colors"
                           style={selectedModel === group.id && selectedSubcat === sub.id ? { color: '#243e8c', fontWeight: 600 } : {}}
                         >
                           <span className={selectedModel === group.id && selectedSubcat === sub.id ? '' : 'text-gray-600 hover:text-gray-900'}>
