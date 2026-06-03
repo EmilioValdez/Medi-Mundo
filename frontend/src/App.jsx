@@ -1,4 +1,4 @@
-import { Component, useEffect } from 'react';
+import { Component, useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, Navigate, Outlet, useLocation } from 'react-router-dom';
 
 function ScrollToTop() {
@@ -88,25 +88,22 @@ const LOCAL_BUSINESS_SCHEMA = {
 };
 
 import HomePage from './pages/public/HomePage';
-import CatalogPage from './pages/public/CatalogPage';
-import RentasPage from './pages/public/RentasPage';
-import RespiratoryPage from './pages/public/RespiratoryPage';
-import OxygenRefillPage from './pages/public/OxygenRefillPage';
-import EquipmentDetailPage from './pages/public/EquipmentDetailPage';
-import AboutPage from './pages/public/AboutPage';
-import FAQPage from './pages/public/FAQPage';
-import ContactPage from './pages/public/ContactPage';
-import ConocenosPage from './pages/public/ConocenosPage';
-import BlogPage from './pages/public/BlogPage';
-import BlogPostPage from './pages/public/BlogPostPage';
+const CatalogPage = lazy(() => import('./pages/public/CatalogPage'));
+const RentasPage = lazy(() => import('./pages/public/RentasPage'));
+const RespiratoryPage = lazy(() => import('./pages/public/RespiratoryPage'));
+const OxygenRefillPage = lazy(() => import('./pages/public/OxygenRefillPage'));
+const EquipmentDetailPage = lazy(() => import('./pages/public/EquipmentDetailPage'));
+const ConocenosPage = lazy(() => import('./pages/public/ConocenosPage'));
+const BlogPage = lazy(() => import('./pages/public/BlogPage'));
+const BlogPostPage = lazy(() => import('./pages/public/BlogPostPage'));
 
-import LoginPage from './pages/admin/LoginPage';
-import DashboardPage from './pages/admin/DashboardPage';
-import InventoryPage from './pages/admin/InventoryPage';
-import BookingsPage from './pages/admin/BookingsPage';
-import CustomersPage from './pages/admin/CustomersPage';
-import CategoriesPage from './pages/admin/CategoriesPage';
-import InogenPage from './pages/admin/InogenPage';
+const LoginPage = lazy(() => import('./pages/admin/LoginPage'));
+const DashboardPage = lazy(() => import('./pages/admin/DashboardPage'));
+const InventoryPage = lazy(() => import('./pages/admin/InventoryPage'));
+const BookingsPage = lazy(() => import('./pages/admin/BookingsPage'));
+const CustomersPage = lazy(() => import('./pages/admin/CustomersPage'));
+const CategoriesPage = lazy(() => import('./pages/admin/CategoriesPage'));
+const InogenPage = lazy(() => import('./pages/admin/InogenPage'));
 
 function PublicLayout() {
   return (
@@ -153,6 +150,7 @@ function ProtectedRoute() {
 export default function App() {
   return (
     <ErrorBoundary>
+    <Suspense fallback={<div className="flex h-screen items-center justify-center"><div className="h-8 w-8 animate-spin rounded-full border-4 border-primary-200 border-t-primary-600" /></div>}>
     <Routes>
       {/* Public */}
       <Route element={<PublicLayout />}>
@@ -187,6 +185,7 @@ export default function App() {
       {/* Catch-all */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
+    </Suspense>
     </ErrorBoundary>
   );
 }
