@@ -1,10 +1,8 @@
 from contextlib import asynccontextmanager
-from pathlib import Path
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse, RedirectResponse
+from fastapi.responses import RedirectResponse, Response as FastAPIResponse
 from starlette.middleware.base import BaseHTTPMiddleware
 
 
@@ -14,7 +12,8 @@ class HTTPSRedirectMiddleware(BaseHTTPMiddleware):
 
     async def dispatch(self, request: Request, call_next):
         proto = request.headers.get("x-forwarded-proto", "https")
-        if proto == "http" and request.url.path not in self._NO_REDIRECT:
+        path = request.url.path
+        if proto == "http" and path not in self._NO_REDIRECT and not path.startswith("/.well-known/"):
             url = str(request.url).replace("http://", "https://", 1)
             return RedirectResponse(url, status_code=301)
         return await call_next(request)
@@ -82,8 +81,6 @@ async def health():
     return {"status": "ok", "app": settings.APP_NAME}
 
 
-from fastapi.responses import Response as FastAPIResponse
-
 @app.get("/robots.txt", include_in_schema=False)
 async def robots_txt():
     content = (
@@ -95,23 +92,3 @@ async def robots_txt():
         "Sitemap: https://medimundo.mx/sitemap.xml\n"
     )
     return FastAPIResponse(content=content, media_type="text/plain")
-
-
-# Serve frontend static files in production
-FRONTEND_DIR = Path(__file__).resolve().parent.parent.parent / "frontend" / "dist"
-PUBLIC_IMAGES = Path(__file__).resolve().parent.parent.parent / "frontend" / "public" / "images"
-if PUBLIC_IMAGES.is_dir():
-    app.mount("/images", StaticFiles(directory=PUBLIC_IMAGES), name="images")
-
-if FRONTEND_DIR.is_dir():
-    app.mount("/assets", StaticFiles(directory=FRONTEND_DIR / "assets"), name="assets")
-
-    @app.get("/{full_path:path}")
-    async def serve_frontend(request: Request, full_path: str):
-        try:
-            file_path = FRONTEND_DIR / full_path
-            if file_path.is_file():
-                return FileResponse(file_path)
-        except Exception:
-            pass
-        return FileResponse(FRONTEND_DIR / "index.html")

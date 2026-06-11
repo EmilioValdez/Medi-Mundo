@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0ea5e9;
+  --color-primary-700: #0284c7;
+  --color-primary-800: #0369a1;
+  --color-primary-900: #075985;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --color-whatsapp: #86efac;
+}
+
+:root {
+  --color-primary: #0ea5e9;
+  --color-whatsapp: #86efac;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: #f9fafb;
+  color: #111827;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #0ea5e9;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  transition: all 0.15s;
+}
+.btn-primary:hover { background-color: #0284c7; }
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #22c55e;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  transition: all 0.15s;
+}
+.btn-whatsapp:hover { background-color: #16a34a; }
+
+/* Blog content */
+.blog-content h2 { font-size: 1.4rem; font-weight: 700; margin: 2rem 0 0.875rem; color: #111827; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; }
+.blog-content h3 { font-size: 1.15rem; font-weight: 600; margin: 1.5rem 0 0.625rem; color: #1f2937; }
+.blog-content p { margin: 0.875rem 0; line-height: 1.8; color: #374151; }
+.blog-content ul { list-style: disc; padding-left: 1.5rem; margin: 0.875rem 0; color: #374151; }
+.blog-content ol { list-style: decimal; padding-left: 1.5rem; margin: 0.875rem 0; color: #374151; }
+.blog-content li { margin: 0.35rem 0; line-height: 1.7; }
+.blog-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+.blog-content th { background: #f0f9ff; border: 1px solid #e0f2fe; padding: 0.6rem 0.875rem; font-weight: 600; text-align: left; color: #0369a1; }
+.blog-content td { border: 1px solid #e5e7eb; padding: 0.6rem 0.875rem; }
+.blog-content strong { font-weight: 600; color: #111827; }
+.blog-content hr { border: none; border-top: 1px solid #e5e7eb; margin: 2rem 0; }
+.blog-content a { color: #0284c7; text-decoration: underline; font-weight: 500; }
+.blog-content blockquote { border-left: 4px solid #0ea5e9; padding-left: 1rem; color: #6b7280; font-style: italic; margin: 1.5rem 0; }
+
+/* Form fields */
+.input-field {
+  display: block;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: #111827;
+  background-color: white;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.input-field:focus { border-color: #0ea5e9; box-shadow: 0 0 0 3px rgba(14,165,233,0.2); }
+
+.label-field {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+.btn-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  background-color: white;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  transition: all 0.15s;
+}
+.btn-white:hover { background-color: #f9fafb; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #64748b; }

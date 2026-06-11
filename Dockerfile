@@ -1,24 +1,39 @@
-# Stage 1: Build frontend
+# ── Stage 1: Build Next.js ──────────────────────────────────────────────────
 FROM node:20-slim AS frontend-build
-WORKDIR /app/frontend
+WORKDIR /app
 COPY frontend/package.json frontend/package-lock.json ./
 RUN npm ci
 COPY frontend/ ./
 RUN npm run build
 
-# Stage 2: Python backend + serve frontend
+# ── Stage 2: Runtime (Python + Node.js) ─────────────────────────────────────
 FROM python:3.12-slim
+
+# Install Node.js 20 (to run Next.js standalone server)
+RUN apt-get update && apt-get install -y --no-install-recommends curl && \
+    curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y --no-install-recommends nodejs && \
+    rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
+# Python dependencies
 COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Backend code
 COPY backend/ ./backend/
 COPY docs/ ./docs/
-COPY --from=frontend-build /app/frontend/dist ./frontend/dist
-COPY --from=frontend-build /app/frontend/public/images ./frontend/public/images
 
-WORKDIR /app/backend
-EXPOSE 8000
+# Next.js standalone output
+COPY --from=frontend-build /app/.next/standalone ./frontend/
+COPY --from=frontend-build /app/.next/static ./frontend/.next/static
+COPY --from=frontend-build /app/public ./frontend/public
 
-CMD python -m scripts.seed_catalog; python -m scripts.seed_blog; python -m scripts.seed_admin; uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
+# Startup script
+COPY start.sh .
+RUN chmod +x start.sh
+
+EXPOSE 3000
+
+CMD ["./start.sh"]
