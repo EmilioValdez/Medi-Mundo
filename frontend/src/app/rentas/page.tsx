@@ -3,6 +3,8 @@ import { getEquipment } from "@/lib/api";
 import { isRentalItem } from "@/lib/rentalItems";
 import EquipmentCard from "@/components/EquipmentCard";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Renta de Equipo Médico en Querétaro | Camas, Sillas de Ruedas y Más | MediMundo",
   description:
