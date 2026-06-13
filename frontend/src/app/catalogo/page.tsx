@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CatalogContent from "./catalog-content";
+import { getCategories, getEquipment } from "@/lib/api";
 
 export const dynamic = "force-dynamic";
 
@@ -17,6 +18,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function CatalogPage() {
-  return <CatalogContent />;
+export default async function CatalogPage() {
+  const [categories, equipment] = await Promise.all([
+    getCategories(),
+    getEquipment(),
+  ]);
+
+  return (
+    <CatalogContent
+      initialCategories={categories as { id: number; name: string; slug: string }[]}
+      initialEquipment={equipment as { id: number; name: string; images?: string[]; price_monthly?: number; category_name?: string; available?: boolean }[]}
+    />
+  );
 }

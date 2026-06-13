@@ -1,80 +1,46 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, useMemo, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import EquipmentCard from "@/components/EquipmentCard";
-
-const API = process.env.NEXT_PUBLIC_API_URL ?? "https://medimundo.mx";
 
 const PREFERRED_ORDER = ["lujo", "eléctrica", "electrica", "manual", "inogen", "concentrador", "silla", "andadera", "bastón", "baston", "ortopedia"];
 
 function sortEquipment(items: Equipment[]) {
   return [...items].sort((a, b) => {
-    const nameA = (a.name || "").toLowerCase();
-    const nameB = (b.name || "").toLowerCase();
-    const rankA = PREFERRED_ORDER.findIndex((k) => nameA.includes(k));
-    const rankB = PREFERRED_ORDER.findIndex((k) => nameB.includes(k));
-    const ra = rankA === -1 ? PREFERRED_ORDER.length : rankA;
-    const rb = rankB === -1 ? PREFERRED_ORDER.length : rankB;
-    return ra - rb;
+    const ra = PREFERRED_ORDER.findIndex((k) => (a.name || "").toLowerCase().includes(k));
+    const rb = PREFERRED_ORDER.findIndex((k) => (b.name || "").toLowerCase().includes(k));
+    return (ra === -1 ? PREFERRED_ORDER.length : ra) - (rb === -1 ? PREFERRED_ORDER.length : rb);
   });
 }
 
-interface Category {
-  id: number;
-  name: string;
-  slug: string;
+interface Category { id: number; name: string; slug: string; }
+interface Equipment { id: number; name: string; images?: string[]; price_monthly?: number; category_name?: string; available?: boolean; }
+
+interface Props {
+  initialCategories: Category[];
+  initialEquipment: Equipment[];
 }
 
-interface Equipment {
-  id: number;
-  name: string;
-  images?: string[];
-  image_url?: string;
-  price_monthly?: number;
-  category_name?: string;
-  available?: boolean;
-}
-
-function CatalogInner() {
+function CatalogInner({ initialCategories, initialEquipment }: Props) {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [equipment, setEquipment] = useState<Equipment[]>([]);
-  const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState(searchParams.get("q") ?? "");
   const [selectedCat, setSelectedCat] = useState(searchParams.get("categoria") ?? "");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
-  useEffect(() => {
-    fetch(`${API}/api/categories`)
-      .then((r) => r.json())
-      .then((data) => {
-        const cats: Category[] = Array.isArray(data) ? data : [];
-        setCategories(cats);
-        const slugParam = searchParams.get("slug");
-        if (slugParam) {
-          const match = cats.find((c) => c.slug === slugParam);
-          if (match) setSelectedCat(String(match.id));
-        }
-      })
-      .catch(() => {});
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    setLoading(true);
-    const url = new URL(`${API}/api/equipment`);
-    url.searchParams.set("active_only", "true");
-    if (selectedCat) url.searchParams.set("category_id", selectedCat);
-    if (search.trim()) url.searchParams.set("search", search.trim());
-
-    fetch(url.toString())
-      .then((r) => r.json())
-      .then((data) => setEquipment(sortEquipment(Array.isArray(data) ? data : [])))
-      .catch(() => setEquipment([]))
-      .finally(() => setLoading(false));
-  }, [selectedCat, search]);
+  const filtered = useMemo(() => {
+    let items = initialEquipment;
+    if (selectedCat) items = items.filter((e) => {
+      const cat = initialCategories.find((c) => String(c.id) === String(selectedCat));
+      return cat ? (e.category_name ?? "").toLowerCase() === cat.name.toLowerCase() : true;
+    });
+    if (search.trim()) {
+      const q = search.trim().toLowerCase();
+      items = items.filter((e) => (e.name || "").toLowerCase().includes(q) || (e.category_name || "").toLowerCase().includes(q));
+    }
+    return sortEquipment(items);
+  }, [initialEquipment, initialCategories, selectedCat, search]);
 
   const updateURL = (cat: string, q: string) => {
     const p = new URLSearchParams();
@@ -88,11 +54,6 @@ function CatalogInner() {
     setSelectedCat(newCat);
     updateURL(newCat, search);
     setMobileFiltersOpen(false);
-  };
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    updateURL(selectedCat, search);
   };
 
   const clearFilters = () => {
@@ -112,14 +73,12 @@ function CatalogInner() {
       >
         Todas
       </button>
-      {categories.map((cat) => (
+      {initialCategories.map((cat) => (
         <button
           key={cat.id}
           onClick={() => handleCatClick(String(cat.id))}
           className={`block w-full text-left rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-            String(selectedCat) === String(cat.id)
-              ? "bg-primary-50 text-primary-700"
-              : "text-gray-600 hover:bg-gray-100"
+            String(selectedCat) === String(cat.id) ? "bg-primary-50 text-primary-700" : "text-gray-600 hover:bg-gray-100"
           }`}
         >
           {cat.name}
@@ -135,9 +94,9 @@ function CatalogInner() {
         <p className="mt-1 text-gray-500">Encuentra el equipo que necesitas para tu recuperación o cuidado en casa.</p>
       </div>
 
-      <form onSubmit={handleSearch} className="mb-6 flex gap-2">
+      <form onSubmit={(e) => { e.preventDefault(); updateURL(selectedCat, search); }} className="mb-6 flex gap-2">
         <div className="relative flex-1">
-          <svg className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <svg className="pointer-events-none absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
           </svg>
           <input
@@ -145,7 +104,8 @@ function CatalogInner() {
             placeholder="Buscar equipo..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="input-field pl-10"
+            className="input-field"
+            style={{ paddingLeft: "2.5rem" }}
           />
         </div>
         <button type="submit" className="btn-primary">Buscar</button>
@@ -165,11 +125,9 @@ function CatalogInner() {
           <span className="text-sm text-gray-500">Filtros:</span>
           {selectedCat && (
             <span className="inline-flex items-center gap-1 rounded-full bg-primary-50 px-3 py-1 text-xs font-medium text-primary-700">
-              {categories.find((c) => String(c.id) === String(selectedCat))?.name || "Categoría"}
+              {initialCategories.find((c) => String(c.id) === String(selectedCat))?.name || "Categoría"}
               <button onClick={() => handleCatClick("")}>
-                <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                </svg>
+                <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
               </button>
             </span>
           )}
@@ -177,15 +135,11 @@ function CatalogInner() {
             <span className="inline-flex items-center gap-1 rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">
               &ldquo;{search}&rdquo;
               <button onClick={() => { setSearch(""); updateURL(selectedCat, ""); }}>
-                <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                </svg>
+                <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
               </button>
             </span>
           )}
-          <button onClick={clearFilters} className="text-xs text-primary-600 hover:underline">
-            Limpiar todo
-          </button>
+          <button onClick={clearFilters} className="text-xs text-primary-600 hover:underline">Limpiar todo</button>
         </div>
       )}
 
@@ -201,9 +155,7 @@ function CatalogInner() {
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-lg font-semibold">Filtros</h2>
                 <button onClick={() => setMobileFiltersOpen(false)}>
-                  <svg className="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                  </svg>
+                  <svg className="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
                 </button>
               </div>
               <SidebarContent />
@@ -213,23 +165,17 @@ function CatalogInner() {
 
         <div className="flex-1">
           <h2 className="sr-only">Equipo médico disponible</h2>
-          {loading ? (
-            <div className="flex justify-center py-20">
-              <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary-200 border-t-primary-600" />
-            </div>
-          ) : equipment.length === 0 ? (
+          {filtered.length === 0 ? (
             <div className="text-center py-20">
               <p className="text-lg font-medium text-gray-900">No se encontró equipo</p>
               <p className="mt-1 text-sm text-gray-500">Intenta ajustar tus filtros de búsqueda.</p>
-              <button onClick={clearFilters} className="btn-primary mt-4">
-                Limpiar filtros
-              </button>
+              <button onClick={clearFilters} className="btn-primary mt-4">Limpiar filtros</button>
             </div>
           ) : (
             <>
-              <p className="mb-4 text-sm text-gray-500">{equipment.length} equipo(s) encontrado(s)</p>
+              <p className="mb-4 text-sm text-gray-500">{filtered.length} equipo(s) encontrado(s)</p>
               <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-                {equipment.map((item) => (
+                {filtered.map((item) => (
                   <EquipmentCard key={item.id} item={item} />
                 ))}
               </div>
@@ -241,16 +187,14 @@ function CatalogInner() {
   );
 }
 
-export default function CatalogContent() {
+export default function CatalogContent(props: Props) {
   return (
-    <Suspense
-      fallback={
-        <div className="flex justify-center py-20">
-          <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary-200 border-t-primary-600" />
-        </div>
-      }
-    >
-      <CatalogInner />
+    <Suspense fallback={
+      <div className="flex justify-center py-20">
+        <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary-200 border-t-primary-600" />
+      </div>
+    }>
+      <CatalogInner {...props} />
     </Suspense>
   );
 }
