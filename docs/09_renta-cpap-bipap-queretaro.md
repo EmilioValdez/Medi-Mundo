@@ -1,7 +1,7 @@
 # CPAP y BiPAP en Querétaro: Renta, Diferencias y Todo lo que Necesitas Saber
 
 **Meta title:** Renta de CPAP y BiPAP en Querétaro — Apnea del Sueño | MediMundo
-**Meta description:** Renta de CPAP y BiPAP en Querétaro para el tratamiento de apnea del sueño. Entrega a domicilio con instalación y capacitación. Sin receta médica. ☎ 442 223 77 57.
+**Meta description:** Renta de CPAP y BiPAP en Querétaro para el tratamiento de apnea del sueño. Entrega a domicilio con instalación y capacitación. Sin receta médica. ☎ 442 615 66 49.
 **Slug:** renta-cpap-bipap-queretaro
 **Categoría:** Equipo Respiratorio
 **Keywords:** renta CPAP Querétaro, renta BiPAP Querétaro, apnea del sueño tratamiento Querétaro, CPAP a domicilio Querétaro
@@ -127,7 +127,7 @@ Los modelos modernos están diseñados para tolerar movimiento. La mascarilla co
 
 ## Contáctanos
 
-📞 **442 223 77 57** — Llama o manda WhatsApp
+📞 **442 615 66 49** — Llama o manda WhatsApp
 📧 medicasaqro@gmail.com
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10:00–19:00 hrs · Sábado 10:00–15:00 hrs

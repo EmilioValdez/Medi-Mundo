@@ -1,7 +1,7 @@
 # Inogen One G5: El Concentrador de Oxígeno Portátil Más Avanzado de la Línea
 
 **Meta title:** Inogen One G5 en Querétaro — Renta y Características | MediMundo
-**Meta description:** Inogen One G5 en renta en Querétaro. 6 ajustes de flujo, hasta 13 horas de autonomía, 2.2 kg. Entrega a domicilio con capacitación. ☎ 442 223 77 57.
+**Meta description:** Inogen One G5 en renta en Querétaro. 6 ajustes de flujo, hasta 13 horas de autonomía, 2.2 kg. Entrega a domicilio con capacitación. ☎ 442 615 66 49.
 **Slug:** inogen-one-g5-concentrador-oxigeno-portatil-queretaro
 **Categoría:** Equipo Respiratorio
 **Keywords:** Inogen One G5 Querétaro, renta Inogen G5 Querétaro, concentrador de oxígeno portátil Querétaro, Inogen G5 precio renta
@@ -79,7 +79,7 @@ El Inogen One G5 es la mejor elección cuando:
 - Se necesita la mayor autonomía posible sin depender de una toma eléctrica
 - El paciente planea viajar frecuentemente
 
-Si el paciente solo necesita flujos de 1 a 3 LPM y no sale mucho, el G3 o el G4 pueden ser una opción más económica. Te orientamos sin compromiso.
+Si el paciente solo necesita flujos de 1 a 3 LPM y no sale mucho, el [Inogen One G4](/blog/inogen-one-g4-concentrador-oxigeno-compacto-queretaro) o el G3 pueden ser una opción más económica. Para uso en casa, el [Inogen At Home](/blog/inogen-at-home-concentrador-oxigeno-casa-queretaro) es la alternativa estacionaria de la marca. Te orientamos sin compromiso.
 
 ---
 
@@ -134,9 +134,15 @@ Sí, íntegramente al devolver el equipo en las mismas condiciones en que fue en
 
 ---
 
+## ¿Quieres comparar toda la línea Inogen?
+
+Lee nuestra [guía completa: Inogen G2, G3, G4 y G5 — cuál elegir](/blog/inogen-g2-g3-g4-g5-cual-elegir-queretaro) para ver las diferencias en peso, autonomía y precio de todos los modelos de un vistazo.
+
+---
+
 ## Contáctanos
 
-📞 **442 223 77 57** — Llama o manda WhatsApp
+📞 **442 615 66 49** — Llama o manda WhatsApp
 📧 medicasaqro@gmail.com
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10:00–19:00 hrs · Sábado 10:00–15:00 hrs

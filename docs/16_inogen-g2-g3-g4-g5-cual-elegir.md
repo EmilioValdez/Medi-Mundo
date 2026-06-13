@@ -1,7 +1,7 @@
 # Inogen G2, G3, G4 o G5: Guía Completa para Elegir el Modelo Correcto
 
 **Meta title:** Inogen G2 vs G3 vs G4 vs G5 — Cuál Elegir | MediMundo Querétaro
-**Meta description:** Comparativa completa de toda la línea Inogen portátil. Diferencias entre G2, G3, G4 y G5. Cuál es el mejor para cada paciente. Renta en Querétaro. ☎ 442 223 77 57.
+**Meta description:** Comparativa completa de toda la línea Inogen portátil. Diferencias entre G2, G3, G4 y G5. Cuál es el mejor para cada paciente. Renta en Querétaro. ☎ 442 615 66 49.
 **Slug:** inogen-g2-g3-g4-g5-cual-elegir-queretaro
 **Categoría:** Equipo Respiratorio
 **Keywords:** Inogen G2 G3 G4 G5 diferencias, comparativa Inogen modelos Querétaro, cuál concentrador Inogen elegir, Inogen portátil Querétaro renta
@@ -39,7 +39,7 @@ El flujo prescrito descarta o confirma modelos antes de evaluar cualquier otra c
 
 ## Inogen One G2 — El más accesible de la línea portátil
 
-El G2 es el modelo de entrada a la línea portátil Inogen. Robusto y confiable, es una solución sólida para pacientes que necesitan oxígeno en movimiento con el precio de renta más bajo de la línea.
+El G2 es el modelo de entrada a la línea portátil Inogen. Robusto y confiable, es una solución sólida para pacientes que necesitan oxígeno en movimiento con el precio de renta más bajo de la línea. Consulta también nuestra [página de renta de concentradores de oxígeno en Querétaro](/blog/renta-concentrador-oxigeno-queretaro) para ver la tabla de precios completa.
 
 **Elige el G2 si:**
 - La prescripción es de 1 o 2 LPM
@@ -68,7 +68,7 @@ El G3 es el modelo más versátil de la línea. Combina un peso razonable, buena
 
 ---
 
-## Inogen One G4 — El más compacto y ligero
+## [Inogen One G4 — El más compacto y ligero](/blog/inogen-one-g4-concentrador-oxigeno-compacto-queretaro)
 
 Con apenas **1.27 kg**, el G4 es el más pequeño y discreto de toda la línea Inogen. Ideal para pacientes que valoran la movilidad y la discreción por encima de la autonomía.
 
@@ -84,7 +84,7 @@ Con apenas **1.27 kg**, el G4 es el más pequeño y discreto de toda la línea I
 
 ---
 
-## Inogen One G5 — El más avanzado y autónomo
+## [Inogen One G5 — El más avanzado y autónomo](/blog/inogen-one-g5-concentrador-oxigeno-portatil-queretaro)
 
 El G5 es el modelo más completo de la línea: 6 ajustes de flujo y hasta 13 horas de autonomía con batería doble. El mejor concentrador portátil Inogen en términos de rendimiento.
 
@@ -133,13 +133,15 @@ Con más de 20 años de experiencia rentando equipo médico en Querétaro, en Me
 | Inogen One G4 | $2,590 | $3,990 | $4,990 | $30,000 |
 | Inogen One G5 | $2,590 | $4,590 | $6,590 | $40,000 |
 
+¿El paciente necesita oxígeno principalmente en casa? El [Inogen At Home](/blog/inogen-at-home-concentrador-oxigeno-casa-queretaro) (estacionario, flujo continuo, menos de 40 dB) puede ser la mejor opción.
+
 Contáctanos para confirmar disponibilidad y coordinar la entrega a domicilio.
 
 ---
 
 ## Contáctanos
 
-📞 **442 223 77 57** — Llama o manda WhatsApp
+📞 **442 615 66 49** — Llama o manda WhatsApp
 📧 medicasaqro@gmail.com
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10:00–19:00 hrs · Sábado 10:00–15:00 hrs

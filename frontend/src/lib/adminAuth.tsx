@@ -46,7 +46,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),
     });
-    if (!res.ok) throw new Error((await res.json()).detail || "Credenciales incorrectas");
+    if (!res.ok) {
+      let detail = "Credenciales incorrectas";
+      try { detail = (await res.json()).detail || detail; } catch { /* non-JSON error body */ }
+      throw new Error(detail);
+    }
     const { access_token } = await res.json();
     localStorage.setItem("medimundo_token", access_token);
     setToken(access_token);

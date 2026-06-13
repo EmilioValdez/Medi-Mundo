@@ -24,14 +24,15 @@ function AdminShell({ children }: { children: React.ReactNode }) {
     }
   }, [loading, isAuthenticated, pathname, router]);
 
+  if (pathname === "/admin/login") return <>{children}</>;
+
   if (loading) return (
     <div className="flex min-h-screen items-center justify-center">
       <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary-200 border-t-primary-600" />
     </div>
   );
 
-  if (!isAuthenticated && pathname !== "/admin/login") return null;
-  if (pathname === "/admin/login") return <>{children}</>;
+  if (!isAuthenticated) return null;
 
   const SidebarContent = () => (
     <>

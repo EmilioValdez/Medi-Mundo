@@ -1,7 +1,7 @@
 # Inogen One G4: El Concentrador de Oxígeno Más Compacto y Discreto
 
 **Meta title:** Inogen One G4 en Querétaro — Renta del Más Ligero | MediMundo
-**Meta description:** Inogen One G4 en renta en Querétaro. Solo 1.27 kg, el más compacto de la línea Inogen. Perfecto para pacientes activos. Entrega a domicilio. ☎ 442 223 77 57.
+**Meta description:** Inogen One G4 en renta en Querétaro. Solo 1.27 kg, el más compacto de la línea Inogen. Perfecto para pacientes activos. Entrega a domicilio. ☎ 442 615 66 49.
 **Slug:** inogen-one-g4-concentrador-oxigeno-compacto-queretaro
 **Categoría:** Equipo Respiratorio
 **Keywords:** Inogen One G4 Querétaro, renta Inogen G4 Querétaro, concentrador de oxígeno compacto Querétaro, Inogen G4 ligero portátil
@@ -72,7 +72,7 @@ Es la mejor elección cuando:
 - Se necesita un equipo para **viajes frecuentes**, especialmente en avión
 
 **¿Cuándo NO es el modelo correcto?**
-Si el médico prescribió flujos de 4 LPM o más, el G4 no es suficiente — en ese caso el G5 es la opción indicada. Si el paciente pasa la mayor parte del tiempo en casa, el Inogen At Home o el estacionario 5 LPM son opciones más económicas.
+Si el médico prescribió flujos de 4 LPM o más, el G4 no es suficiente — en ese caso el [Inogen One G5](/blog/inogen-one-g5-concentrador-oxigeno-portatil-queretaro) es la opción indicada. Si el paciente pasa la mayor parte del tiempo en casa, el [Inogen At Home](/blog/inogen-at-home-concentrador-oxigeno-casa-queretaro) o el estacionario 5 LPM son opciones más económicas.
 
 ---
 
@@ -86,7 +86,9 @@ Si el médico prescribió flujos de 4 LPM o más, el G4 no es suficiente — en 
 | Discreción | **Máxima** | Alta |
 | Precio renta mensual | **$4,990** | $6,590 |
 
-Si el flujo prescrito es de 1–3 LPM y la portabilidad es lo más importante: **G4**. Si necesitas más ajustes de flujo o más autonomía: **G5**.
+Si el flujo prescrito es de 1–3 LPM y la portabilidad es lo más importante: **G4**. Si necesitas más ajustes de flujo o más autonomía: [**G5**](/blog/inogen-one-g5-concentrador-oxigeno-portatil-queretaro).
+
+¿Tienes dudas entre todos los modelos? Consulta nuestra [guía completa Inogen G2, G3, G4 y G5](/blog/inogen-g2-g3-g4-g5-cual-elegir-queretaro).
 
 ---
 
@@ -137,7 +139,7 @@ Sí, íntegramente al devolver el equipo en buen estado.
 
 ## Contáctanos
 
-📞 **442 223 77 57** — Llama o manda WhatsApp
+📞 **442 615 66 49** — Llama o manda WhatsApp
 📧 medicasaqro@gmail.com
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10:00–19:00 hrs · Sábado 10:00–15:00 hrs

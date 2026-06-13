@@ -1,7 +1,7 @@
 # Inogen At Home: Terapia de Oxígeno Continua en Casa, Silenciosa y Sin Interrupciones
 
 **Meta title:** Inogen At Home en Querétaro — Concentrador Estacionario | MediMundo
-**Meta description:** Inogen At Home en renta en Querétaro. Concentrador estacionario 5 LPM, flujo continuo, menos de 40 dB. Ideal para uso nocturno y terapia en casa. ☎ 442 223 77 57.
+**Meta description:** Inogen At Home en renta en Querétaro. Concentrador estacionario 5 LPM, flujo continuo, menos de 40 dB. Ideal para uso nocturno y terapia en casa. ☎ 442 615 66 49.
 **Slug:** inogen-at-home-concentrador-oxigeno-casa-queretaro
 **Categoría:** Equipo Respiratorio
 **Keywords:** Inogen At Home Querétaro, concentrador oxígeno estacionario Querétaro, renta Inogen At Home Querétaro, oxígeno flujo continuo en casa Querétaro
@@ -66,7 +66,7 @@ El nivel de ruido del Inogen At Home es **menor a 40 dBA** — comparable al son
 - Se busca un equipo estacionario más silencioso y eficiente que opciones estándar
 
 **Se complementa bien con un concentrador portátil cuando:**
-- El paciente también necesita oxígeno fuera de casa — el At Home para el hogar, un G4 o G5 para salidas
+- El paciente también necesita oxígeno fuera de casa — el At Home para el hogar, un [Inogen One G4](/blog/inogen-one-g4-concentrador-oxigeno-compacto-queretaro) o [G5](/blog/inogen-one-g5-concentrador-oxigeno-portatil-queretaro) para salidas
 - Se busca cubrir las 24 horas: At Home enchufado durante la noche, portátil durante el día
 
 ---
@@ -110,7 +110,7 @@ El oxígeno acelera la combustión — sigue estas reglas siempre:
 - Mantener el concentrador **alejado de estufas, velas y fuentes de calor**
 - **No cubrir las rejillas de ventilación** mientras opera — necesita circulación de aire
 - **No usar aceites ni cremas** cerca de la mascarilla o cánula
-- Tener el **número de MediMundo a la mano**: 442 223 77 57
+- Tener el **número de MediMundo a la mano**: 442 615 66 49
 
 ---
 
@@ -147,7 +147,7 @@ No la requerimos, aunque siempre recomendamos seguir la prescripción del médic
 
 ## Contáctanos
 
-📞 **442 223 77 57** — Llama o manda WhatsApp
+📞 **442 615 66 49** — Llama o manda WhatsApp
 📧 medicasaqro@gmail.com
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10:00–19:00 hrs · Sábado 10:00–15:00 hrs

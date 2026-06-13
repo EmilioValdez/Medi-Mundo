@@ -1,7 +1,7 @@
 # Renta de Concentradores de Oxígeno en Querétaro: Modelos, Precios y Requisitos
 
 **Meta title:** Renta de Concentrador de Oxígeno en Querétaro — Modelos y Precios | MediMundo
-**Meta description:** Renta concentradores de oxígeno portátiles Inogen y estacionarios en Querétaro. Sin receta médica. Entrega e instalación a domicilio. Desde $950/mes. ☎ 442 223 77 57.
+**Meta description:** Renta concentradores de oxígeno portátiles Inogen y estacionarios en Querétaro. Sin receta médica. Entrega e instalación a domicilio. Desde $950/mes. ☎ 442 615 66 49.
 **Slug:** renta-concentrador-oxigeno-queretaro
 **Categoría:** Equipo Médico
 **Keywords:** renta concentrador de oxígeno Querétaro, concentrador oxígeno portátil Querétaro, Inogen renta Querétaro, oxígeno a domicilio Querétaro
@@ -36,7 +36,7 @@ Se utiliza en casos de EPOC, insuficiencia respiratoria, recuperación postopera
 
 ## Concentradores portátiles disponibles en renta
 
-### Inogen One G2
+### [Inogen One G2](/blog/inogen-g2-g3-g4-g5-cual-elegir-queretaro)
 Modelo de entrada a la línea portátil Inogen. Compacto y confiable para pacientes que necesitan oxígeno en movimiento.
 
 - **Renta mensual:** $3,690
@@ -46,7 +46,7 @@ Modelo de entrada a la línea portátil Inogen. Compacto y confiable para pacien
 
 ---
 
-### Inogen One G3
+### [Inogen One G3](/blog/inogen-g2-g3-g4-g5-cual-elegir-queretaro)
 Versátil y ligero, ideal para uso diario dentro y fuera del hogar.
 
 - **Renta semanal:** $2,590 | **Quincenal:** $3,990 | **Mensual:** $4,990
@@ -56,7 +56,7 @@ Versátil y ligero, ideal para uso diario dentro y fuera del hogar.
 
 ---
 
-### Inogen One G4
+### [Inogen One G4 — el más ligero de la línea](/blog/inogen-one-g4-concentrador-oxigeno-compacto-queretaro)
 El modelo más compacto y discreto de la línea Inogen. Fácil de llevar a cualquier parte.
 
 - **Renta semanal:** $2,590 | **Quincenal:** $3,990 | **Mensual:** $4,990
@@ -66,7 +66,7 @@ El modelo más compacto y discreto de la línea Inogen. Fácil de llevar a cualq
 
 ---
 
-### Inogen One G5
+### [Inogen One G5 — mayor flujo y autonomía](/blog/inogen-one-g5-concentrador-oxigeno-portatil-queretaro)
 El modelo más avanzado de la línea portátil. Mayor autonomía y mayor flujo de oxígeno.
 
 - **Renta semanal:** $2,590 | **Quincenal:** $4,590 | **Mensual:** $6,590
@@ -88,7 +88,7 @@ La opción más accesible para pacientes que requieren oxígeno en casa sin nece
 
 ---
 
-### Inogen At Home
+### [Inogen At Home — flujo continuo y operación silenciosa](/blog/inogen-at-home-concentrador-oxigeno-casa-queretaro)
 Concentrador estacionario silencioso, eficiente y de fácil manejo.
 
 - **Renta mensual:** $3,000
@@ -142,15 +142,17 @@ El costo de entrega en zona céntrica de Querétaro es de **$500 pesos**. Para z
 - **No fumar** en el cuarto donde opera el concentrador
 - Revisar el **flujo regularmente** según indicación médica
 - Mantener los **filtros limpios** — te explicamos cómo durante la entrega
-- Tener a la mano el **número de MediMundo** ante cualquier duda: 442 223 77 57
+- Tener a la mano el **número de MediMundo** ante cualquier duda: 442 615 66 49
 
 ---
 
 ## ¿No sabes qué modelo elegir?
 
+Consulta nuestra [guía comparativa completa: Inogen G2, G3, G4 y G5](/blog/inogen-g2-g3-g4-g5-cual-elegir-queretaro) — ahí explicamos en detalle las diferencias de peso, autonomía y flujo para que puedas tomar la mejor decisión.
+
 Con más de 20 años de experiencia en Querétaro, en MediMundo te orientamos sin compromiso para encontrar el concentrador que mejor se adapta a las necesidades de tu familiar. Llámanos y resolvemos tu duda en minutos.
 
-📞 **442 223 77 57**
+📞 **442 615 66 49**
 📧 medicasaqro@gmail.com
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10am–7pm · Sábado 10am–3pm

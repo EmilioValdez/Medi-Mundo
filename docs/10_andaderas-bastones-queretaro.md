@@ -1,7 +1,7 @@
 # Andaderas y Bastones en Querétaro: Tipos, Diferencias y Cuándo Usar Cada Uno
 
 **Meta title:** Andaderas y Bastones en Querétaro — Tipos y Renta | MediMundo
-**Meta description:** Guía completa de andaderas y bastones en Querétaro. Tipos, diferencias, precios de renta desde $200/mes. Entrega a domicilio. ☎ 442 223 77 57.
+**Meta description:** Guía completa de andaderas y bastones en Querétaro. Tipos, diferencias, precios de renta desde $200/mes. Entrega a domicilio. ☎ 442 615 66 49.
 **Slug:** andaderas-bastones-queretaro
 **Categoría:** Movilidad y Rehabilitación
 **Keywords:** andadera Querétaro, bastón ortopédico Querétaro, renta andadera Querétaro, caminador adulto mayor Querétaro, andadera con ruedas Querétaro
@@ -130,7 +130,7 @@ Sin depósito para la mayoría de los artículos de movilidad. Sin trámites com
 
 ## Contáctanos
 
-📞 **442 223 77 57** — Llama o manda WhatsApp
+📞 **442 615 66 49** — Llama o manda WhatsApp
 📧 medicasaqro@gmail.com
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10:00–19:00 hrs · Sábado 10:00–15:00 hrs

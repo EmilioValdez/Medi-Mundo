@@ -1,7 +1,7 @@
 # Cómo Prevenir las Úlceras por Presión en Pacientes Encamados en Casa
 
 **Meta title:** Cómo Prevenir Úlceras por Presión en Casa — Guía | MediMundo Querétaro
-**Meta description:** Guía completa para prevenir úlceras por presión en pacientes encamados en casa. Cambios de posición, colchón antiescaras y equipo en renta en Querétaro. ☎ 442 223 77 57.
+**Meta description:** Guía completa para prevenir úlceras por presión en pacientes encamados en casa. Cambios de posición, colchón antiescaras y equipo en renta en Querétaro. ☎ 442 615 66 49.
 **Slug:** como-prevenir-ulceras-por-presion-en-casa
 **Categoría:** Cuidados en Casa
 **Keywords:** úlceras por presión prevención, escaras paciente encamado, colchón antiescaras Querétaro, cuidados paciente encamado en casa, cama hospitalaria úlceras
@@ -148,7 +148,7 @@ Contáctanos para conocer disponibilidad y precio de renta. Es más accesible de
 
 ## Contáctanos
 
-📞 **442 223 77 57** — Llama o manda WhatsApp
+📞 **442 615 66 49** — Llama o manda WhatsApp
 📧 medicasaqro@gmail.com
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10:00–19:00 hrs · Sábado 10:00–15:00 hrs

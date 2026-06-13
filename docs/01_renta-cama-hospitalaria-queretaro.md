@@ -1,7 +1,7 @@
 # ¿Qué se necesita para rentar una cama hospitalaria en Querétaro?
 
 **Meta title:** Renta de cama hospitalaria en Querétaro | Medimundo  
-**Meta description:** Conoce los requisitos para rentar una cama hospitalaria en Querétaro. Sin depósito, contrato simple y entrega a domicilio con instalación incluida. Llama al 442 223 77 57.  
+**Meta description:** Conoce los requisitos para rentar una cama hospitalaria en Querétaro. Sin depósito, contrato simple y entrega a domicilio con instalación incluida. Llama al 442 615 66 49.  
 **Slug:** renta-cama-hospitalaria-queretaro  
 **Categoría:** Equipo Médico  
 **Keywords:** renta cama hospitalaria Querétaro, requisitos renta cama hospitalaria
@@ -37,6 +37,8 @@ Manejamos dos modalidades según el tiempo que necesites el equipo: **por semana
 | Cama hospitalaria eléctrica | $1,100 pesos |
 | Cama hospitalaria eléctrica de lujo | $2,300 pesos |
 
+¿No sabes si necesitas una cama manual o eléctrica? Lee nuestra [guía completa: cama hospitalaria manual vs eléctrica](/blog/cama-hospitalaria-manual-vs-electrica-queretaro) para tomar la mejor decisión.
+
 Además, contamos con equipo complementario que muchas familias rentan junto con la cama:
 
 | Equipo | Precio mensual |
@@ -45,7 +47,7 @@ Además, contamos con equipo complementario que muchas familias rentan junto con
 | Grúa hidráulica para paciente | $1,100 pesos |
 | Mesa de alimentos | $230 pesos |
 
-Si no estás seguro de qué equipo es el más adecuado para tu caso, con gusto te orientamos sin compromiso. Llámanos al **442 223 77 57**.
+Si no estás seguro de qué equipo es el más adecuado para tu caso, con gusto te orientamos sin compromiso. Llámanos al **442 615 66 49**.
 
 ---
 
@@ -90,9 +92,11 @@ Rentar una cama hospitalaria tiene ventajas claras cuando la necesidad es tempor
 
 Contáctanos y con gusto te orientamos sobre el equipo más adecuado para tu caso:
 
-📞 **442 223 77 57**  
+📞 **442 615 66 49**  
 📧 medicasaqro@gmail.com  
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro  
 🕙 Lunes a viernes 10am–7pm | Sábado 10am–3pm
 
 En Medimundo, tu tranquilidad y la de tu familia es nuestra prioridad. Más de 20 años acompañando a familias queretanas en su proceso de recuperación.
+
+También te puede interesar: [Cómo prevenir úlceras por presión en casa](/blog/como-prevenir-ulceras-por-presion-en-casa) | [Equipo para el cuidado del adulto mayor en casa](/blog/cuidado-adulto-mayor-casa-queretaro)
