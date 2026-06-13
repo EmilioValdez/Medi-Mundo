@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import CatalogContent from "./catalog-content";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Ortopedia y Equipo Médico en Querétaro | Venta y Renta | MediMundo",
   description:

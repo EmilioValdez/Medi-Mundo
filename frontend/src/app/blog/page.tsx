@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getBlogPosts } from "@/lib/api";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Blog | MediMundo — Equipo Médico en Querétaro",
   description:
