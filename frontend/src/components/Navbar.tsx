@@ -33,10 +33,10 @@ export default function Navbar() {
         <nav className="hidden md:flex items-center gap-1">
           <Link href="/rentas" className="rounded-lg px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors">Rentas</Link>
           <Link href="/recargas" className="rounded-lg px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors">Recargas de Oxígeno</Link>
-          <Link href="/catalogo" className="rounded-lg px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors">Catálogo</Link>
           <Link href="/inogen" className="rounded-lg px-2 py-1 hover:bg-gray-100 transition-colors">
-            <Image src="/images/inogen-logo.webp" alt="Concentradores Inogen" width={120} height={56} className="h-14 w-auto" />
+            <Image src="/images/inogen-logo.webp" alt="Concentradores Inogen" width={160} height={64} className="h-20 w-auto" />
           </Link>
+          <Link href="/catalogo" className="rounded-lg px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors">Catálogo</Link>
           <Link href="/conocenos" className="rounded-lg px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors">Conócenos</Link>
           <Link href="/blog" className="rounded-lg px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors">Blog</Link>
         </nav>
