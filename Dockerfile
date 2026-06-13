@@ -4,6 +4,8 @@ WORKDIR /app
 COPY frontend/package.json frontend/package-lock.json ./
 RUN npm ci
 COPY frontend/ ./
+# Durante el build Next.js pre-renderiza con el API público (FastAPI no corre en esta etapa)
+ENV BACKEND_URL=https://medimundo.mx
 RUN npm run build
 
 # ── Stage 2: Runtime (Python + Node.js) ─────────────────────────────────────
