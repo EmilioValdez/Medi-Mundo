@@ -10,6 +10,7 @@ const navItems = [
   { href: "/admin/reservas", label: "Reservas", icon: "📅" },
   { href: "/admin/clientes", label: "Clientes", icon: "👥" },
   { href: "/admin/categorias", label: "Categorías", icon: "🏷️" },
+  { href: "/admin/inogen", label: "Inogen", icon: "🫁" },
 ];
 
 function AdminShell({ children }: { children: React.ReactNode }) {
