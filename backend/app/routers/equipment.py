@@ -19,6 +19,7 @@ def _to_out(eq: Equipment) -> dict:
     return d
 
 
+@router.get("", response_model=list[EquipmentOut])
 @router.get("/", response_model=list[EquipmentOut])
 async def list_equipment(
     category_id: int | None = None,
@@ -49,6 +50,7 @@ async def get_equipment(eq_id: int, db: AsyncSession = Depends(get_db)):
     return _to_out(eq)
 
 
+@router.post("", response_model=EquipmentOut)
 @router.post("/", response_model=EquipmentOut)
 async def create_equipment(
     body: EquipmentCreate,

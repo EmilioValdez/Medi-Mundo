@@ -53,6 +53,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title=settings.APP_NAME,
     lifespan=lifespan,
+    redirect_slashes=False,
 )
 
 app.add_middleware(GZipMiddleware, minimum_size=1000)

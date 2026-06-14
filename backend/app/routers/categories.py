@@ -11,6 +11,7 @@ from app.auth.deps import get_current_user
 router = APIRouter(prefix="/api/categories", tags=["categories"])
 
 
+@router.get("", response_model=list[CategoryOut])
 @router.get("/", response_model=list[CategoryOut])
 async def list_categories(active_only: bool = False, db: AsyncSession = Depends(get_db)):
     q = select(Category).order_by(Category.name)
@@ -29,6 +30,7 @@ async def get_category(slug: str, db: AsyncSession = Depends(get_db)):
     return cat
 
 
+@router.post("", response_model=CategoryOut)
 @router.post("/", response_model=CategoryOut)
 async def create_category(
     body: CategoryCreate,

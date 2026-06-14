@@ -13,6 +13,7 @@ from app.auth.deps import get_current_user
 router = APIRouter(prefix="/api/customers", tags=["customers"])
 
 
+@router.get("", response_model=list[CustomerOut])
 @router.get("/", response_model=list[CustomerOut])
 async def list_customers(
     search: str | None = None,

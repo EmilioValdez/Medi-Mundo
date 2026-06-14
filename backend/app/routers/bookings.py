@@ -22,6 +22,7 @@ def _to_out(b: Booking) -> dict:
     return d
 
 
+@router.get("", response_model=list[BookingOut])
 @router.get("/", response_model=list[BookingOut])
 async def list_bookings(
     status: str | None = None,
