@@ -11,11 +11,13 @@ from app.auth.deps import get_current_user
 router = APIRouter(prefix="/api/inogen", tags=["inogen"])
 
 
+@router.get("", response_model=list[InogenModelOut])
 @router.get("/", response_model=list[InogenModelOut])
-async def list_inogen_models(db: AsyncSession = Depends(get_db)):
-    result = await db.execute(
-        select(InogenModel).order_by(InogenModel.sort_order)
-    )
+async def list_inogen_models(active_only: bool = False, db: AsyncSession = Depends(get_db)):
+    q = select(InogenModel).order_by(InogenModel.sort_order)
+    if active_only:
+        q = q.where(InogenModel.is_active == True)
+    result = await db.execute(q)
     return result.scalars().all()
 
 

@@ -15,15 +15,15 @@ async function safeFetch<T>(url: string, opts: RequestInit & { next?: { revalida
 }
 
 export async function getEquipment() {
-  return safeFetch(`${API}/api/equipment/`, { next: { revalidate: 3600 } }, []);
+  return safeFetch(`${API}/api/equipment/?active_only=true`, { cache: "no-store" }, []);
 }
 
 export async function getEquipmentById(id: string) {
-  return safeFetch(`${API}/api/equipment/${id}`, { next: { revalidate: 3600 } }, null);
+  return safeFetch(`${API}/api/equipment/${id}`, { cache: "no-store" }, null);
 }
 
 export async function getCategories() {
-  return safeFetch(`${API}/api/categories/`, { next: { revalidate: 3600 } }, []);
+  return safeFetch(`${API}/api/categories/?active_only=true`, { cache: "no-store" }, []);
 }
 
 export async function getBlogPosts() {
@@ -35,5 +35,5 @@ export async function getBlogPost(slug: string) {
 }
 
 export async function getInogenModels() {
-  return safeFetch(`${API}/api/inogen/`, { next: { revalidate: 3600 } }, []);
+  return safeFetch(`${API}/api/inogen/?active_only=true`, { cache: "no-store" }, []);
 }
