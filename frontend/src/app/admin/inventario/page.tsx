@@ -121,11 +121,22 @@ export default function InventarioPage() {
 
   const patchItem = async (id: number, patch: Record<string, unknown>) => {
     setSavingId(id);
-    const res = await apiFetch(`/equipment/${id}`, { method: "PUT", body: JSON.stringify(patch) }).catch(() => null);
-    if (res?.ok) {
-      setEquipment((prev) => prev.map((e) => e.id === id ? { ...e, ...patch } : e));
-    } else {
-      alert("Error al guardar. Intenta de nuevo."); fetchData();
+    try {
+      const res = await apiFetch(`/equipment/${id}`, { method: "PUT", body: JSON.stringify(patch) });
+      if (res.ok) {
+        const updated = await res.json();
+        setEquipment((prev) => prev.map((e) => e.id === id ? { ...e, ...updated } : e));
+      } else if (res.status === 401) {
+        alert("Sesión expirada. Por favor vuelve a iniciar sesión.");
+        window.location.href = "/admin/login";
+      } else {
+        const body = await res.json().catch(() => ({}));
+        alert(body.detail || `Error ${res.status} al guardar.`);
+        fetchData();
+      }
+    } catch {
+      alert("Error de red. Verifica tu conexión.");
+      fetchData();
     }
     setSavingId(null);
   };
