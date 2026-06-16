@@ -10,7 +10,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from sqlalchemy import select
+from sqlalchemy import select, text
 from app.database import async_session, engine, Base
 from app.models.category import Category
 from app.models.equipment import Equipment  # noqa: F401
@@ -286,6 +286,9 @@ OXYGEN_REFILLS = [
 async def seed():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+        await conn.execute(text(
+            "ALTER TABLE equipment ADD COLUMN IF NOT EXISTS price_sale NUMERIC(10,2) DEFAULT 0"
+        ))
 
     async with async_session() as db:
         # Seed categories
