@@ -33,10 +33,14 @@ async def seed():
             await db.commit()
             print("  Legacy user 'admin' deleted.")
 
-        # Find existing admin by role (handles username changes)
+        # Find existing admin by username first, then fall back to any admin role
         existing = (await db.execute(
-            select(User).where(User.role == "admin")
+            select(User).where(User.username == ADMIN_USERNAME)
         )).scalar_one_or_none()
+        if not existing:
+            existing = (await db.execute(
+                select(User).where(User.role == "admin")
+            )).scalars().first()
 
         if existing:
             existing.username = ADMIN_USERNAME
