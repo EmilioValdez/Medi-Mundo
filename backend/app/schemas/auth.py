@@ -6,6 +6,13 @@ class LoginRequest(BaseModel):
     password: str
 
 
+class UserCreate(BaseModel):
+    username: str
+    password: str
+    full_name: str = ""
+    role: str = "operator"
+
+
 class TokenResponse(BaseModel):
     access_token: str
     token_type: str = "bearer"

@@ -12,6 +12,7 @@ const navItems = [
   { href: "/admin/categorias", label: "Categorías", icon: "🏷️" },
   { href: "/admin/inogen", label: "Inogen", icon: "🫁" },
   { href: "/admin/recargas", label: "Recargas O₂", icon: "💨" },
+  { href: "/admin/configuracion", label: "Configuración", icon: "⚙️", adminOnly: true },
 ];
 
 function AdminShell({ children }: { children: React.ReactNode }) {
@@ -43,7 +44,7 @@ function AdminShell({ children }: { children: React.ReactNode }) {
         <span className="text-xs text-gray-400">Admin</span>
       </div>
       <nav className="flex-1 space-y-1 px-2 py-4">
-        {navItems.map((item) => (
+        {navItems.filter((item) => !item.adminOnly || user?.role === "admin").map((item) => (
           <Link
             key={item.href}
             href={item.href}
