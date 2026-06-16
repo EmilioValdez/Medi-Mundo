@@ -15,7 +15,7 @@ function sortEquipment(items: Equipment[]) {
 }
 
 interface Category { id: number; name: string; slug: string; }
-interface Equipment { id: number; name: string; images?: string[]; price_monthly?: number; category_name?: string; available?: boolean; }
+interface Equipment { id: number; name: string; images?: string[]; price_monthly?: number; price_sale?: number; category_name?: string; available?: boolean; }
 
 interface Props {
   initialCategories: Category[];
@@ -176,7 +176,7 @@ function CatalogInner({ initialCategories, initialEquipment }: Props) {
               <p className="mb-4 text-sm text-gray-500">{filtered.length} equipo(s) encontrado(s)</p>
               <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
                 {filtered.map((item) => (
-                  <EquipmentCard key={item.id} item={item} />
+                  <EquipmentCard key={item.id} item={item} mode="sale" />
                 ))}
               </div>
             </>

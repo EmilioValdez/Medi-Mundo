@@ -1,4 +1,4 @@
-const RENTAL_KEYWORDS = ['lujo', 'eléctrica', 'electrica', 'manual', 'silla de ruedas', 'grúa', 'grua', 'reposet'];
+const RENTAL_KEYWORDS = ['lujo', 'eléctrica', 'electrica', 'manual', 'silla de ruedas', 'grúa', 'grua', 'reposet', 'mesa'];
 const EXCLUDE_KEYWORDS = ['cómodo', 'comodo'];
 
 export function isRentalItem(name: string | undefined | null): boolean {

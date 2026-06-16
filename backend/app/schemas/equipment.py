@@ -13,6 +13,7 @@ class EquipmentBase(BaseModel):
     price_daily: float = 0
     price_weekly: float = 0
     price_monthly: float = 0
+    price_sale: float = 0
     deposit: float = 0
     images: list[str] | None = None
     serial_number: str = ""
@@ -34,6 +35,7 @@ class EquipmentUpdate(BaseModel):
     price_daily: float | None = None
     price_weekly: float | None = None
     price_monthly: float | None = None
+    price_sale: float | None = None
     deposit: float | None = None
     images: list[str] | None = None
     serial_number: str | None = None

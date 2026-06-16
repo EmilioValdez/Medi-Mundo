@@ -6,7 +6,7 @@ import { IconPlus, IconPencil, IconTrash, IconX, IconSearch, fmt, Modal, Spinner
 interface Category { id: number; name: string; }
 interface Equipment {
   id: number; name: string; category_id?: number; category_name?: string;
-  price_daily?: number; price_weekly?: number; price_monthly?: number;
+  price_daily?: number; price_weekly?: number; price_monthly?: number; price_sale?: number;
   deposit?: number; quantity_available?: number; quantity_total?: number;
   serial_number?: string; condition?: string; description?: string;
   images?: string[]; is_active?: boolean;
@@ -14,7 +14,7 @@ interface Equipment {
 
 const emptyForm = {
   name: "", category_id: "", description: "", price_daily: "", price_weekly: "",
-  price_monthly: "", deposit: "", quantity_total: "1", quantity_available: "1",
+  price_monthly: "", price_sale: "", deposit: "", quantity_total: "1", quantity_available: "1",
   serial_number: "", condition: "available", image_url: "", is_active: true,
 };
 
@@ -148,7 +148,8 @@ export default function InventarioPage() {
       name: item.name || "", category_id: String(item.category_id || ""),
       description: item.description || "",
       price_daily: String(item.price_daily ?? ""), price_weekly: String(item.price_weekly ?? ""),
-      price_monthly: String(item.price_monthly ?? ""), deposit: String(item.deposit ?? ""),
+      price_monthly: String(item.price_monthly ?? ""), price_sale: String(item.price_sale ?? ""),
+      deposit: String(item.deposit ?? ""),
       quantity_total: String(item.quantity_total ?? 1),
       quantity_available: String(item.quantity_available ?? 1),
       serial_number: item.serial_number || "",
@@ -172,6 +173,7 @@ export default function InventarioPage() {
       price_daily: form.price_daily !== "" ? Number(form.price_daily) : null,
       price_weekly: form.price_weekly !== "" ? Number(form.price_weekly) : null,
       price_monthly: form.price_monthly !== "" ? Number(form.price_monthly) : null,
+      price_sale: form.price_sale !== "" ? Number(form.price_sale) : null,
       deposit: form.deposit !== "" ? Number(form.deposit) : null,
       quantity_total: Number(form.quantity_total) || 1,
       quantity_available: Number(form.quantity_available) || 1,
@@ -224,8 +226,8 @@ export default function InventarioPage() {
             <table className="w-full text-sm">
               <thead className="bg-gray-50 border-b border-gray-200">
                 <tr>
-                  {["Equipo", "Categoría", "Diario", "Semanal", "Mensual", "Disponibles", "Condición", "Activo", ""].map((h) => (
-                    <th key={h} className={`px-4 py-3 font-medium text-gray-500 ${h === "Diario" || h === "Semanal" || h === "Mensual" ? "text-right" : h === "Disponibles" || h === "Condición" || h === "Activo" ? "text-center" : h === "" ? "text-right" : "text-left"}`}>{h}</th>
+                  {["Equipo", "Categoría", "Diario", "Semanal", "Mensual", "Venta", "Disponibles", "Condición", "Activo", ""].map((h) => (
+                    <th key={h} className={`px-4 py-3 font-medium text-gray-500 ${h === "Diario" || h === "Semanal" || h === "Mensual" || h === "Venta" ? "text-right" : h === "Disponibles" || h === "Condición" || h === "Activo" ? "text-center" : h === "" ? "text-right" : "text-left"}`}>{h}</th>
                   ))}
                 </tr>
               </thead>
@@ -245,6 +247,9 @@ export default function InventarioPage() {
                     </td>
                     <td className="px-4 py-3 text-right">
                       <EditableCell value={item.price_monthly} onSave={(v) => patchItem(item.id, { price_monthly: v })} />
+                    </td>
+                    <td className="px-4 py-3 text-right">
+                      <EditableCell value={item.price_sale} onSave={(v) => patchItem(item.id, { price_sale: v })} />
                     </td>
                     <td className="px-4 py-3 text-center">
                       <QuantityCell available={item.quantity_available} total={item.quantity_total}
@@ -305,6 +310,8 @@ export default function InventarioPage() {
             <div><label className="label-field">Precio mensual</label>
               <input name="price_monthly" type="number" step="0.01" min="0" value={form.price_monthly} onChange={handleChange} className="input-field" /></div>
           </div>
+          <div><label className="label-field">Precio de venta (catálogo)</label>
+            <input name="price_sale" type="number" step="0.01" min="0" value={form.price_sale} onChange={handleChange} className="input-field" /></div>
           <div className="grid grid-cols-3 gap-3">
             <div><label className="label-field">Depósito</label>
               <input name="deposit" type="number" step="0.01" min="0" value={form.deposit} onChange={handleChange} className="input-field" /></div>

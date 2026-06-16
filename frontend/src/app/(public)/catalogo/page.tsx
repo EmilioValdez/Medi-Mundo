@@ -27,7 +27,7 @@ export default async function CatalogPage() {
   return (
     <CatalogContent
       initialCategories={categories as { id: number; name: string; slug: string }[]}
-      initialEquipment={equipment as { id: number; name: string; images?: string[]; price_monthly?: number; category_name?: string; available?: boolean }[]}
+      initialEquipment={equipment as { id: number; name: string; images?: string[]; price_monthly?: number; price_sale?: number; category_name?: string; available?: boolean }[]}
     />
   );
 }

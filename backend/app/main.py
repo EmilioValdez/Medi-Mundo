@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import RedirectResponse, Response as FastAPIResponse
 from starlette.middleware.base import BaseHTTPMiddleware
+from sqlalchemy import text
 
 
 class HTTPSRedirectMiddleware(BaseHTTPMiddleware):
@@ -45,6 +46,11 @@ async def lifespan(app: FastAPI):
     try:
         async with engine.begin() as conn:
             await conn.run_sync(Base.metadata.create_all)
+            # create_all only creates missing tables — patch columns added to
+            # existing tables here since there's no migration tool in use.
+            await conn.execute(text(
+                "ALTER TABLE equipment ADD COLUMN IF NOT EXISTS price_sale NUMERIC(10,2) DEFAULT 0"
+            ))
     except Exception as exc:
         # DB temporarily unavailable — server still starts; static files work fine
         print(f"[lifespan] DB create_all skipped: {exc}")

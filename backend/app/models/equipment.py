@@ -24,6 +24,7 @@ class Equipment(Base):
     price_daily: Mapped[float] = mapped_column(Numeric(10, 2), default=0)
     price_weekly: Mapped[float] = mapped_column(Numeric(10, 2), default=0)
     price_monthly: Mapped[float] = mapped_column(Numeric(10, 2), default=0)
+    price_sale: Mapped[float] = mapped_column(Numeric(10, 2), default=0)
     deposit: Mapped[float] = mapped_column(Numeric(10, 2), default=0)
     images: Mapped[Optional[list]] = mapped_column(JSON, nullable=True)
     serial_number: Mapped[str] = mapped_column(String(200), default="")
