@@ -37,3 +37,7 @@ export async function getBlogPost(slug: string) {
 export async function getInogenModels() {
   return safeFetch(`${API}/api/inogen/?active_only=true`, { cache: "no-store" }, []);
 }
+
+export async function getOxygenRefills() {
+  return safeFetch(`${API}/api/oxygen-refills/?active_only=true`, { cache: "no-store" }, []);
+}

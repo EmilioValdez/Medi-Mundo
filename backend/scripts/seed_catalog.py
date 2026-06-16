@@ -15,6 +15,7 @@ from app.database import async_session, engine, Base
 from app.models.category import Category
 from app.models.equipment import Equipment  # noqa: F401
 from app.models.inogen import InogenModel  # noqa: F401
+from app.models.oxygen_refill import OxygenRefill  # noqa: F401
 
 CATEGORIES = [
     {"name": "Camas Hospitalarias", "slug": "camas-hospitalarias", "icon": "🛏️", "description": "Camas manuales, eléctricas y de lujo para recuperación en casa."},
@@ -270,6 +271,18 @@ INOGEN_MODELS = [
 ]
 
 
+OXYGEN_REFILLS = [
+    {"litros": 10000, "precio": 800, "sort_order": 1},
+    {"litros": 9500, "precio": 800, "sort_order": 2},
+    {"litros": 6000, "precio": 520, "sort_order": 3},
+    {"litros": 4300, "precio": 500, "sort_order": 4},
+    {"litros": 2459, "precio": 300, "sort_order": 5},
+    {"litros": 1750, "precio": 220, "sort_order": 6},
+    {"litros": 682, "precio": 160, "sort_order": 7},
+    {"litros": 425, "precio": 100, "sort_order": 8},
+]
+
+
 async def seed():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
@@ -341,6 +354,20 @@ async def seed():
                 # Sync image in case it changed
                 existing.image = m["image"]
                 print(f"  INOGEN EXISTS: {m['name']}")
+
+        await db.commit()
+
+        # Seed oxygen refills
+        for r in OXYGEN_REFILLS:
+            existing = (await db.execute(
+                select(OxygenRefill).where(OxygenRefill.litros == r["litros"])
+            )).scalar_one_or_none()
+            if not existing:
+                obj = OxygenRefill(**r, is_active=True)
+                db.add(obj)
+                print(f"  OXYGEN REFILL INSERTED: {r['litros']} L")
+            else:
+                print(f"  OXYGEN REFILL EXISTS: {r['litros']} L")
 
         await db.commit()
         print("Catalog seed done.")

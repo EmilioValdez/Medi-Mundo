@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { waLink, WA_MESSAGES } from "@/lib/whatsapp";
+import { getOxygenRefills } from "@/lib/api";
 
 export const metadata: Metadata = {
   title: "Recargas de Oxígeno — MediMundo Querétaro",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   },
 };
 
-const RECARGAS = [
+const FALLBACK_RECARGAS = [
   { litros: 10000, precio: 800 },
   { litros: 9500,  precio: 800 },
   { litros: 6000,  precio: 520 },
@@ -55,7 +56,9 @@ function OxygenIcon() {
   );
 }
 
-export default function RecargasPage() {
+export default async function RecargasPage() {
+  const refills = (await getOxygenRefills()) as { litros: number; precio: number }[];
+  const RECARGAS = refills.length > 0 ? refills : FALLBACK_RECARGAS;
   const waGeneral = waLink(WA_MESSAGES.recargas);
 
   return (
