@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getCategories, getEquipment, getBlogPosts } from "@/lib/api";
+import { getCategories, getEquipment, getBlogPosts, getInogenModels } from "@/lib/api";
 import ParallaxHero from "@/components/ParallaxHero";
 import InogenSection from "@/components/InogenSection";
 import EquipmentCard from "@/components/EquipmentCard";
@@ -34,11 +34,14 @@ const CATEGORY_ORDER = [
 const FEATURED_KEYWORDS = ["lujo", "eléctrica", "electrica", "ducha"];
 
 export default async function HomePage() {
-  const [categories, equipment, posts] = await Promise.all([
+  const [categories, equipment, posts, inogenModels] = await Promise.all([
     getCategories(),
     getEquipment(),
     getBlogPosts(),
+    getInogenModels(),
   ]);
+
+  const activeInogenIds = (inogenModels as { model_id: string }[]).map((m) => m.model_id);
 
   const sorted = CATEGORY_ORDER.map((slug) =>
     (categories as { id: number; name: string; slug: string }[]).find((c) => c.slug === slug)
@@ -91,7 +94,7 @@ export default async function HomePage() {
       )}
 
       {/* Inogen carousel */}
-      <InogenSection />
+      <InogenSection activeIds={activeInogenIds} />
 
       {/* Featured equipment */}
       {featured.length > 0 && (

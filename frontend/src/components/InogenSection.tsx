@@ -37,11 +37,14 @@ const MODELS = [
   },
 ];
 
-export default function InogenSection() {
+export default function InogenSection({ activeIds }: { activeIds: string[] }) {
+  const models = activeIds.length > 0 ? MODELS.filter((m) => activeIds.includes(m.id)) : MODELS;
   const [current, setCurrent] = useState(0);
-  const m = MODELS[current];
-  const prev = () => setCurrent((c) => (c - 1 + MODELS.length) % MODELS.length);
-  const next = () => setCurrent((c) => (c + 1) % MODELS.length);
+  const m = models[current];
+  const prev = () => setCurrent((c) => (c - 1 + models.length) % models.length);
+  const next = () => setCurrent((c) => (c + 1) % models.length);
+
+  if (models.length === 0) return null;
 
   return (
     <section
@@ -102,7 +105,7 @@ export default function InogenSection() {
         </div>
 
         <div className="mt-6 flex justify-center gap-2">
-          {MODELS.map((_, i) => (
+          {models.map((_, i) => (
             <button key={i} onClick={() => setCurrent(i)} className={`rounded-full transition-all duration-200 ${i === current ? "w-6 h-2.5 bg-blue-400" : "w-2.5 h-2.5 bg-white/30 hover:bg-white/50"}`} aria-label={`Modelo ${i + 1}`} />
           ))}
         </div>
