@@ -6,7 +6,7 @@ import InogenSection from "@/components/InogenSection";
 import EquipmentCard from "@/components/EquipmentCard";
 import { waLink, WA_MESSAGES } from "@/lib/whatsapp";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: "Renta de Equipo Médico en Querétaro | MediMundo",

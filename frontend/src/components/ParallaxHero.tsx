@@ -5,12 +5,12 @@ import Image from "next/image";
 import { waLink, WA_MESSAGES, trackWAClick } from "@/lib/whatsapp";
 
 export default function ParallaxHero() {
-  const heroRef = useRef<HTMLElement>(null);
+  const imgWrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!heroRef.current) return;
-      heroRef.current.style.backgroundPositionY = `calc(50% + ${window.scrollY * 0.45}px)`;
+      if (!imgWrapRef.current) return;
+      imgWrapRef.current.style.transform = `translateY(${window.scrollY * 0.3}px)`;
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -18,16 +18,24 @@ export default function ParallaxHero() {
 
   return (
     <section
-      ref={heroRef}
       className="relative overflow-hidden text-white"
-      style={{
-        backgroundImage: "url(/images/portada-hero-medimundo.webp)",
-        backgroundSize: "cover",
-        backgroundPosition: "center 50%",
-        backgroundRepeat: "no-repeat",
-        minHeight: "580px",
-      }}
+      style={{ minHeight: "580px" }}
     >
+      <div
+        ref={imgWrapRef}
+        className="absolute"
+        style={{ top: "-20%", left: 0, right: 0, bottom: "-20%", willChange: "transform" }}
+      >
+        <Image
+          src="/images/portada-hero-medimundo.webp"
+          alt=""
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+      </div>
+
       <div
         className="absolute inset-0"
         style={{

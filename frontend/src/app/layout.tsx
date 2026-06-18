@@ -69,7 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="/favicon.ico" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         {/* eslint-disable-next-line @next/next/no-css-tags */}
-        <link rel="preload" as="image" href="/images/portada-hero-medimundo.webp" />
+        <link rel="preload" as="image" href="/images/portada-hero-medimundo.webp" fetchPriority="high" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_SCHEMA) }}
