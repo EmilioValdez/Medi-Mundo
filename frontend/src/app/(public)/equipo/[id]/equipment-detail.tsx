@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import { waLink, WA_MESSAGES, trackWAClick } from "@/lib/whatsapp";
 import { isRentalItem } from "@/lib/rentalItems";
 
@@ -38,11 +37,7 @@ interface BookingForm {
   notes: string;
 }
 
-export default function EquipmentDetail() {
-  const { id } = useParams<{ id: string }>();
-  const [item, setItem] = useState<Equipment | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+export default function EquipmentDetail({ item }: { item: Equipment }) {
   const [selectedImage, setSelectedImage] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -58,18 +53,6 @@ export default function EquipmentDetail() {
     notes: "",
   });
 
-  useEffect(() => {
-    setLoading(true);
-    fetch(`${API}/api/equipment/${id}`)
-      .then((r) => {
-        if (!r.ok) throw new Error("not_found");
-        return r.json();
-      })
-      .then((data) => setItem(data))
-      .catch(() => setError("No se pudo cargar el equipo."))
-      .finally(() => setLoading(false));
-  }, [id]);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -81,7 +64,7 @@ export default function EquipmentDetail() {
       const res = await fetch(`${API}/api/bookings/request`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, equipment_id: Number(id) }),
+        body: JSON.stringify({ ...form, equipment_id: item.id }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
@@ -96,45 +79,7 @@ export default function EquipmentDetail() {
     }
   };
 
-  const waMessage = item
-    ? waLink(`Hola, me interesa rentar: *${item.name}*. Fechas: ${form.start_date || "(por definir)"} a ${form.end_date || "(por definir)"}.`)
-    : waLink(WA_MESSAGES.catalogo);
-
-  if (loading) {
-    return (
-      <div className="flex justify-center py-32">
-        <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary-200 border-t-primary-600" />
-      </div>
-    );
-  }
-
-  if (error || !item) {
-    return (
-      <div className="mx-auto max-w-2xl px-4 py-24 text-center">
-        <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-red-50 mb-6">
-          <svg className="h-12 w-12 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
-          </svg>
-        </div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Equipo no encontrado</h2>
-        <p className="text-gray-500 mb-6">
-          {error || "Lo sentimos, el equipo que buscas no existe o ya no está disponible."}
-        </p>
-        <div className="flex flex-wrap justify-center gap-3">
-          <Link href="/catalogo" className="btn-primary px-6 py-2.5">Ver catálogo completo</Link>
-          <a
-            href={waLink(WA_MESSAGES.noEncontro)}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackWAClick("detalle_no_encontro")}
-            className="btn-whatsapp px-6 py-2.5"
-          >
-            Preguntar por WhatsApp
-          </a>
-        </div>
-      </div>
-    );
-  }
+  const waMessage = waLink(`Hola, me interesa rentar: *${item.name}*. Fechas: ${form.start_date || "(por definir)"} a ${form.end_date || "(por definir)"}.`);
 
   const images = item.images?.length ? item.images : (item.image_url ? [item.image_url] : []);
 
