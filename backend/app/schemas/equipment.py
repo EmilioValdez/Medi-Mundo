@@ -11,7 +11,7 @@ class EquipmentBase(BaseModel):
     description: str = ""
     specs: dict[str, Any] | None = None
     price_daily: float = 0
-    price_biweekly: float = 0
+    price_weekly: float = 0
     price_monthly: float = 0
     price_sale: float = 0
     deposit: float = 0
@@ -24,7 +24,9 @@ class EquipmentBase(BaseModel):
 
 
 class EquipmentCreate(EquipmentBase):
-    pass
+    # Frontend sends price_biweekly; router maps it to price_weekly before ORM
+    price_biweekly: float = 0
+    price_weekly: float = 0
 
 
 class EquipmentUpdate(BaseModel):
@@ -33,7 +35,8 @@ class EquipmentUpdate(BaseModel):
     description: str | None = None
     specs: dict[str, Any] | None = None
     price_daily: float | None = None
-    price_biweekly: float | None = None
+    price_biweekly: float | None = None  # frontend name; router maps → price_weekly
+    price_weekly: float | None = None
     price_monthly: float | None = None
     price_sale: float | None = None
     deposit: float | None = None
@@ -49,6 +52,7 @@ class EquipmentOut(EquipmentBase):
     id: int
     created_at: datetime
     category_name: str | None = None
+    price_biweekly: float = 0  # renamed from price_weekly in _to_out
 
     class Config:
         from_attributes = True

@@ -15,6 +15,7 @@ router = APIRouter(prefix="/api/equipment", tags=["equipment"])
 
 def _to_out(eq: Equipment) -> dict:
     d = {c.key: getattr(eq, c.key) for c in Equipment.__table__.columns}
+    d["price_biweekly"] = d.pop("price_weekly", 0)
     d["category_name"] = eq.category.name if eq.category else None
     return d
 
@@ -57,7 +58,9 @@ async def create_equipment(
     db: AsyncSession = Depends(get_db),
     _=Depends(get_current_user),
 ):
-    eq = Equipment(**body.model_dump())
+    data = body.model_dump()
+    data["price_weekly"] = data.pop("price_biweekly", 0)
+    eq = Equipment(**data)
     db.add(eq)
     await db.commit()
     await db.refresh(eq)
@@ -82,6 +85,8 @@ async def update_equipment(
     if not eq:
         raise HTTPException(404, "Equipo no encontrado")
     for k, v in body.model_dump(exclude_unset=True).items():
+        if k == "price_biweekly":
+            k = "price_weekly"
         setattr(eq, k, v)
     await db.commit()
     await db.refresh(eq)
