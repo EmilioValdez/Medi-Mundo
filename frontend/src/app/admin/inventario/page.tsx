@@ -345,7 +345,7 @@ export default function InventarioPage() {
       <div className="relative max-w-xs mb-6">
         <IconSearch className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
         <input type="text" placeholder="Buscar equipo..." value={search}
-          onChange={(e) => setSearch(e.target.value)} className="input-field pl-9" />
+          onChange={(e) => setSearch(e.target.value)} className="input-field with-icon" />
       </div>
 
       {loading ? <Spinner /> : (
