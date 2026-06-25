@@ -11,6 +11,12 @@ function formatMXN(n: number) {
   return new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN", minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n) + " MXN";
 }
 
+const CONDITION_LABELS: Record<string, string> = {
+  available: "Disponible",
+  rented: "Rentado",
+  maintenance: "En mantenimiento",
+};
+
 interface Equipment {
   id: number;
   name: string;
@@ -213,7 +219,7 @@ export default function EquipmentDetail({ item }: { item: Equipment }) {
 
             {(item.serial_number || item.condition) && (
               <div className="mt-6 space-y-1 text-sm text-gray-600">
-                {item.condition && <p><span className="font-medium text-gray-700">Condición:</span> {item.condition}</p>}
+                {item.condition && <p><span className="font-medium text-gray-700">Condición:</span> {CONDITION_LABELS[item.condition] ?? item.condition}</p>}
                 {item.serial_number && <p><span className="font-medium text-gray-700">No. serie:</span> {item.serial_number}</p>}
               </div>
             )}
