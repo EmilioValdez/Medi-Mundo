@@ -32,9 +32,9 @@ EQUIPMENT = [
         "name": "Cama Hospitalaria Manual",
         "slug": "camas-hospitalarias",
         "description": "Cama hospitalaria manual con barandales ajustables. Ideal para recuperaciones postoperatorias y cuidado del adulto mayor en casa.",
-        "price_monthly": 750,
-        "price_biweekly": 250,
-        "price_daily": 50,
+        "price_monthly": 1500,
+        "price_weekly": 1000,
+        "price_daily": 250,
         "deposit": 0,
         "images": ["/images/cama-hospitalaria-manual-medimundo-queretaro.jpg"],
         "quantity_total": 5,
@@ -45,8 +45,8 @@ EQUIPMENT = [
         "slug": "camas-hospitalarias",
         "description": "Cama hospitalaria eléctrica con control remoto. Ajuste de posición para cabecera y piecera con un solo toque.",
         "price_monthly": 2500,
-        "price_biweekly": 1500,
-        "price_daily": 200,
+        "price_weekly": 1950,
+        "price_daily": 250,
         "deposit": 0,
         "images": ["/images/cama-hospitalaria-electrica-medimundo-queretaro.jpg"],
         "quantity_total": 4,
@@ -57,8 +57,8 @@ EQUIPMENT = [
         "slug": "camas-hospitalarias",
         "description": "Cama hospitalaria eléctrica de lujo con posiciones múltiples, barandales y colchón incluido. La opción más completa para el cuidado en casa.",
         "price_monthly": 3500,
-        "price_biweekly": 2000,
-        "price_daily": 300,
+        "price_weekly": 2950,
+        "price_daily": 350,
         "deposit": 0,
         "images": ["/images/cama-hospitalaria-electrica-lujo-medimundo-queretaro.jpg"],
         "quantity_total": 2,
@@ -69,7 +69,7 @@ EQUIPMENT = [
         "slug": "camas-hospitalarias",
         "description": "Cama de masaje con 3 posiciones ajustables, estructura de madera resistente. Ideal para fisioterapia en casa.",
         "price_monthly": 900,
-        "price_biweekly": 300,
+        "price_weekly": 300,
         "price_daily": 55,
         "deposit": 0,
         "images": ["/images/cama-masaje-3-posiciones-madera-medimundo-queretaro.jpg"],
@@ -81,7 +81,7 @@ EQUIPMENT = [
         "slug": "sillas-de-ruedas",
         "description": "Silla de ruedas estándar plegable, ligera y resistente. Disponible en renta mensual o venta. Consulta disponibilidad.",
         "price_monthly": 1500,
-        "price_biweekly": 500,
+        "price_weekly": 500,
         "price_daily": 100,
         "deposit": 0,
         "images": ["/images/silla-de-ruedas-renta-queretaro-medimundo.jpg"],
@@ -93,7 +93,7 @@ EQUIPMENT = [
         "slug": "concentradores-de-oxigeno",
         "description": "Concentrador de Oxígeno 5 Lts Everflo Respironics Philips. Concentrador estacionario de alto rendimiento, flujo continuo de hasta 5 litros por minuto. No requiere receta médica. Incluye entrega, instalación y capacitación de uso a domicilio.",
         "price_monthly": 2300,
-        "price_biweekly": 1000,
+        "price_weekly": 1000,
         "price_daily": 150,
         "deposit": 6500,
         "images": ["/images/concentrador-oxigeno-everflo-philips-respironics.jpg"],
@@ -104,9 +104,9 @@ EQUIPMENT = [
         "name": "Sillón Reposet Eléctrico",
         "slug": "equipos-apoyo",
         "description": "Sillón reposet eléctrico con control remoto. Posición de descanso y reclinación total. Ideal para pacientes con movilidad reducida.",
-        "price_monthly": 1100,
-        "price_biweekly": 380,
-        "price_daily": 70,
+        "price_monthly": 1600,
+        "price_weekly": 1100,
+        "price_daily": 300,
         "deposit": 0,
         "images": ["/images/sillon-reposet-pacientes.jpg"],
         "quantity_total": 2,
@@ -117,8 +117,8 @@ EQUIPMENT = [
         "slug": "equipos-apoyo",
         "description": "Grúa hidráulica para traslado seguro de pacientes. Incluye arnés. Indispensable para el cuidado de pacientes con movilidad muy limitada.",
         "price_monthly": 2500,
-        "price_biweekly": 1500,
-        "price_daily": 200,
+        "price_weekly": 2000,
+        "price_daily": 300,
         "deposit": 0,
         "images": ["/images/grua-hidraulica-paciente.jpg"],
         "quantity_total": 2,
@@ -128,9 +128,9 @@ EQUIPMENT = [
         "name": "Mesa de Alimentos",
         "slug": "equipos-apoyo",
         "description": "Mesa de alimentos ajustable en altura, compatible con camas hospitalarias. Bandeja amplia y ruedas para fácil desplazamiento.",
-        "price_monthly": 230,
-        "price_biweekly": 80,
-        "price_daily": 15,
+        "price_monthly": 950,
+        "price_weekly": 700,
+        "price_daily": 200,
         "deposit": 0,
         "images": ["/images/mesa-alimentos-paciente.jpg"],
         "quantity_total": 6,
@@ -141,7 +141,7 @@ EQUIPMENT = [
         "slug": "bano-seguridad",
         "description": "Banco de ducha de aluminio con respaldo y descansabrazos. Antideslizante, ajustable en altura. Ideal para adultos mayores y postoperatorio.",
         "price_monthly": 350,
-        "price_biweekly": 120,
+        "price_weekly": 120,
         "price_daily": 20,
         "deposit": 0,
         "images": ["/images/banco-ducha-aluminio-respaldo-descansabrazos-medimundo.jpg"],
@@ -153,7 +153,7 @@ EQUIPMENT = [
         "slug": "bano-seguridad",
         "description": "Silla de ducha con asiento perineal, respaldo y altura ajustable. Facilita la higiene personal de pacientes con movilidad reducida.",
         "price_monthly": 380,
-        "price_biweekly": 130,
+        "price_weekly": 130,
         "price_daily": 22,
         "deposit": 0,
         "images": ["/images/silla-ducha-asiento-perineal-respaldo-altura-ajustable-medimundo.jpg"],
@@ -165,7 +165,7 @@ EQUIPMENT = [
         "slug": "bano-seguridad",
         "description": "Cómodo de lujo plegable de aluminio. Resistente, higiénico y fácil de limpiar. Indispensable para pacientes con movilidad muy limitada.",
         "price_monthly": 280,
-        "price_biweekly": 95,
+        "price_weekly": 95,
         "price_daily": 18,
         "deposit": 0,
         "images": ["/images/comodo-lujo-plegable-aluminio-medimundo-queretaro.jpg"],
@@ -332,15 +332,12 @@ async def seed():
                 db.add(obj)
                 print(f"  EQUIPMENT INSERTED: {e['name']}")
             else:
-                # Sync images, description and prices on every re-deploy
+                # Only sync images and description — never overwrite prices set via admin
                 if e.get("images"):
                     existing.images = e["images"]
                 if e.get("description"):
                     existing.description = e["description"]
-                for price_field in ("price_monthly", "price_biweekly", "price_daily", "deposit"):
-                    if price_field in e:
-                        setattr(existing, price_field, e[price_field])
-                print(f"  EQUIPMENT UPDATED: {e['name']}")
+                print(f"  EQUIPMENT EXISTS: {e['name']}")
 
         await db.commit()
 
