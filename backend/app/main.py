@@ -57,23 +57,6 @@ async def lifespan(app: FastAPI):
             await conn.execute(text(
                 "ALTER TABLE equipment ADD COLUMN IF NOT EXISTS price_sale NUMERIC(10,2) DEFAULT 0"
             ))
-            await conn.execute(text(
-                "ALTER TABLE equipment ADD COLUMN IF NOT EXISTS price_biweekly NUMERIC(10,2) DEFAULT 0"
-            ))
-        # Separate transaction: ADD COLUMN must be committed before UPDATE uses it
-        async with engine.begin() as conn:
-            await conn.execute(text("""
-                DO $$
-                BEGIN
-                  IF EXISTS (
-                    SELECT 1 FROM information_schema.columns
-                    WHERE table_name='equipment' AND column_name='price_weekly'
-                  ) THEN
-                    UPDATE equipment SET price_biweekly = price_weekly
-                    WHERE price_biweekly = 0 AND price_weekly > 0;
-                  END IF;
-                END $$;
-            """))
     except Exception as exc:
         # DB temporarily unavailable — server still starts; static files work fine
         print(f"[lifespan] DB create_all skipped: {exc}")

@@ -22,7 +22,7 @@ class Equipment(Base):
     description: Mapped[str] = mapped_column(Text, default="")
     specs: Mapped[Optional[dict]] = mapped_column(JSON, nullable=True)
     price_daily: Mapped[float] = mapped_column(Numeric(10, 2), default=0)
-    price_biweekly: Mapped[float] = mapped_column(Numeric(10, 2), default=0)
+    price_biweekly: Mapped[float] = mapped_column("price_weekly", Numeric(10, 2), default=0)
     price_monthly: Mapped[float] = mapped_column(Numeric(10, 2), default=0)
     price_sale: Mapped[float] = mapped_column(Numeric(10, 2), default=0)
     deposit: Mapped[float] = mapped_column(Numeric(10, 2), default=0)
