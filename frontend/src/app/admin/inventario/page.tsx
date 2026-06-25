@@ -3,18 +3,19 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { apiFetch } from "@/lib/adminAuth";
 import { isRentalItem } from "@/lib/rentalItems";
 import { IconPlus, IconPencil, IconTrash, IconSearch, fmt, Modal, Spinner } from "@/lib/icons";
+import Image from "next/image";
 
 interface Category { id: number; name: string; }
 interface Equipment {
   id: number; name: string; category_id?: number; category_name?: string;
-  price_daily?: number; price_weekly?: number; price_monthly?: number; price_sale?: number;
+  price_daily?: number; price_biweekly?: number; price_monthly?: number; price_sale?: number;
   deposit?: number; quantity_available?: number; quantity_total?: number;
   serial_number?: string; condition?: string; description?: string;
   images?: string[]; is_active?: boolean;
 }
 
 const emptyForm = {
-  name: "", category_id: "", description: "", price_daily: "", price_weekly: "",
+  name: "", category_id: "", description: "", price_daily: "", price_biweekly: "",
   price_monthly: "", price_sale: "", deposit: "", quantity_total: "1", quantity_available: "1",
   serial_number: "", condition: "available", image_url: "", is_active: true,
 };
@@ -99,11 +100,11 @@ function SectionTable({
   openEdit: (item: Equipment) => void;
   handleDelete: (item: Equipment) => void;
 }) {
-  const rentalHeaders = ["Equipo", "Categoría", "Diario", "Semanal", "Mensual", "Disponibles", "Condición", "Activo", ""];
+  const rentalHeaders = ["Equipo", "Categoría", "Diario", "Quincenal", "Mensual", "Disponibles", "Condición", "Activo", ""];
   const catalogHeaders = ["Equipo", "Categoría", "Precio Venta", "Disponibles", "Condición", "Activo", ""];
   const headers = mode === "rental" ? rentalHeaders : catalogHeaders;
 
-  const rightAligned = new Set(["Diario", "Semanal", "Mensual", "Precio Venta"]);
+  const rightAligned = new Set(["Diario", "Quincenal", "Mensual", "Precio Venta"]);
   const centerAligned = new Set(["Disponibles", "Condición", "Activo"]);
 
   return (
@@ -133,7 +134,7 @@ function SectionTable({
                     <EditableCell value={item.price_daily} onSave={(v) => patchItem(item.id, { price_daily: v })} />
                   </td>
                   <td className="px-4 py-3 text-right">
-                    <EditableCell value={item.price_weekly} onSave={(v) => patchItem(item.id, { price_weekly: v })} />
+                    <EditableCell value={item.price_biweekly} onSave={(v) => patchItem(item.id, { price_biweekly: v })} />
                   </td>
                   <td className="px-4 py-3 text-right">
                     <EditableCell value={item.price_monthly} onSave={(v) => patchItem(item.id, { price_monthly: v })} />
@@ -195,6 +196,8 @@ export default function InventarioPage() {
   const [form, setForm] = useState<typeof emptyForm>(emptyForm);
   const [saving, setSaving] = useState(false);
   const [savingId, setSavingId] = useState<number | null>(null);
+  const [uploadingImg, setUploadingImg] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -248,7 +251,7 @@ export default function InventarioPage() {
     setForm({
       name: item.name || "", category_id: String(item.category_id || ""),
       description: item.description || "",
-      price_daily: String(item.price_daily ?? ""), price_weekly: String(item.price_weekly ?? ""),
+      price_daily: String(item.price_daily ?? ""), price_biweekly: String(item.price_biweekly ?? ""),
       price_monthly: String(item.price_monthly ?? ""), price_sale: String(item.price_sale ?? ""),
       deposit: String(item.deposit ?? ""),
       quantity_total: String(item.quantity_total ?? 1),
@@ -266,16 +269,37 @@ export default function InventarioPage() {
     setForm({ ...form, [name]: type === "checkbox" ? (e.target as HTMLInputElement).checked : value });
   };
 
+  const handleImageFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploadingImg(true);
+    try {
+      const fd = new FormData();
+      fd.append("file", file);
+      const res = await apiFetch("/upload/image", { method: "POST", body: fd });
+      if (res.ok) {
+        const { url } = await res.json();
+        setForm((prev) => ({ ...prev, image_url: url }));
+      } else {
+        const d = await res.json().catch(() => ({}));
+        alert(d?.detail || "Error al subir imagen.");
+      }
+    } catch {
+      alert("Error de red al subir imagen.");
+    }
+    setUploadingImg(false);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); setSaving(true);
     const payload = {
       name: form.name, category_id: Number(form.category_id) || null,
       description: form.description,
-      price_daily: form.price_daily !== "" ? Number(form.price_daily) : null,
-      price_weekly: form.price_weekly !== "" ? Number(form.price_weekly) : null,
-      price_monthly: form.price_monthly !== "" ? Number(form.price_monthly) : null,
-      price_sale: form.price_sale !== "" ? Number(form.price_sale) : null,
-      deposit: form.deposit !== "" ? Number(form.deposit) : null,
+      price_daily: form.price_daily !== "" ? Number(form.price_daily) : 0,
+      price_biweekly: form.price_biweekly !== "" ? Number(form.price_biweekly) : 0,
+      price_monthly: form.price_monthly !== "" ? Number(form.price_monthly) : 0,
+      price_sale: form.price_sale !== "" ? Number(form.price_sale) : 0,
+      deposit: form.deposit !== "" ? Number(form.deposit) : 0,
       quantity_total: Number(form.quantity_total) || 1,
       quantity_available: Number(form.quantity_available) || 1,
       serial_number: form.serial_number, condition: form.condition || "available",
@@ -366,8 +390,8 @@ export default function InventarioPage() {
             <div className="grid grid-cols-3 gap-3">
               <div><label className="label-field">Diario</label>
                 <input name="price_daily" type="number" step="0.01" min="0" value={form.price_daily} onChange={handleChange} className="input-field" /></div>
-              <div><label className="label-field">Semanal</label>
-                <input name="price_weekly" type="number" step="0.01" min="0" value={form.price_weekly} onChange={handleChange} className="input-field" /></div>
+              <div><label className="label-field">Quincenal</label>
+                <input name="price_biweekly" type="number" step="0.01" min="0" value={form.price_biweekly} onChange={handleChange} className="input-field" /></div>
               <div><label className="label-field">Mensual</label>
                 <input name="price_monthly" type="number" step="0.01" min="0" value={form.price_monthly} onChange={handleChange} className="input-field" /></div>
             </div>
@@ -394,8 +418,27 @@ export default function InventarioPage() {
             </select></div>
           <div><label className="label-field">No. de serie</label>
             <input name="serial_number" value={form.serial_number} onChange={handleChange} className="input-field" /></div>
-          <div><label className="label-field">URL de imagen</label>
-            <input name="image_url" type="url" value={form.image_url} onChange={handleChange} className="input-field" placeholder="https://..." /></div>
+          <div>
+            <label className="label-field">Imagen</label>
+            <div className="flex gap-2 items-start">
+              <div className="flex-1 space-y-2">
+                <button type="button" onClick={() => fileInputRef.current?.click()}
+                  disabled={uploadingImg}
+                  className="btn-white w-full flex items-center justify-center gap-2 text-sm">
+                  {uploadingImg ? <Spinner /> : null}
+                  {uploadingImg ? "Subiendo..." : "Seleccionar imagen…"}
+                </button>
+                <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={handleImageFile} />
+                <input name="image_url" type="text" value={form.image_url} onChange={handleChange}
+                  className="input-field text-xs text-gray-400" placeholder="O pega una URL aquí..." />
+              </div>
+              {form.image_url && (
+                <div className="relative h-20 w-20 rounded-lg border border-gray-200 overflow-hidden shrink-0">
+                  <Image src={form.image_url} alt="preview" fill className="object-cover" unoptimized />
+                </div>
+              )}
+            </div>
+          </div>
           <div className="flex items-center gap-2">
             <input name="is_active" type="checkbox" checked={form.is_active as boolean}
               onChange={handleChange} className="h-4 w-4 rounded border-gray-300 text-sky-600 focus:ring-sky-500" />

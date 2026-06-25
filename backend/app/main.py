@@ -3,8 +3,10 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import RedirectResponse, Response as FastAPIResponse
+from fastapi.staticfiles import StaticFiles
 from starlette.middleware.base import BaseHTTPMiddleware
 from sqlalchemy import text
+import os
 
 
 class HTTPSRedirectMiddleware(BaseHTTPMiddleware):
@@ -33,12 +35,16 @@ class CacheControlMiddleware(BaseHTTPMiddleware):
         return response
 from app.config import get_settings
 from app.database import engine, Base
-from app.routers import auth, categories, equipment, bookings, customers, dashboard, blog, inogen, oxygen_refills, users
+from app.routers import auth, categories, equipment, bookings, customers, dashboard, blog, inogen, oxygen_refills, users, upload
 from app.models import blog as _blog_models  # noqa: F401 — ensures table is created
 from app.models import inogen as _inogen_models  # noqa: F401 — ensures table is created
 from app.models import oxygen_refill as _oxygen_refill_models  # noqa: F401 — ensures table is created
 
 settings = get_settings()
+
+
+UPLOADS_DIR = os.path.join(os.path.dirname(__file__), "..", "uploads")
+os.makedirs(UPLOADS_DIR, exist_ok=True)
 
 
 @asynccontextmanager
@@ -50,6 +56,12 @@ async def lifespan(app: FastAPI):
             # existing tables here since there's no migration tool in use.
             await conn.execute(text(
                 "ALTER TABLE equipment ADD COLUMN IF NOT EXISTS price_sale NUMERIC(10,2) DEFAULT 0"
+            ))
+            await conn.execute(text(
+                "ALTER TABLE equipment ADD COLUMN IF NOT EXISTS price_biweekly NUMERIC(10,2) DEFAULT 0"
+            ))
+            await conn.execute(text(
+                "UPDATE equipment SET price_biweekly = price_weekly WHERE price_biweekly = 0 AND price_weekly > 0"
             ))
     except Exception as exc:
         # DB temporarily unavailable — server still starts; static files work fine
@@ -84,6 +96,9 @@ app.include_router(blog.router)
 app.include_router(inogen.router)
 app.include_router(oxygen_refills.router)
 app.include_router(users.router)
+app.include_router(upload.router)
+
+app.mount("/uploads", StaticFiles(directory=UPLOADS_DIR), name="uploads")
 
 
 @app.get("/api/health")

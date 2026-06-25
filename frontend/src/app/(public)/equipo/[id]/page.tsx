@@ -12,7 +12,7 @@ interface Equipment {
   description?: string;
   category_name?: string;
   price_daily?: number;
-  price_weekly?: number;
+  price_biweekly?: number;
   price_monthly?: number;
   deposit?: number;
   serial_number?: string;

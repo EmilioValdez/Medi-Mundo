@@ -11,7 +11,7 @@ class EquipmentBase(BaseModel):
     description: str = ""
     specs: dict[str, Any] | None = None
     price_daily: float = 0
-    price_weekly: float = 0
+    price_biweekly: float = 0
     price_monthly: float = 0
     price_sale: float = 0
     deposit: float = 0
@@ -33,7 +33,7 @@ class EquipmentUpdate(BaseModel):
     description: str | None = None
     specs: dict[str, Any] | None = None
     price_daily: float | None = None
-    price_weekly: float | None = None
+    price_biweekly: float | None = None
     price_monthly: float | None = None
     price_sale: float | None = None
     deposit: float | None = None

@@ -20,7 +20,7 @@ interface Equipment {
   description?: string;
   category_name?: string;
   price_daily?: number;
-  price_weekly?: number;
+  price_biweekly?: number;
   price_monthly?: number;
   deposit?: number;
   serial_number?: string;
@@ -188,10 +188,10 @@ export default function EquipmentDetail({ item }: { item: Equipment }) {
                           <td className="px-4 py-3 text-right font-semibold text-gray-900">{formatMXN(item.price_daily)}</td>
                         </tr>
                       )}
-                      {item.price_weekly != null && (
+                      {item.price_biweekly != null && item.price_biweekly > 0 && (
                         <tr>
-                          <td className="px-4 py-3 text-gray-700">Semanal</td>
-                          <td className="px-4 py-3 text-right font-semibold text-gray-900">{formatMXN(item.price_weekly)}</td>
+                          <td className="px-4 py-3 text-gray-700">Quincenal</td>
+                          <td className="px-4 py-3 text-right font-semibold text-gray-900">{formatMXN(item.price_biweekly)}</td>
                         </tr>
                       )}
                       {item.price_monthly != null && (

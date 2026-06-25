@@ -79,8 +79,11 @@ export function useAuth() {
 
 export async function apiFetch(path: string, options: RequestInit = {}) {
   const token = localStorage.getItem("medimundo_token");
-  return fetch(`${API}${path}`, {
-    ...options,
-    headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}), ...options.headers },
-  });
+  const isFormData = options.body instanceof FormData;
+  const headers: Record<string, string> = {
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    ...(options.headers as Record<string, string>),
+  };
+  if (!isFormData) headers["Content-Type"] = "application/json";
+  return fetch(`${API}${path}`, { ...options, headers });
 }
