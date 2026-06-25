@@ -292,9 +292,21 @@ async def seed():
         await conn.execute(text(
             "ALTER TABLE equipment ADD COLUMN IF NOT EXISTS price_biweekly NUMERIC(10,2) DEFAULT 0"
         ))
-        await conn.execute(text(
-            "UPDATE equipment SET price_biweekly = price_weekly WHERE price_biweekly = 0 AND price_weekly > 0"
-        ))
+
+    # Separate transaction so ADD COLUMN is committed before the UPDATE runs
+    async with engine.begin() as conn:
+        await conn.execute(text("""
+            DO $$
+            BEGIN
+              IF EXISTS (
+                SELECT 1 FROM information_schema.columns
+                WHERE table_name='equipment' AND column_name='price_weekly'
+              ) THEN
+                UPDATE equipment SET price_biweekly = price_weekly
+                WHERE price_biweekly = 0 AND price_weekly > 0;
+              END IF;
+            END $$;
+        """))
 
     async with async_session() as db:
         # Seed categories
