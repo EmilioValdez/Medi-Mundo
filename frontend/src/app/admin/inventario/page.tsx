@@ -291,7 +291,9 @@ export default function InventarioPage() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault(); setSaving(true);
+    e.preventDefault();
+    if (!form.category_id) { alert("Por favor selecciona una categoría."); return; }
+    setSaving(true);
     const payload = {
       name: form.name, category_id: Number(form.category_id) || null,
       description: form.description,
@@ -309,7 +311,16 @@ export default function InventarioPage() {
       ? await apiFetch(`/equipment/${editing.id}`, { method: "PUT", body: JSON.stringify(payload) }).catch(() => null)
       : await apiFetch("/equipment", { method: "POST", body: JSON.stringify(payload) }).catch(() => null);
     if (res?.ok) { setModalOpen(false); fetchData(); }
-    else { const d = await res?.json().catch(() => ({})); alert(d?.detail || "Error al guardar."); }
+    else {
+      const text = await res?.text().catch(() => "");
+      let msg = "Error al guardar.";
+      try {
+        const d = JSON.parse(text || "{}");
+        if (typeof d.detail === "string") msg = d.detail;
+        else if (Array.isArray(d.detail)) msg = d.detail.map((e: {msg: string}) => e.msg).join(", ");
+      } catch { if (text) msg = `Error ${res?.status}: ${text.slice(0, 200)}`; }
+      alert(msg);
+    }
     setSaving(false);
   };
 
