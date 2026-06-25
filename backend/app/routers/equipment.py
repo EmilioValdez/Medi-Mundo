@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import traceback
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import select, func
 from sqlalchemy.orm import joinedload
@@ -57,15 +58,20 @@ async def create_equipment(
     db: AsyncSession = Depends(get_db),
     _=Depends(get_current_user),
 ):
-    eq = Equipment(**body.model_dump())
-    db.add(eq)
-    await db.commit()
-    await db.refresh(eq)
-    result = await db.execute(
-        select(Equipment).options(joinedload(Equipment.category)).where(Equipment.id == eq.id)
-    )
-    eq = result.unique().scalar_one()
-    return _to_out(eq)
+    try:
+        eq = Equipment(**body.model_dump())
+        db.add(eq)
+        await db.commit()
+        await db.refresh(eq)
+        result = await db.execute(
+            select(Equipment).options(joinedload(Equipment.category)).where(Equipment.id == eq.id)
+        )
+        eq = result.unique().scalar_one()
+        return _to_out(eq)
+    except Exception as exc:
+        await db.rollback()
+        print(f"[CREATE EQUIPMENT ERROR] {exc}\n{traceback.format_exc()}")
+        raise HTTPException(status_code=500, detail=str(exc))
 
 
 @router.put("/{eq_id}", response_model=EquipmentOut)
