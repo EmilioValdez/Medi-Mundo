@@ -289,16 +289,6 @@ async def seed():
         await conn.execute(text(
             "ALTER TABLE equipment ADD COLUMN IF NOT EXISTS price_sale NUMERIC(10,2) DEFAULT 0"
         ))
-        # Catalog-only items: remove rental prices so they don't appear in /rentas
-        await conn.execute(text("""
-            UPDATE equipment
-            SET price_daily = 0, price_weekly = 0, price_monthly = 0
-            WHERE name IN (
-                'Banco de Ducha con Respaldo',
-                'Silla de Ducha con Asiento Perineal',
-                'Cómodo de Lujo Plegable'
-            )
-        """))
 
     async with async_session() as db:
         # Seed categories
@@ -342,12 +332,7 @@ async def seed():
                 db.add(obj)
                 print(f"  EQUIPMENT INSERTED: {e['name']}")
             else:
-                # Only sync images and description — never overwrite prices set via admin
-                if e.get("images"):
-                    existing.images = e["images"]
-                if e.get("description"):
-                    existing.description = e["description"]
-                print(f"  EQUIPMENT EXISTS: {e['name']}")
+                print(f"  EQUIPMENT EXISTS (no changes): {e['name']}")
 
         await db.commit()
 
@@ -361,9 +346,7 @@ async def seed():
                 db.add(obj)
                 print(f"  INOGEN INSERTED: {m['name']}")
             else:
-                # Sync image in case it changed
-                existing.image = m["image"]
-                print(f"  INOGEN EXISTS: {m['name']}")
+                print(f"  INOGEN EXISTS (no changes): {m['name']}")
 
         await db.commit()
 
