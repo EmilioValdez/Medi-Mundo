@@ -18,15 +18,32 @@ export const metadata: Metadata = {
   },
 };
 
+const CATEGORY_ORDER = [
+  "camas-hospitalarias",
+  "sillas-de-ruedas",
+  "andaderas-bastones",
+  "bano-seguridad",
+  "equipos-apoyo",
+  "concentradores-de-oxigeno",
+  "ortopedia",
+];
+
 export default async function CatalogPage() {
   const [categories, equipment] = await Promise.all([
     getCategories(),
     getEquipment(),
   ]);
 
+  type CatItem = { id: number; name: string; slug: string };
+  const cats = categories as CatItem[];
+  const sortedCategories: CatItem[] = [
+    ...CATEGORY_ORDER.map((slug) => cats.find((c) => c.slug === slug)).filter(Boolean) as CatItem[],
+    ...cats.filter((c) => !CATEGORY_ORDER.includes(c.slug)),
+  ];
+
   return (
     <CatalogContent
-      initialCategories={categories as { id: number; name: string; slug: string }[]}
+      initialCategories={sortedCategories}
       initialEquipment={equipment as { id: number; name: string; images?: string[]; price_monthly?: number; price_sale?: number; category_name?: string; available?: boolean }[]}
     />
   );

@@ -24,10 +24,11 @@ export const metadata: Metadata = {
 
 const CATEGORY_ORDER = [
   "camas-hospitalarias",
-  "concentradores-de-oxigeno",
-  "equipos-apoyo",
-  "bano-seguridad",
+  "sillas-de-ruedas",
   "andaderas-bastones",
+  "bano-seguridad",
+  "equipos-apoyo",
+  "concentradores-de-oxigeno",
   "ortopedia",
 ];
 
