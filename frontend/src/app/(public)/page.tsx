@@ -29,7 +29,6 @@ const CATEGORY_ORDER = [
   "bano-seguridad",
   "equipos-apoyo",
   "concentradores-de-oxigeno",
-  "ortopedia",
 ];
 
 const FEATURED_KEYWORDS = ["lujo", "eléctrica", "electrica", "ducha"];
