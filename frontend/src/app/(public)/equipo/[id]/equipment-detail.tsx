@@ -176,7 +176,7 @@ export default function EquipmentDetail({ item }: { item: Equipment }) {
               <p className="mt-4 text-gray-600 leading-relaxed">{item.description}</p>
             )}
 
-            {isRentalItem(item.name) && (
+            {isRentalItem(item) && (
               <div className="mt-6">
                 <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-3">Precios de renta</h3>
                 <div className="overflow-hidden rounded-xl border border-gray-200">
