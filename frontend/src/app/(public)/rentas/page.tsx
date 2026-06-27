@@ -84,8 +84,8 @@ function sortRentals(items: { name?: string }[]) {
 }
 
 export default async function RentasPage() {
-  const allEquipment = (await getEquipment()) as { id: number; name: string; images?: string[]; price_monthly?: number; category_name?: string; available?: boolean }[];
-  const items = sortRentals(allEquipment.filter((item) => isRentalItem(item.name))) as typeof allEquipment;
+  const allEquipment = (await getEquipment()) as { id: number; name: string; images?: string[]; price_daily?: number; price_biweekly?: number; price_monthly?: number; category_name?: string; available?: boolean }[];
+  const items = sortRentals(allEquipment.filter((item) => isRentalItem(item))) as typeof allEquipment;
 
   return (
     <div style={{ position: "relative", minHeight: "100vh" }}>

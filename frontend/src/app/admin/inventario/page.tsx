@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { apiFetch } from "@/lib/adminAuth";
-import { isRentalItem } from "@/lib/rentalItems";
 import { IconPlus, IconPencil, IconTrash, IconSearch, fmt, Modal, Spinner } from "@/lib/icons";
 import Image from "next/image";
 
@@ -197,6 +196,8 @@ export default function InventarioPage() {
   const [saving, setSaving] = useState(false);
   const [savingId, setSavingId] = useState<number | null>(null);
   const [uploadingImg, setUploadingImg] = useState(false);
+  const [addMode, setAddMode] = useState<"rental" | "catalog">("rental");
+  const [includeOther, setIncludeOther] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const fetchData = useCallback(async () => {
@@ -212,8 +213,8 @@ export default function InventarioPage() {
 
   useEffect(() => { fetchData(); }, [fetchData]);
 
-  const rentalItems = equipment.filter((e) => isRentalItem(e.name));
-  const catalogItems = equipment.filter((e) => !isRentalItem(e.name));
+  const rentalItems = equipment.filter((e) => (e.price_daily ?? 0) > 0 || (e.price_biweekly ?? 0) > 0 || (e.price_monthly ?? 0) > 0);
+  const catalogItems = equipment.filter((e) => (e.price_sale ?? 0) > 0);
 
   const searchLower = search.trim().toLowerCase();
   const filteredRental = searchLower
@@ -245,7 +246,13 @@ export default function InventarioPage() {
     setSavingId(null);
   };
 
-  const openCreate = () => { setEditing(null); setForm(emptyForm); setModalOpen(true); };
+  const openCreate = (mode: "rental" | "catalog") => {
+    setEditing(null);
+    setAddMode(mode);
+    setIncludeOther(false);
+    setForm(emptyForm);
+    setModalOpen(true);
+  };
   const openEdit = (item: Equipment) => {
     setEditing(item);
     setForm({
@@ -294,13 +301,15 @@ export default function InventarioPage() {
     e.preventDefault();
     if (!form.category_id) { alert("Por favor selecciona una categoría."); return; }
     setSaving(true);
+    const forceRentalOnly = !editing && addMode === "rental" && !includeOther;
+    const forceCatalogOnly = !editing && addMode === "catalog" && !includeOther;
     const payload = {
       name: form.name, category_id: Number(form.category_id) || null,
       description: form.description,
-      price_daily: form.price_daily !== "" ? Number(form.price_daily) : 0,
-      price_biweekly: form.price_biweekly !== "" ? Number(form.price_biweekly) : 0,
-      price_monthly: form.price_monthly !== "" ? Number(form.price_monthly) : 0,
-      price_sale: form.price_sale !== "" ? Number(form.price_sale) : 0,
+      price_daily: forceCatalogOnly ? 0 : (form.price_daily !== "" ? Number(form.price_daily) : 0),
+      price_biweekly: forceCatalogOnly ? 0 : (form.price_biweekly !== "" ? Number(form.price_biweekly) : 0),
+      price_monthly: forceCatalogOnly ? 0 : (form.price_monthly !== "" ? Number(form.price_monthly) : 0),
+      price_sale: forceRentalOnly ? 0 : (form.price_sale !== "" ? Number(form.price_sale) : 0),
       deposit: form.deposit !== "" ? Number(form.deposit) : 0,
       quantity_total: Number(form.quantity_total) || 1,
       quantity_available: Number(form.quantity_available) || 1,
@@ -337,9 +346,14 @@ export default function InventarioPage() {
           <h1 className="text-2xl font-bold text-gray-900">Inventario</h1>
           <p className="text-xs text-gray-400 mt-0.5">Haz clic en cualquier precio o cantidad para editarlo directamente.</p>
         </div>
-        <button onClick={openCreate} className="btn-primary flex items-center gap-2">
-          <IconPlus /> Agregar equipo
-        </button>
+        <div className="flex gap-2">
+          <button onClick={() => openCreate("rental")} className="btn-primary flex items-center gap-2 text-sm">
+            <IconPlus /> Agregar Renta
+          </button>
+          <button onClick={() => openCreate("catalog")} className="btn-violet flex items-center gap-2 text-sm">
+            <IconPlus /> Agregar Catálogo
+          </button>
+        </div>
       </div>
 
       <div className="relative max-w-xs mb-6">
@@ -352,9 +366,15 @@ export default function InventarioPage() {
         <div className="space-y-8">
           {/* ── Sección Renta ── */}
           <div>
-            <div className="flex items-center gap-3 mb-2">
-              <h2 className="text-base font-semibold text-gray-800">Productos en Renta</h2>
-              <span className="rounded-full bg-sky-100 px-2.5 py-0.5 text-xs font-medium text-sky-700">{filteredRental.length}</span>
+            <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center gap-3">
+                <h2 className="text-base font-semibold text-gray-800">Productos en Renta</h2>
+                <span className="rounded-full bg-sky-100 px-2.5 py-0.5 text-xs font-medium text-sky-700">{filteredRental.length}</span>
+              </div>
+              <button onClick={() => openCreate("rental")}
+                className="flex items-center gap-1 text-xs font-medium text-sky-600 hover:text-sky-700 hover:bg-sky-50 rounded-lg px-2.5 py-1.5 transition-colors border border-sky-200">
+                <IconPlus className="h-3.5 w-3.5" /> Agregar para Renta
+              </button>
             </div>
             <div className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
               {filteredRental.length === 0 ? (
@@ -368,9 +388,15 @@ export default function InventarioPage() {
 
           {/* ── Sección Catálogo ── */}
           <div>
-            <div className="flex items-center gap-3 mb-2">
-              <h2 className="text-base font-semibold text-gray-800">Catálogo (Venta)</h2>
-              <span className="rounded-full bg-violet-100 px-2.5 py-0.5 text-xs font-medium text-violet-700">{filteredCatalog.length}</span>
+            <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center gap-3">
+                <h2 className="text-base font-semibold text-gray-800">Catálogo (Venta)</h2>
+                <span className="rounded-full bg-violet-100 px-2.5 py-0.5 text-xs font-medium text-violet-700">{filteredCatalog.length}</span>
+              </div>
+              <button onClick={() => openCreate("catalog")}
+                className="flex items-center gap-1 text-xs font-medium text-violet-600 hover:text-violet-700 hover:bg-violet-50 rounded-lg px-2.5 py-1.5 transition-colors border border-violet-200">
+                <IconPlus className="h-3.5 w-3.5" /> Agregar para Catálogo
+              </button>
             </div>
             <div className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
               {filteredCatalog.length === 0 ? (
@@ -384,7 +410,7 @@ export default function InventarioPage() {
         </div>
       )}
 
-      <Modal open={modalOpen} onClose={() => setModalOpen(false)} title={editing ? "Editar equipo" : "Agregar equipo"}>
+      <Modal open={modalOpen} onClose={() => setModalOpen(false)} title={editing ? "Editar equipo" : addMode === "rental" ? "Agregar para Renta" : "Agregar para Catálogo"}>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div><label className="label-field">Nombre *</label>
             <input name="name" required value={form.name} onChange={handleChange} className="input-field" /></div>
@@ -396,22 +422,38 @@ export default function InventarioPage() {
           <div><label className="label-field">Descripción</label>
             <textarea name="description" rows={2} value={form.description} onChange={handleChange} className="input-field" /></div>
 
-          <div className="rounded-lg border border-sky-100 bg-sky-50 p-3 space-y-3">
-            <p className="text-xs font-semibold text-sky-700 uppercase tracking-wide">Precios de renta</p>
-            <div className="grid grid-cols-3 gap-3">
-              <div><label className="label-field">Diario</label>
-                <input name="price_daily" type="number" step="0.01" min="0" value={form.price_daily} onChange={handleChange} className="input-field" /></div>
-              <div><label className="label-field">Quincenal</label>
-                <input name="price_biweekly" type="number" step="0.01" min="0" value={form.price_biweekly} onChange={handleChange} className="input-field" /></div>
-              <div><label className="label-field">Mensual</label>
-                <input name="price_monthly" type="number" step="0.01" min="0" value={form.price_monthly} onChange={handleChange} className="input-field" /></div>
+          {(editing || addMode === "rental" || includeOther) && (
+            <div className="rounded-lg border border-sky-100 bg-sky-50 p-3 space-y-3">
+              <p className="text-xs font-semibold text-sky-700 uppercase tracking-wide">Precios de renta</p>
+              <div className="grid grid-cols-3 gap-3">
+                <div><label className="label-field">Diario</label>
+                  <input name="price_daily" type="number" step="0.01" min="0" value={form.price_daily} onChange={handleChange} className="input-field" /></div>
+                <div><label className="label-field">Quincenal</label>
+                  <input name="price_biweekly" type="number" step="0.01" min="0" value={form.price_biweekly} onChange={handleChange} className="input-field" /></div>
+                <div><label className="label-field">Mensual</label>
+                  <input name="price_monthly" type="number" step="0.01" min="0" value={form.price_monthly} onChange={handleChange} className="input-field" /></div>
+              </div>
             </div>
-          </div>
+          )}
 
-          <div className="rounded-lg border border-violet-100 bg-violet-50 p-3 space-y-3">
-            <p className="text-xs font-semibold text-violet-700 uppercase tracking-wide">Precio de venta (catálogo)</p>
-            <input name="price_sale" type="number" step="0.01" min="0" value={form.price_sale} onChange={handleChange} className="input-field" />
-          </div>
+          {(editing || addMode === "catalog" || includeOther) && (
+            <div className="rounded-lg border border-violet-100 bg-violet-50 p-3 space-y-3">
+              <p className="text-xs font-semibold text-violet-700 uppercase tracking-wide">Precio de venta (catálogo)</p>
+              <input name="price_sale" type="number" step="0.01" min="0" value={form.price_sale} onChange={handleChange} className="input-field" />
+            </div>
+          )}
+
+          {!editing && (
+            <label className="flex items-center gap-2 cursor-pointer rounded-lg border border-dashed border-gray-300 px-3 py-2 hover:bg-gray-50 transition-colors">
+              <input type="checkbox" checked={includeOther} onChange={(e) => setIncludeOther(e.target.checked)}
+                className="h-4 w-4 rounded border-gray-300 text-sky-600 focus:ring-sky-500" />
+              <span className="text-sm text-gray-600">
+                {addMode === "rental"
+                  ? "También incluir en Catálogo (agregar precio de venta)"
+                  : "También incluir en Rentas (agregar precios de renta)"}
+              </span>
+            </label>
+          )}
 
           <div className="grid grid-cols-3 gap-3">
             <div><label className="label-field">Depósito</label>

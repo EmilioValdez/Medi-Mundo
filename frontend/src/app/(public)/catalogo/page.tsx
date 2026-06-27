@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import CatalogContent from "./catalog-content";
 import { getCategories, getEquipment } from "@/lib/api";
+import { isCatalogItem } from "@/lib/rentalItems";
 
 export const dynamic = "force-dynamic";
 
@@ -19,15 +20,18 @@ export const metadata: Metadata = {
 };
 
 export default async function CatalogPage() {
-  const [categories, equipment] = await Promise.all([
+  const [categories, allEquipment] = await Promise.all([
     getCategories(),
     getEquipment(),
   ]);
 
+  type EqItem = { id: number; name: string; images?: string[]; price_monthly?: number; price_sale?: number; category_name?: string; available?: boolean };
+  const equipment = (allEquipment as EqItem[]).filter(isCatalogItem);
+
   return (
     <CatalogContent
       initialCategories={categories as { id: number; name: string; slug: string }[]}
-      initialEquipment={equipment as { id: number; name: string; images?: string[]; price_monthly?: number; price_sale?: number; category_name?: string; available?: boolean }[]}
+      initialEquipment={equipment}
     />
   );
 }

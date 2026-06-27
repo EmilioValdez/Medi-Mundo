@@ -1,9 +1,14 @@
-const RENTAL_KEYWORDS = ['lujo', 'eléctrica', 'electrica', 'manual', 'silla de ruedas', 'grúa', 'grua', 'reposet', 'mesa'];
-const EXCLUDE_KEYWORDS = ['cómodo', 'comodo'];
+interface PriceFields {
+  price_daily?: number;
+  price_biweekly?: number;
+  price_monthly?: number;
+  price_sale?: number;
+}
 
-export function isRentalItem(name: string | undefined | null): boolean {
-  if (!name) return false;
-  const lower = name.toLowerCase();
-  if (EXCLUDE_KEYWORDS.some(k => lower.includes(k))) return false;
-  return RENTAL_KEYWORDS.some(k => lower.includes(k.toLowerCase()));
+export function isRentalItem(item: PriceFields): boolean {
+  return (item.price_daily ?? 0) > 0 || (item.price_biweekly ?? 0) > 0 || (item.price_monthly ?? 0) > 0;
+}
+
+export function isCatalogItem(item: PriceFields): boolean {
+  return (item.price_sale ?? 0) > 0;
 }
