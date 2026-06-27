@@ -8,7 +8,7 @@ import { isRentalItem } from "@/lib/rentalItems";
 const API = process.env.NEXT_PUBLIC_API_URL ?? "https://medimundo.mx";
 
 function formatMXN(n: number) {
-  return new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN", minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n) + " MXN";
+  return new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN", maximumFractionDigits: 0 }).format(n) + " MXN";
 }
 
 const CONDITION_LABELS: Record<string, string> = {
