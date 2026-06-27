@@ -100,10 +100,10 @@ function SectionTable({
   handleDelete: (item: Equipment) => void;
 }) {
   const rentalHeaders = ["Equipo", "Categoría", "Diario", "Quincenal", "Mensual", "Disponibles", "Condición", "Activo", ""];
-  const catalogHeaders = ["Equipo", "Categoría", "Precio Venta", "Disponibles", "Condición", "Activo", ""];
+  const catalogHeaders = ["Equipo", "Categoría", "Disponibles", "Condición", "Activo", ""];
   const headers = mode === "rental" ? rentalHeaders : catalogHeaders;
 
-  const rightAligned = new Set(["Diario", "Quincenal", "Mensual", "Precio Venta"]);
+  const rightAligned = new Set(["Diario", "Quincenal", "Mensual"]);
   const centerAligned = new Set(["Disponibles", "Condición", "Activo"]);
 
   return (
@@ -127,7 +127,7 @@ function SectionTable({
               </td>
               <td className="px-4 py-3 text-gray-500">{item.category_name || "-"}</td>
 
-              {mode === "rental" ? (
+              {mode === "rental" && (
                 <>
                   <td className="px-4 py-3 text-right">
                     <EditableCell value={item.price_daily} onSave={(v) => patchItem(item.id, { price_daily: v })} />
@@ -139,10 +139,6 @@ function SectionTable({
                     <EditableCell value={item.price_monthly} onSave={(v) => patchItem(item.id, { price_monthly: v })} />
                   </td>
                 </>
-              ) : (
-                <td className="px-4 py-3 text-right">
-                  <EditableCell value={item.price_sale} onSave={(v) => patchItem(item.id, { price_sale: v })} />
-                </td>
               )}
 
               <td className="px-4 py-3 text-center">
@@ -215,8 +211,7 @@ export default function InventarioPage() {
 
   const hasRentalPrices = (e: Equipment) => (e.price_daily ?? 0) > 0 || (e.price_biweekly ?? 0) > 0 || (e.price_monthly ?? 0) > 0;
   const rentalItems = equipment.filter(hasRentalPrices);
-  // Catalog = items without rental prices, plus items that explicitly have a sale price (both scenarios)
-  const catalogItems = equipment.filter((e) => !hasRentalPrices(e) || (e.price_sale ?? 0) > 0);
+  const catalogItems = equipment; // /catalogo shows all products
 
   const searchLower = search.trim().toLowerCase();
   const filteredRental = searchLower

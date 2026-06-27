@@ -140,9 +140,9 @@ EQUIPMENT = [
         "name": "Banco de Ducha con Respaldo",
         "slug": "bano-seguridad",
         "description": "Banco de ducha de aluminio con respaldo y descansabrazos. Antideslizante, ajustable en altura. Ideal para adultos mayores y postoperatorio.",
-        "price_monthly": 350,
-        "price_weekly": 120,
-        "price_daily": 20,
+        "price_monthly": 0,
+        "price_weekly": 0,
+        "price_daily": 0,
         "deposit": 0,
         "images": ["/images/banco-ducha-aluminio-respaldo-descansabrazos-medimundo.jpg"],
         "quantity_total": 4,
@@ -152,9 +152,9 @@ EQUIPMENT = [
         "name": "Silla de Ducha con Asiento Perineal",
         "slug": "bano-seguridad",
         "description": "Silla de ducha con asiento perineal, respaldo y altura ajustable. Facilita la higiene personal de pacientes con movilidad reducida.",
-        "price_monthly": 380,
-        "price_weekly": 130,
-        "price_daily": 22,
+        "price_monthly": 0,
+        "price_weekly": 0,
+        "price_daily": 0,
         "deposit": 0,
         "images": ["/images/silla-ducha-asiento-perineal-respaldo-altura-ajustable-medimundo.jpg"],
         "quantity_total": 4,
@@ -164,9 +164,9 @@ EQUIPMENT = [
         "name": "Cómodo de Lujo Plegable",
         "slug": "bano-seguridad",
         "description": "Cómodo de lujo plegable de aluminio. Resistente, higiénico y fácil de limpiar. Indispensable para pacientes con movilidad muy limitada.",
-        "price_monthly": 280,
-        "price_weekly": 95,
-        "price_daily": 18,
+        "price_monthly": 0,
+        "price_weekly": 0,
+        "price_daily": 0,
         "deposit": 0,
         "images": ["/images/comodo-lujo-plegable-aluminio-medimundo-queretaro.jpg"],
         "quantity_total": 5,
@@ -289,6 +289,16 @@ async def seed():
         await conn.execute(text(
             "ALTER TABLE equipment ADD COLUMN IF NOT EXISTS price_sale NUMERIC(10,2) DEFAULT 0"
         ))
+        # Catalog-only items: remove rental prices so they don't appear in /rentas
+        await conn.execute(text("""
+            UPDATE equipment
+            SET price_daily = 0, price_weekly = 0, price_monthly = 0
+            WHERE name IN (
+                'Banco de Ducha con Respaldo',
+                'Silla de Ducha con Asiento Perineal',
+                'Cómodo de Lujo Plegable'
+            )
+        """))
 
     async with async_session() as db:
         # Seed categories
