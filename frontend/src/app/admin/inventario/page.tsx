@@ -100,10 +100,10 @@ function SectionTable({
   handleDelete: (item: Equipment) => void;
 }) {
   const rentalHeaders = ["Equipo", "Categoría", "Diario", "Quincenal", "Mensual", "Disponibles", "Condición", "Activo", ""];
-  const catalogHeaders = ["Equipo", "Categoría", "Disponibles", "Condición", "Activo", ""];
+  const catalogHeaders = ["Equipo", "Categoría", "Precio Venta", "Disponibles", "Condición", "Activo", ""];
   const headers = mode === "rental" ? rentalHeaders : catalogHeaders;
 
-  const rightAligned = new Set(["Diario", "Quincenal", "Mensual"]);
+  const rightAligned = new Set(["Diario", "Quincenal", "Mensual", "Precio Venta"]);
   const centerAligned = new Set(["Disponibles", "Condición", "Activo"]);
 
   return (
@@ -127,7 +127,7 @@ function SectionTable({
               </td>
               <td className="px-4 py-3 text-gray-500">{item.category_name || "-"}</td>
 
-              {mode === "rental" && (
+              {mode === "rental" ? (
                 <>
                   <td className="px-4 py-3 text-right">
                     <EditableCell value={item.price_daily} onSave={(v) => patchItem(item.id, { price_daily: v })} />
@@ -139,6 +139,10 @@ function SectionTable({
                     <EditableCell value={item.price_monthly} onSave={(v) => patchItem(item.id, { price_monthly: v })} />
                   </td>
                 </>
+              ) : (
+                <td className="px-4 py-3 text-right">
+                  <EditableCell value={item.price_sale} onSave={(v) => patchItem(item.id, { price_sale: v })} />
+                </td>
               )}
 
               <td className="px-4 py-3 text-center">
@@ -167,7 +171,8 @@ function SectionTable({
                     className="rounded-lg p-1.5 text-gray-400 hover:bg-gray-100 hover:text-sky-600">
                     <IconPencil />
                   </button>
-                  <button onClick={() => handleDelete(item)} title="Eliminar"
+                  <button onClick={() => handleDelete(item)}
+                    title={mode === "rental" ? "Quitar de Rentas (queda en Catálogo)" : "Eliminar permanentemente"}
                     className="rounded-lg p-1.5 text-gray-400 hover:bg-red-50 hover:text-red-600">
                     <IconTrash />
                   </button>
@@ -331,9 +336,14 @@ export default function InventarioPage() {
   };
 
   const handleDelete = async (item: Equipment) => {
-    if (!window.confirm(`¿Eliminar "${item.name}"?`)) return;
+    if (!window.confirm(`¿Eliminar "${item.name}" permanentemente?`)) return;
     const res = await apiFetch(`/equipment/${item.id}`, { method: "DELETE" }).catch(() => null);
     if (res?.ok) fetchData(); else alert("Error al eliminar.");
+  };
+
+  const handleRemoveFromRental = async (item: Equipment) => {
+    if (!window.confirm(`¿Quitar "${item.name}" de Rentas?\nEl producto seguirá visible en el Catálogo.`)) return;
+    await patchItem(item.id, { price_daily: 0, price_biweekly: 0, price_monthly: 0 });
   };
 
   return (
@@ -378,7 +388,7 @@ export default function InventarioPage() {
                 <div className="py-10 text-center text-sm text-gray-400">Sin resultados.</div>
               ) : (
                 <SectionTable items={filteredRental} mode="rental" savingId={savingId}
-                  patchItem={patchItem} openEdit={openEdit} handleDelete={handleDelete} />
+                  patchItem={patchItem} openEdit={openEdit} handleDelete={handleRemoveFromRental} />
               )}
             </div>
           </div>
