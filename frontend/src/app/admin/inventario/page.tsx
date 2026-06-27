@@ -213,8 +213,10 @@ export default function InventarioPage() {
 
   useEffect(() => { fetchData(); }, [fetchData]);
 
-  const rentalItems = equipment.filter((e) => (e.price_daily ?? 0) > 0 || (e.price_biweekly ?? 0) > 0 || (e.price_monthly ?? 0) > 0);
-  const catalogItems = equipment.filter((e) => (e.price_sale ?? 0) > 0);
+  const hasRentalPrices = (e: Equipment) => (e.price_daily ?? 0) > 0 || (e.price_biweekly ?? 0) > 0 || (e.price_monthly ?? 0) > 0;
+  const rentalItems = equipment.filter(hasRentalPrices);
+  // Catalog = items without rental prices, plus items that explicitly have a sale price (both scenarios)
+  const catalogItems = equipment.filter((e) => !hasRentalPrices(e) || (e.price_sale ?? 0) > 0);
 
   const searchLower = search.trim().toLowerCase();
   const filteredRental = searchLower
