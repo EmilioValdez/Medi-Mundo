@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description:
       "Renta de equipo médico sanitizado a domicilio en Querétaro. Camas hospitalarias, concentradores de oxígeno, sillas de ruedas y más. Entrega el mismo día.",
     url: "https://medimundo.mx/",
-    images: [{ url: "https://medimundo.mx/images/portada-hero-medimundo.webp" }],
+    images: [{ url: "https://medimundo.mx/images/logo-medimundo-og.png", width: 800, height: 800, alt: "MediMundo — Renta de Equipo Médico en Querétaro" }],
   },
 };
 

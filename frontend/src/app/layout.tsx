@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     siteName: "MediMundo",
     locale: "es_MX",
     type: "website",
-    images: ["/images/portada-hero-medimundo.webp"],
+    images: [{ url: "/images/logo-medimundo-og.png", width: 800, height: 800, alt: "MediMundo — Renta de Equipo Médico en Querétaro" }],
   },
   robots: { index: true, follow: true },
 };
