@@ -29,7 +29,7 @@ const LOCAL_BUSINESS_SCHEMA = {
   description:
     "Tienda de ortopedia y renta de equipo médico en Querétaro. Camas hospitalarias, concentradores de oxígeno Inogen, sillas de ruedas, andaderas y más.",
   url: "https://medimundo.mx",
-  telephone: "+5214426156649",
+  telephone: "+5214423339892",
   email: "medicasaqro@gmail.com",
   image: "https://medimundo.mx/images/tienda-medimundo-queretaro.webp",
   priceRange: "$$",

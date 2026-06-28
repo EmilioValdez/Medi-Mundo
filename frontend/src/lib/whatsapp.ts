@@ -1,4 +1,4 @@
-export const WA_NUMBER = "524426156649";
+export const WA_NUMBER = "524423339892";
 
 export const WA_MESSAGES = {
   general:    "Hola, me interesa información sobre renta de equipo médico en MediMundo.",

@@ -151,7 +151,7 @@ const testimonials = [
 const contactInfo = [
   {
     title: "Teléfono / WhatsApp",
-    lines: ["442 615 66 49"],
+    lines: ["442 333 98 92"],
     link: waLink(WA_MESSAGES.contacto),
     linkText: "Enviar WhatsApp",
     Icon: () => (
