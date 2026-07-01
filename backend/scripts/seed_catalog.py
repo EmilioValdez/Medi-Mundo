@@ -289,6 +289,11 @@ async def seed():
         await conn.execute(text(
             "ALTER TABLE equipment ADD COLUMN IF NOT EXISTS price_sale NUMERIC(10,2) DEFAULT 0"
         ))
+        # Replace old phone number in all blog post content
+        await conn.execute(text(
+            "UPDATE blog_posts SET contenido = REPLACE(contenido, '442 615 66 49', '442 333 98 92') "
+            "WHERE contenido LIKE '%615 66 49%'"
+        ))
 
     async with async_session() as db:
         # Seed categories
