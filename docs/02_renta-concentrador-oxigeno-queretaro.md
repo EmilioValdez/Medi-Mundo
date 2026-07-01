@@ -1,7 +1,7 @@
 # Renta de Concentradores de Oxígeno en Querétaro: Modelos, Precios y Requisitos
 
 **Meta title:** Renta de Concentrador de Oxígeno en Querétaro — Modelos y Precios | MediMundo
-**Meta description:** Renta concentradores de oxígeno portátiles Inogen y estacionarios en Querétaro. Sin receta médica. Entrega e instalación a domicilio. Desde $950/mes. ☎ 442 615 66 49.
+**Meta description:** Renta concentradores de oxígeno portátiles Inogen y estacionarios en Querétaro. Sin receta médica. Entrega e instalación a domicilio. Desde $950/mes. ☎ 442 333 98 92.
 **Slug:** renta-concentrador-oxigeno-queretaro
 **Categoría:** Equipo Médico
 **Keywords:** renta concentrador de oxígeno Querétaro, concentrador oxígeno portátil Querétaro, Inogen renta Querétaro, oxígeno a domicilio Querétaro
@@ -142,7 +142,7 @@ El costo de entrega en zona céntrica de Querétaro es de **$500 pesos**. Para z
 - **No fumar** en el cuarto donde opera el concentrador
 - Revisar el **flujo regularmente** según indicación médica
 - Mantener los **filtros limpios** — te explicamos cómo durante la entrega
-- Tener a la mano el **número de MediMundo** ante cualquier duda: 442 615 66 49
+- Tener a la mano el **número de MediMundo** ante cualquier duda: 442 333 98 92
 
 ---
 
@@ -152,7 +152,7 @@ Consulta nuestra [guía comparativa completa: Inogen G2, G3, G4 y G5](/blog/inog
 
 Con más de 20 años de experiencia en Querétaro, en MediMundo te orientamos sin compromiso para encontrar el concentrador que mejor se adapta a las necesidades de tu familiar. Llámanos y resolvemos tu duda en minutos.
 
-📞 **442 615 66 49**
+📞 **442 333 98 92**
 📧 medicasaqro@gmail.com
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10am–7pm · Sábado 10am–3pm

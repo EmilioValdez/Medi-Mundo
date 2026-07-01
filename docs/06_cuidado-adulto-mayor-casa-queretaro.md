@@ -1,7 +1,7 @@
 # Equipo para el Cuidado del Adulto Mayor en Casa: Guía Completa para Familias en Querétaro
 
 **Meta title:** Equipo para Adulto Mayor en Casa en Querétaro — Guía y Precios | MediMundo
-**Meta description:** Guía completa de equipo médico para el cuidado del adulto mayor en casa en Querétaro. Sillas de ruedas, camas hospitalarias, andaderas y más. Renta con entrega a domicilio. ☎ 442 615 66 49.
+**Meta description:** Guía completa de equipo médico para el cuidado del adulto mayor en casa en Querétaro. Sillas de ruedas, camas hospitalarias, andaderas y más. Renta con entrega a domicilio. ☎ 442 333 98 92.
 **Slug:** cuidado-adulto-mayor-casa-queretaro
 **Categoría:** Equipo Médico
 **Keywords:** cuidado adulto mayor en casa Querétaro, equipo para adulto mayor Querétaro, andadera adulto mayor Querétaro, renta equipo adulto mayor Querétaro
@@ -166,7 +166,7 @@ Por supuesto. Con más de 20 años en Querétaro, en MediMundo te orientamos sin
 
 ## Contáctanos
 
-📞 **442 615 66 49** — Llama o manda WhatsApp
+📞 **442 333 98 92** — Llama o manda WhatsApp
 📧 medicasaqro@gmail.com
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10:00–19:00 hrs · Sábado 10:00–15:00 hrs

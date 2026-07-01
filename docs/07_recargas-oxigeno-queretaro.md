@@ -1,7 +1,7 @@
 # Recargas de Oxígeno en Querétaro: Tanques, Precios y Dónde Conseguirlas
 
 **Meta title:** Recargas de Oxígeno en Querétaro — Tanques y Servicio | MediMundo
-**Meta description:** Recargas de oxígeno medicinal en Querétaro. Tanques de aluminio y acero, servicio a domicilio disponible. También renta de concentradores desde $950/mes. ☎ 442 615 66 49.
+**Meta description:** Recargas de oxígeno medicinal en Querétaro. Tanques de aluminio y acero, servicio a domicilio disponible. También renta de concentradores desde $950/mes. ☎ 442 333 98 92.
 **Slug:** recargas-oxigeno-queretaro
 **Categoría:** Oxígeno Medicinal
 **Keywords:** recargas de oxígeno Querétaro, recarga tanque oxígeno Querétaro, oxígeno medicinal Querétaro, tanque de oxígeno Querétaro, oxígeno a domicilio Querétaro
@@ -109,7 +109,7 @@ El oxígeno acelera la combustión. Sigue estas reglas siempre:
 - **No usar aceites o cremas** cerca de la mascarilla o cánula
 - Guardar los tanques en posición **vertical y asegurados** para evitar caídas
 - Revisar regularmente el **manómetro** del tanque para no quedarse sin oxígeno inesperadamente
-- Tener el **número de MediMundo a la mano**: 442 615 66 49
+- Tener el **número de MediMundo a la mano**: 442 333 98 92
 
 ---
 
@@ -134,7 +134,7 @@ En la mayoría de los casos entregamos el mismo día o al día siguiente hábil.
 
 ## Visítanos o llámanos
 
-📞 **442 615 66 49** — Llama o manda WhatsApp
+📞 **442 333 98 92** — Llama o manda WhatsApp
 📧 medicasaqro@gmail.com
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10:00–19:00 hrs · Sábado 10:00–15:00 hrs

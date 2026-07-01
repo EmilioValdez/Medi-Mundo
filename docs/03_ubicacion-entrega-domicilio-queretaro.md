@@ -1,7 +1,7 @@
 # Medimundo Querétaro: ¿Dónde estamos y cómo funciona la entrega a domicilio?
 
 **Meta title:** Medimundo Querétaro — Ubicación y entrega de equipo médico a domicilio  
-**Meta description:** Visítanos en Plaza de las Américas, Col. Carretas, Querétaro. Entregamos equipo médico a domicilio con instalación y capacitación incluidas. 442 615 66 49.  
+**Meta description:** Visítanos en Plaza de las Américas, Col. Carretas, Querétaro. Entregamos equipo médico a domicilio con instalación y capacitación incluidas. 442 333 98 92.  
 **Slug:** ubicacion-entrega-domicilio-medimundo-queretaro  
 **Categoría:** Preguntas Frecuentes  
 **Keywords:** Medimundo Querétaro, entrega equipo médico domicilio Querétaro, renta equipo médico Querétaro
@@ -28,7 +28,7 @@ Estamos dentro de Plaza de las Américas, lo que hace que nos encuentres fácilm
 | Sábado | 10:00 am – 3:00 pm |
 | Domingo | Cerrado |
 
-📞 **442 615 66 49**  
+📞 **442 333 98 92**  
 📧 medicasaqro@gmail.com
 
 ---
@@ -58,7 +58,7 @@ Nos aseguramos de que tanto el paciente como la familia sepan exactamente cómo 
 | Zonas alejadas / periféricas | Se cotiza según ubicación |
 | Fuera de Querétaro | Consultar disponibilidad |
 
-Para conocer el costo exacto de entrega a tu dirección, llámanos al **442 615 66 49** y te damos el precio en un momento.
+Para conocer el costo exacto de entrega a tu dirección, llámanos al **442 333 98 92** y te damos el precio en un momento.
 
 ---
 
@@ -100,7 +100,7 @@ Medimundo lleva operando desde 2005, lo que nos convierte en uno de los negocios
 
 ## ¿Cómo contactarnos?
 
-📞 **442 615 66 49** — Llama o manda WhatsApp  
+📞 **442 333 98 92** — Llama o manda WhatsApp  
 📧 **medicasaqro@gmail.com**  
 📍 **Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro**  
 🕙 Lunes a viernes 10am–7pm | Sábado 10am–3pm

@@ -1,7 +1,7 @@
 # ¿Qué se necesita para rentar una cama hospitalaria en Querétaro?
 
 **Meta title:** Renta de cama hospitalaria en Querétaro | Medimundo  
-**Meta description:** Conoce los requisitos para rentar una cama hospitalaria en Querétaro. Sin depósito, contrato simple y entrega a domicilio con instalación incluida. Llama al 442 615 66 49.  
+**Meta description:** Conoce los requisitos para rentar una cama hospitalaria en Querétaro. Sin depósito, contrato simple y entrega a domicilio con instalación incluida. Llama al 442 333 98 92.  
 **Slug:** renta-cama-hospitalaria-queretaro  
 **Categoría:** Equipo Médico  
 **Keywords:** renta cama hospitalaria Querétaro, requisitos renta cama hospitalaria
@@ -47,7 +47,7 @@ Además, contamos con equipo complementario que muchas familias rentan junto con
 | Grúa hidráulica para paciente | $1,100 pesos |
 | Mesa de alimentos | $230 pesos |
 
-Si no estás seguro de qué equipo es el más adecuado para tu caso, con gusto te orientamos sin compromiso. Llámanos al **442 615 66 49**.
+Si no estás seguro de qué equipo es el más adecuado para tu caso, con gusto te orientamos sin compromiso. Llámanos al **442 333 98 92**.
 
 ---
 
@@ -92,7 +92,7 @@ Rentar una cama hospitalaria tiene ventajas claras cuando la necesidad es tempor
 
 Contáctanos y con gusto te orientamos sobre el equipo más adecuado para tu caso:
 
-📞 **442 615 66 49**  
+📞 **442 333 98 92**  
 📧 medicasaqro@gmail.com  
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro  
 🕙 Lunes a viernes 10am–7pm | Sábado 10am–3pm

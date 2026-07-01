@@ -131,7 +131,7 @@ El médico establecerá un plan progresivo. No retomes actividad física sin aut
 
 ## Contáctanos
 
-📞 **442 615 66 49** — Llama o manda WhatsApp
+📞 **442 333 98 92** — Llama o manda WhatsApp
 📧 medicasaqro@gmail.com
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10:00–19:00 hrs · Sábado 10:00–15:00 hrs

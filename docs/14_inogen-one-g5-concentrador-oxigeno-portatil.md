@@ -1,7 +1,7 @@
 # Inogen One G5: El Concentrador de Oxígeno Portátil Más Avanzado de la Línea
 
 **Meta title:** Inogen One G5 en Querétaro — Renta y Características | MediMundo
-**Meta description:** Inogen One G5 en renta en Querétaro. 6 ajustes de flujo, hasta 13 horas de autonomía, 2.2 kg. Entrega a domicilio con capacitación. ☎ 442 615 66 49.
+**Meta description:** Inogen One G5 en renta en Querétaro. 6 ajustes de flujo, hasta 13 horas de autonomía, 2.2 kg. Entrega a domicilio con capacitación. ☎ 442 333 98 92.
 **Slug:** inogen-one-g5-concentrador-oxigeno-portatil-queretaro
 **Categoría:** Equipo Respiratorio
 **Keywords:** Inogen One G5 Querétaro, renta Inogen G5 Querétaro, concentrador de oxígeno portátil Querétaro, Inogen G5 precio renta
@@ -142,7 +142,7 @@ Lee nuestra [guía completa: Inogen G2, G3, G4 y G5 — cuál elegir](/blog/inog
 
 ## Contáctanos
 
-📞 **442 615 66 49** — Llama o manda WhatsApp
+📞 **442 333 98 92** — Llama o manda WhatsApp
 📧 medicasaqro@gmail.com
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10:00–19:00 hrs · Sábado 10:00–15:00 hrs

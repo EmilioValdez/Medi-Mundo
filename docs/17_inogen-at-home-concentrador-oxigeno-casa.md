@@ -1,7 +1,7 @@
 # Inogen At Home: Terapia de Oxígeno Continua en Casa, Silenciosa y Sin Interrupciones
 
 **Meta title:** Inogen At Home en Querétaro — Concentrador Estacionario | MediMundo
-**Meta description:** Inogen At Home en renta en Querétaro. Concentrador estacionario 5 LPM, flujo continuo, menos de 40 dB. Ideal para uso nocturno y terapia en casa. ☎ 442 615 66 49.
+**Meta description:** Inogen At Home en renta en Querétaro. Concentrador estacionario 5 LPM, flujo continuo, menos de 40 dB. Ideal para uso nocturno y terapia en casa. ☎ 442 333 98 92.
 **Slug:** inogen-at-home-concentrador-oxigeno-casa-queretaro
 **Categoría:** Equipo Respiratorio
 **Keywords:** Inogen At Home Querétaro, concentrador oxígeno estacionario Querétaro, renta Inogen At Home Querétaro, oxígeno flujo continuo en casa Querétaro
@@ -110,7 +110,7 @@ El oxígeno acelera la combustión — sigue estas reglas siempre:
 - Mantener el concentrador **alejado de estufas, velas y fuentes de calor**
 - **No cubrir las rejillas de ventilación** mientras opera — necesita circulación de aire
 - **No usar aceites ni cremas** cerca de la mascarilla o cánula
-- Tener el **número de MediMundo a la mano**: 442 615 66 49
+- Tener el **número de MediMundo a la mano**: 442 333 98 92
 
 ---
 
@@ -147,7 +147,7 @@ No la requerimos, aunque siempre recomendamos seguir la prescripción del médic
 
 ## Contáctanos
 
-📞 **442 615 66 49** — Llama o manda WhatsApp
+📞 **442 333 98 92** — Llama o manda WhatsApp
 📧 medicasaqro@gmail.com
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10:00–19:00 hrs · Sábado 10:00–15:00 hrs

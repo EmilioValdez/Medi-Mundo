@@ -1,7 +1,7 @@
 # ¿Qué Equipo Médico Necesito para Recuperarme en Casa? Guía por Tipo de Cirugía o Condición
 
 **Meta title:** Equipo Médico para Recuperarse en Casa en Querétaro — Guía | MediMundo
-**Meta description:** Guía de equipo médico para recuperación en casa en Querétaro según tu cirugía o condición. Camas, sillas de ruedas, concentradores y más. Renta con entrega a domicilio. ☎ 442 615 66 49.
+**Meta description:** Guía de equipo médico para recuperación en casa en Querétaro según tu cirugía o condición. Camas, sillas de ruedas, concentradores y más. Renta con entrega a domicilio. ☎ 442 333 98 92.
 **Slug:** equipo-medico-recuperacion-casa-queretaro
 **Categoría:** Equipo Médico
 **Keywords:** equipo médico recuperación en casa Querétaro, renta equipo postoperatorio Querétaro, equipo para cirugía en casa Querétaro, qué necesito para recuperarme en casa
@@ -182,13 +182,13 @@ Por supuesto. Con más de 20 años de experiencia, en MediMundo te orientamos si
 Siempre. Todo el equipo pasa por nuestro protocolo de limpieza y desinfección con productos hospitalarios certificados antes de ser entregado.
 
 **¿Hacen entregas urgentes?**
-Sí, en la mayoría de los casos entregamos el mismo día. Si es urgente, llámanos directamente al 442 615 66 49.
+Sí, en la mayoría de los casos entregamos el mismo día. Si es urgente, llámanos directamente al 442 333 98 92.
 
 ---
 
 ## Contáctanos
 
-📞 **442 615 66 49** — Llama o manda WhatsApp
+📞 **442 333 98 92** — Llama o manda WhatsApp
 📧 medicasaqro@gmail.com
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10:00–19:00 hrs · Sábado 10:00–15:00 hrs

@@ -22,7 +22,7 @@
 | Canal | Detalle |
 |---|---|
 | **Dirección** | Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro |
-| **Teléfono** | 442 615 66 49 |
+| **Teléfono** | 442 333 98 92 |
 | **Correo** | medicasaqro@gmail.com |
 | **Facebook** | Activo |
 | **Instagram** | Activo |

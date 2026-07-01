@@ -1,7 +1,7 @@
 # Inogen G2, G3, G4 o G5: Guía Completa para Elegir el Modelo Correcto
 
 **Meta title:** Inogen G2 vs G3 vs G4 vs G5 — Cuál Elegir | MediMundo Querétaro
-**Meta description:** Comparativa completa de toda la línea Inogen portátil. Diferencias entre G2, G3, G4 y G5. Cuál es el mejor para cada paciente. Renta en Querétaro. ☎ 442 615 66 49.
+**Meta description:** Comparativa completa de toda la línea Inogen portátil. Diferencias entre G2, G3, G4 y G5. Cuál es el mejor para cada paciente. Renta en Querétaro. ☎ 442 333 98 92.
 **Slug:** inogen-g2-g3-g4-g5-cual-elegir-queretaro
 **Categoría:** Equipo Respiratorio
 **Keywords:** Inogen G2 G3 G4 G5 diferencias, comparativa Inogen modelos Querétaro, cuál concentrador Inogen elegir, Inogen portátil Querétaro renta
@@ -141,7 +141,7 @@ Contáctanos para confirmar disponibilidad y coordinar la entrega a domicilio.
 
 ## Contáctanos
 
-📞 **442 615 66 49** — Llama o manda WhatsApp
+📞 **442 333 98 92** — Llama o manda WhatsApp
 📧 medicasaqro@gmail.com
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10:00–19:00 hrs · Sábado 10:00–15:00 hrs

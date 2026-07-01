@@ -224,7 +224,7 @@ Una vez desplegado el sitio:
 |---|---|
 | Nombre | Medimundo |
 | Slogan | Rehabilitación en Movimiento |
-| Teléfono | 442 615 66 49 |
+| Teléfono | 442 333 98 92 |
 | Email | medicasaqro@gmail.com |
 | Dirección | Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro |
 | Horario L-V | 10:00 am – 7:00 pm |

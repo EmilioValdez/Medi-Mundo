@@ -1,7 +1,7 @@
 # Concentradores de Oxígeno en Renta en Querétaro: Modelos, Precios y Requisitos
 
 **Meta title:** Concentradores de oxígeno en renta Querétaro | Medimundo  
-**Meta description:** Renta concentradores de oxígeno portátiles y estacionarios en Querétaro. Modelos Inogen desde $3,000/mes. Sin receta médica. Entrega e instalación a domicilio. 442 615 66 49.  
+**Meta description:** Renta concentradores de oxígeno portátiles y estacionarios en Querétaro. Modelos Inogen desde $3,000/mes. Sin receta médica. Entrega e instalación a domicilio. 442 333 98 92.  
 **Slug:** concentrador-oxigeno-renta-queretaro  
 **Categoría:** Equipo Médico  
 **Keywords:** concentrador de oxígeno en renta Querétaro, concentrador oxígeno portátil Querétaro, Inogen renta Querétaro
@@ -160,7 +160,7 @@ El costo de entrega en zona céntrica de Querétaro es de **$500 pesos**. Para z
 
 Si no estás seguro de qué modelo se adapta mejor a las necesidades de tu familiar, llámanos — con gusto te orientamos sin compromiso. Con más de 20 años de experiencia en Querétaro, sabemos exactamente qué equipo es el indicado para cada situación.
 
-📞 **442 615 66 49**  
+📞 **442 333 98 92**  
 📧 medicasaqro@gmail.com  
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro  
 🕙 Lunes a viernes 10am–7pm | Sábado 10am–3pm

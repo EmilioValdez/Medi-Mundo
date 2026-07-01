@@ -1,7 +1,7 @@
 # Renta de Silla de Ruedas en Querétaro: Precios, Tipos y Entrega a Domicilio
 
 **Meta title:** Renta de Silla de Ruedas en Querétaro — Precios y Entrega | MediMundo
-**Meta description:** Renta sillas de ruedas en Querétaro con entrega a domicilio. Modelos estándar y especializados desde $400/mes. Sin depósito. ☎ 442 615 66 49.
+**Meta description:** Renta sillas de ruedas en Querétaro con entrega a domicilio. Modelos estándar y especializados desde $400/mes. Sin depósito. ☎ 442 333 98 92.
 **Slug:** renta-silla-de-ruedas-queretaro
 **Categoría:** Equipo Médico
 **Keywords:** renta silla de ruedas Querétaro, silla de ruedas a domicilio Querétaro, silla de ruedas en renta Querétaro
@@ -116,7 +116,7 @@ Para zonas fuera del área metropolitana, contáctanos para confirmar disponibil
 ## Preguntas frecuentes sobre renta de silla de ruedas
 
 **¿Cuánto tiempo tarda la entrega?**
-En la mayoría de los casos entregamos el mismo día o al día siguiente hábil. Si es urgente, llámanos directamente al 442 615 66 49.
+En la mayoría de los casos entregamos el mismo día o al día siguiente hábil. Si es urgente, llámanos directamente al 442 333 98 92.
 
 **¿Puedo extender la renta?**
 Sí. Solo avísanos antes de que termine tu periodo y lo ajustamos sin problema.
@@ -131,7 +131,7 @@ Por supuesto. Visítanos en Plaza de las Américas y te atendemos de inmediato.
 
 ## Contáctanos
 
-📞 **442 615 66 49** — Llama o manda WhatsApp
+📞 **442 333 98 92** — Llama o manda WhatsApp
 📧 medicasaqro@gmail.com
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10:00–19:00 hrs · Sábado 10:00–15:00 hrs

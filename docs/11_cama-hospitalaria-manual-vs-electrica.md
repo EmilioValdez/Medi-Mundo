@@ -1,7 +1,7 @@
 # Cama Hospitalaria Manual vs Eléctrica: ¿Cuál Necesita tu Familiar en Casa?
 
 **Meta title:** Cama Hospitalaria Manual vs Eléctrica en Querétaro — Guía | MediMundo
-**Meta description:** Diferencias entre cama hospitalaria manual y eléctrica. Cuándo usar cada una, ventajas y precios de renta en Querétaro desde $750/mes. ☎ 442 615 66 49.
+**Meta description:** Diferencias entre cama hospitalaria manual y eléctrica. Cuándo usar cada una, ventajas y precios de renta en Querétaro desde $750/mes. ☎ 442 333 98 92.
 **Slug:** cama-hospitalaria-manual-vs-electrica-queretaro
 **Categoría:** Equipo Médico
 **Keywords:** cama hospitalaria manual Querétaro, cama hospitalaria eléctrica Querétaro, renta cama hospitalaria Querétaro, diferencia cama manual eléctrica
@@ -139,7 +139,7 @@ Siempre. Toda la cama pasa por nuestro protocolo de limpieza y desinfección con
 
 ## Contáctanos
 
-📞 **442 615 66 49** — Llama o manda WhatsApp
+📞 **442 333 98 92** — Llama o manda WhatsApp
 📧 medicasaqro@gmail.com
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10:00–19:00 hrs · Sábado 10:00–15:00 hrs

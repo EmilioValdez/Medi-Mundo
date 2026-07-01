@@ -1,7 +1,7 @@
 # Inogen One G4: El Concentrador de Oxígeno Más Compacto y Discreto
 
 **Meta title:** Inogen One G4 en Querétaro — Renta del Más Ligero | MediMundo
-**Meta description:** Inogen One G4 en renta en Querétaro. Solo 1.27 kg, el más compacto de la línea Inogen. Perfecto para pacientes activos. Entrega a domicilio. ☎ 442 615 66 49.
+**Meta description:** Inogen One G4 en renta en Querétaro. Solo 1.27 kg, el más compacto de la línea Inogen. Perfecto para pacientes activos. Entrega a domicilio. ☎ 442 333 98 92.
 **Slug:** inogen-one-g4-concentrador-oxigeno-compacto-queretaro
 **Categoría:** Equipo Respiratorio
 **Keywords:** Inogen One G4 Querétaro, renta Inogen G4 Querétaro, concentrador de oxígeno compacto Querétaro, Inogen G4 ligero portátil
@@ -139,7 +139,7 @@ Sí, íntegramente al devolver el equipo en buen estado.
 
 ## Contáctanos
 
-📞 **442 615 66 49** — Llama o manda WhatsApp
+📞 **442 333 98 92** — Llama o manda WhatsApp
 📧 medicasaqro@gmail.com
 📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10:00–19:00 hrs · Sábado 10:00–15:00 hrs
