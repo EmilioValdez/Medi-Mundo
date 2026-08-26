@@ -436,7 +436,37 @@ export default function InogenContent() {
             {selectedProduct ? (
               <ProductDetailView product={selectedProduct} onBack={() => setSelectedProduct(null)} />
             ) : (
-              <ProductGrid modelId={selectedModel} subcatFilter={selectedSubcat} onSelect={setSelectedProduct} />
+              <>
+                <div className="lg:hidden mb-6 space-y-3">
+                  <select
+                    aria-label="Modelo de Inogen"
+                    value={selectedModel}
+                    onChange={(e) => handleSidebarClick(e.target.value, "all")}
+                    className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-base font-bold shadow-sm"
+                    style={{ color: "#243e8c" }}
+                  >
+                    {SIDEBAR.map((group) => (
+                      <option key={group.id} value={group.id}>{group.label}</option>
+                    ))}
+                  </select>
+                  <div className="flex gap-2 overflow-x-auto pb-1 -mx-4 px-4">
+                    {SIDEBAR.find((group) => group.id === selectedModel)?.subs.map((sub) => {
+                      const active = selectedSubcat === sub.id;
+                      return (
+                        <button
+                          key={sub.id}
+                          onClick={() => handleSidebarClick(selectedModel, sub.id)}
+                          className="shrink-0 whitespace-nowrap rounded-full border px-4 py-2 text-sm font-semibold transition-colors"
+                          style={active ? { backgroundColor: "#243e8c", borderColor: "#243e8c", color: "#fff" } : { borderColor: "#e5e7eb", color: "#4b5563" }}
+                        >
+                          {sub.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+                <ProductGrid modelId={selectedModel} subcatFilter={selectedSubcat} onSelect={setSelectedProduct} />
+              </>
             )}
           </div>
         </div>
