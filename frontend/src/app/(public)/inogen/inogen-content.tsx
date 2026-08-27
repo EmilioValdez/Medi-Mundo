@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { waLink } from "@/lib/whatsapp";
 
 function waMsg(model: string, label?: string, name?: string) {
@@ -365,6 +365,13 @@ export default function InogenContent() {
   const [selectedModel, setSelectedModel] = useState("g5");
   const [selectedSubcat, setSelectedSubcat] = useState("all");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
+  useEffect(() => {
+    const modelo = new URLSearchParams(window.location.search).get("modelo");
+    if (modelo && SIDEBAR.some((group) => group.id === modelo)) {
+      setSelectedModel(modelo);
+    }
+  }, []);
 
   const handleSidebarClick = (modelId: string, subcatId: string) => {
     setSelectedModel(modelId);
