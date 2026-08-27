@@ -122,7 +122,7 @@ export default async function RecargasPage() {
                 return (
                   <div
                     key={r.litros}
-                    className="flex items-center justify-between gap-4 rounded-2xl border border-gray-100 bg-white/90 px-6 py-4 hover:border-primary-200 hover:bg-primary-50/60 transition-colors shadow-sm"
+                    className="flex items-center justify-between gap-4 rounded-2xl border border-gray-100 bg-white/90 pl-6 pr-20 py-4 lg:pr-6 hover:border-primary-200 hover:bg-primary-50/60 transition-colors shadow-sm"
                   >
                     <div className="flex items-center gap-3 min-w-0">
                       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-50">

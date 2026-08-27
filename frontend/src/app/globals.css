@@ -94,6 +94,11 @@ body {
 .blog-content a { color: #0284c7; text-decoration: underline; font-weight: 500; }
 .blog-content blockquote { border-left: 4px solid #0ea5e9; padding-left: 1rem; color: #6b7280; font-style: italic; margin: 1.5rem 0; }
 
+/* Keep text clear of the fixed WhatsApp button in the bottom-right corner while scrolling */
+@media (max-width: 1023px) {
+  .blog-content { padding-right: 4.5rem; }
+}
+
 /* Form fields */
 .input-field {
   display: block;
