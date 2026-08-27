@@ -61,6 +61,33 @@ export default async function RecargasPage() {
   const RECARGAS = refills.length > 0 ? refills : FALLBACK_RECARGAS;
   const waGeneral = waLink(WA_MESSAGES.recargas);
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Recarga de tanques de oxígeno medicinal",
+    name: "Recarga de Tanques de Oxígeno — MediMundo Querétaro",
+    description:
+      "Servicio de recarga de tanques de oxígeno medicinal certificado en Querétaro. Todos los tamaños de cilindro, servicio el mismo día.",
+    provider: { "@type": "MedicalBusiness", name: "MediMundo", url: "https://medimundo.mx" },
+    areaServed: [
+      { "@type": "City", name: "Querétaro" },
+      { "@type": "City", name: "Corregidora" },
+      { "@type": "City", name: "El Marqués" },
+    ],
+    url: "https://medimundo.mx/recargas",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Recargas de oxígeno por tamaño de cilindro",
+      itemListElement: RECARGAS.map((r) => ({
+        "@type": "Offer",
+        priceCurrency: "MXN",
+        price: r.precio,
+        availability: "https://schema.org/InStock",
+        itemOffered: { "@type": "Service", name: `Recarga de ${r.litros.toLocaleString("es-MX")} litros de oxígeno` },
+      })),
+    },
+  };
+
   return (
     <div
       className="min-h-screen"
@@ -71,6 +98,10 @@ export default async function RecargasPage() {
         backgroundAttachment: "fixed",
       }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <div className="min-h-screen" style={{ background: "rgba(255,255,255,0.72)" }}>
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-5 lg:gap-14">
