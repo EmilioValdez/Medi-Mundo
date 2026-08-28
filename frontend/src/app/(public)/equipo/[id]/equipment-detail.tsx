@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { waLink, WA_MESSAGES, trackWAClick } from "@/lib/whatsapp";
+import { waLink, WA_MESSAGES, trackWAClick, trackQualifyLead } from "@/lib/whatsapp";
 import { isRentalItem } from "@/lib/rentalItems";
 
 const API = process.env.NEXT_PUBLIC_API_URL ?? "https://medimundo.mx";
@@ -79,6 +79,7 @@ export default function EquipmentDetail({ item }: { item: Equipment }) {
         return;
       }
       setSuccess(true);
+      trackQualifyLead(item.name);
     } catch {
       alert("Error al enviar la solicitud. Intenta de nuevo.");
     } finally {

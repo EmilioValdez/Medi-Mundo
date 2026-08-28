@@ -24,3 +24,12 @@ export function trackWAClick(location: string) {
     });
   }
 }
+
+export function trackQualifyLead(equipmentName: string) {
+  if (typeof window !== "undefined" && (window as any).gtag) {
+    (window as any).gtag("event", "qualify_lead", {
+      event_category: "conversion",
+      event_label: equipmentName,
+    });
+  }
+}
