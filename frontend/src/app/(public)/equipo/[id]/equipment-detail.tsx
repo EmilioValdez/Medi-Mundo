@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { waLink, WA_MESSAGES, trackWAClick, trackQualifyLead } from "@/lib/whatsapp";
 import { isRentalItem } from "@/lib/rentalItems";
+import ProductImageDisclaimer from "@/components/ProductImageDisclaimer";
 
 const API = process.env.NEXT_PUBLIC_API_URL ?? "https://medimundo.mx";
 
@@ -157,6 +158,8 @@ export default function EquipmentDetail({ item }: { item: Equipment }) {
                 ))}
               </div>
             )}
+
+            <ProductImageDisclaimer className="mt-3" />
           </div>
 
           <div>

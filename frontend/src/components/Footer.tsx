@@ -1,10 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { waLink, WA_MESSAGES } from "@/lib/whatsapp";
+import LocationSection from "@/components/LocationSection";
 
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
+      {/* CRÍTICO: mapa + horario + reseñas en todas las páginas. No quitar. */}
+      <LocationSection />
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
@@ -53,12 +56,6 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
                 </svg>
                 <a href="tel:+5214423339892" className="hover:text-white transition-colors">442 333 98 92</a>
-              </li>
-              <li className="flex items-center gap-2">
-                <svg className="h-4 w-4 shrink-0 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-                <span>L-V: 10am–7pm | Sáb: 10am–3pm</span>
               </li>
               <li>
                 <a href={waLink(WA_MESSAGES.general)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 hover:text-green-400 transition-colors">

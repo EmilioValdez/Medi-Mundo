@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getEquipment } from "@/lib/api";
 import { isRentalItem } from "@/lib/rentalItems";
 import EquipmentCard from "@/components/EquipmentCard";
+import ProductImageDisclaimer from "@/components/ProductImageDisclaimer";
 
 export const dynamic = "force-dynamic";
 
@@ -121,6 +122,7 @@ export default async function RentasPage() {
                   <EquipmentCard key={item.id} item={item} specs={getSpecs(item.name)} />
                 ))}
               </div>
+              <ProductImageDisclaimer variant="short" className="mt-6" />
             </>
           )}
         </div>

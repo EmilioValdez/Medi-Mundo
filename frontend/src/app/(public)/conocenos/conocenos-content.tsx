@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { waLink, WA_MESSAGES, trackWAClick } from "@/lib/whatsapp";
+import { GoogleRatingAchievement } from "@/components/GoogleRating";
 
 const STORE_PHOTOS = [
   { src: "/images/tienda-sillas-de-ruedas-medimundo.webp",     alt: "Sillas de ruedas en renta — MediMundo Querétaro",         caption: "Sillas de ruedas" },
@@ -142,10 +143,16 @@ const sanitizationSteps = [
   "Verificación final antes de entrega al cliente",
 ];
 
+// Reseñas REALES de 5 estrellas copiadas textualmente del Perfil de Negocio en
+// Google Maps (21 nov 2026). Nombre + inicial del apellido por privacidad.
+// Nunca agregar testimonios inventados: solo reseñas reales y sin editar.
 const testimonials = [
-  { name: "María González", text: "Excelente servicio. La cama hospitalaria llegó en perfecto estado y sanitizada. Me ayudaron a instalarla y explicaron todo el funcionamiento.", location: "Juriquilla, Querétaro" },
-  { name: "Roberto Martínez", text: "Necesitábamos un concentrador de oxígeno con urgencia y nos lo entregaron el mismo día. Muy profesionales y atentos.", location: "Centro, Querétaro" },
-  { name: "Ana Luisa Ramírez", text: "La silla de ruedas que rentamos para mi mamá estaba como nueva. El precio es muy accesible comparado con la compra. Totalmente recomendados.", location: "El Pueblito, Corregidora" },
+  { name: "Javier I.", text: "Excelente en todo. Atención, surtido y variedad de productos, asesoría. Limpieza. Y precios muy Justos. Regresaré cuando sea necesario por supuesto", location: "Reseña en Google Maps" },
+  { name: "Diego A.", text: "Excelente lugar, y costos accesibles, muy buena atención por parte del personal muy atentos, me ayudaron bastante.", location: "Reseña en Google Maps" },
+  { name: "Carlos M.", text: "buen lugar, nos sirvio mucho para rentar una silla de ruedas rapido", location: "Reseña en Google Maps" },
+  { name: "Carlos R.", text: "Excelente servicio y atención, muy pacientes y amables, gran variedad de productos", location: "Reseña en Google Maps" },
+  { name: "Sofi R.", text: "Muchas gracias, muy buen servicio, excelente atención por parte del personal", location: "Reseña en Google Maps" },
+  { name: "Daniel M.", text: "Excelente servicio, atención y variedad de productos, super recomendado", location: "Reseña en Google Maps" },
 ];
 
 const contactInfo = [
@@ -274,6 +281,9 @@ export default function ConocenosContent() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto mb-14 max-w-3xl">
+          <GoogleRatingAchievement />
+        </div>
         <h2 className="text-center text-2xl font-bold text-gray-900 sm:text-3xl">Lo que dicen nuestros clientes</h2>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((t, i) => (

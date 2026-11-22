@@ -3,6 +3,7 @@
 import { useState, useMemo, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import EquipmentCard from "@/components/EquipmentCard";
+import ProductImageDisclaimer from "@/components/ProductImageDisclaimer";
 
 const PREFERRED_ORDER = ["lujo", "eléctrica", "electrica", "manual", "inogen", "concentrador", "silla", "andadera", "bastón", "baston", "ortopedia"];
 
@@ -179,6 +180,7 @@ function CatalogInner({ initialCategories, initialEquipment }: Props) {
                   <EquipmentCard key={item.id} item={item} mode="sale" />
                 ))}
               </div>
+              <ProductImageDisclaimer variant="short" className="mt-6" />
             </>
           )}
         </div>
