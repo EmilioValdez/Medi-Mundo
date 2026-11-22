@@ -264,23 +264,6 @@ export default function ConocenosContent() {
         </div>
       </section>
 
-      <section className="bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-center text-2xl font-bold text-gray-900 sm:text-3xl">Proceso de sanitización</h2>
-            <p className="mt-2 text-center text-gray-500">Cada equipo pasa por este protocolo antes de ser entregado.</p>
-            <ol className="mt-10 space-y-4">
-              {sanitizationSteps.map((step, i) => (
-                <li key={i} className="flex items-start gap-4 rounded-xl bg-white p-4 shadow-sm border border-gray-200">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-600 text-sm font-bold text-white">{i + 1}</span>
-                  <p className="text-sm text-gray-700 pt-1">{step}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
-      </section>
-
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto mb-14 max-w-3xl">
           <GoogleRatingAchievement />
@@ -374,6 +357,23 @@ export default function ConocenosContent() {
           >
             Preguntar por WhatsApp
           </a>
+        </div>
+      </section>
+
+      <section className="bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-center text-2xl font-bold text-gray-900 sm:text-3xl">Proceso de sanitización</h2>
+            <p className="mt-2 text-center text-gray-500">Cada equipo pasa por este protocolo antes de ser entregado.</p>
+            <ol className="mt-10 space-y-4">
+              {sanitizationSteps.map((step, i) => (
+                <li key={i} className="flex items-start gap-4 rounded-xl bg-white p-4 shadow-sm border border-gray-200">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-600 text-sm font-bold text-white">{i + 1}</span>
+                  <p className="text-sm text-gray-700 pt-1">{step}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
       </section>
     </>
