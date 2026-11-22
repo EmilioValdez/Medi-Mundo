@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import { BUSINESS, MAPS_PLACE_URL } from "@/lib/business";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
@@ -33,14 +34,18 @@ const LOCAL_BUSINESS_SCHEMA = {
   email: "medicasaqro@gmail.com",
   image: "https://medimundo.mx/images/tienda-medimundo-queretaro.webp",
   priceRange: "$$",
+  // Debe coincidir EXACTO con el Perfil de Negocio de Google (NAP). Fuente: lib/business.ts
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Av. Canadá 212, Plaza de las Américas, Col. Carretas",
-    addressLocality: "Querétaro",
+    streetAddress: `${BUSINESS.addressLine1}, Col. Carretas`,
+    addressLocality: "Santiago de Querétaro",
     addressRegion: "Querétaro",
+    postalCode: BUSINESS.postalCode,
     addressCountry: "MX",
   },
-  geo: { "@type": "GeoCoordinates", latitude: 20.5905, longitude: -100.3926 },
+  geo: { "@type": "GeoCoordinates", latitude: BUSINESS.geo.lat, longitude: BUSINESS.geo.lng },
+  hasMap: MAPS_PLACE_URL,
+  sameAs: [MAPS_PLACE_URL, "https://www.instagram.com/medimundo_qro/"],
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",

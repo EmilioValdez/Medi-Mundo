@@ -95,7 +95,7 @@ function buildFaqs(refills: Refill[]) {
   });
   faqs.push({
     q: "¿Recargan a domicilio?",
-    a: "Escríbenos por WhatsApp con tu dirección y el tamaño de tu tanque y te confirmamos disponibilidad y costo para tu zona.",
+    a: "No. Las recargas de oxígeno se hacen únicamente en nuestra tienda de Plaza de las Américas: trae tu tanque en nuestro horario y te lo llevas recargado el mismo día. Lo que sí entregamos a domicilio es el equipo en renta (concentradores, camas, sillas de ruedas, etc.): $500 en zona céntrica y, fuera de ella, según la zona.",
   });
   if (sizes.length) {
     faqs.push({

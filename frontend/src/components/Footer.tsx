@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { waLink, WA_MESSAGES } from "@/lib/whatsapp";
 import LocationSection from "@/components/LocationSection";
+import { BUSINESS } from "@/lib/business";
 
 export default function Footer() {
   return (
@@ -49,7 +50,7 @@ export default function Footer() {
                 <svg className="mt-0.5 h-4 w-4 shrink-0 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                 </svg>
-                <span>Av. Canadá 230, Plaza de las Américas, Col. Carretas, Querétaro</span>
+                <span>{BUSINESS.addressLine1}, {BUSINESS.addressLine2}</span>
               </li>
               <li className="flex items-center gap-2">
                 <svg className="h-4 w-4 shrink-0 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

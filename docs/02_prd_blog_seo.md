@@ -97,7 +97,7 @@ Cada página de artículo debe incluir en el `<head>`:
     "name": "Medimundo",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Av. Canadá 212, Plaza de las Américas",
+      "streetAddress": "Av. Canadá 230, Plaza de las Américas",
       "addressLocality": "Querétaro",
       "addressCountry": "MX"
     }
@@ -120,7 +120,7 @@ Cada página de artículo debe incluir en el `<head>`:
   "email": "medicasaqro@gmail.com",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Av. Canadá 212, Plaza de las Américas, Col. Carretas",
+    "streetAddress": "Av. Canadá 230, Plaza de las Américas, Col. Carretas",
     "addressLocality": "Querétaro",
     "addressRegion": "Querétaro",
     "addressCountry": "MX"

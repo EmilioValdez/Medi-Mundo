@@ -168,7 +168,7 @@ Por supuesto. Con más de 20 años en Querétaro, en MediMundo te orientamos sin
 
 📞 **442 333 98 92** — Llama o manda WhatsApp
 📧 medicasaqro@gmail.com
-📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
+📍 Av. Canadá 230, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10:00–19:00 hrs · Sábado 10:00–15:00 hrs
 
 En MediMundo llevamos más de 20 años siendo el apoyo de familias queretanas cuando más lo necesitan.

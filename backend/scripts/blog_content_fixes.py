@@ -5,6 +5,7 @@ Neon es la fuente de verdad del blog: seed_blog.py ya NO sobrescribe posts
 existentes. Para corregir texto de un post publicado, agrega aquí una tupla
 (slug, texto_viejo, texto_nuevo). Es idempotente: si el texto viejo ya no
 existe, no hace nada; solo toca `actualizado` cuando sí hubo cambio.
+Usa slug '*' para aplicar el reemplazo a TODOS los posts.
 
 2026-11-21: precios viejos de abril 2026 (silla $400, cama $750/$1,100,
 concentrador $950, etc.) que el seed reescribía en cada deploy.
@@ -66,6 +67,18 @@ FIXES: list[tuple[str, str, str]] = [
     ('inogen-at-home-concentrador-oxigeno-casa-queretaro', '| Renta mensual | $3,000 | **$950** |', '| Renta mensual | $3,000 | **$2,500** |'),
     ('cuidado-adulto-mayor-casa-queretaro', '- **Renta mensual:** $1,100 pesos', '- **Renta mensual:** $2,500 pesos'),
     ('grua-hidraulica-pacientes-queretaro', 'Renta semanal', 'Renta quincenal'),
+
+    # 2026-11-21 (confirmado por el dueño):
+    # - La dirección correcta es Av. Canadá 230 (Perfil de Negocio/Waze); los blogs decían 212.
+    ('*', 'Av. Canadá 212', 'Av. Canadá 230'),
+    # - El concentrador estacionario (no Inogen) NO lleva depósito.
+    ('renta-concentrador-oxigeno-queretaro', '- **Renta mensual:** $2,500\n- **Depósito en garantía:** $6,500', '- **Renta mensual:** $2,500\n- **Depósito en garantía:** Sin depósito'),
+    ('renta-concentrador-oxigeno-queretaro', '| Estacionario 5 LPM | Estacionario | — | — | $2,500 | $6,500 |', '| Estacionario 5 LPM | Estacionario | — | — | $2,500 | Sin depósito |'),
+    ('recargas-oxigeno-queretaro', '| Estacionario 5 LPM | Estacionario | $2,500 | $6,500 |', '| Estacionario 5 LPM | Estacionario | $2,500 | Sin depósito |'),
+    # - Las recargas de oxígeno son SOLO en tienda (no a domicilio).
+    ('recargas-oxigeno-queretaro', 'Tanques de aluminio y acero, servicio a domicilio disponible.', 'Tanques de aluminio y acero, recarga en tienda el mismo día.'),
+    # - Entrega de equipo: $500 en zona céntrica; fuera de ella depende de la zona.
+    ('recargas-oxigeno-queretaro', 'El costo de entrega en zona céntrica es de $500 pesos.', 'El costo de entrega en zona céntrica es de $500 pesos; fuera de la zona céntrica depende de la zona, consúltanos. Las recargas de tanques se hacen solo en nuestra tienda.'),
 ]
 
 _SQL = text("""
@@ -74,7 +87,7 @@ _SQL = text("""
         meta_description = LEFT(REPLACE(meta_description, :old, :new), 170),
         resumen = LEFT(REPLACE(resumen, :old, :new), 300),
         actualizado = CURRENT_DATE
-    WHERE slug = :slug AND (
+    WHERE (:slug = '*' OR slug = :slug) AND (
         POSITION(:old IN COALESCE(contenido, '')) > 0
         OR POSITION(:old IN COALESCE(meta_description, '')) > 0
         OR POSITION(:old IN COALESCE(resumen, '')) > 0

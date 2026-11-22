@@ -1,7 +1,7 @@
 # Recargas de Oxígeno en Querétaro: Tanques, Precios y Dónde Conseguirlas
 
 **Meta title:** Recargas de Oxígeno en Querétaro — Tanques y Servicio | MediMundo
-**Meta description:** Recargas de oxígeno medicinal en Querétaro. Tanques de aluminio y acero, servicio a domicilio disponible. También renta de concentradores desde $2,500/mes. ☎ 442 333 98 92.
+**Meta description:** Recargas de oxígeno medicinal en Querétaro. Tanques de aluminio y acero, recarga en tienda el mismo día. También renta de concentradores desde $2,500/mes. ☎ 442 333 98 92.
 **Slug:** recargas-oxigeno-queretaro
 **Categoría:** Oxígeno Medicinal
 **Keywords:** recargas de oxígeno Querétaro, recarga tanque oxígeno Querétaro, oxígeno medicinal Querétaro, tanque de oxígeno Querétaro, oxígeno a domicilio Querétaro
@@ -78,7 +78,7 @@ Un concentrador de oxígeno toma el aire del ambiente y lo filtra para entregar 
 
 | Modelo | Tipo | Renta mensual | Depósito |
 |---|---|---|---|
-| Estacionario 5 LPM | Estacionario | $2,500 | $6,500 |
+| Estacionario 5 LPM | Estacionario | $2,500 | Sin depósito |
 | Inogen At Home | Estacionario | $3,000 | $6,000 |
 | Inogen One G2 | Portátil | $3,690 | $25,000 |
 | Inogen One G3 | Portátil | $4,990 | $30,000 |
@@ -122,7 +122,7 @@ Para recargas de tanques, no es indispensable en la mayoría de los casos. Para 
 Sí. Visítanos en Plaza de las Américas y te atendemos de inmediato.
 
 **¿Tienen servicio a domicilio para concentradores?**
-Sí, entregamos en toda la zona metropolitana de Querétaro. El costo de entrega en zona céntrica es de $500 pesos.
+Sí, entregamos en toda la zona metropolitana de Querétaro. El costo de entrega en zona céntrica es de $500 pesos; fuera de la zona céntrica depende de la zona, consúltanos. Las recargas de tanques se hacen solo en nuestra tienda.
 
 **¿El concentrador funciona si hay cortes de luz?**
 El concentrador requiere electricidad. Para pacientes que dependen del oxígeno de forma continua, recomendamos tener un tanque de respaldo para emergencias.
@@ -136,7 +136,7 @@ En la mayoría de los casos entregamos el mismo día o al día siguiente hábil.
 
 📞 **442 333 98 92** — Llama o manda WhatsApp
 📧 medicasaqro@gmail.com
-📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro
+📍 Av. Canadá 230, Plaza de las Américas, Col. Carretas, Querétaro
 🕙 Lunes a viernes 10:00–19:00 hrs · Sábado 10:00–15:00 hrs
 
 En MediMundo llevamos más de 20 años siendo el apoyo de familias queretanas cuando más lo necesitan.

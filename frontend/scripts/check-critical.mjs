@@ -27,7 +27,16 @@ const CHECKS = [
     must: ["MAPS_EMBED_SRC", "<StoreHours", "<GoogleRatingBadge", "MAPS_DIRECTIONS_URL"],
     why: "LocationSection debe tener mapa, horario, reseñas y botón Cómo llegar",
   },
-  { file: "src/lib/business.ts", must: ["SCHEDULE", "GOOGLE_REVIEWS", "MAPS_EMBED_SRC"], why: "fuente única de datos del negocio" },
+  {
+    file: "src/lib/business.ts",
+    must: ["SCHEDULE", "GOOGLE_REVIEWS", "MAPS_EMBED_SRC", "Av. Canadá 230", "76059"],
+    why: "fuente única de datos del negocio; la dirección debe coincidir con el Perfil de Negocio de Google",
+  },
+  // La dirección NO se escribe a mano en otros archivos (en nov 2026 el schema y 20 blogs decían "212").
+  ...["src/app/layout.tsx", "src/app/(public)/blog/[slug]/page.tsx", "src/components/Footer.tsx", "src/app/(public)/conocenos/conocenos-content.tsx"].map(
+    (file) => ({ file, must: ["BUSINESS"], mustNot: ["Canadá 212", "Canadá 230"], why: "usar BUSINESS de lib/business.ts, no escribir la dirección a mano" })
+  ),
+  { file: "src/app/(public)/recargas/page.tsx", must: ["únicamente en nuestra tienda"], why: "las recargas son solo en tienda (no a domicilio)" },
 
   // Página de recargas (pilar #2)
   {

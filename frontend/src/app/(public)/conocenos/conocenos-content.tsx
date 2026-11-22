@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { waLink, WA_MESSAGES, trackWAClick } from "@/lib/whatsapp";
 import { GoogleRatingAchievement } from "@/components/GoogleRating";
+import { BUSINESS } from "@/lib/business";
 
 const STORE_PHOTOS = [
   { src: "/images/tienda-sillas-de-ruedas-medimundo.webp",     alt: "Sillas de ruedas en renta — MediMundo Querétaro",         caption: "Sillas de ruedas" },
@@ -180,7 +181,7 @@ const contactInfo = [
   },
   {
     title: "Ubicación",
-    lines: ["Av. Canadá 230, Plaza de las Américas", "Col. Carretas, Querétaro"],
+    lines: [BUSINESS.addressLine1, BUSINESS.addressLine2],
     Icon: () => (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />

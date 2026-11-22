@@ -11,6 +11,9 @@ export const BUSINESS = {
   name: "MediMundo",
   addressLine1: "Av. Canadá 230, Plaza de las Américas",
   addressLine2: "Col. Carretas, 76059 Querétaro, Qro.",
+  postalCode: "76059",
+  /** Coordenadas exactas de la ficha de Google Maps. */
+  geo: { lat: 20.5877962, lng: -100.3752015 },
   phoneDisplay: "442 333 98 92",
   phoneTel: "+524423339892",
 } as const;

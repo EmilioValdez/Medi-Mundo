@@ -16,7 +16,7 @@ Una de las preguntas más frecuentes que recibimos es: **¿dónde están ubicado
 
 Nos encontramos en una ubicación céntrica y accesible de Querétaro:
 
-**Av. Canadá 212, Plaza de las Américas  
+**Av. Canadá 230, Plaza de las Américas  
 Colonia Carretas, Querétaro**
 
 Estamos dentro de Plaza de las Américas, lo que hace que nos encuentres fácilmente ya sea que vengas en carro o transporte público.
@@ -102,7 +102,7 @@ Medimundo lleva operando desde 2005, lo que nos convierte en uno de los negocios
 
 📞 **442 333 98 92** — Llama o manda WhatsApp  
 📧 **medicasaqro@gmail.com**  
-📍 **Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro**  
+📍 **Av. Canadá 230, Plaza de las Américas, Col. Carretas, Querétaro**  
 🕙 Lunes a viernes 10am–7pm | Sábado 10am–3pm
 
 Estamos para ayudarte a encontrar el equipo correcto en el momento que más lo necesitas.

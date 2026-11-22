@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBlogPost, getBlogPosts } from "@/lib/api";
 import { waLink, WA_MESSAGES } from "@/lib/whatsapp";
+import { BUSINESS, SCHEDULE, formatHours } from "@/lib/business";
 
 interface Post {
   slug: string;
@@ -199,7 +200,8 @@ export default async function BlogPostPage({
             </a>
           </div>
           <p className="text-xs text-gray-400 mt-5">
-            Av. Canadá 212, Plaza de las Américas, Querétaro &nbsp;·&nbsp; L–V 10am–7pm &nbsp;·&nbsp; Sáb 10am–3pm
+            {BUSINESS.addressLine1}, Querétaro &nbsp;·&nbsp;{" "}
+            {SCHEDULE.filter((s) => s.open !== null).map((s) => `${s.label}: ${formatHours(s)}`).join(" · ")}
           </p>
         </div>
 

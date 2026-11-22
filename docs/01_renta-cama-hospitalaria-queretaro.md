@@ -68,7 +68,7 @@ El costo de entrega en zona céntrica de Querétaro es de **$500 pesos**. Para z
 
 Nos encuentras en:
 
-**Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro**
+**Av. Canadá 230, Plaza de las Américas, Col. Carretas, Querétaro**
 
 ### Horarios de atención:
 - Lunes a viernes: 10:00 am – 7:00 pm
@@ -94,7 +94,7 @@ Contáctanos y con gusto te orientamos sobre el equipo más adecuado para tu cas
 
 📞 **442 333 98 92**  
 📧 medicasaqro@gmail.com  
-📍 Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro  
+📍 Av. Canadá 230, Plaza de las Américas, Col. Carretas, Querétaro  
 🕙 Lunes a viernes 10am–7pm | Sábado 10am–3pm
 
 En Medimundo, tu tranquilidad y la de tu familia es nuestra prioridad. Más de 20 años acompañando a familias queretanas en su proceso de recuperación.

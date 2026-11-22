@@ -136,7 +136,7 @@ Agregar en el `<head>` de `index.html`:
   "foundingDate": "2005",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Av. Canadá 212, Plaza de las Américas, Col. Carretas",
+    "streetAddress": "Av. Canadá 230, Plaza de las Américas, Col. Carretas",
     "addressLocality": "Querétaro",
     "addressRegion": "Querétaro",
     "addressCountry": "MX"
@@ -226,7 +226,7 @@ Una vez desplegado el sitio:
 | Slogan | Rehabilitación en Movimiento |
 | Teléfono | 442 223 77 57 |
 | Email | medicasaqro@gmail.com |
-| Dirección | Av. Canadá 212, Plaza de las Américas, Col. Carretas, Querétaro |
+| Dirección | Av. Canadá 230, Plaza de las Américas, Col. Carretas, Querétaro |
 | Horario L-V | 10:00 am – 7:00 pm |
 | Horario Sáb | 10:00 am – 3:00 pm |
 | Desde | 2005 |
