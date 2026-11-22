@@ -1,7 +1,7 @@
 # Recargas de Oxígeno en Querétaro: Tanques, Precios y Dónde Conseguirlas
 
 **Meta title:** Recargas de Oxígeno en Querétaro — Tanques y Servicio | MediMundo
-**Meta description:** Recargas de oxígeno medicinal en Querétaro. Tanques de aluminio y acero, servicio a domicilio disponible. También renta de concentradores desde $950/mes. ☎ 442 333 98 92.
+**Meta description:** Recargas de oxígeno medicinal en Querétaro. Tanques de aluminio y acero, servicio a domicilio disponible. También renta de concentradores desde $2,500/mes. ☎ 442 333 98 92.
 **Slug:** recargas-oxigeno-queretaro
 **Categoría:** Oxígeno Medicinal
 **Keywords:** recargas de oxígeno Querétaro, recarga tanque oxígeno Querétaro, oxígeno medicinal Querétaro, tanque de oxígeno Querétaro, oxígeno a domicilio Querétaro
@@ -78,13 +78,13 @@ Un concentrador de oxígeno toma el aire del ambiente y lo filtra para entregar 
 
 | Modelo | Tipo | Renta mensual | Depósito |
 |---|---|---|---|
-| Estacionario 5 LPM | Estacionario | $950 | $6,500 |
+| Estacionario 5 LPM | Estacionario | $2,500 | $6,500 |
 | Inogen At Home | Estacionario | $3,000 | $6,000 |
 | Inogen One G2 | Portátil | $3,690 | $25,000 |
 | Inogen One G3 | Portátil | $4,990 | $30,000 |
 | Inogen One G5 | Portátil | $6,590 | $40,000 |
 
-Para muchos pacientes, el costo mensual de recargas frecuentes supera el de rentar un concentrador estacionario desde $950 al mes.
+Para muchos pacientes, el costo mensual de recargas frecuentes supera el de rentar un concentrador estacionario desde $2,500 al mes.
 
 ---
 

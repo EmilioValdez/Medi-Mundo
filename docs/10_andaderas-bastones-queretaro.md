@@ -1,7 +1,7 @@
 # Andaderas y Bastones en Querétaro: Tipos, Diferencias y Cuándo Usar Cada Uno
 
 **Meta title:** Andaderas y Bastones en Querétaro — Tipos y Renta | MediMundo
-**Meta description:** Guía completa de andaderas y bastones en Querétaro. Tipos, diferencias, precios de renta desde $200/mes. Entrega a domicilio. ☎ 442 333 98 92.
+**Meta description:** Guía completa de andaderas y bastones en Querétaro. Tipos, diferencias, precios de renta accesibles. Entrega a domicilio. ☎ 442 333 98 92.
 **Slug:** andaderas-bastones-queretaro
 **Categoría:** Movilidad y Rehabilitación
 **Keywords:** andadera Querétaro, bastón ortopédico Querétaro, renta andadera Querétaro, caminador adulto mayor Querétaro, andadera con ruedas Querétaro
@@ -51,7 +51,7 @@ Cuatro patas en la base — el mayor nivel de estabilidad entre los bastones. Se
 La más estable. El usuario la eleva ligeramente, la adelanta, y apoya su peso sobre ella.
 
 - **Ideal para:** recuperación postoperatoria (cadera, rodilla, columna), primeras etapas de rehabilitación, uso en interiores
-- **Renta mensual en MediMundo:** $200
+- **Renta en MediMundo:** consultar precio
 - **Ventaja:** máxima estabilidad, sin riesgo de deslizamiento involuntario
 
 ### Andadera con 2 ruedas delanteras
@@ -120,7 +120,7 @@ Depende del motivo de uso:
 
 | Equipo | Renta mensual |
 |---|---|
-| Andadera fija plegable | $200 |
+| Andadera fija plegable | Consultar |
 | Bastón simple ajustable | Consultar |
 | Bastón cuádruple | Consultar |
 

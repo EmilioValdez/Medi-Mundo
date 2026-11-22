@@ -73,13 +73,13 @@ Por supuesto. Si prefieres pasar directamente a nuestro local en Plaza de las Am
 En Medimundo encontrarás:
 
 **En renta:**
-- Cama hospitalaria manual — $750/mes
-- Cama hospitalaria eléctrica — $1,100/mes
-- Cama hospitalaria eléctrica de lujo — $2,300/mes
-- Sillón Reposet eléctrico — $1,100/mes
-- Grúa hidráulica para paciente — $1,100/mes
-- Mesa de alimentos — $230/mes
-- Concentradores de oxígeno — desde $950/mes
+- Cama hospitalaria manual — $1,500/mes
+- Cama hospitalaria eléctrica — $2,500/mes
+- Cama hospitalaria eléctrica de lujo — $3,500/mes
+- Sillón Reposet eléctrico — $2,000/mes
+- Grúa hidráulica para paciente — $2,500/mes
+- Mesa de alimentos — $950/mes
+- Concentradores de oxígeno — desde $2,500/mes
 - Sillas de ruedas
 
 **En venta:**

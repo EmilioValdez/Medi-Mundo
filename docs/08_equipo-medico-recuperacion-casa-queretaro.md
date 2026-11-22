@@ -117,7 +117,7 @@ La recuperación puede ser prolongada. El nivel de apoyo varía mucho según el 
 El equipo prioritario aquí es el concentrador de oxígeno, complementado con mobiliario que facilite el descanso.
 
 **Equipo esencial:**
-- **Concentrador de oxígeno estacionario** — desde $950/mes
+- **Concentrador de oxígeno estacionario** — desde $2,500/mes
 - **Cama hospitalaria** — permite elevar la cabecera para mejorar la respiración en reposo
 
 **Equipo complementario:**

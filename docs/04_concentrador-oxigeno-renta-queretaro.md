@@ -85,7 +85,7 @@ El modelo más avanzado de la línea portátil. Mayor autonomía de batería y m
 ### Concentrador Estacionario 5 LPM
 La opción más accesible para pacientes que requieren oxígeno en casa sin necesidad de moverse. Robusto, confiable y de fácil operación.
 
-- **Renta mensual:** $1,100
+- **Renta mensual:** $2,500
 - **Depósito en garantía:** $6,500
 - **Capacidad:** 5 litros por minuto (LPM)
 - **Ideal para:** Terapia de oxígeno en casa, uso continuo nocturno, recuperación postoperatoria
@@ -114,7 +114,7 @@ El concentrador estacionario ideal para uso en casa. Silencioso, eficiente y de 
 | Inogen One G3 | Portátil | $2,590 | $3,990 | $4,990 | $30,000 | ✅ |
 | Inogen One G4 | Portátil | $2,590 | $3,990 | $4,990 | $30,000 | ⚠️ |
 | Inogen One G5 | Portátil | $2,590 | $4,590 | $6,590 | $40,000 | ⚠️ |
-| Estacionario 5 LPM | Estacionario | — | — | $1,100 | $6,500 | — |
+| Estacionario 5 LPM | Estacionario | — | — | $2,500 | $6,500 | — |
 | Inogen At Home | Estacionario | — | — | $3,000 | $6,000 | — |
 
 ---

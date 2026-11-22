@@ -79,7 +79,7 @@ El nivel de ruido del Inogen At Home es **menor a 40 dBA** — comparable al son
 | Sistema | Continuo | Continuo |
 | Ruido | **< 40 dBA** | ~45 dBA |
 | Marca | **Inogen (premium)** | Genérico |
-| Renta mensual | $3,000 | **$950** |
+| Renta mensual | $3,000 | **$2,500** |
 
 Si el presupuesto es una prioridad, el concentrador estacionario 5 LPM estándar cumple la misma función clínica a menor costo. Si se prioriza la calidad de marca Inogen y el menor ruido, el At Home es la elección.
 

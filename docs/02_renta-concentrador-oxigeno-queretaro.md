@@ -1,7 +1,7 @@
 # Renta de Concentradores de Oxígeno en Querétaro: Modelos, Precios y Requisitos
 
 **Meta title:** Renta de Concentrador de Oxígeno en Querétaro — Modelos y Precios | MediMundo
-**Meta description:** Renta concentradores de oxígeno portátiles Inogen y estacionarios en Querétaro. Sin receta médica. Entrega e instalación a domicilio. Desde $950/mes. ☎ 442 333 98 92.
+**Meta description:** Renta concentradores de oxígeno portátiles Inogen y estacionarios en Querétaro. Sin receta médica. Entrega e instalación a domicilio. Desde $2,500/mes. ☎ 442 333 98 92.
 **Slug:** renta-concentrador-oxigeno-queretaro
 **Categoría:** Equipo Médico
 **Keywords:** renta concentrador de oxígeno Querétaro, concentrador oxígeno portátil Querétaro, Inogen renta Querétaro, oxígeno a domicilio Querétaro
@@ -30,7 +30,7 @@ Se utiliza en casos de EPOC, insuficiencia respiratoria, recuperación postopera
 | **Movilidad** | Alta — para salir de casa | Uso en interiores |
 | **Flujo** | Pulso | Continuo o pulso |
 | **Ideal para** | Pacientes activos, viajes | Terapia en casa, uso nocturno |
-| **Precio mensual** | Desde $3,690 | Desde $950 |
+| **Precio mensual** | Desde $4,990 | Desde $2,500 |
 
 ---
 
@@ -81,7 +81,7 @@ El modelo más avanzado de la línea portátil. Mayor autonomía y mayor flujo d
 ### Concentrador Estacionario 5 LPM
 La opción más accesible para pacientes que requieren oxígeno en casa sin necesidad de moverse.
 
-- **Renta mensual:** $950
+- **Renta mensual:** $2,500
 - **Depósito en garantía:** $6,500
 - **Capacidad:** 5 litros por minuto en flujo continuo
 - **Ideal para:** Terapia de oxígeno en casa, uso continuo nocturno, recuperación postoperatoria
@@ -105,7 +105,7 @@ Concentrador estacionario silencioso, eficiente y de fácil manejo.
 | Inogen One G3 | Portátil | $2,590 | $3,990 | $4,990 | $30,000 | ✅ |
 | Inogen One G4 | Portátil | $2,590 | $3,990 | $4,990 | $30,000 | ⚠️ |
 | Inogen One G5 | Portátil | $2,590 | $4,590 | $6,590 | $40,000 | ⚠️ |
-| Estacionario 5 LPM | Estacionario | — | — | $950 | $6,500 | — |
+| Estacionario 5 LPM | Estacionario | — | — | $2,500 | $6,500 | — |
 | Inogen At Home | Estacionario | — | — | $3,000 | $6,000 | — |
 
 ---

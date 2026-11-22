@@ -1,7 +1,7 @@
 # Renta de Silla de Ruedas en Querétaro: Precios, Tipos y Entrega a Domicilio
 
 **Meta title:** Renta de Silla de Ruedas en Querétaro — Precios y Entrega | MediMundo
-**Meta description:** Renta sillas de ruedas en Querétaro con entrega a domicilio. Modelos estándar y especializados desde $400/mes. Sin depósito. ☎ 442 333 98 92.
+**Meta description:** Renta sillas de ruedas en Querétaro con entrega a domicilio. Modelos estándar y especializados desde $1,500/mes. Sin depósito. ☎ 442 333 98 92.
 **Slug:** renta-silla-de-ruedas-queretaro
 **Categoría:** Equipo Médico
 **Keywords:** renta silla de ruedas Querétaro, silla de ruedas a domicilio Querétaro, silla de ruedas en renta Querétaro
@@ -28,9 +28,9 @@ Rentar tiene ventajas claras, especialmente cuando la necesidad es temporal:
 ### Silla de ruedas estándar plegable
 La opción más versátil para la mayoría de los casos de recuperación. Ligera, resistente y fácil de transportar en el carro.
 
-- **Renta mensual:** $400 pesos
-- **Renta semanal:** $150 pesos
-- **Renta diaria:** $30 pesos
+- **Renta mensual:** $1,500 pesos
+- **Renta quincenal:** $1,000 pesos
+- **Renta diaria:** $250 pesos
 - **Sin depósito requerido**
 - **Ideal para:** postoperatorio, fracturas, recuperaciones de mediano plazo
 
@@ -90,11 +90,11 @@ Muchas familias combinan la silla de ruedas con otros equipos según las necesid
 
 | Equipo | Precio mensual |
 |---|---|
-| Cama hospitalaria manual | $750 |
-| Cama hospitalaria eléctrica | $1,100 |
-| Grúa hidráulica para traslado | $1,100 |
-| Mesa de alimentos ajustable | $230 |
-| Banco de ducha con respaldo | $350 |
+| Cama hospitalaria manual | $1,500 |
+| Cama hospitalaria eléctrica | $2,500 |
+| Grúa hidráulica para traslado | $2,500 |
+| Mesa de alimentos ajustable | $950 |
+| Banco de ducha con respaldo | Consultar precio |
 
 Rentando más de un equipo, pregunta por nuestros precios especiales de paquete.
 

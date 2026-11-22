@@ -43,13 +43,13 @@ Modalidad: por semana o por mes. Entrega a domicilio disponible (costo adicional
 
 | Equipo | Precio mensual |
 |---|---|
-| Cama hospitalaria manual | $750 |
-| Cama hospitalaria eléctrica | $1,100 |
-| Cama hospitalaria eléctrica de lujo | $2,300 |
-| Sillón Reposet eléctrico | $1,100 |
-| Grúa hidráulica para paciente | $1,100 |
-| Mesa de alimentos | $230 |
-| Concentrador de oxígeno | ~$950 |
+| Cama hospitalaria manual | $1,500 |
+| Cama hospitalaria eléctrica | $2,500 |
+| Cama hospitalaria eléctrica de lujo | $3,500 |
+| Sillón Reposet eléctrico | $2,000 |
+| Grúa hidráulica para paciente | $2,500 |
+| Mesa de alimentos | $950 |
+| Concentrador de oxígeno estacionario | $2,500 |
 | Sillas de ruedas | Consultar |
 
 ### 3.2 VENTA DE EQUIPO Y ACCESORIOS

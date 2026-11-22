@@ -33,9 +33,9 @@ Manejamos dos modalidades según el tiempo que necesites el equipo: **por semana
 
 | Equipo | Precio mensual |
 |---|---|
-| Cama hospitalaria manual | $750 pesos |
-| Cama hospitalaria eléctrica | $1,100 pesos |
-| Cama hospitalaria eléctrica de lujo | $2,300 pesos |
+| Cama hospitalaria manual | $1,500 pesos |
+| Cama hospitalaria eléctrica | $2,500 pesos |
+| Cama hospitalaria eléctrica de lujo | $3,500 pesos |
 
 ¿No sabes si necesitas una cama manual o eléctrica? Lee nuestra [guía completa: cama hospitalaria manual vs eléctrica](/blog/cama-hospitalaria-manual-vs-electrica-queretaro) para tomar la mejor decisión.
 
@@ -43,9 +43,9 @@ Además, contamos con equipo complementario que muchas familias rentan junto con
 
 | Equipo | Precio mensual |
 |---|---|
-| Sillón Reposet eléctrico | $1,100 pesos |
-| Grúa hidráulica para paciente | $1,100 pesos |
-| Mesa de alimentos | $230 pesos |
+| Sillón Reposet eléctrico | $2,000 pesos |
+| Grúa hidráulica para paciente | $2,500 pesos |
+| Mesa de alimentos | $950 pesos |
 
 Si no estás seguro de qué equipo es el más adecuado para tu caso, con gusto te orientamos sin compromiso. Llámanos al **442 333 98 92**.
 

@@ -15,6 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from sqlalchemy import select
 from app.database import async_session, engine, Base
 from app.models.blog import BlogPost  # noqa: F401 — registers model with Base
+from scripts.blog_content_fixes import apply_fixes
 
 DOCS_DIR = Path(__file__).resolve().parent.parent.parent / "docs"
 
@@ -142,15 +143,22 @@ async def seed():
                 select(BlogPost).where(BlogPost.slug == data["slug"])
             )).scalar_one_or_none()
 
+            # Neon es la fuente de verdad: NUNCA sobrescribir un post existente
+            # (antes esto revertía en cada deploy cualquier corrección hecha en
+            # la DB). Para corregir un post publicado usar blog_content_fixes.py.
             if existing:
-                for k, v in data.items():
-                    setattr(existing, k, v)
-                print(f"  UPDATED: {data['slug']}")
+                print(f"  EXISTS (no changes): {data['slug']}")
             else:
                 db.add(BlogPost(**data))
                 print(f"  INSERTED: {data['slug']}")
 
         await db.commit()
+
+        try:
+            await apply_fixes(db)
+        except Exception as exc:  # nunca tumbar el arranque por una corrección de texto
+            await db.rollback()
+            print(f"  CONTENT FIXES FAILED: {exc}")
 
         # Desactivar artículos duplicados o reemplazados
         for slug in DEACTIVATE_SLUGS:

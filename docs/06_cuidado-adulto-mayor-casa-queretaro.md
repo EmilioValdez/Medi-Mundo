@@ -32,7 +32,7 @@ No hay que esperar una caída o un accidente. Estas señales indican que el adul
 El primer paso para mantener la movilidad con seguridad. Más estable que un bastón, más ligera que una silla de ruedas.
 
 - **Ideal para:** adultos mayores con debilidad en piernas, recuperación de fractura de cadera, problemas de equilibrio
-- **Renta mensual:** $200 pesos
+- **Renta:** consultar precio
 - **Características:** aluminio ligero, altura ajustable, plegable para guardar fácilmente
 
 ---
@@ -41,8 +41,8 @@ El primer paso para mantener la movilidad con seguridad. Más estable que un bas
 Indispensable cuando la movilidad se ve significativamente reducida o para salidas más largas.
 
 - **Ideal para:** adultos con movilidad muy reducida, postoperatorio de cadera o rodilla, fatiga extrema
-- **Renta mensual:** $400 pesos
-- **Renta semanal:** $150 pesos
+- **Renta mensual:** $1,500 pesos
+- **Renta quincenal:** $1,000 pesos
 - **Características:** estructura de acero resistente, reposapiés desmontables, frenos de mano, plegable
 
 ---
@@ -51,7 +51,7 @@ Indispensable cuando la movilidad se ve significativamente reducida o para salid
 Cambia radicalmente la calidad de vida del adulto mayor y la del cuidador. Permite ajustar la posición del paciente sin esfuerzo.
 
 - **Ideal para:** adultos en reposo prolongado, pacientes encamados, recuperación postoperatoria
-- **Renta mensual:** $750 pesos
+- **Renta mensual:** $1,500 pesos
 - **Incluye:** barandales laterales para seguridad, ajuste de cabecera y piecera, colchón
 - **Ventaja clave:** reduce el riesgo de úlceras por presión y facilita la atención del cuidador
 
@@ -60,7 +60,7 @@ Cambia radicalmente la calidad de vida del adulto mayor y la del cuidador. Permi
 ### Cama hospitalaria eléctrica
 Para pacientes con cuidados más complejos o cuando el cuidador necesita mínimo esfuerzo físico.
 
-- **Renta mensual:** $1,100 pesos
+- **Renta mensual:** $2,500 pesos
 - **Incluye:** control eléctrico de posiciones, barandales, colchón especializado
 - **Ideal para:** adultos con escasa movilidad, cuidadores que necesitan asistencia mecánica
 
@@ -69,7 +69,7 @@ Para pacientes con cuidados más complejos o cuando el cuidador necesita mínimo
 ### Banco de ducha con respaldo
 Permite que el adulto mayor se bañe sentado con seguridad, reduciendo el riesgo de caídas en el baño.
 
-- **Renta mensual:** $350 pesos
+- **Renta:** consultar precio
 - **Características:** estructura de aluminio antioxidante, asiento con respaldo, altura ajustable, patas antideslizantes
 
 ---
@@ -77,7 +77,7 @@ Permite que el adulto mayor se bañe sentado con seguridad, reduciendo el riesgo
 ### Silla de baño con ruedas (silla geriátrica)
 Combina funciones de silla de ruedas con uso en baño. Ideal cuando la transferencia del paciente es compleja.
 
-- **Renta mensual:** desde $450 pesos
+- **Renta:** consultar precio
 - **Ideal para:** adultos con muy poca movilidad, cuidadores que realizan traslados frecuentes
 
 ---
@@ -85,7 +85,7 @@ Combina funciones de silla de ruedas con uso en baño. Ideal cuando la transfere
 ### Grúa hidráulica para traslado
 Para adultos mayores con movilidad nula o muy reducida. Permite transferirlos de la cama a la silla (o viceversa) sin riesgo de lesiones para el cuidador ni para el paciente.
 
-- **Renta mensual:** $1,100 pesos
+- **Renta mensual:** $2,500 pesos
 - **Ideal para:** pacientes encamados, pacientes con obesidad, situaciones de doble cuidado
 
 ---
@@ -93,7 +93,7 @@ Para adultos mayores con movilidad nula o muy reducida. Permite transferirlos de
 ### Mesa de alimentos ajustable
 Permite que el paciente coma, lea o trabaje en cama con comodidad.
 
-- **Renta mensual:** $230 pesos
+- **Renta mensual:** $950 pesos
 - **Características:** altura y ángulo ajustables, superficie amplia, ruedas para desplazarse
 
 ---
@@ -102,13 +102,13 @@ Permite que el paciente coma, lea o trabaje en cama con comodidad.
 
 | Equipo | Renta mensual |
 |---|---|
-| Andadera plegable | $200 |
-| Silla de ruedas estándar | $400 |
-| Cama hospitalaria manual | $750 |
-| Cama hospitalaria eléctrica | $1,100 |
-| Banco de ducha con respaldo | $350 |
-| Grúa hidráulica para traslado | $1,100 |
-| Mesa de alimentos ajustable | $230 |
+| Andadera plegable | Consultar precio |
+| Silla de ruedas estándar | $1,500 |
+| Cama hospitalaria manual | $1,500 |
+| Cama hospitalaria eléctrica | $2,500 |
+| Banco de ducha con respaldo | Consultar precio |
+| Grúa hidráulica para traslado | $2,500 |
+| Mesa de alimentos ajustable | $950 |
 
 ---
 
@@ -131,7 +131,7 @@ Permite que el paciente coma, lea o trabaje en cama con comodidad.
 - Banco de ducha
 
 ### Adulto mayor con problemas respiratorios
-- Concentrador de oxígeno estacionario (desde $950/mes)
+- Concentrador de oxígeno estacionario (desde $2,500/mes)
 - Ver nuestro artículo completo sobre concentradores de oxígeno
 
 ---
