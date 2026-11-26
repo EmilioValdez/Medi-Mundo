@@ -41,7 +41,7 @@ const CHECKS = [
   // Página de recargas (pilar #2)
   {
     file: "src/app/(public)/recargas/page.tsx",
-    must: ["getOxygenRefills", "<StoreHours", "FAQPage", "MAPS_DIRECTIONS_URL"],
+    must: ["getOxygenRefills", "<StoreHours", "FAQPage", "MAPS_DIRECTIONS_URL", "fondo-recargas-oxigeno"],
     mustNot: ["FALLBACK_RECARGAS"],
     why: "recargas debe tener precios de Neon, horario, FAQ y ruta; sin precios inventados de respaldo",
   },

@@ -162,9 +162,20 @@ export default async function RecargasPage() {
     <div className="bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
-      {/* Hero + precios */}
-      <section className="bg-gradient-to-b from-sky-50 to-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+      {/* Hero + precios — fondo: foto de tanques de oxígeno con velo para legibilidad */}
+      <section
+        className="relative bg-cover bg-center"
+        style={{ backgroundImage: "url(/images/fondo-recargas-oxigeno.webp)", backgroundPosition: "center 62%" }}
+      >
+        <div
+          aria-hidden="true"
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(255,255,255,0.93) 0%, rgba(255,255,255,0.78) 40%, rgba(255,255,255,0.25) 100%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
           <div className="lg:grid lg:grid-cols-5 lg:gap-14">
             <div className="mb-10 lg:col-span-2 lg:mb-0">
               <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-primary-500">
