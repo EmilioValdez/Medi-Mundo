@@ -20,7 +20,8 @@ const read = (p) => (existsSync(join(root, p)) ? readFileSync(join(root, p), "ut
 
 const CHECKS = [
   // Mapa + horario + reseñas en TODAS las páginas públicas
-  { file: "src/app/(public)/layout.tsx", must: ["<Footer"], why: "el layout público debe renderizar el Footer" },
+  { file: "src/app/(public)/layout.tsx", must: ["<Footer", "<ScrollToTop"], why: "el layout público debe renderizar el Footer y ScrollToTop (cada página nueva abre hasta arriba)" },
+  { file: "src/app/layout.tsx", must: ['data-scroll-behavior="smooth"'], why: "sin esto Next.js deja la página nueva a media altura por el scroll suave" },
   { file: "src/components/Footer.tsx", must: ["<LocationSection"], why: "el Footer debe incluir mapa + horario (LocationSection)" },
   {
     file: "src/components/LocationSection.tsx",

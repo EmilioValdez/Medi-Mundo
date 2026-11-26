@@ -69,7 +69,9 @@ const LOCAL_BUSINESS_SCHEMA = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es-MX">
+    // data-scroll-behavior: le dice a Next.js que desactive el scroll suave al cambiar
+    // de página; sin esto la página nueva quedaba a media altura.
+    <html lang="es-MX" data-scroll-behavior="smooth">
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
