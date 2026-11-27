@@ -10,6 +10,21 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Redirecciones permanentes (Google pasa el posicionamiento a la URL nueva).
+  async redirects() {
+    return [
+      // www.medimundo.mx → medimundo.mx (una sola versión del sitio para Google).
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.medimundo.mx" }],
+        destination: "https://medimundo.mx/:path*",
+        permanent: true,
+      },
+      // /respiratorio era la página de Inogen en el sitio viejo (Vite); se perdió en
+      // la migración a Next.js y Google la tenía indexada → 404.
+      { source: "/respiratorio", destination: "/inogen", permanent: true },
+    ];
+  },
   async rewrites() {
     const backend = process.env.BACKEND_URL ?? "http://localhost:8001";
     return [

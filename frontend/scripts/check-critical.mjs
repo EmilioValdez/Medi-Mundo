@@ -64,6 +64,9 @@ const CHECKS = [
   { file: "src/app/(public)/catalogo/catalog-content.tsx", must: ["<ProductImageDisclaimer"], why: "el catálogo debe llevar la leyenda de imagen ilustrativa" },
   { file: "src/app/(public)/rentas/page.tsx", must: ["<ProductImageDisclaimer"], why: "rentas debe llevar la leyenda de imagen ilustrativa" },
 
+  // Redirecciones de URLs viejas / duplicadas
+  { file: "next.config.ts", must: ['source: "/respiratorio"', 'value: "www.medimundo.mx"'], why: "301 de /respiratorio → /inogen y de www → sin www" },
+
   // Rutas que Google ya tiene indexadas: no pueden desaparecer
   ...["page.tsx", "rentas/page.tsx", "catalogo/page.tsx", "inogen/page.tsx", "recargas/page.tsx", "conocenos/page.tsx", "blog/page.tsx"].map(
     (p) => ({ file: `src/app/(public)/${p}`, must: [], why: "ruta indexada en Google" })
