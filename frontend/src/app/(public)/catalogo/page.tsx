@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import CatalogContent from "./catalog-content";
 import { getCategories, getEquipment } from "@/lib/api";
+import { pageTitle } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Ortopedia y Equipo Médico en Querétaro | Venta y Renta | MediMundo",
+  title: pageTitle("Ortopedia y Equipo Médico en Querétaro"),
   description:
     "Catálogo de ortopedia y equipo médico en Querétaro. Venta y renta de sillas de ruedas, camas, andaderas, fajas, collarines y equipo de diagnóstico. +20 años de experiencia.",
   alternates: { canonical: "https://medimundo.mx/catalogo" },

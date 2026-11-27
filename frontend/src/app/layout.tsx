@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://medimundo.mx"),
   title: {
     default: "Renta de Equipo Médico en Querétaro | MediMundo",
-    template: "%s | MediMundo Querétaro",
+    template: "%s | MediMundo",
   },
   description:
     "Renta de equipo médico sanitizado a domicilio en Querétaro. Camas hospitalarias, concentradores de oxígeno, sillas de ruedas y más. Entrega el mismo día.",

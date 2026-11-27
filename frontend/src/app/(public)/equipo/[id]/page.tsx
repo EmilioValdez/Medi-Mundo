@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getEquipmentById } from "@/lib/api";
 import EquipmentDetail from "./equipment-detail";
 import { notFound } from "next/navigation";
+import { pageTitle } from "@/lib/seo";
 
 interface Equipment {
   id: number;
@@ -26,9 +27,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params;
   const item = (await getEquipmentById(id)) as Equipment | null;
-  if (!item) return { title: "Equipo no encontrado — MediMundo" };
+  if (!item) return { title: pageTitle("Equipo no encontrado") };
   return {
-    title: `${item.name} en renta en Querétaro — MediMundo`,
+    title: pageTitle(`${item.name.trim().replace(/\.$/, "")} en Renta en Querétaro`),
     description: item.description
       ? item.description.slice(0, 155)
       : `Renta de ${item.name} en Querétaro. Entrega a domicilio, sanitizado y con soporte técnico. Contáctanos en MediMundo.`,

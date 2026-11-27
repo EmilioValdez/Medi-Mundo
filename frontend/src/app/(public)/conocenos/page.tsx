@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import ConocenosContent from "./conocenos-content";
+import { pageTitle } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Tienda de Ortopedia en Querétaro | Quiénes Somos | MediMundo",
+  title: pageTitle("Quiénes Somos: Tienda de Ortopedia en Querétaro"),
   description:
     "Somos MediMundo, tienda de ortopedia y renta de equipo médico en Querétaro con más de 20 años. Visítanos en Plaza de las Américas o escríbenos por WhatsApp.",
   alternates: { canonical: "https://medimundo.mx/conocenos" },

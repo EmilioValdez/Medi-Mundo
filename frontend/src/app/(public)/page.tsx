@@ -5,11 +5,12 @@ import ParallaxHero from "@/components/ParallaxHero";
 import InogenSection from "@/components/InogenSection";
 import EquipmentCard from "@/components/EquipmentCard";
 import { waLink, WA_MESSAGES } from "@/lib/whatsapp";
+import { pageTitle } from "@/lib/seo";
 
 export const revalidate = 300;
 
 export const metadata: Metadata = {
-  title: "Renta de Equipo Médico en Querétaro | MediMundo",
+  title: pageTitle("Renta de Equipo Médico en Querétaro"),
   description:
     "Renta de equipo médico sanitizado a domicilio en Querétaro. Camas hospitalarias, concentradores de oxígeno, sillas de ruedas y más. Entrega el mismo día.",
   alternates: { canonical: "https://medimundo.mx/" },

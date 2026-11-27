@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getBlogPost, getBlogPosts } from "@/lib/api";
 import { waLink, WA_MESSAGES } from "@/lib/whatsapp";
 import { BUSINESS, SCHEDULE, formatHours } from "@/lib/business";
+import { pageTitle } from "@/lib/seo";
 
 interface Post {
   slug: string;
@@ -24,9 +25,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = (await getBlogPost(slug)) as Post | null;
-  if (!post) return { title: "Artículo no encontrado | MediMundo" };
+  if (!post) return { title: pageTitle("Artículo no encontrado") };
   return {
-    title: `${post.meta_title || post.titulo} | MediMundo Querétaro`,
+    title: pageTitle(post.meta_title || post.titulo),
     description: post.meta_description || post.resumen,
     alternates: { canonical: `https://medimundo.mx/blog/${post.slug}` },
     openGraph: {

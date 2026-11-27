@@ -3,11 +3,12 @@ import { getEquipment } from "@/lib/api";
 import { isRentalItem } from "@/lib/rentalItems";
 import EquipmentCard from "@/components/EquipmentCard";
 import ProductImageDisclaimer from "@/components/ProductImageDisclaimer";
+import { pageTitle } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Renta de Equipo Médico en Querétaro | Camas, Sillas de Ruedas y Más | MediMundo",
+  title: pageTitle("Renta de Camas Hospitalarias en Querétaro"),
   description:
     "Renta de equipo médico a domicilio en Querétaro. Camas hospitalarias, sillas de ruedas, andaderas, grúa hidráulica y más. Entrega el mismo día.",
   alternates: { canonical: "https://medimundo.mx/rentas" },

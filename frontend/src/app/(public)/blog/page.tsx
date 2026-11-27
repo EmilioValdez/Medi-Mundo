@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getBlogPosts } from "@/lib/api";
+import { pageTitle } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Blog | MediMundo — Equipo Médico en Querétaro",
+  title: pageTitle("Blog de Equipo Médico y Cuidado en Casa"),
   description:
     "Guías y consejos sobre renta de equipo médico, cuidado del adulto mayor y recuperación en casa en Querétaro.",
   alternates: { canonical: "https://medimundo.mx/blog" },

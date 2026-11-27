@@ -10,9 +10,10 @@ import {
 } from "@/lib/business";
 import StoreHours from "@/components/StoreHours";
 import { GoogleRatingBadge } from "@/components/GoogleRating";
+import { pageTitle } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Recarga de Oxígeno en Querétaro — Precios por Litro",
+  title: pageTitle("Recarga de Tanques de Oxígeno en Querétaro"),
   description:
     "Recarga de tanques de oxígeno medicinal en Querétaro, lista el mismo día. Precios por tamaño de cilindro, tabla de duración y horario. Plaza de las Américas.",
   alternates: { canonical: "https://medimundo.mx/recargas" },

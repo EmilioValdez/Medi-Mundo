@@ -21,7 +21,12 @@ const read = (p) => (existsSync(join(root, p)) ? readFileSync(join(root, p), "ut
 const CHECKS = [
   // Mapa + horario + reseñas en TODAS las páginas públicas
   { file: "src/app/(public)/layout.tsx", must: ["<Footer", "<ScrollToTop"], why: "el layout público debe renderizar el Footer y ScrollToTop (cada página nueva abre hasta arriba)" },
-  { file: "src/app/layout.tsx", must: ['data-scroll-behavior="smooth"'], why: "sin esto Next.js deja la página nueva a media altura por el scroll suave" },
+  { file: "src/app/layout.tsx", must: ['data-scroll-behavior="smooth"', 'template: "%s | MediMundo"'], why: "scroll al inicio + plantilla de título con la marca una sola vez" },
+
+  // Títulos de Google: la marca UNA sola vez (antes salía 3 veces). Todas usan pageTitle() de lib/seo.ts.
+  ...["page.tsx", "rentas/page.tsx", "catalogo/page.tsx", "inogen/page.tsx", "recargas/page.tsx", "conocenos/page.tsx", "blog/page.tsx", "blog/[slug]/page.tsx", "equipo/[id]/page.tsx"].map(
+    (p) => ({ file: `src/app/(public)/${p}`, must: ["pageTitle("], mustNot: ["| MediMundo Querétaro`"], why: "el título debe armarse con pageTitle() para no repetir la marca" })
+  ),
   { file: "src/components/Footer.tsx", must: ["<LocationSection"], why: "el Footer debe incluir mapa + horario (LocationSection)" },
   {
     file: "src/components/LocationSection.tsx",

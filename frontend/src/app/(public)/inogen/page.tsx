@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import InogenContent from "./inogen-content";
+import { pageTitle } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Venta de Concentradores de Oxígeno Inogen en Querétaro | MediMundo",
+  title: pageTitle("Concentradores de Oxígeno Inogen en Querétaro"),
   description:
     "Venta de concentradores de oxígeno portátiles Inogen One G3, G4, G5 y Inogen At Home en Querétaro. Paquetes con garantía de 3 años, aprobados FAA y FDA. Entrega a domicilio.",
   alternates: { canonical: "https://medimundo.mx/inogen" },
