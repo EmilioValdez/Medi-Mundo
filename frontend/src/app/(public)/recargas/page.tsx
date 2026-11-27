@@ -201,7 +201,7 @@ export default async function RecargasPage() {
                 className="btn-whatsapp mt-6 inline-flex w-full justify-center sm:w-auto"
               >
                 <WhatsAppIcon />
-                Preguntar disponibilidad
+                Contáctanos por WhatsApp
               </a>
 
               <div className="mt-8">
