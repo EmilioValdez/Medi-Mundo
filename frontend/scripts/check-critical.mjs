@@ -42,7 +42,7 @@ const CHECKS = [
   ...["src/app/layout.tsx", "src/app/(public)/blog/[slug]/page.tsx", "src/components/Footer.tsx", "src/app/(public)/conocenos/conocenos-content.tsx"].map(
     (file) => ({ file, must: ["BUSINESS"], mustNot: ["Canadá 212", "Canadá 230"], why: "usar BUSINESS de lib/business.ts, no escribir la dirección a mano" })
   ),
-  { file: "src/app/(public)/recargas/page.tsx", must: ["únicamente en nuestra tienda"], why: "las recargas son solo en tienda (no a domicilio)" },
+  { file: "src/app/(public)/recargas/page.tsx", must: ["únicamente en nuestra tienda", "Precios de recarga en tienda"], mustNot: [">\n                        Pedir\n"], why: "las recargas son solo en tienda (no a domicilio); sin botón 'Pedir' por precio" },
 
   // Página de recargas (pilar #2)
   {

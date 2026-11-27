@@ -217,7 +217,7 @@ export default async function RecargasPage() {
             </div>
 
             <div className="lg:col-span-3">
-              <h2 className="mb-4 text-xl font-bold text-gray-900">Precios de recarga por tamaño de tanque</h2>
+              <h2 className="mb-4 text-xl font-bold text-gray-900">Precios de recarga en tienda</h2>
               {hasPrices ? (
                 <div className="space-y-3">
                   {bySize.map((r) => (
@@ -229,15 +229,9 @@ export default async function RecargasPage() {
                         <p className="text-xl font-extrabold text-gray-900">{formatL(r.litros)}</p>
                         <p className="text-xs font-medium uppercase tracking-wide text-gray-400">litros</p>
                       </div>
+                      {/* Sin botón "Pedir" por renglón: las recargas son solo en tienda y un
+                          "Pedir" daba a entender pedido a domicilio. */}
                       <span className="shrink-0 text-2xl font-extrabold text-primary-600">{formatMXN(r.precio)}</span>
-                      <a
-                        href={waLink(`Hola, me interesa una recarga de oxígeno de *${formatL(r.litros)} litros*. ¿Está disponible?`)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-whatsapp shrink-0 px-5 py-2 text-sm"
-                      >
-                        Pedir
-                      </a>
                     </div>
                   ))}
                 </div>
