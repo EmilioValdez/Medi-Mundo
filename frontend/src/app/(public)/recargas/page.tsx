@@ -252,26 +252,6 @@ export default async function RecargasPage() {
         </div>
       </section>
 
-      {/* Cómo funciona */}
-      <section className="border-y border-gray-100 bg-gray-50">
-        <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-center text-2xl font-bold text-gray-900 sm:text-3xl">¿Cómo funciona?</h2>
-          <ol className="mt-10 grid gap-6 sm:grid-cols-3">
-            {[
-              { t: "Escríbenos o ven a la tienda", d: "Dinos el tamaño de tu tanque por WhatsApp o tráelo directo en nuestro horario." },
-              { t: "Lo recargamos", d: "Con oxígeno medicinal certificado, en nuestra tienda de Plaza de las Américas." },
-              { t: "Te lo llevas el mismo día", d: "Listo para seguir con la terapia de tu paciente sin interrupciones." },
-            ].map((s, i) => (
-              <li key={s.t} className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-600 text-sm font-bold text-white">{i + 1}</span>
-                <h3 className="mt-4 font-semibold text-gray-900">{s.t}</h3>
-                <p className="mt-1 text-sm text-gray-600">{s.d}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
       {/* Tabla de duración — mismos tamaños que la lista de precios */}
       {hasPrices && (
         <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
@@ -315,6 +295,26 @@ export default async function RecargasPage() {
           </p>
         </section>
       )}
+
+      {/* Cómo funciona */}
+      <section className="border-y border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-center text-2xl font-bold text-gray-900 sm:text-3xl">¿Cómo funciona?</h2>
+          <ol className="mt-10 grid gap-6 sm:grid-cols-3">
+            {[
+              { t: "Escríbenos o ven a la tienda", d: "Dinos el tamaño de tu tanque por WhatsApp o tráelo directo en nuestro horario." },
+              { t: "Lo recargamos", d: "Con oxígeno medicinal certificado, en nuestra tienda de Plaza de las Américas." },
+              { t: "Te lo llevas el mismo día", d: "Listo para seguir con la terapia de tu paciente sin interrupciones." },
+            ].map((s, i) => (
+              <li key={s.t} className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-600 text-sm font-bold text-white">{i + 1}</span>
+                <h3 className="mt-4 font-semibold text-gray-900">{s.t}</h3>
+                <p className="mt-1 text-sm text-gray-600">{s.d}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
 
       {/* Alternativa: concentrador */}
       <section className="mx-auto max-w-5xl px-4 pb-4 sm:px-6 lg:px-8">
